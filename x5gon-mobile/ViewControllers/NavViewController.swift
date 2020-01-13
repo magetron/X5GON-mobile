@@ -204,22 +204,8 @@ class NavViewController: UINavigationController, PlayerViewControllerDelegate  {
             .compactMap({$0})
             .first?.windows
             .filter({$0.isKeyWindow}).first
-        if let window = UIApplication.shared.keyWindow {
-            window.addSubview(self.playerView)
-        }
-    }
-    
-    /*
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        let keyWindow = UIApplication.shared.connectedScenes
-            .filter({$0.activationState == .foregroundActive})
-            .map({$0 as? UIWindowScene})
-            .compactMap({$0})
-            .first?.windows
-            .filter({$0.isKeyWindow}).first
         if let window = keyWindow {
             window.addSubview(self.playerView)
         }
-    }*/
+    }
 }
