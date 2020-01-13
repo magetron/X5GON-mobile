@@ -21,7 +21,7 @@ class TabBarView: UIView, UICollectionViewDelegateFlowLayout, UICollectionViewDa
     func customization() {
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
-        self.backgroundColor = UIColor.rbg(r: 228, g: 34, b: 24)
+        self.backgroundColor = UIColor.rbg(r: 91, g: 149, b: 165)
         NotificationCenter.default.addObserver(self, selector: #selector(self.animateMenu(notification:)), name: Notification.Name.init(rawValue: "scrollMenu"), object: nil)
     }
     
