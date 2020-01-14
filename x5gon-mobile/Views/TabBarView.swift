@@ -14,14 +14,14 @@ class TabBarView: UIView, UICollectionViewDelegateFlowLayout, UICollectionViewDa
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var whiteBar: UIView!
     @IBOutlet weak var whiteBarLeadingConstraint: NSLayoutConstraint!
-    private let tabBarImages = ["home", "trending", "subscriptions", "account"]
+    private let tabBarImages = ["Home", "Trending", "Subscriptions", "Account"]
     var selectedIndex = 0
     
     //MARK: Methods
     func customization() {
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
-        self.backgroundColor = UIColor.rbg(r: 228, g: 34, b: 24)
+        self.backgroundColor = UIColor(red: 0.53, green: 1.00, blue: 1.00, alpha: 1.0);
         NotificationCenter.default.addObserver(self, selector: #selector(self.animateMenu(notification:)), name: Notification.Name.init(rawValue: "scrollMenu"), object: nil)
     }
     

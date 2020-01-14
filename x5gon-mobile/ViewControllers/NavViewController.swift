@@ -36,7 +36,7 @@ class NavViewController: UINavigationController, PlayerViewControllerDelegate  {
         //Settings Button
         let settingsButton = UIButton.init(type: .system)
         settingsButton.setImage(UIImage.init(named: "navSettings"), for: .normal)
-        settingsButton.tintColor = UIColor.white
+        settingsButton.tintColor = UIColor.gray;
         settingsButton.addTarget(self, action: #selector(self.showSettings), for: UIControl.Event.touchUpInside)
         self.navigationBar.addSubview(settingsButton)
         settingsButton.translatesAutoresizingMaskIntoConstraints = false
@@ -47,7 +47,7 @@ class NavViewController: UINavigationController, PlayerViewControllerDelegate  {
         //SearchButton
         let searchButton = UIButton.init(type: .system)
         searchButton.setImage(UIImage.init(named: "navSearch"), for: .normal)
-        searchButton.tintColor = UIColor.white
+        searchButton.tintColor = UIColor.gray;
         searchButton.addTarget(self, action: #selector(self.showSearch), for: UIControl.Event.touchUpInside)
         self.navigationBar.addSubview(searchButton)
         searchButton.translatesAutoresizingMaskIntoConstraints = false
@@ -57,7 +57,7 @@ class NavViewController: UINavigationController, PlayerViewControllerDelegate  {
         let _ = NSLayoutConstraint.init(item: searchButton, attribute: .right, relatedBy: .equal, toItem: settingsButton, attribute: .left, multiplier: 1.0, constant: -10).isActive = true
         //TitleLabel setup
         self.titleLabel.font = UIFont.systemFont(ofSize: 18)
-        self.titleLabel.textColor = UIColor.white
+        self.titleLabel.textColor =  UIColor(red: 0.93, green: 0.25, blue: 0.48, alpha: 1.0);
         self.titleLabel.text = self.names[0]
         self.navigationBar.addSubview(self.titleLabel)
         self.titleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -66,7 +66,7 @@ class NavViewController: UINavigationController, PlayerViewControllerDelegate  {
         let _ = NSLayoutConstraint.init(item: self.navigationBar, attribute: .left, relatedBy: .equal, toItem: self.titleLabel, attribute: .left, multiplier: 1.0, constant: -10).isActive = true
         self.titleLabel.widthAnchor.constraint(equalToConstant: 200).isActive = true
         //NavigationBar color and shadow
-        self.navigationBar.barTintColor = UIColor.rbg(r: 228, g: 34, b: 24)
+        self.navigationBar.barTintColor = UIColor(red: 0.30, green: 0.82, blue: 0.88, alpha: 1.0);
         self.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationBar.shadowImage = UIImage()
         self.navigationItem.hidesBackButton = true
