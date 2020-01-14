@@ -66,7 +66,7 @@ class NavViewController: UINavigationController, PlayerViewControllerDelegate  {
         let _ = NSLayoutConstraint.init(item: self.navigationBar, attribute: .left, relatedBy: .equal, toItem: self.titleLabel, attribute: .left, multiplier: 1.0, constant: -10).isActive = true
         self.titleLabel.widthAnchor.constraint(equalToConstant: 200).isActive = true
         //NavigationBar color and shadow
-        self.navigationBar.barTintColor = UIColor(red: 0.30, green: 0.82, blue: 0.88, alpha: 1.0);
+        self.navigationBar.barTintColor = UIColor.rbg(r: 91, g: 149, b: 165)
         self.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationBar.shadowImage = UIImage()
         self.navigationItem.hidesBackButton = true
@@ -198,14 +198,6 @@ class NavViewController: UINavigationController, PlayerViewControllerDelegate  {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        if let window = UIApplication.shared.keyWindow {
-            window.addSubview(self.playerView)
-        }
-    }
-    
-    /*
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
         let keyWindow = UIApplication.shared.connectedScenes
             .filter({$0.activationState == .foregroundActive})
             .map({$0 as? UIWindowScene})
@@ -215,5 +207,5 @@ class NavViewController: UINavigationController, PlayerViewControllerDelegate  {
         if let window = keyWindow {
             window.addSubview(self.playerView)
         }
-    }*/
+    }
 }

@@ -50,7 +50,7 @@ class VideoModel {
     
     class func fetchVideo(completion: @escaping ((VideoModel) -> Void)) {
         let video = VideoModel.init(title: "Big Buck Bunny", channelName: "Blender Foundation")
-        video.videoLink = URL.init(string: "http://sample-videos.com/video/mp4/360/big_buck_bunny_360p_10mb.mp4")!
+        video.videoLink = URL.init(string: "https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_30mb.mp4")!
         let suggestedVideo1 = SuggestedVideo.init(title: "What Does Jared Kushner Believe", channelName: "Nerdwriter1")
         let suggestedVideo2 = SuggestedVideo.init(title: "Moore's Law Is Ending. So, What's Next", channelName: "Seeker")
         let suggestedVideo3 = SuggestedVideo.init(title: "What Bill Gates is afraid of", channelName: "Vox")
