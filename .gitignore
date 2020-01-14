@@ -1,4 +1,4 @@
-xcshareddata/
-xcuserdata/
+**/xcshareddata/
+**/xcuserdata/
 .DS_Store
 
