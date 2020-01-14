@@ -14,7 +14,7 @@ class TabBarView: UIView, UICollectionViewDelegateFlowLayout, UICollectionViewDa
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var whiteBar: UIView!
     @IBOutlet weak var whiteBarLeadingConstraint: NSLayoutConstraint!
-    private let tabBarImages = ["Home", "Trending", "Subscriptions", "Account"]
+    private let tabBarImages = ["home", "trending", "subscriptions", "account"]
     var selectedIndex = 0
     
     //MARK: Methods

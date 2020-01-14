@@ -12,7 +12,6 @@
                 <navigationController title="App" automaticallyAdjustsScrollViewInsets="NO" id="IXR-Mk-kYq" customClass="NavViewController" customModule="x5gon_mobile" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="mbv-fJ-8Zp">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
