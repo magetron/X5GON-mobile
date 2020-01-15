@@ -17,11 +17,11 @@ class Videos {
     static func loadPlaceHolders () -> [VideoModel] {
         let playableVideo = VideoModel.init(title: "Big Buck Bunny", channelName: "Blender Foundation")
         playableVideo.videoLink = URL.init(string: "https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_30mb.mp4")!
-        let suggestedVideo1 = SuggestedVideo.init(title: "What Does Jared Kushner Believe", channelName: "Nerdwriter1")
-        let suggestedVideo2 = SuggestedVideo.init(title: "Moore's Law Is Ending. So, What's Next", channelName: "Seeker")
-        let suggestedVideo3 = SuggestedVideo.init(title: "What Bill Gates is afraid of", channelName: "Vox")
-        let suggestedVideo4 = SuggestedVideo.init(title: "Why Can't America Have a Grown-Up Healthcare Conversation", channelName: "vlogbrothers")
-        let suggestedVideo5 = SuggestedVideo.init(title: "TensorFlow Basics - Deep Learning with Neural Networks p. 2", channelName: "sentdex")
+        let suggestedVideo1 = VideoModel.init(title: "What Does Jared Kushner Believe", channelName: "Nerdwriter1")
+        let suggestedVideo2 = VideoModel.init(title: "Moore's Law Is Ending. So, What's Next", channelName: "Seeker")
+        let suggestedVideo3 = VideoModel.init(title: "What Bill Gates is afraid of", channelName: "Vox")
+        let suggestedVideo4 = VideoModel.init(title: "Why Can't America Have a Grown-Up Healthcare Conversation", channelName: "vlogbrothers")
+        let suggestedVideo5 = VideoModel.init(title: "TensorFlow Basics - Deep Learning with Neural Networks p. 2", channelName: "sentdex")
         let suggestedItems = [suggestedVideo1, suggestedVideo2, suggestedVideo3, suggestedVideo4, suggestedVideo5]
         playableVideo.suggestedVideos = suggestedItems
         
@@ -36,10 +36,9 @@ class Videos {
         return [playableVideo, video1, video2, video3, video4, video5, video6, video7, video8]
     }
     
-    static func loadItems() {
-        let defaultKeyWord = "science"
-        let defaultContentType = "video"
-        let contentURLString = "https://platform.x5gon.org/api/v1/recommend/oer_materials?text=\"" + defaultKeyWord + "\"&type=" + defaultContentType
+    static func fetchItems (keyWord : String, contentType : String) -> [VideoModel] {
+        var tmpItems = [VideoModel]()
+        let contentURLString = "https://platform.x5gon.org/api/v1/recommend/oer_materials?text=\"" + keyWord + "\"&type=" + contentType
         let contentURL = URL(string: contentURLString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!
         let semaphore = DispatchSemaphore(value: 0)
         let dataTask = URLSession.shared.dataTask(with: contentURL) { data, response, error in
@@ -61,7 +60,6 @@ class Videos {
                     print("error: invalid format")
                     return
                 }
-                var tmpItems:[VideoModel] = []
                 for material in recommendationMaterials {
                     guard let title = material["title"] as? String, let provider = material["provider"] as? String, let url = material["url"] as? String
                     else {
@@ -73,15 +71,24 @@ class Videos {
                     newVideo.generateThumbnail()
                     tmpItems.append(newVideo)
                 }
-                items.append(contentsOf: tmpItems)
             }
         }
         dataTask.resume()
         semaphore.wait()
+        return tmpItems
+    }
+    
+    
+    static func loadItems() {
+        let defaultKeyWord = "science"
+        let defaultContentType = "video"
+        let defaultVideos = fetchItems(keyWord: defaultKeyWord, contentType: defaultContentType)
+        items.append(contentsOf: defaultVideos)
         let placeHolders = loadPlaceHolders()
         items.append(contentsOf: placeHolders)
-        print(items.count)
     }
+    
+
 }
 
 
@@ -96,7 +103,7 @@ class VideoModel {
     var videoLink: URL!
     let likes: Int
     let disLikes: Int
-    var suggestedVideos = [SuggestedVideo]()
+    var suggestedVideos = [VideoModel]()
     
     //MARK: Inits
     init(title: String, channelName: String) {
@@ -120,7 +127,22 @@ class VideoModel {
         if (Videos.items.count == 0) {
             Videos.loadItems()
         }
+        if (Videos.items[pos].suggestedVideos.count == 0) {
+            Videos.items[pos].fetchSuggestedVideos(async: false)
+        }
         completion(Videos.items[pos])
+    }
+    
+    func fetchSuggestedVideos (async : Bool) {
+        if (async) {
+            DispatchQueue.global().async {
+                let videos = Videos.fetchItems(keyWord: self.title, contentType: "video")
+                self.suggestedVideos = videos
+            }
+        } else {
+            let videos = Videos.fetchItems(keyWord: self.title, contentType: "video")
+            self.suggestedVideos = videos
+        }
     }
     
     func generateThumbnail() {
@@ -137,19 +159,6 @@ class VideoModel {
         }
     }
     
-}
-
-struct SuggestedVideo {
-    
-    let title: String
-    let channelName: String
-    let thumbnail: UIImage
-    
-    init(title: String, channelName:String) {
-        self.title = title
-        self.channelName = channelName
-        self.thumbnail = UIImage.init(named: title)!
-    }
 }
 
 class Channel {

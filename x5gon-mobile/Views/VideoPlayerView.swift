@@ -169,7 +169,7 @@ class VideoPlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGes
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! videoCell
-            cell.name.text = self.video.suggestedVideos[indexPath.row - 1].channelName
+            cell.name.text = self.video.suggestedVideos[indexPath.row - 1].channel.name
             cell.title.text = self.video.suggestedVideos[indexPath.row - 1].title
             cell.tumbnail.image = self.video.suggestedVideos[indexPath.row - 1].thumbnail
             return cell
