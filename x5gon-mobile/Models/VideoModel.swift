@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import AVFoundation
 import UIKit
 
 class Videos {
@@ -33,8 +34,6 @@ class Videos {
         let video7 = VideoModel.init(title: "TensorFlow Basics - Deep Learning with Neural Networks p. 2", channelName: "sentdex")
         let video8 = VideoModel.init(title: "Scott Galloway: The Retailer Growing Faster Than Amazon", channelName: "L2inc")
         var tmpItems = [playableVideo, video1, video2, video3, video4, video5, video6, video7, video8]
-        items.append(contentsOf: tmpItems)
-        
         let defaultKeyWord = "science"
         let defaultContentType = "video"
         let contentURLString = "https://platform.x5gon.org/api/v1/recommend/oer_materials?text=\"" + defaultKeyWord + "\"&type=" + defaultContentType
@@ -67,8 +66,8 @@ class Videos {
                         break
                     }
                     let newVideo = VideoModel.init(title: title, channelName: provider)
-                    print(url)
                     newVideo.videoLink = URL.init(string: url)
+                    newVideo.generateThumbnail()
                     tmpItems.append(newVideo)
                 }
                 items.append(contentsOf: tmpItems)
@@ -76,6 +75,7 @@ class Videos {
         }
         dataTask.resume()
         semaphore.wait()
+        items.append(contentsOf: tmpItems)
         print(items.count)
     }
 }
@@ -84,7 +84,7 @@ class Videos {
 class VideoModel {
     
     //MARK: Properties
-    let thumbnail: UIImage
+    var thumbnail: UIImage
     let title: String
     let views: Int
     let channel: Channel
@@ -118,6 +118,21 @@ class VideoModel {
         }
         completion(Videos.items[pos])
     }
+    
+    func generateThumbnail() {
+        if (videoLink == nil) {
+            return
+        }
+        AVAsset(url: videoLink).generateThumbnail { [weak self] (image) in
+            DispatchQueue.main.async {
+                guard let image = image else {
+                    return
+                }
+                self?.thumbnail = image
+            }
+        }
+    }
+    
 }
 
 struct SuggestedVideo {
