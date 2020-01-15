@@ -54,7 +54,7 @@
                                         <constraint firstAttribute="width" constant="48" id="4pF-gk-uUd"/>
                                         <constraint firstAttribute="height" constant="48" id="WZj-nk-PD2"/>
                                     </constraints>
-                                    <state key="normal" backgroundImage="Cancel"/>
+                                    <state key="normal" backgroundImage="cancel"/>
                                     <connections>
                                         <action selector="hideSearchView:" destination="ANr-Yc-KZ7" eventType="touchUpInside" id="c1v-LD-CFu"/>
                                     </connections>
@@ -344,7 +344,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Channel name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F3v-Sd-dDf">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Channel Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F3v-Sd-dDf">
                                                 <rect key="frame" x="156" y="38.333333333333336" width="239" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -367,8 +367,8 @@
                                     </constraints>
                                     <connections>
                                         <outlet property="name" destination="F3v-Sd-dDf" id="IGL-o3-eeu"/>
-                                        <outlet property="title" destination="Kk3-Wc-yMb" id="P7H-qj-Ap5"/>
                                         <outlet property="thumbnail" destination="oPx-yX-7Dd" id="UGP-ZV-ss2"/>
+                                        <outlet property="title" destination="Kk3-Wc-yMb" id="P7H-qj-Ap5"/>
                                     </connections>
                                 </tableViewCell>
                             </prototypes>
@@ -701,7 +701,7 @@
                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Channel" id="8CH-uS-FbC" customClass="SubscriptionsCVCell" customModule="x5gon_mobile" customModuleProvider="target">
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ChannelModel" id="8CH-uS-FbC" customClass="SubscriptionsCVCell" customModule="x5gon_mobile" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.33333333333333331" width="50" height="50"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -872,38 +872,30 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="gMi-1g-UGz">
-                                                    <rect key="frame" x="33.666666666666657" y="10.999999999999996" width="347" height="48.666666666666657"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="75" translatesAutoresizingMaskIntoConstraints="NO" id="gMi-1g-UGz">
+                                                    <rect key="frame" x="33" y="10.999999999999996" width="348" height="48.666666666666657"/>
                                                     <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kaJ-mX-vFW">
-                                                            <rect key="frame" x="0.0" y="0.0" width="89" height="48.666666666666664"/>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kaJ-mX-vFW">
+                                                            <rect key="frame" x="0.0" y="0.0" width="68.666666666666671" height="48.666666666666664"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="32" id="Fnz-yZ-Dqb"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                            <state key="normal" title="       Music" backgroundImage="music">
-                                                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                            </state>
+                                                            <state key="normal" title="Audio" image="music.house.fill" catalog="system"/>
+                                                            <state key="highlighted" title=" Audio"/>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bNE-1j-rf9">
-                                                            <rect key="frame" x="129" y="0.0" width="89" height="48.666666666666664"/>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bNE-1j-rf9">
+                                                            <rect key="frame" x="143.66666666666666" y="0.0" width="74.333333333333343" height="48.666666666666664"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="32" id="e9U-aD-zuh"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                            <state key="normal" title="       News" backgroundImage="news">
-                                                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                            </state>
+                                                            <state key="normal" title=" Video" image="video.fill" catalog="system"/>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eWM-gt-BjB">
-                                                            <rect key="frame" x="258" y="0.0" width="89" height="48.666666666666664"/>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eWM-gt-BjB">
+                                                            <rect key="frame" x="293" y="0.0" width="55" height="48.666666666666664"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="32" id="Rbc-l6-WWa"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                            <state key="normal" title="       Live" backgroundImage="live">
-                                                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                            </state>
+                                                            <state key="normal" title=" PDF" image="doc.text.fill" catalog="system"/>
                                                         </button>
                                                     </subviews>
                                                     <constraints>
@@ -1212,13 +1204,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Cancel" width="48" height="48"/>
+        <image name="cancel" width="48" height="48"/>
+        <image name="doc.text.fill" catalog="system" width="56" height="64"/>
         <image name="emptyTumbnail" width="375" height="211"/>
-        <image name="live" width="89" height="32"/>
         <image name="minimize" width="20" height="10"/>
-        <image name="music" width="89" height="31.5"/>
-        <image name="news" width="89" height="32"/>
+        <image name="music.house.fill" catalog="system" width="64" height="52"/>
         <image name="thumbDown" width="25" height="25"/>
         <image name="thumbUp" width="25" height="25"/>
+        <image name="video.fill" catalog="system" width="64" height="40"/>
     </resources>
 </document>
