@@ -14,7 +14,7 @@ class Videos {
     
     static var items = [VideoModel]()
 
-    static func loadItems() {
+    static func loadPlaceHolders () -> [VideoModel] {
         let playableVideo = VideoModel.init(title: "Big Buck Bunny", channelName: "Blender Foundation")
         playableVideo.videoLink = URL.init(string: "https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_30mb.mp4")!
         let suggestedVideo1 = SuggestedVideo.init(title: "What Does Jared Kushner Believe", channelName: "Nerdwriter1")
@@ -33,7 +33,10 @@ class Videos {
         let video6 = VideoModel.init(title: "Neural Network that Changes Everything - Computerphile", channelName: "Computerphile")
         let video7 = VideoModel.init(title: "TensorFlow Basics - Deep Learning with Neural Networks p. 2", channelName: "sentdex")
         let video8 = VideoModel.init(title: "Scott Galloway: The Retailer Growing Faster Than Amazon", channelName: "L2inc")
-        var tmpItems = [playableVideo, video1, video2, video3, video4, video5, video6, video7, video8]
+        return [playableVideo, video1, video2, video3, video4, video5, video6, video7, video8]
+    }
+    
+    static func loadItems() {
         let defaultKeyWord = "science"
         let defaultContentType = "video"
         let contentURLString = "https://platform.x5gon.org/api/v1/recommend/oer_materials?text=\"" + defaultKeyWord + "\"&type=" + defaultContentType
@@ -75,7 +78,8 @@ class Videos {
         }
         dataTask.resume()
         semaphore.wait()
-        items.append(contentsOf: tmpItems)
+        let placeHolders = loadPlaceHolders()
+        items.append(contentsOf: placeHolders)
         print(items.count)
     }
 }
