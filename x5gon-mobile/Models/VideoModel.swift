@@ -61,6 +61,7 @@ class Videos {
                     return
                 }
                 for material in recommendationMaterials {
+                    print(material)
                     guard let title = material["title"] as? String, let provider = material["provider"] as? String, let url = material["url"] as? String
                     else {
                         print("error: invalid format")
@@ -126,9 +127,6 @@ class VideoModel {
     class func fetchVideo(pos: Int, completion: @escaping ((VideoModel) -> Void)) {
         if (Videos.items.count == 0) {
             Videos.loadItems()
-        }
-        if (Videos.items[pos].suggestedVideos.count == 0) {
-            Videos.items[pos].fetchSuggestedVideos(async: false)
         }
         completion(Videos.items[pos])
     }

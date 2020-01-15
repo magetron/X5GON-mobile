@@ -86,11 +86,8 @@ class VideoPlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGes
     }
     
     @objc func tapPlayView(_ notification: Notification) {
-        if let data = notification.userInfo as? [String: Int] {
-            guard let targetPos = data.first?.value else {
-                return
-            }
-            setVideo(pos: targetPos)
+        if let video = notification.object as? VideoModel {
+            setVideo(video: video)
         }
         self.videoPlayer.play()
         self.state = .fullScreen
@@ -147,7 +144,7 @@ class VideoPlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGes
     //MARK: Delegate & dataSource methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let count = self.video?.suggestedVideos.count {
-            return count + 1
+            return count
         }
         return 0
     }
@@ -168,16 +165,14 @@ class VideoPlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGes
             cell.selectionStyle = .none
             return cell
         default:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! videoCell
-            cell.name.text = self.video.suggestedVideos[indexPath.row - 1].channel.name
-            cell.title.text = self.video.suggestedVideos[indexPath.row - 1].title
-            cell.tumbnail.image = self.video.suggestedVideos[indexPath.row - 1].thumbnail
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! suggestionVideoCell
+            cell.set(video: self.video.suggestedVideos[indexPath.row])
             return cell
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        NotificationCenter.default.post(name: NSNotification.Name("open"), object: nil, userInfo: ["pos": indexPath.row])
+        NotificationCenter.default.post(name: NSNotification.Name("open"), object: self.video.suggestedVideos[indexPath.row])
     }
     
     //MARK: View lifecycle
@@ -185,6 +180,20 @@ class VideoPlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGes
         super.awakeFromNib()
         self.customization()
         setVideo(pos: 0)
+    }
+    
+    func setVideo(video : VideoModel) {
+        self.video = video
+        if self.video.videoLink != nil {
+            self.videoPlayer.replaceCurrentItem(with: AVPlayerItem.init(url: self.video.videoLink))
+        }
+        if self.video.suggestedVideos.count == 0 {
+            self.video.fetchSuggestedVideos(async: false)
+        }
+        if self.state != .hidden {
+            self.videoPlayer.play()
+        }
+        self.tableView.reloadData()
     }
     
     func setVideo(pos : Int) {
@@ -219,9 +228,23 @@ class headerCell: UITableViewCell {
     @IBOutlet weak var channelSubscribers: UILabel!
 }
 
-class videoCell: UITableViewCell {
+class suggestionVideoCell: UITableViewCell {
     
-    @IBOutlet weak var tumbnail: UIImageView!
+    @IBOutlet weak var thumbnail: UIImageView!
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var name: UILabel!
+    
+    func set(video: VideoModel)  {
+        self.thumbnail.image = video.thumbnail
+        self.title.text = video.title
+        self.name.text = video.channel.name
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.thumbnail.image = UIImage.init(named: "Video Placeholder")
+        self.title.text = nil
+        self.name.text = nil
+    }
+    
 }
