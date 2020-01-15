@@ -61,15 +61,14 @@ class Videos {
                     return
                 }
                 for material in recommendationMaterials {
-                    print(material)
                     guard let title = material["title"] as? String, let provider = material["provider"] as? String, let url = material["url"] as? String
                     else {
                         print("error: invalid format")
                         break
                     }
                     let newVideo = VideoModel.init(title: title, channelName: provider)
-                    newVideo.videoLink = URL.init(string: url)
-                    newVideo.generateThumbnail()
+                    let newVideoURL = URL.init(string: url)
+                    newVideo.initURL(url: newVideoURL!, regenerateThumbnail: true)
                     tmpItems.append(newVideo)
                 }
             }
@@ -87,6 +86,7 @@ class Videos {
         items.append(contentsOf: defaultVideos)
         let placeHolders = loadPlaceHolders()
         items.append(contentsOf: placeHolders)
+        items.myShuffle()
     }
     
 
@@ -99,11 +99,11 @@ class VideoModel {
     var thumbnail: UIImage
     let title: String
     let views: Int
-    let channel: Channel
+    let channel: ChannelModel
     let duration: Int
     var videoLink: URL!
-    let likes: Int
-    let disLikes: Int
+    var likes: Int
+    var disLikes: Int
     var suggestedVideos = [VideoModel]()
     
     //MARK: Inits
@@ -114,21 +114,14 @@ class VideoModel {
         self.duration = Int(arc4random_uniform(400))
         self.likes = Int(arc4random_uniform(1000))
         self.disLikes = Int(arc4random_uniform(1000))
-        self.channel = Channel.init(name: channelName, image: UIImage.init(named: channelName) ?? UIImage.init(named: "Channel Placeholder")!)
+        self.channel = ChannelModel.init(name: channelName, image: UIImage.init(named: channelName) ?? UIImage.init(named: "Channel Placeholder")!)
     }
     
-    class func fetchVideos(completion: @escaping (([VideoModel]) -> Void)) {
-        if (Videos.items.count == 0) {
-            Videos.loadItems()
+    func initURL (url : URL, regenerateThumbnail : Bool) {
+        self.videoLink = url
+        if (regenerateThumbnail) {
+            generateThumbnail()
         }
-        completion(Videos.items)
-    }
-    
-    class func fetchVideo(pos: Int, completion: @escaping ((VideoModel) -> Void)) {
-        if (Videos.items.count == 0) {
-            Videos.loadItems()
-        }
-        completion(Videos.items[pos])
     }
     
     func fetchSuggestedVideos (async : Bool) {
@@ -144,9 +137,6 @@ class VideoModel {
     }
     
     func generateThumbnail() {
-        if (videoLink == nil) {
-            return
-        }
         AVAsset(url: videoLink).generateThumbnail { [weak self] (image) in
             DispatchQueue.main.async {
                 guard let image = image else {
@@ -159,18 +149,18 @@ class VideoModel {
     
 }
 
-class Channel {
+class ChannelModel {
     
     let name: String
     let image: UIImage
     var subscribers = 0
     
-    class func fetchData(completion: @escaping (([Channel]) -> Void)) {
-        var items = [Channel]()
+    class func fetchData(completion: @escaping (([ChannelModel]) -> Void)) {
+        var items = [ChannelModel]()
         for i in 0...18 {
             let name = ""
             let image = UIImage.init(named: "channel\(i)")
-            let channel = Channel.init(name: name, image: image!)
+            let channel = ChannelModel.init(name: name, image: image!)
             items.append(channel)
         }
         items.myShuffle()

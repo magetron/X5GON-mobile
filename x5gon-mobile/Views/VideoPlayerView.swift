@@ -144,7 +144,7 @@ class VideoPlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGes
     //MARK: Delegate & dataSource methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let count = self.video?.suggestedVideos.count {
-            return count
+            return count + 1
         }
         return 0
     }
@@ -153,33 +153,27 @@ class VideoPlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGes
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "Header") as! headerCell
-            cell.title.text = self.video!.title
-            cell.viewCount.text = "\(self.video!.views) views"
-            cell.likes.text = String(self.video!.likes)
-            cell.disLikes.text = String(self.video!.disLikes)
-            cell.channelTitle.text = self.video!.channel.name
-            cell.channelPic.image = self.video!.channel.image
-            cell.channelPic.layer.cornerRadius = 25
-            cell.channelPic.clipsToBounds = true
-            cell.channelSubscribers.text = "\(self.video!.channel.subscribers) subscribers"
-            cell.selectionStyle = .none
+            cell.set(video: self.video)
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! suggestionVideoCell
-            cell.set(video: self.video.suggestedVideos[indexPath.row])
+            cell.set(video: self.video.suggestedVideos[indexPath.row - 1])
             return cell
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        NotificationCenter.default.post(name: NSNotification.Name("open"), object: self.video.suggestedVideos[indexPath.row])
+        if (indexPath.row == 0) {
+            return
+        } else {
+            NotificationCenter.default.post(name: NSNotification.Name("open"), object: self.video.suggestedVideos[indexPath.row - 1])
+        }
     }
     
     //MARK: View lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
         self.customization()
-        setVideo(pos: 0)
     }
     
     func setVideo(video : VideoModel) {
@@ -196,22 +190,6 @@ class VideoPlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGes
         self.tableView.reloadData()
     }
     
-    func setVideo(pos : Int) {
-        VideoModel.fetchVideo(pos: pos) { [weak self] downloadedVideo in
-            guard let weakSelf = self else {
-                return
-            }
-            weakSelf.video = downloadedVideo
-            if weakSelf.video.videoLink != nil {
-                weakSelf.videoPlayer.replaceCurrentItem(with: AVPlayerItem.init(url: weakSelf.video.videoLink))
-            }
-            if weakSelf.state != .hidden {
-                weakSelf.videoPlayer.play()
-            }
-            weakSelf.tableView.reloadData()
-        }
-    }
-    
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
@@ -226,6 +204,40 @@ class headerCell: UITableViewCell {
     @IBOutlet weak var channelTitle: UILabel!
     @IBOutlet weak var channelPic: UIImageView!
     @IBOutlet weak var channelSubscribers: UILabel!
+    var video: VideoModel!
+    
+    func set(video: VideoModel) {
+        self.video = video
+        title.text = self.video!.title
+        viewCount.text = "\(self.video!.views) views"
+        likes.text = String(self.video!.likes)
+        disLikes.text = String(self.video!.disLikes)
+        channelTitle.text = self.video!.channel.name
+        channelPic.image = self.video!.channel.image
+        channelPic.layer.cornerRadius = 25
+        channelPic.clipsToBounds = true
+        channelSubscribers.text = "\(self.video!.channel.subscribers) subscribers"
+        selectionStyle = .none
+        let likeTap = UITapGestureRecognizer(target: self, action: #selector(onLikeTap))
+        let disLikeTap = UITapGestureRecognizer(target: self, action: #selector(onDisLikeTap))
+        likes.isUserInteractionEnabled = true
+        disLikes.isUserInteractionEnabled = true
+        likes.addGestureRecognizer(likeTap)
+        disLikes.addGestureRecognizer(disLikeTap)
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+    }
+    
+    @objc func onLikeTap(sender: UITapGestureRecognizer) {
+        video.likes += 1
+    }
+    
+    @objc func onDisLikeTap(sender: UITapGestureRecognizer) {
+        video.disLikes += 1
+    }
+    
 }
 
 class suggestionVideoCell: UITableViewCell {

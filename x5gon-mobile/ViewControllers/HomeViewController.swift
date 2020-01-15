@@ -24,13 +24,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func fetchData() {
-        VideoModel.fetchVideos { [weak self] response in
-            guard let weakSelf = self else {
-                return
-            }
-            weakSelf.videos = response
-            weakSelf.tableView.reloadData()
+        if (Videos.items.count == 0) {
+            Videos.loadItems()
         }
+        self.videos = Videos.items
+        self.tableView.reloadData()
     }
     
     //MARK: Delegates
