@@ -39,29 +39,33 @@ class VideoPlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGes
         self.tableView.estimatedRowHeight = 90
         self.player.layer.anchorPoint.applying(CGAffineTransform.init(translationX: -0.5, y: -0.5))
         self.tableView.tableFooterView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 0, height: 0))
-        self.player.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(self.tapPlayView)))
+        self.player.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(self.resumePlayView)))
+        let playerLayer = AVPlayerLayer.init(player: self.videoPlayer)
+        playerLayer.frame = self.player.frame
+        playerLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
+        self.player.layer.addSublayer(playerLayer)
         NotificationCenter.default.addObserver(self, selector: #selector(self.tapPlayView), name: NSNotification.Name("open"), object: nil)
     }
     
     func animate()  {
         switch self.state {
-        case .fullScreen:
-            UIView.animate(withDuration: 0.3, animations: {
-                self.minimizeButton.alpha = 1
-                self.tableView.alpha = 1
-                self.player.transform = CGAffineTransform.identity
-                self.delegate?.setPreferStatusBarHidden(true)
-            })
-        case .minimized:
-            UIView.animate(withDuration: 0.3, animations: {
-                self.delegate?.setPreferStatusBarHidden(false)
-                self.minimizeButton.alpha = 0
-                self.tableView.alpha = 0
-                let scale = CGAffineTransform.init(scaleX: 0.5, y: 0.5)
-                let trasform = scale.concatenating(CGAffineTransform.init(translationX: -self.player.bounds.width/4, y: -self.player.bounds.height/4))
-                self.player.transform = trasform
-            })
-        default: break
+            case .fullScreen:
+                UIView.animate(withDuration: 0.3, animations: {
+                    self.minimizeButton.alpha = 1
+                    self.tableView.alpha = 1
+                    self.player.transform = CGAffineTransform.identity
+                    self.delegate?.setPreferStatusBarHidden(true)
+                })
+            case .minimized:
+                UIView.animate(withDuration: 0.3, animations: {
+                    self.delegate?.setPreferStatusBarHidden(false)
+                    self.minimizeButton.alpha = 0
+                    self.tableView.alpha = 0
+                    let scale = CGAffineTransform.init(scaleX: 0.5, y: 0.5)
+                    let trasform = scale.concatenating(CGAffineTransform.init(translationX: -self.player.bounds.width/4, y: -self.player.bounds.height/4))
+                    self.player.transform = trasform
+                })
+            default: break
         }
     }
     
@@ -73,7 +77,21 @@ class VideoPlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGes
         self.player.transform = trasform
     }
     
-    @objc func tapPlayView()  {
+
+    @objc func resumePlayView() {
+        self.videoPlayer.play()
+        self.state = .fullScreen
+        self.delegate?.didmaximize()
+        self.animate()
+    }
+    
+    @objc func tapPlayView(_ notification: Notification) {
+        if let data = notification.userInfo as? [String: Int] {
+            guard let targetPos = data.first?.value else {
+                return
+            }
+            setVideo(pos: targetPos)
+        }
         self.videoPlayer.play()
         self.state = .fullScreen
         self.delegate?.didmaximize()
@@ -108,6 +126,7 @@ class VideoPlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGes
                 let factor: CGFloat = sender.translation(in: nil).x
                 self.delegate?.swipeToMinimize(translation: factor, toState: .hidden)
             } else {
+                print("Try back to fullscreen")
                 finalState = .fullScreen
                 let factor = 1 - (abs(sender.translation(in: nil).y) / UIScreen.main.bounds.height)
                 self.changeValues(scaleFactor: factor)
@@ -161,17 +180,18 @@ class VideoPlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGes
     override func awakeFromNib() {
         super.awakeFromNib()
         self.customization()
-        VideoModel.fetchVideo { [weak self] downloadedVideo in
+        setVideo(pos: 0)
+    }
+    
+    func setVideo(pos : Int) {
+        VideoModel.fetchVideo(pos: pos) { [weak self] downloadedVideo in
             guard let weakSelf = self else {
                 return
             }
             weakSelf.video = downloadedVideo
-            weakSelf.videoPlayer = AVPlayer.init(url: weakSelf.video.videoLink)
-            let playerLayer = AVPlayerLayer.init(player: weakSelf.videoPlayer)
-            playerLayer.frame = weakSelf.player.frame
-            playerLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
-            
-            weakSelf.player.layer.addSublayer(playerLayer)
+            if weakSelf.video.videoLink != nil {
+                weakSelf.videoPlayer.replaceCurrentItem(with: AVPlayerItem.init(url: weakSelf.video.videoLink))
+            }
             if weakSelf.state != .hidden {
                 weakSelf.videoPlayer.play()
             }

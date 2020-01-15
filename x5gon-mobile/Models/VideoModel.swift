@@ -112,11 +112,11 @@ class VideoModel {
         completion(Videos.items)
     }
     
-    class func fetchVideo(completion: @escaping ((VideoModel) -> Void)) {
+    class func fetchVideo(pos: Int, completion: @escaping ((VideoModel) -> Void)) {
         if (Videos.items.count == 0) {
             Videos.loadItems()
         }
-        completion(Videos.items.first!)
+        completion(Videos.items[pos])
     }
 }
 
