@@ -35,11 +35,11 @@ class VideoModel {
     
     //MARK: Methods
     class func fetchVideos(completion: @escaping (([VideoModel]) -> Void)) {
-        let video1 = VideoModel.init(title: "What Does Jared Kushner Believe", channelName: "Nerdwriter1")
-        let video2 = VideoModel.init(title: "Moore's Law Is Ending. So, What's Next", channelName: "Seeker")
-        let video3 = VideoModel.init(title: "What Bill Gates is afraid of", channelName: "Vox")
-        let video4 = VideoModel.init(title: "Why Can't America Have a Grown-Up Healthcare Conversation", channelName: "vlogbrothers")
-        let video5 = VideoModel.init(title: "A New History for Humanity – The Human Era", channelName: "Kurzgesagt – In a Nutshell")
+        let video1 = VideoModel.init(title: "Computer Architecture", channelName: "Prof Martin Hiels")
+        let video2 = VideoModel.init(title: "Getting start with java", channelName: "Seeker")
+        let video3 = VideoModel.init(title: "What is Chemistry", channelName: "Prof Jhon Alexans")
+        let video4 = VideoModel.init(title: "Math,this is a science", channelName: "vlogbrothers")
+        let video5 = VideoModel.init(title: "10 hints before coding", channelName: "Kurzgesagt – In a Nutshell")
         let video6 = VideoModel.init(title: "Neural Network that Changes Everything - Computerphile", channelName: "Computerphile")
         let video7 = VideoModel.init(title: "TensorFlow Basics - Deep Learning with Neural Networks p. 2", channelName: "sentdex")
         let video8 = VideoModel.init(title: "Scott Galloway: The Retailer Growing Faster Than Amazon", channelName: "L2inc")
@@ -51,10 +51,10 @@ class VideoModel {
     class func fetchVideo(completion: @escaping ((VideoModel) -> Void)) {
         let video = VideoModel.init(title: "Big Buck Bunny", channelName: "Blender Foundation")
         video.videoLink = URL.init(string: "https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_30mb.mp4")!
-        let suggestedVideo1 = SuggestedVideo.init(title: "What Does Jared Kushner Believe", channelName: "Nerdwriter1")
-        let suggestedVideo2 = SuggestedVideo.init(title: "Moore's Law Is Ending. So, What's Next", channelName: "Seeker")
-        let suggestedVideo3 = SuggestedVideo.init(title: "What Bill Gates is afraid of", channelName: "Vox")
-        let suggestedVideo4 = SuggestedVideo.init(title: "Why Can't America Have a Grown-Up Healthcare Conversation", channelName: "vlogbrothers")
+        let suggestedVideo1 = SuggestedVideo.init(title: "Computer Architecture", channelName: "Prof Martin Hiels")
+        let suggestedVideo2 = SuggestedVideo.init(title: "Getting start with java", channelName: "Seeker")
+        let suggestedVideo3 = SuggestedVideo.init(title: "What is Chemistry", channelName: "Prof Jhon Alexans")
+        let suggestedVideo4 = SuggestedVideo.init(title: "Math,this is a science", channelName: "vlogbrothers")
         let suggestedVideo5 = SuggestedVideo.init(title: "TensorFlow Basics - Deep Learning with Neural Networks p. 2", channelName: "sentdex")
         let items = [suggestedVideo1, suggestedVideo2, suggestedVideo3, suggestedVideo4, suggestedVideo5]
         video.suggestedVideos = items
