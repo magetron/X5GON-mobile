@@ -16,6 +16,8 @@ protocol PlayerViewControllerDelegate {
 
 import UIKit
 import AVFoundation
+import AVKit
+
 class VideoPlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate {
 
     //MARK: Properties

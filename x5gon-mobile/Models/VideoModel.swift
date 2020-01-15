@@ -9,6 +9,72 @@
 import Foundation
 import UIKit
 
+class Videos {
+    
+    static var items = [VideoModel]()
+
+    static func loadItems() {
+        let video1 = VideoModel.init(title: "What Does Jared Kushner Believe", channelName: "Nerdwriter1")
+        let video2 = VideoModel.init(title: "Moore's Law Is Ending. So, What's Next", channelName: "Seeker")
+        let video3 = VideoModel.init(title: "What Bill Gates is afraid of", channelName: "Vox")
+        let video4 = VideoModel.init(title: "Why Can't America Have a Grown-Up Healthcare Conversation", channelName: "vlogbrothers")
+        let video5 = VideoModel.init(title: "A New History for Humanity – The Human Era", channelName: "Kurzgesagt – In a Nutshell")
+        let video6 = VideoModel.init(title: "Neural Network that Changes Everything - Computerphile", channelName: "Computerphile")
+        let video7 = VideoModel.init(title: "TensorFlow Basics - Deep Learning with Neural Networks p. 2", channelName: "sentdex")
+        let video8 = VideoModel.init(title: "Scott Galloway: The Retailer Growing Faster Than Amazon", channelName: "L2inc")
+        var tmpItems = [video1, video2, video3, video4, video5, video6, video7, video8]
+        items.append(contentsOf: tmpItems)
+        
+        let defaultKeyWord = "science"
+        let defaultContentType = "video"
+        let contentURLString = "https://platform.x5gon.org/api/v1/recommend/oer_materials?text=\"" + defaultKeyWord + "\"&type=" + defaultContentType
+        let contentURL = URL(string: contentURLString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!
+        let semaphore = DispatchSemaphore(value: 0)
+        let dataTask = URLSession.shared.dataTask(with: contentURL) { data, response, error in
+            defer { semaphore.signal() }
+            guard let httpResponse = response as? HTTPURLResponse, let receivedData = data
+                else {
+                    print("error: not a valid http response")
+                    return
+            }
+            if (httpResponse.statusCode != 200) {
+                print("error: http response \(httpResponse.statusCode) not successful")
+            } else {
+                let jsonObject = try? JSONSerialization.jsonObject(with: receivedData, options: [])
+                guard let json = jsonObject as? [String: Any] else {
+                    print("error: invalid format")
+                    return
+                }
+                guard let recommendationMaterials = json["rec_materials"] as? [[String: Any]] else {
+                    print("error: invalid format")
+                    return
+                }
+                var tmpItems:[VideoModel] = []
+                for material in recommendationMaterials {
+                    guard let title = material["title"] as? String, let provider = material["provider"] as? String, let url = material["url"] as? String
+                    else {
+                        print("error: invalid format")
+                        break
+                    }
+                    let newVideo = VideoModel.init(title: title, channelName: provider)
+                    print(url)
+                    newVideo.videoLink = URL.init(string: url)
+                    tmpItems.append(newVideo)
+                }
+                items.append(contentsOf: tmpItems)
+                items.myShuffle()
+            }
+        }
+        dataTask.resume()
+        semaphore.wait()
+        print(items.count)
+    }
+    
+    
+    
+}
+
+
 class VideoModel {
     
     //MARK: Properties
@@ -24,28 +90,20 @@ class VideoModel {
     
     //MARK: Inits
     init(title: String, channelName: String) {
-        self.thumbnail = UIImage.init(named: title)!
+        self.thumbnail = UIImage.init(named: title) ?? UIImage.init(named: "Video Placeholder")!
         self.title = title
         self.views = Int(arc4random_uniform(1000000))
         self.duration = Int(arc4random_uniform(400))
         self.likes = Int(arc4random_uniform(1000))
         self.disLikes = Int(arc4random_uniform(1000))
-        self.channel = Channel.init(name: channelName, image: UIImage.init(named: channelName)!)
+        self.channel = Channel.init(name: channelName, image: UIImage.init(named: channelName) ?? UIImage.init(named: "Channel Placeholder")!)
     }
     
-    //MARK: Methods
     class func fetchVideos(completion: @escaping (([VideoModel]) -> Void)) {
-        let video1 = VideoModel.init(title: "What Does Jared Kushner Believe", channelName: "Nerdwriter1")
-        let video2 = VideoModel.init(title: "Moore's Law Is Ending. So, What's Next", channelName: "Seeker")
-        let video3 = VideoModel.init(title: "What Bill Gates is afraid of", channelName: "Vox")
-        let video4 = VideoModel.init(title: "Why Can't America Have a Grown-Up Healthcare Conversation", channelName: "vlogbrothers")
-        let video5 = VideoModel.init(title: "A New History for Humanity – The Human Era", channelName: "Kurzgesagt – In a Nutshell")
-        let video6 = VideoModel.init(title: "Neural Network that Changes Everything - Computerphile", channelName: "Computerphile")
-        let video7 = VideoModel.init(title: "TensorFlow Basics - Deep Learning with Neural Networks p. 2", channelName: "sentdex")
-        let video8 = VideoModel.init(title: "Scott Galloway: The Retailer Growing Faster Than Amazon", channelName: "L2inc")
-        var items = [video1, video2, video3, video4, video5, video6, video7, video8]
-        items.myShuffle()
-        completion(items)
+        if (Videos.items.count == 0) {
+            Videos.loadItems()
+        }
+        completion(Videos.items)
     }
     
     class func fetchVideo(completion: @escaping ((VideoModel) -> Void)) {
