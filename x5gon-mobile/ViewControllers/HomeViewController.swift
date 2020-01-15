@@ -29,7 +29,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 return
             }
             weakSelf.videos = response
-            weakSelf.videos.myShuffle()
             weakSelf.tableView.reloadData()
         }
     }

@@ -14,6 +14,16 @@ class Videos {
     static var items = [VideoModel]()
 
     static func loadItems() {
+        let playableVideo = VideoModel.init(title: "Big Buck Bunny", channelName: "Blender Foundation")
+        playableVideo.videoLink = URL.init(string: "https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_30mb.mp4")!
+        let suggestedVideo1 = SuggestedVideo.init(title: "What Does Jared Kushner Believe", channelName: "Nerdwriter1")
+        let suggestedVideo2 = SuggestedVideo.init(title: "Moore's Law Is Ending. So, What's Next", channelName: "Seeker")
+        let suggestedVideo3 = SuggestedVideo.init(title: "What Bill Gates is afraid of", channelName: "Vox")
+        let suggestedVideo4 = SuggestedVideo.init(title: "Why Can't America Have a Grown-Up Healthcare Conversation", channelName: "vlogbrothers")
+        let suggestedVideo5 = SuggestedVideo.init(title: "TensorFlow Basics - Deep Learning with Neural Networks p. 2", channelName: "sentdex")
+        let suggestedItems = [suggestedVideo1, suggestedVideo2, suggestedVideo3, suggestedVideo4, suggestedVideo5]
+        playableVideo.suggestedVideos = suggestedItems
+        
         let video1 = VideoModel.init(title: "What Does Jared Kushner Believe", channelName: "Nerdwriter1")
         let video2 = VideoModel.init(title: "Moore's Law Is Ending. So, What's Next", channelName: "Seeker")
         let video3 = VideoModel.init(title: "What Bill Gates is afraid of", channelName: "Vox")
@@ -22,7 +32,7 @@ class Videos {
         let video6 = VideoModel.init(title: "Neural Network that Changes Everything - Computerphile", channelName: "Computerphile")
         let video7 = VideoModel.init(title: "TensorFlow Basics - Deep Learning with Neural Networks p. 2", channelName: "sentdex")
         let video8 = VideoModel.init(title: "Scott Galloway: The Retailer Growing Faster Than Amazon", channelName: "L2inc")
-        var tmpItems = [video1, video2, video3, video4, video5, video6, video7, video8]
+        var tmpItems = [playableVideo, video1, video2, video3, video4, video5, video6, video7, video8]
         items.append(contentsOf: tmpItems)
         
         let defaultKeyWord = "science"
@@ -62,16 +72,12 @@ class Videos {
                     tmpItems.append(newVideo)
                 }
                 items.append(contentsOf: tmpItems)
-                items.myShuffle()
             }
         }
         dataTask.resume()
         semaphore.wait()
         print(items.count)
     }
-    
-    
-    
 }
 
 
@@ -107,16 +113,10 @@ class VideoModel {
     }
     
     class func fetchVideo(completion: @escaping ((VideoModel) -> Void)) {
-        let video = VideoModel.init(title: "Big Buck Bunny", channelName: "Blender Foundation")
-        video.videoLink = URL.init(string: "https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_30mb.mp4")!
-        let suggestedVideo1 = SuggestedVideo.init(title: "What Does Jared Kushner Believe", channelName: "Nerdwriter1")
-        let suggestedVideo2 = SuggestedVideo.init(title: "Moore's Law Is Ending. So, What's Next", channelName: "Seeker")
-        let suggestedVideo3 = SuggestedVideo.init(title: "What Bill Gates is afraid of", channelName: "Vox")
-        let suggestedVideo4 = SuggestedVideo.init(title: "Why Can't America Have a Grown-Up Healthcare Conversation", channelName: "vlogbrothers")
-        let suggestedVideo5 = SuggestedVideo.init(title: "TensorFlow Basics - Deep Learning with Neural Networks p. 2", channelName: "sentdex")
-        let items = [suggestedVideo1, suggestedVideo2, suggestedVideo3, suggestedVideo4, suggestedVideo5]
-        video.suggestedVideos = items
-        completion(video)
+        if (Videos.items.count == 0) {
+            Videos.loadItems()
+        }
+        completion(Videos.items.first!)
     }
 }
 
