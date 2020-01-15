@@ -324,7 +324,7 @@
                                         <outlet property="viewCount" destination="0ca-mZ-3VK" id="2Uv-mx-aol"/>
                                     </connections>
                                 </tableViewCell>
-                                <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="100" id="3q1-mt-wmI" customClass="videoCell" customModule="x5gon_mobile" customModuleProvider="target">
+                                <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="100" id="3q1-mt-wmI" customClass="suggestionVideoCell" customModule="x5gon_mobile" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="227" width="415" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3q1-mt-wmI" id="NAO-ZH-5eh">
@@ -368,7 +368,7 @@
                                     <connections>
                                         <outlet property="name" destination="F3v-Sd-dDf" id="IGL-o3-eeu"/>
                                         <outlet property="title" destination="Kk3-Wc-yMb" id="P7H-qj-Ap5"/>
-                                        <outlet property="tumbnail" destination="oPx-yX-7Dd" id="UGP-ZV-ss2"/>
+                                        <outlet property="thumbnail" destination="oPx-yX-7Dd" id="UGP-ZV-ss2"/>
                                     </connections>
                                 </tableViewCell>
                             </prototypes>
