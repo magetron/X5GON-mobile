@@ -45,7 +45,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("clicked on \(indexPath.row) \(videos[indexPath.row].title)")
         NotificationCenter.default.post(name: NSNotification.Name("open"), object: nil, userInfo: ["pos": indexPath.row])
     }
     

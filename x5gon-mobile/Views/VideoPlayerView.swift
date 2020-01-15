@@ -176,6 +176,10 @@ class VideoPlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGes
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        NotificationCenter.default.post(name: NSNotification.Name("open"), object: nil, userInfo: ["pos": indexPath.row])
+    }
+    
     //MARK: View lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
