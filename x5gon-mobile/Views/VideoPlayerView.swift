@@ -153,7 +153,7 @@ class VideoPlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGes
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "Header") as! headerCell
-            cell.set(video: self.video, videoPlayerView: self)
+            cell.set(video: self.video, onLikeTapFunc: self.OnLikeTap, onDisLikeTapFunc: self.OnDisLikeTap)
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! suggestionVideoCell
@@ -190,6 +190,17 @@ class VideoPlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGes
         self.tableView.reloadData()
     }
     
+    func OnLikeTap () {
+        self.video.likes += 1
+        self.tableView.reloadData()
+    }
+    
+    func OnDisLikeTap () {
+        self.video.disLikes += 1
+        self.tableView.reloadData()
+    }
+    
+    
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
@@ -204,28 +215,29 @@ class headerCell: UITableViewCell {
     @IBOutlet weak var channelTitle: UILabel!
     @IBOutlet weak var channelPic: UIImageView!
     @IBOutlet weak var channelSubscribers: UILabel!
-    var video: VideoModel!
-    var videoPlayerView: VideoPlayerView!
+    var onLikeTapFunc: (() -> Void) = { () in return }
+    var onDisLikeTapFunc: (() -> Void) = { () in return }
     
-    func set(video: VideoModel, videoPlayerView: VideoPlayerView) {
-        self.video = video
-        title.text = self.video!.title
-        viewCount.text = "\(self.video!.views) views"
-        likes.text = String(self.video!.likes)
-        disLikes.text = String(self.video!.disLikes)
-        channelTitle.text = self.video!.channel.name
-        channelPic.image = self.video!.channel.image
+    
+    func set(video: VideoModel!, onLikeTapFunc: @escaping () -> Void, onDisLikeTapFunc: @escaping () -> Void) {
+        title.text = video!.title
+        viewCount.text = "\(video!.views) views"
+        likes.text = String(video!.likes)
+        disLikes.text = String(video!.disLikes)
+        channelTitle.text = video!.channel.name
+        channelPic.image = video!.channel.image
         channelPic.layer.cornerRadius = 25
         channelPic.clipsToBounds = true
-        channelSubscribers.text = "\(self.video!.channel.subscribers) subscribers"
+        channelSubscribers.text = "\(video!.channel.subscribers) subscribers"
         selectionStyle = .none
         let likeTap = UITapGestureRecognizer(target: self, action: #selector(onLikeTap))
         let disLikeTap = UITapGestureRecognizer(target: self, action: #selector(onDisLikeTap))
-        self.videoPlayerView = videoPlayerView
         likes.isUserInteractionEnabled = true
         disLikes.isUserInteractionEnabled = true
         likes.addGestureRecognizer(likeTap)
         disLikes.addGestureRecognizer(disLikeTap)
+        self.onLikeTapFunc = onLikeTapFunc
+        self.onDisLikeTapFunc = onDisLikeTapFunc
     }
     
     override func prepareForReuse() {
@@ -233,13 +245,11 @@ class headerCell: UITableViewCell {
     }
     
     @objc func onLikeTap(sender: UITapGestureRecognizer) {
-        video.likes += 1
-        videoPlayerView.tableView.reloadData()
+        onLikeTapFunc()
     }
     
     @objc func onDisLikeTap(sender: UITapGestureRecognizer) {
-        video.disLikes += 1
-        videoPlayerView.tableView.reloadData()
+        onDisLikeTapFunc()
     }
     
 }

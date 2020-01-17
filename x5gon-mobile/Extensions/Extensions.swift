@@ -10,16 +10,17 @@ import UIKit
 import AVFoundation
 
 extension AVAsset {
-    func generateThumbnail(completion: @escaping (UIImage?) -> Void) {
+    func generateThumbnail(completion: @escaping (UIImage?, Int?) -> Void) {
         DispatchQueue.global().async {
             let imageGenerator = AVAssetImageGenerator(asset: self)
             let time = CMTime(seconds: 60.0, preferredTimescale: 600)
             let times = [NSValue(time: time)]
+            let duration = Int(self.duration.seconds)
             imageGenerator.generateCGImagesAsynchronously(forTimes: times, completionHandler: { _, image, _, _, _ in
                 if let image = image {
-                    completion(UIImage(cgImage: image))
+                    completion(UIImage(cgImage: image), duration)
                 } else {
-                    completion(nil)
+                    completion(nil, nil)
                 }
             })
         }

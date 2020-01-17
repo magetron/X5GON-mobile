@@ -68,7 +68,7 @@ class Videos {
                     }
                     let newVideo = VideoModel.init(title: title, channelName: provider)
                     let newVideoURL = URL.init(string: url)
-                    newVideo.initURL(url: newVideoURL!, regenerateThumbnail: true)
+                    newVideo.initURL(url: newVideoURL!, regenerateInfo: true)
                     tmpItems.append(newVideo)
                 }
             }
@@ -100,7 +100,7 @@ class VideoModel {
     let title: String
     let views: Int
     let channel: ChannelModel
-    let duration: Int
+    var duration: Int
     var videoLink: URL!
     var likes: Int
     var disLikes: Int
@@ -117,10 +117,10 @@ class VideoModel {
         self.channel = ChannelModel.init(name: channelName, image: UIImage.init(named: channelName) ?? UIImage.init(named: "Channel Placeholder")!)
     }
     
-    func initURL (url : URL, regenerateThumbnail : Bool) {
+    func initURL (url : URL, regenerateInfo : Bool) {
         self.videoLink = url
-        if (regenerateThumbnail) {
-            generateThumbnail()
+        if (regenerateInfo) {
+            generateInfo()
         }
     }
     
@@ -136,13 +136,14 @@ class VideoModel {
         }
     }
     
-    func generateThumbnail() {
-        AVAsset(url: videoLink).generateThumbnail { [weak self] (image) in
+    func generateInfo() {
+        AVAsset(url: videoLink).generateThumbnail { [weak self] (image, duration) in
             DispatchQueue.main.async {
-                guard let image = image else {
+                guard let image = image, let duration = duration else {
                     return
                 }
                 self?.thumbnail = image
+                self?.duration = duration
             }
         }
     }
