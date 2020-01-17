@@ -47,7 +47,7 @@ class Videos {
                 else {
                     print("error: not a valid http response")
                     return
-            }
+                }
             if (httpResponse.statusCode != 200) {
                 print("error: http response \(httpResponse.statusCode) not successful")
             } else {
@@ -105,7 +105,7 @@ class VideoModel {
     var likes: Int
     var disLikes: Int
     var suggestedVideos = [VideoModel]()
-    
+        
     //MARK: Inits
     init(title: String, channelName: String) {
         self.thumbnail = UIImage.init(named: title) ?? UIImage.init(named: "Video Placeholder")!

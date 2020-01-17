@@ -153,7 +153,7 @@ class VideoPlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGes
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "Header") as! headerCell
-            cell.set(video: self.video)
+            cell.set(video: self.video, videoPlayerView: self)
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! suggestionVideoCell
@@ -205,8 +205,9 @@ class headerCell: UITableViewCell {
     @IBOutlet weak var channelPic: UIImageView!
     @IBOutlet weak var channelSubscribers: UILabel!
     var video: VideoModel!
+    var videoPlayerView: VideoPlayerView!
     
-    func set(video: VideoModel) {
+    func set(video: VideoModel, videoPlayerView: VideoPlayerView) {
         self.video = video
         title.text = self.video!.title
         viewCount.text = "\(self.video!.views) views"
@@ -220,6 +221,7 @@ class headerCell: UITableViewCell {
         selectionStyle = .none
         let likeTap = UITapGestureRecognizer(target: self, action: #selector(onLikeTap))
         let disLikeTap = UITapGestureRecognizer(target: self, action: #selector(onDisLikeTap))
+        self.videoPlayerView = videoPlayerView
         likes.isUserInteractionEnabled = true
         disLikes.isUserInteractionEnabled = true
         likes.addGestureRecognizer(likeTap)
@@ -232,10 +234,12 @@ class headerCell: UITableViewCell {
     
     @objc func onLikeTap(sender: UITapGestureRecognizer) {
         video.likes += 1
+        videoPlayerView.tableView.reloadData()
     }
     
     @objc func onDisLikeTap(sender: UITapGestureRecognizer) {
         video.disLikes += 1
+        videoPlayerView.tableView.reloadData()
     }
     
 }
