@@ -905,7 +905,7 @@ input[type='checkbox'] {
 }
 
 .tabs .tab-content {
-	width: 100%; /* for proper display in IE11 */
+	width: 150%; /* for proper display in IE11 */
 }
 
 .tabs .card {
