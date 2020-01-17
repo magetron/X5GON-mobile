@@ -705,6 +705,7 @@ input[type='checkbox'] {
 .navbar-custom .dropdown-item {
 	color: #fff;
 	text-decoration: none;
+	background-color: transparent;
 }
 
 .navbar-custom .dropdown-item:hover {

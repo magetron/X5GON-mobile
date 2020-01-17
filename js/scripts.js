@@ -24,10 +24,11 @@
 	/* Navbar Scripts */
 	// jQuery to collapse the navbar on scroll
     $(window).on('scroll load', function() {
-		if ($(".navbar").offset().top > 20) {
-			$(".fixed-top").addClass("top-nav-collapse");
+        let nav = $("#nav");
+		if (nav.offset().top > 20) {
+			nav.addClass("top-nav-collapse");
 		} else {
-			$(".fixed-top").removeClass("top-nav-collapse");
+			nav.removeClass("top-nav-collapse");
 		}
     });
 
@@ -35,11 +36,24 @@
 	$(function() {
 		$(document).on('click', 'a.page-scroll', function(event) {
 			var $anchor = $(this);
-			$('html, body').stop().animate({
-				scrollTop: $($anchor.attr('href')).offset().top
-			}, 600, 'easeInOutExpo');
-			event.preventDefault();
-		});
+            var filename = $('input[type=file]').prevObject[0].URL.split("/").slice(-1)[0].split("#")[0];
+            var href = $anchor.attr('href');
+            console.log("href = " + href)
+            console.log("filename = " + filename)
+            if (href.startsWith(filename)) {
+                var newattr = href.split("#").slice(-1)[0];
+                newattr = `#${newattr}`;
+                console.log(newattr)
+                $('html, body').stop().animate({
+                    scrollTop: $(newattr).offset().top
+                }, 600, 'easeInOutExpo');
+            } else {
+                $('html, body').stop().animate({
+                    scrollTop: $(href).offset().top
+                }, 600, 'easeInOutExpo');
+            }
+            event.preventDefault();
+        });
 	});
 
     // closes the responsive menu on menu item click
