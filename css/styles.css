@@ -1315,7 +1315,7 @@ input[type='checkbox'] {
 
 .counter #counter .cell {
 	display: inline-block;
-	width: 6.25rem;
+	width: 10rem;
 	margin-right: 1rem;
 	margin-left: 1rem;
 	margin-bottom: 2rem;
@@ -1323,7 +1323,7 @@ input[type='checkbox'] {
 
 .counter #counter .counter-value {
 	color: #f1f1f8;
-	font: 700 3.5rem/4.25rem "Montserrat", sans-serif;	
+	font: 500 2rem/3rem "Montserrat", sans-serif;
 	vertical-align: middle;
 }
 
@@ -1919,7 +1919,7 @@ a:hover.back-to-top {
 	}
 	
 	.counter #counter .counter-value {
-		font: 700 4.25rem/4.5rem "Montserrat", sans-serif;	
+		font: 600 3rem/4rem "Montserrat", sans-serif;
 	}
 	/* end of statistics */
 
@@ -2015,7 +2015,7 @@ a:hover.back-to-top {
 	}
 
 	.tabs #tab-2 .icon-cards-area .card {
-		margin-right: 3.875rem;
+		margin-right: 2.5rem;
 	}
 
 	.tabs #tab-3 .container {
