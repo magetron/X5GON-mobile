@@ -38,12 +38,9 @@
 			var $anchor = $(this);
             var filename = $('input[type=file]').prevObject[0].URL.split("/").slice(-1)[0].split("#")[0];
             var href = $anchor.attr('href');
-            console.log("href = " + href)
-            console.log("filename = " + filename)
             if (href.startsWith(filename)) {
                 var newattr = href.split("#").slice(-1)[0];
                 newattr = `#${newattr}`;
-                console.log(newattr)
                 $('html, body').stop().animate({
                     scrollTop: $(newattr).offset().top
                 }, 600, 'easeInOutExpo');
