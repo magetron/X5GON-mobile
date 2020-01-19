@@ -1464,7 +1464,8 @@ a:hover.back-to-top {
 .ex-header {
 	padding-top: 8rem;
 	padding-bottom: 5rem;
-	background: linear-gradient(to bottom right, rgba(72, 72, 212, 0), rgba(241, 104, 104, 0)), url('../images/header-background.jpg') center center no-repeat;
+	background: linear-gradient(to bottom right, rgba(72, 72, 212, 0), rgba(241, 104, 104, 0)), url('../images/header-background.jpg');
+	background-size: cover;
 	text-align: center;
 }
 
@@ -1528,6 +1529,56 @@ a:hover.back-to-top {
 }
 
 .ex-basic-2 .text-container.dark-bg {
+	padding: 1.625rem 1.5rem 0.75rem 2rem;
+	background-color: #f9fafc;
+}
+
+
+.ex-basic-3 {
+	padding-top: 4.75rem;
+	padding-bottom: 4rem;
+	background-color: #2f2c3d;
+}
+
+.ex-basic-3 h3 {
+	margin-bottom: 1rem;
+}
+
+.ex-basic-3 .text-container {
+	margin-bottom: 3.625rem;
+}
+
+.ex-basic-3 .text-container.last {
+	margin-bottom: 0;
+}
+
+.ex-basic-3 .list-unstyled .fas {
+	color: #00c8ff;
+	font-size: 0.5rem;
+	line-height: 1.375rem;
+}
+
+.ex-basic-3 .list-unstyled .media-body {
+	margin-left: 0.625rem;
+}
+
+.ex-basic-3 .btn-outline-reg {
+	margin-top: 1.75rem;
+}
+
+.ex-basic-3 .image-container-large {
+	margin-bottom: 4rem;
+}
+
+.ex-basic-3 .image-container-large img {
+	border-radius: 0.25rem;
+}
+
+.ex-basic-3 .image-container-small img {
+	border-radius: 0.25rem;
+}
+
+.ex-basic-3 .text-container.dark-bg {
 	padding: 1.625rem 1.5rem 0.75rem 2rem;
 	background-color: #f9fafc;
 }
