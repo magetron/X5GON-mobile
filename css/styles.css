@@ -1135,7 +1135,7 @@ input[type='checkbox'] {
 .basic-3 {
 	padding-top: 3.5rem;
 	padding-bottom: 7.25rem;
-	background-color: #262431;
+	background-color: #2f2c3d;
 }
 
 .basic-3 .text-container {
@@ -1512,6 +1512,12 @@ a:hover.back-to-top {
 	margin-left: 0.625rem;
 }
 
+.ex-basic-2 .list-unstyled .media-body-answers {
+	color: #00c8ff;
+	margin-left: 0.625rem;
+}
+
+
 .ex-basic-2 .btn-outline-reg {
 	margin-top: 1.75rem;
 }
@@ -1532,7 +1538,6 @@ a:hover.back-to-top {
 	padding: 1.625rem 1.5rem 0.75rem 2rem;
 	background-color: #f9fafc;
 }
-
 
 .ex-basic-3 {
 	padding-top: 4.75rem;
@@ -1559,6 +1564,11 @@ a:hover.back-to-top {
 }
 
 .ex-basic-3 .list-unstyled .media-body {
+	margin-left: 0.625rem;
+}
+
+.ex-basic-3 .list-unstyled .media-body-answers {
+	color: #00c8ff;
 	margin-left: 0.625rem;
 }
 
