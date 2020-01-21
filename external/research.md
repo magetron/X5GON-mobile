@@ -32,7 +32,16 @@ As for `Swift` and `iOS` development, its tooling `Xcode IDE` (Apple Developer, 
 
 ### Comparison
 
-From a development perspective, `Swift` is first of all a compiled language, while `JavaScript` is an interpreted language (although most engines currently does Just-in-Time(JIT) compilation instead (Auler et al., 2014)). This is a advantage for `React Native` and `Flutter` as they support hot-reloading during development (Bigio, 2016). It is very efficient as you can see changes instantly in less than 1 second, compared to `Swift` where you have to re-build in about 7 to 8 seconds. 
+From a development perspective, `Swift` is first of all a compiled language, while `JavaScript` is an interpreted language (although most engines currently does Just-in-Time(JIT) compilation instead (Auler et al., 2014) ). This is a advantage for `React Native` and `Flutter` as they support hot-reloading during development (Bigio, 2016). It is very efficient as you can see changes instantly in less than 1 second, compared to `Swift` where you have to re-build in about 7 to 8 seconds (CodeMagic, 2020), as you can see below in Figure 1. 
+
+
+![Reload Speed](./images/swift-vs-flutter-reload.png)
+*Figure 1. A comparsion between Swift and Flutter Reload Speed (CodeMagic, 2020)*
+
+
+A afsdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
+
+
 
 
 ## References
@@ -66,6 +75,8 @@ Apple Developer. (2020). Xcode - Apple Developer. [online] Available at: https:/
 Auler R., Borin E., de Halleux P., Moskal M., Tillmann N. (2014) Addressing JavaScript JIT Engines Performance Quirks: A Crowdsourced Adaptive Compiler. In: Cohen A. (eds) Compiler Construction. CC 2014. Lecture Notes in Computer Science, vol 8409. Springer, Berlin, Heidelberg
 
 Bigio, M. (2020). Introducing Hot Reloading · React Native. [online] Facebook.github.io. Available at: https://facebook.github.io/react-native/blog/2016/03/24/introducing-hot-reloading.html [Accessed 21 Jan. 2020].
+
+CodeMagic. (2020). Swift vs Flutter - A side by side comparison for iOS development. [online] Available at: https://blog.codemagic.io/flutter-vs-swift/ [Accessed 21 Jan. 2020].
 
 https://developer.apple.com/swift/
 
