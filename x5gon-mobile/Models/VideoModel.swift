@@ -124,11 +124,14 @@ class VideoModel {
         }
     }
     
-    func fetchSuggestedVideos (async : Bool) {
+    func fetchSuggestedVideos (async : Bool, refresher: @escaping () -> Void) {
         if (async) {
             DispatchQueue.global().async {
                 let videos = Videos.fetchItems(keyWord: self.title, contentType: "video")
                 self.suggestedVideos = videos
+                OperationQueue.main.addOperation ({
+                     refresher()
+                })
             }
         } else {
             let videos = Videos.fetchItems(keyWord: self.title, contentType: "video")

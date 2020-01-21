@@ -182,7 +182,7 @@ class VideoPlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGes
             self.videoPlayer.replaceCurrentItem(with: AVPlayerItem.init(url: self.video.videoLink))
         }
         if self.video.suggestedVideos.count == 0 {
-            self.video.fetchSuggestedVideos(async: false)
+            self.video.fetchSuggestedVideos(async: true, refresher: self.refresher)
         }
         if self.state != .hidden {
             self.videoPlayer.play()
@@ -192,11 +192,15 @@ class VideoPlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGes
     
     func OnLikeTap () {
         self.video.likes += 1
-        self.tableView.reloadData()
+        refresher()
     }
     
     func OnDisLikeTap () {
         self.video.disLikes += 1
+        refresher()
+    }
+    
+    func refresher () {
         self.tableView.reloadData()
     }
     
