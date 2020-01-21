@@ -4,7 +4,7 @@
 
 Since our main task is to develop an `iOS` application for `X5GON`, it is intuitive to think of the language `Swift` backed by `Apple` (Apple, 2020). Also, `React Native` (Facebook, 2020)  and `Flutter` (Google, 2020) are also viable choices given the recent trend of cross-platform development with `JavaScript`. 
 
-To pick a language or framework for further development, we need to compare them on multiple aspects including but not limited to language, tooling, ease of UI logic development, publishing and packing, framework stability and overall performance.
+To pick a language or framework for further development, we need to compare them on multiple aspects including but not limited to language, tooling, framework stability, security, licensing and most importantly, performance.
 
 Hence, the aim of this article is to evaluate and analyse the benefits and drawbacks of using `Swift`, `React Native` and `Flutter`, before attempting to argue that `Swift` will be the most suitable and elegant choice for the project.
 
@@ -16,7 +16,7 @@ First and foremost, it is important for us to pick a reliable language for our p
 
 To provide a background for the context, we will briefly introduce our candidate toolchains, starting with `Swift`. `Swift` is a general-purpose, compiled programming language developed by `Apple Inc.` for all its platforms starting 2014. It is built with the famous `LLVM` compiler framework and is seen as a successor for `Objective-C`, an `Apple`'s variant of `C/C++` language (Timmer, 2014). Compared to its predecessor, it supports many core concepts, e.g. dynamic dispatch (Milton and Schmidt, 1994), widespread late binding (Schrenier, 1994) and extensible programming (Gregory, 2004), in a much safer way. That is, in other words, `Swift` provides safe alternatives to these concepts while addressing common errors, notably null pointer derefercing(Rose, 2017) and undefined callbacks (Apple, 2020).
 
-`Javascript` on the other hand, has much longer history. Starting in 1995, its first announced by NetScape and Sun. (PR Newswire, 1995). Over the years, although `JavaScript` has changed a lot, it still remains a just-in-time compiled, mutli-paradigm programming lanugage that conforms to the spec of `ECMAScript` (IETF Tools, 2006). It has features including but not limited to dynamic typing, prototype-based object orientation, which is dynamic and flexible but might cause issues from time to time (Flanagan, 2011).
+`Javascript` on the other hand, has much longer history. Starting in 1995, its first announced by NetScape and Sun. (PR Newswire, 1995) Over the years, although `JavaScript` has changed a lot, it still remains a just-in-time compiled, mutli-paradigm programming lanugage that conforms to the spec of `ECMAScript` (IETF Tools, 2006). It has features including but not limited to dynamic typing, prototype-based object orientation, which is dynamic and flexible but might cause issues from time to time (Flanagan, 2011).
 
 ### Comparison 
 
@@ -28,7 +28,7 @@ Given these reasons, our team picked `Swift` over `Javascript` from a programmin
 
 ## Tooling
 
-As for `Swift` and `iOS` development, its tooling `Xcode IDE` (Apple Developer, 2020) is backed by `Apple`. `React Native` or `Flutter`, in contrast, does have native support but relies on Command-Line-Interface (CLI) of `XcodeBuild` to build the application. However, with that said, one can use `Jetbrains WebStorm` (Jetbrains, 2020) or `VSCode` (Microsoft, 2020) at its convenience thanks to the flexibility `JavaScript` development provides.
+Meanwhile, our team considers tooling convenience when choosing our tech stack. As for `Swift` and `iOS` development, its tooling `Xcode IDE` (Apple Developer, 2020) is backed by `Apple`. `React Native` or `Flutter`, in contrast, does have native support but relies on Command-Line-Interface (CLI) of `XcodeBuild` to build the application. However, with that said, one can use `Jetbrains WebStorm` (Jetbrains, 2020) or `VSCode` (Microsoft, 2020) at its convenience thanks to the flexibility `JavaScript` development provides.
 
 ### Comparison
 
@@ -39,7 +39,28 @@ From a development perspective, `Swift` is first of all a compiled language, whi
 *Figure 1. A comparsion between Swift and Flutter Reload Speed (CodeMagic, 2020)*
 
 
-A afsdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
+Also, compared to `Swift` as a relatively new language, `Javascript` as a whole does provide a much larger community and code base. `JavaScript` has a broader approval, being mentioned in 5034 company stacks & 6258 developers stacks; compared to Swift, which is listed in 979 company stacks and 526 developer stacks. (Stackshare.io, 2020) Such that, when implementing a feature, `React Native` or `Flutter` would be easier as you can call a open source library and utilise its features. 
+
+With reason mentioned above, our team favoured `React Native` or `Flutter` from a tooling perspective, but eventually didn't choose these as our tech stack given other reasons.
+
+## Framework Stability
+
+Another important factor our team took into consideration is the stability of a framework. As our client will be supporting and maintaining this application after our project finishes, we believe choosing a more stable and reliable platform in the long term will be beneficial.
+
+### Comparison
+
+As being backed by `Apple`, `Swift` and `Xcode` is guaranteed to work together as the official development tool for `iOS` (Apple, 2020). Since this is the native language for `Apple` mobile platforms, `Apple` develops all its own applications and foundations with `Objective-C` and `Swift`. As `Swift` binds closely with these platforms, a bug on `Swift` would most likely a bug on all other frameworks. Regarding long term support, `Apple` is extremely unlikely drop support for `Swift` on their own platforms.
+
+However, `Flutter` and `React Native` are on the contrary of stable. They are both relative new frameworks in active development. As `Flutter` and `React Native` brings us with an entire software development platform, if `Google` or `Facebook` stop maintaing them, there would be a quick replacement. A distraeous example could be found in 2013, when `Facebook` shut down its backend development platform `Parser`. (Tepper, 2020) As the user agreement states, `Facebook` might drop support at any time as the organistaion would wish given its a free-of-charge open sourced service. With that noted, similar closures might happen for non-official development platforms.
+
+## Security and Licensing
+
+Although sometimes not taken into serious consideration, our team does take security and licensing of software modules into consideration. We put an emphasis on delivering secured and proprietary software to our clients. 
+
+### Comparison
+
+
+
 
 
 
@@ -77,6 +98,10 @@ Auler R., Borin E., de Halleux P., Moskal M., Tillmann N. (2014) Addressing Java
 Bigio, M. (2020). Introducing Hot Reloading · React Native. [online] Facebook.github.io. Available at: https://facebook.github.io/react-native/blog/2016/03/24/introducing-hot-reloading.html [Accessed 21 Jan. 2020].
 
 CodeMagic. (2020). Swift vs Flutter - A side by side comparison for iOS development. [online] Available at: https://blog.codemagic.io/flutter-vs-swift/ [Accessed 21 Jan. 2020].
+
+StackShare. (2020). JavaScript vs Swift | What are the differences?. [online] Available at: https://stackshare.io/stackups/javascript-vs-swift [Accessed 21 Jan. 2020].
+
+Tepper, F. (2020). Facebook’s Parse developer platform is shutting down today. [online] Techcrunch.com. Available at: https://techcrunch.com/2017/01/30/facebooks-parse-developer-platform-is-shutting-down-today/ [Accessed 21 Jan. 2020].
 
 https://developer.apple.com/swift/
 
