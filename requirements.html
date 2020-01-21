@@ -330,7 +330,7 @@
         </div> <!-- end of container -->
     </div> <!-- end of tabs -->
 
-    <div id="moscow-list" class="ex-basic-2">
+    <div id="moscow-list" class="ex-basic-2 tabs">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -342,55 +342,97 @@
                         <p>OER on display is equivalent to the OER acting as the main content on the display page.</p>
                         <p>Given the nature of our project, all items below are functional requirements.</p>
                     </div>
-                    <h4 >Must Haves:</h4>
-                    <div class="row">
-                        <ul class="list-unstyled li-space-lg indent">
-                            <li class="media"> <i class="fas fa-square"></i><div class="media-body">We must allow users to view all types of OER.</div> </li>
-                            <li class="media"> <i class="fas fa-square"></i><div class="media-body">We must suggest relevant OERs and show them below the OER that is currently on display.</div> </li>
-                            <li class="media"> <i class="fas fa-square"></i><div class="media-body">We must allow users to play or pause an OER video.</div> </li>
-                            <li class="media"> <i class="fas fa-square"></i><div class="media-body">We must allow users to view a specific OER and its details when they press it.</div> </li>
-                            <li class="media"> <i class="fas fa-square"></i><div class="media-body">We must allow users to bookmark a specific OER.</div> </li>
-                            <li class="media"> <i class="fas fa-square"></i><div class="media-body">We must enable users to add notes to the OER when they are on display.</div> </li>
-                            <li class="media"> <i class="fas fa-square"></i><div class="media-body">We must allow users to rate an OER by pressing the like and dislike button.</div> </li>
-                            <li class="media"> <i class="fas fa-square"></i><div class="media-body">We must show the person or organisation who uploads the OER material.</div> </li>
-                            <li class="media"> <i class="fas fa-square"></i><div class="media-body">We must have a full screen (focus) mode to view OERs.</div> </li>
-                            <li class="media"> <i class="fas fa-square"></i><div class="media-body">We must allow users to search inside X5GON OER collections for keywords.</div> </li>
-                            <li class="media"> <i class="fas fa-square"></i><div class="media-body">We must allow users to filter the search results with OER types.</div> </li>
-                            <li class="media"> <i class="fas fa-square"></i><div class="media-body">We must allow user to view their browsing history.</div> </li>
-                        </ul>
-                    </div>
-                    <h4>Should Haves:</h4>
-                    <div class="list-unpanel-collapse">
-                        <ul class="list-unstyled li-space-lg indent">
-                            <li class="media"> <i class="fas fa-square"></i><div class="media-body">We should allow user to login and logout of their accounts.</div> </li>
-                            <li class="media"> <i class="fas fa-square"></i><div class="media-body">We should buffer users’ notes for a specific OER and send them to the backend of X5GON.</div> </li>
-                            <li class="media"> <i class="fas fa-square"></i><div class="media-body">We should preload the video shown on the lists for responsiveness.</div> </li>
-                            <li class="media"> <i class="fas fa-square"></i><div class="media-body">We should allow users to add captions to the audio and video.</div> </li>
-                            <li class="media"> <i class="fas fa-square"></i><div class="media-body">We should provide different main pages, including trending, subscribed contents.</div> </li>
-                            <li class="media"> <i class="fas fa-square"></i><div class="media-body">We should record and store users’ browsing history anonymously.</div> </li>
-                            <li class="media"> <i class="fas fa-square"></i><div class="media-body">We should create a simulated backend to pre-develop certain features if necessary (given the backend is also WIP).</div> </li>
-                        </ul>
-                    </div>
-                    <h4>Could Haves:</h4>
-                    <div class="row">
-                        <ul class="list-unstyled li-space-lg indent">
-                            <li class="media"> <i class="fas fa-square"></i><div class="media-body">We could provide different functions to different privileged accounts.</div> </li>
-                            <li class="media"> <i class="fas fa-square"></i><div class="media-body">We could help improve the X5GON platform and backend if time permits.</div> </li>
-                            <li class="media"> <i class="fas fa-square"></i><div class="media-body">We could deploy this software on different platforms, e,g Android.</div> </li>
-                            <li class="media"> <i class="fas fa-square"></i><div class="media-body">We could allow users to change the resolution of the video.</div> </li>
-                            <li class="media"> <i class="fas fa-square"></i><div class="media-body">We could allow users to report inappropriate content.</div> </li>
-                        </ul>
-                    </div>
-                    <h4>Won't Haves:</h4>
-                    <div class="row">
-                        <ul class="list-unstyled li-space-lg indent">
-                            <li class="media"> <i class="fas fa-square"></i><div class="media-body">We won’t allow users to upload OER from our app.</div> </li>
-                            <li class="media"> <i class="fas fa-square"></i><div class="media-body">We won’t allow users to collaborative edit notes.</div> </li>
-                            <li class="media"> <i class="fas fa-square"></i><div class="media-body">We won’t allow commenting on OER.</div> </li>
-                            <li class="media"> <i class="fas fa-square"></i><div class="media-body">We won’t show users’ note to other users.</div> </li>
-                            <li class="media"> <i class="fas fa-square"></i><div class="media-body">We won’t auto translate the captions.</div> </li>
-                            <li class="media"> <i class="fas fa-square"></i><div class="media-body">We won’t keep suggesting the same OER to same user.</div> </li>
-                        </ul>
+                    <div id="accordion">
+                        <div class="card">
+                            <div class="card-header" id="must-haves">
+                                <h5 class="mb-0">
+                                    <a class="card-title" style="text-decoration: underline; color: #00c8ff" data-toggle="collapse" data-target="#collapse-must-haves" aria-expanded="true" aria-controls="collapse-must-haves">
+                                        Must Haves:
+                                    </a>
+                                </h5>
+                            </div>
+                            <div id="collapse-must-haves" class="collapse show" aria-labelledby="must-haves" data-parent="#accordion">
+                                <div class="row">
+                                    <ul class="list-unstyled li-space-lg indent">
+                                        <li class="media"> <i class="fas fa-square"></i><div class="media-body">We must allow users to view all types of OER.</div> </li>
+                                        <li class="media"> <i class="fas fa-square"></i><div class="media-body">We must suggest relevant OERs and show them below the OER that is currently on display.</div> </li>
+                                        <li class="media"> <i class="fas fa-square"></i><div class="media-body">We must allow users to play or pause an OER video.</div> </li>
+                                        <li class="media"> <i class="fas fa-square"></i><div class="media-body">We must allow users to view a specific OER and its details when they press it.</div> </li>
+                                        <li class="media"> <i class="fas fa-square"></i><div class="media-body">We must allow users to bookmark a specific OER.</div> </li>
+                                        <li class="media"> <i class="fas fa-square"></i><div class="media-body">We must enable users to add notes to the OER when they are on display.</div> </li>
+                                        <li class="media"> <i class="fas fa-square"></i><div class="media-body">We must allow users to rate an OER by pressing the like and dislike button.</div> </li>
+                                        <li class="media"> <i class="fas fa-square"></i><div class="media-body">We must show the person or organisation who uploads the OER material.</div> </li>
+                                        <li class="media"> <i class="fas fa-square"></i><div class="media-body">We must have a full screen (focus) mode to view OERs.</div> </li>
+                                        <li class="media"> <i class="fas fa-square"></i><div class="media-body">We must allow users to search inside X5GON OER collections for keywords.</div> </li>
+                                        <li class="media"> <i class="fas fa-square"></i><div class="media-body">We must allow users to filter the search results with OER types.</div> </li>
+                                        <li class="media"> <i class="fas fa-square"></i><div class="media-body">We must allow user to view their browsing history.</div> </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="should-haves">
+                                <h5 class="mb-0">
+                                    <a class="card-title" style="text-decoration: underline; color: #00c8ff" data-toggle="collapse" data-target="#collapse-should-haves" aria-expanded="true" aria-controls="collapse-should-haves">
+                                        Should Haves:
+                                    </a>
+                                </h5>
+                            </div>
+                            <div id="collapse-should-haves" class="collapse" aria-labelledby="should-haves" data-parent="#accordion">
+                                <div class="row">
+                                    <ul class="list-unstyled li-space-lg indent">
+                                        <li class="media"> <i class="fas fa-square"></i><div class="media-body">We should allow user to login and logout of their accounts.</div> </li>
+                                        <li class="media"> <i class="fas fa-square"></i><div class="media-body">We should buffer users’ notes for a specific OER and send them to the backend of X5GON.</div> </li>
+                                        <li class="media"> <i class="fas fa-square"></i><div class="media-body">We should preload the video shown on the lists for responsiveness.</div> </li>
+                                        <li class="media"> <i class="fas fa-square"></i><div class="media-body">We should allow users to add captions to the audio and video.</div> </li>
+                                        <li class="media"> <i class="fas fa-square"></i><div class="media-body">We should provide different main pages, including trending, subscribed contents.</div> </li>
+                                        <li class="media"> <i class="fas fa-square"></i><div class="media-body">We should record and store users’ browsing history anonymously.</div> </li>
+                                        <li class="media"> <i class="fas fa-square"></i><div class="media-body">We should create a simulated backend to pre-develop certain features if necessary (given the backend is also WIP).</div> </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="could-haves">
+                                <h5 class="mb-0">
+                                    <a class="card-title" style="text-decoration: underline; color: #00c8ff" data-toggle="collapse" data-target="#collapse-could-haves" aria-expanded="true" aria-controls="collapse-could-haves">
+                                        Could Haves:
+                                    </a>
+                                </h5>
+                            </div>
+                            <div id="collapse-could-haves" class="collapse" aria-labelledby="must-haves" data-parent="#accordion">
+                                <div class="row">
+                                    <ul class="list-unstyled li-space-lg indent">
+                                        <li class="media"> <i class="fas fa-square"></i><div class="media-body">We could provide different functions to different privileged accounts.</div> </li>
+                                        <li class="media"> <i class="fas fa-square"></i><div class="media-body">We could help improve the X5GON platform and backend if time permits.</div> </li>
+                                        <li class="media"> <i class="fas fa-square"></i><div class="media-body">We could deploy this software on different platforms, e,g Android.</div> </li>
+                                        <li class="media"> <i class="fas fa-square"></i><div class="media-body">We could allow users to change the resolution of the video.</div> </li>
+                                        <li class="media"> <i class="fas fa-square"></i><div class="media-body">We could allow users to report inappropriate content.</div> </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="wont-haves">
+                                <h5 class="mb-0">
+                                    <a class="card-title" style="text-decoration: underline; color: #00c8ff" data-toggle="collapse" data-target="#collapse-wont-haves" aria-expanded="true" aria-controls="collapse-wont-haves">
+                                        Won't Haves:
+                                    </a>
+                                </h5>
+                            </div>
+                            <div id="collapse-wont-haves" class="collapse" aria-labelledby="must-haves" data-parent="#accordion">
+                                <div class="row">
+                                    <ul class="list-unstyled li-space-lg indent">
+                                        <li class="media"> <i class="fas fa-square"></i><div class="media-body">We won’t allow users to upload OER from our app.</div> </li>
+                                        <li class="media"> <i class="fas fa-square"></i><div class="media-body">We won’t allow users to collaborative edit notes.</div> </li>
+                                        <li class="media"> <i class="fas fa-square"></i><div class="media-body">We won’t allow commenting on OER.</div> </li>
+                                        <li class="media"> <i class="fas fa-square"></i><div class="media-body">We won’t show users’ note to other users.</div> </li>
+                                        <li class="media"> <i class="fas fa-square"></i><div class="media-body">We won’t auto translate the captions.</div> </li>
+                                        <li class="media"> <i class="fas fa-square"></i><div class="media-body">We won’t keep suggesting the same OER to same user.</div> </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
