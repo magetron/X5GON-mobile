@@ -1,0 +1,6 @@
+**/xcshareddata/
+**/xcuserdata/
+.DS_Store
+
+*.swp
+
