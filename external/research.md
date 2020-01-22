@@ -2,7 +2,7 @@
 
 ## Overview 
 
-Since our main task is to develop an `iOS` application for `X5GON`, it is intuitive to think of the language `Swift` backed by `Apple` (Apple, 2020). Also, `React Native` (Facebook, 2020)  and `Flutter` (Google, 2020) are also viable choices given the recent trend of cross-platform development with `JavaScript`. 
+Since our main task is to develop an `iOS` application for `X5GON`, it is intuitive to think of the language `Swift` backed by `Apple` (Apple, 2020). Also, `React Native` (Facebook, 2020)  and `Flutter` (Google, 2020) are also viable choices given the recent trend of cross-platform development with `JavaScript` and `Dart`. 
 
 To pick a language or framework for further development, we need to compare them on multiple aspects including but not limited to language, tooling, framework stability, security, licensing and most importantly, performance.
 
@@ -53,16 +53,41 @@ As being backed by `Apple`, `Swift` and `Xcode` is guaranteed to work together a
 
 However, `Flutter` and `React Native` are on the contrary of stable. They are both relative new frameworks in active development. As `Flutter` and `React Native` brings us with an entire software development platform, if `Google` or `Facebook` stop maintaing them, there would be a quick replacement. A distraeous example could be found in 2013, when `Facebook` shut down its backend development platform `Parser`. (Tepper, 2020) As the user agreement states, `Facebook` might drop support at any time as the organistaion would wish given its a free-of-charge open sourced service. With that noted, similar closures might happen for non-official development platforms.
 
+Thus, from a stability and long-term maintainence viewpoint, `Swift` does outcome `React Native` and `Flutter`.
+
 ## Security and Licensing
 
 Although sometimes not taken into serious consideration, our team does take security and licensing of software modules into consideration. We put an emphasis on delivering secured and proprietary software to our clients. 
 
 ### Comparison
 
+The language `Swift`, although backed by `Apple`, is under the commonly used `Apahce License 2.0`. There is no proprietary or paid parts of `Swift` language. Regarding `Xcode`, although it is proprietary software, we are legally allowed to develop closed-source and commercial applications with it on `Apple` platforms (Apple, 2019). In most mobile application developed with `Swift`, it is possible to avoid external packages, either to use `Apple's` own template animations or write it on you own.
 
+Opposing to `Swift`, it is almost impossible to write an application with `React Native` or `Flutter` without importing other `yarn` or `npm` open source modules, as these frameworks rely heavily on these. These modules might work just fine at development stage, but might cause issues as these open source modules might contain malicious code. For instance, `left-pad` an incredibly simple library that simply adds chars to the beginning of strings that's gone wrong made the `React` as a whole stopped updating (Collins, 2016). These clearly illustrates the possiblity of obfuscated malicious injection of `JavaScript` into libraries that depends on each other.
 
+Another significant issue is licensing. When importing so many modules, it would be difficult to check the license of all of them. If any modules are imported with GPL license and we use it as part of our proprietary software, we would also have to open source, as the license requires. (Free Software Foundation, 2020) 
 
+To avoid all these issues and security risks, our team preferred `Swift` and `Xcode` over `React Native` or `Flutter` as our development tool.
 
+## Performance
+
+Last but not least, our task does include building a performant and responsive application with rather high load on the background. These load includes but not limited to video buffering and preloading, thumbnail generation and fetching recommendation and user notes. This does impose a certain amount of burden and our goal is minimize its affect felt by our users. In the experiment below, we compare `Swift` and `React Native` and made the assumption that `Flutter` will perform quite similar to `React Native`.
+
+### Comparison
+
+With reference to Bilberg (2018), who made through investigation of performance between `Swift` and `React Native` through creating a similar app using both tech stacks and compare the time difference, we show the Figure below to better address the issue.
+
+![Swift and React Speed Comparison](./images/swift-vs-react.png)
+
+*Figure 2. A comparison between `Swift` and `React` on loading differnt number of graphical elements (Bilberg, 2018)*
+
+As clearly shown in the Figure 2 above, `React Native` proved to perform in some instances better when compared to `Swift`. When rendering only 3 graphical elements, `React Native` performed 7.7% better. When that number was 5, `React Native` still performed better, a winner of 5.2% when compared to the performance of the `Swift` project. However, extending the elements to 10 is where we first noticed a severe difference in performance between the two artifacts, as we can observe a performance difference at 24% to the favor of the Swift project. The last test which served 100 elements to the artifacts proved to be the biggest difference between the two, showing a whopping difference with 114% in performance difference in the favor of the Swift project. (Bilberg, 2018)
+
+As we consider our program rather heavy weight on calculation and fetching, we favoured `Swift` over `React Native` or `Flutter` in our tech stack.
+
+## Summary
+
+In conlusion, with the advantages of a modern and safe language, a more stable framework, a more secured and license development enviroment and better performance, and at the slight cost of worse tooling, our team concluded that `Swift` would be a better fit for our project, and thus proceeded with the development of a native mobile application.
 
 
 ## References
@@ -103,8 +128,16 @@ StackShare. (2020). JavaScript vs Swift | What are the differences?. [online] Av
 
 Tepper, F. (2020). Facebook’s Parse developer platform is shutting down today. [online] Techcrunch.com. Available at: https://techcrunch.com/2017/01/30/facebooks-parse-developer-platform-is-shutting-down-today/ [Accessed 21 Jan. 2020].
 
-https://developer.apple.com/swift/
+Keith, Collins. (2016). How one programmer broke the internet by deleting a tiny piece of code. [online] Quartz. Available at: https://qz.com/646467/how-one-programmer-broke-the-internet-by-deleting-a-tiny-piece-of-code/ [Accessed 21 Jan. 2020].
 
-https://facebook.github.io/react-native/
+Apple (2019). Xcode and Apple SDKs Agreement. Aug 7, 2019. EA1647. Available at: https://www.apple.com/legal/sla/docs/xcode.pdf [Accessed 21 Jan. 2020].
 
-https://flutter.dev/
+Free Software Foundation (2020). The GNU General Public License v3.0- GNU Project - Free Software Foundation. [online] Available at: https://www.gnu.org/licenses/gpl-3.0.en.html [Accessed 22 Jan. 2020].
+
+Bilberg, D. (2018). Comparing performance between react native and natively developed smartphone applications in swift : A comparative analysis and evaluation of the React Native framework (Dissertation). Retrieved from http://urn.kb.se/resolve?urn=urn:nbn:se:his:diva-15480
+
+Apple (2020). Swift - Apple Developer. [online] Available at: https://developer.apple.com/swift/ [Accessed 22 Jan. 2020].
+
+Facebook (2020). React Native - A framework for building native apps using React. [online] Available at: https://facebook.github.io/react-native/ [Accessed 22 Jan. 2020]
+
+Google (2020). Flutter - Beautiful native apps in record time. [online] Available at: https://flutter.dev [Accessed 22 Jan. 2020].
