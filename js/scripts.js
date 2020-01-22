@@ -81,10 +81,6 @@
             disableOnInteraction: false
 		},
         loop: true,
-        navigation: {
-			nextEl: '.swiper-button-next',
-			prevEl: '.swiper-button-prev'
-		},
 		slidesPerView: 3,
 		spaceBetween: 20,
         breakpoints: {
@@ -106,7 +102,7 @@
             delay: 2000,
             disableOnInteraction: false
 		},
-        loop: false,
+        loop: true,
         navigation: {
 			nextEl: '.swiper-button-next',
 			prevEl: '.swiper-button-prev',
@@ -145,7 +141,7 @@
 
     /* Image Slider - Magnific Popup */
 	$('.popup-link').magnificPopup({
-		removalDelay: 300,
+		removalDelay: 3000,
 		type: 'image',
 		callbacks: {
 			beforeOpen: function() {
