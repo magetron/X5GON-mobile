@@ -4,21 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Mobile app HTML landing page template to help you build a great online presence for your app which will convert visitors into users">
-    <meta name="author" content="Inovatik">
-
-    <!-- OG Meta Tags to improve the way the post looks when you share the page on LinkedIn, Facebook, Google+ -->
-    <meta property="og:site_name" content="" /> <!-- website name -->
-    <meta property="og:site" content="" /> <!-- website link -->
-    <meta property="og:title" content=""/> <!-- title shown in the actual shared post -->
-    <meta property="og:description" content="" /> <!-- description shown in the actual shared post -->
-    <meta property="og:image" content="" /> <!-- image link, make sure it's jpg -->
-    <meta property="og:url" content="" /> <!-- where do you want your post to link to -->
-    <meta property="og:type" content="article" />
-
     <!-- Website Title -->
-    <title>Privacy Policy - Leno - Mobile App HTML Landing Page Template</title>
+    <title>Prototype Stage 1 - Team 4 - X5GON Project Website</title>
 
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
@@ -52,7 +39,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h1>Prototype Design</h1>
+                    <h1>Prototype Stage 1</h1>
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
         </div> <!-- end of container -->
@@ -66,7 +53,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumbs">
-                        <a href="index.html">Home</a><i class="fa fa-angle-double-right"></i><span>Prototype Design</span>
+                        <a href="index.html">Home</a><i class="fa fa-angle-double-right"></i><span>Prototype Stage 1</span>
                     </div> <!-- end of breadcrumbs -->
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
@@ -107,8 +94,131 @@
         </div>
     </div>
 
+    <div id="design-patterns" class="ex-basic-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="text-container">
+                        <h3>Design Patterns</h3>
+                        <div class="row list-unstyled">
+                            <h4><i class="fas fa-square"></i> Prototype Design Pattern (Duell, 1997)</h4>
+                            <p class="indent"> Prototype Design Pattern is used in the project on <code>ViewControllers</code> to ensure single responsibility principle and make <code>ViewControllers</code> replica for different Video sessions more reliable.</p>
+                            <h4><i class="fas fa-square"></i> Adapter Design Pattern (Freeman et al., 2004)</h4>
+                            <p class="indent"> Adapter Design Pattern is used specifically for user authentication module in the application. When <code>UserModel</code> uses its static method to authenticate with X5GON backend, we provided a specific <code>AuthenticateAdapter</code> layer in case of future variations of authentication methods.</p>
+                            <h4><i class="fas fa-square"></i> Builder Design Pattern (Gamma et al., 1994)</h4>
+                            <p class="indent"> Builder Design Pattern is used in the project on constructing new <code>UserModel</code>, <code>VideoModel</code> or <code>ChannelModel</code>. Since the models contain a great amount information and cannot be fetched in one attempt, we used <code>VideoBuilder</code> and <code>UserBuilder</code> to store temporarily constructed middle-objects.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="data-storage" class="ex-basic-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="text-container">
+                        <h3>Data Storage and Entity Relations</h3>
+                        <p>We are currently storing cached <code>VideoModel</code> and <code>UserModel</code> in the local caching folder as <code>.mp4</code> and <code>.json</code> files. </p>
+                        <p>In the future, we are looking to optimise data storage with the <code>CoreData</code> storage provided by Cocoa Touch Applications (Apple Developer, 2020). We also aim to provide an Entity Relationship Diagram at a later stage of the project.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="implementation" class="ex-basic-2 tabs">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="text-container">
+                        <h3>Implementation Highlights</h3>
+                        <p>Since a brief introduction of overall System Architecture can be found <a class="page-scroll turquoise" href="#architecture">above</a>, we provide several highlights that are worth noting at our current development stage.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+                <!-- Tabs Links -->
+                <ul class="nav nav-tabs" id="lenoTabs" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="nav-tab-1" data-toggle="tab" href="#tab-1" role="tab" aria-controls="tab-1" aria-selected="true"><i class="fas fa-image"></i>Fast Thumbnail Generation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="nav-tab-2" data-toggle="tab" href="#tab-2" role="tab" aria-controls="tab-2" aria-selected="false"><i class="fas fa-sync"></i>Video Preloading and Async Refreshing</a>
+                    </li>
+                </ul>
+                <!-- end of tabs links -->
 
 
+                <!-- Tabs Content-->
+                <div class="tab-content" id="lenoTabsContent">
+
+                    <!-- Tab -->
+                    <div class="tab-pane fade show active" id="tab-1" role="tabpanel" aria-labelledby="tab-1">
+                        <div class="container">
+                            <div class="row">
+
+                                <!-- Image Pane -->
+                                <div class="col-lg-6">
+                                    <img class="img-fluid" src="images/fast-thumbnail-generation.png" alt="alternative">
+                                </div>
+                                <!-- end of image pane -->
+
+                                <!-- Icon Cards Pane -->
+                                <div class="col-lg-6">
+                                    <div class="text-area">
+                                        <h4>Generate Thumbnails on-the-fly</h4>
+                                        <p>
+                                           The X5GON backend provides users with videos but not thumbnails or preview methods.
+                                            To tackle this issue, we used a <code>DispatchQueue</code> (Apple, 2009) to create a separate <code>Thread</code> that aims to
+                                            generate thumbnails by fetching the video image at 1 minute mark, without interfering with user interface on the main thread. </p>
+                                        <p>Click on the code below to see an sample of implementation for such methods.</p>
+                                        <a class="image-link" href="images/fast-thumbnail-code.png"><img class="img-fluid" src="images/fast-thumbnail-code.png"  alt="alternative"/></a>
+                                    </div> <!-- end of text-area -->
+                                </div>
+                                <!-- end of icon cards pane -->
+
+                            </div> <!-- end of row -->
+                        </div> <!-- end of container -->
+                    </div> <!-- end of tab-pane -->
+                    <!-- end of tab -->
+
+                    <!-- Tab -->
+                    <div class="tab-pane fade" id="tab-2" role="tabpanel" aria-labelledby="tab-2">
+                        <div class="container">
+                            <div class="row">
+
+                                <!-- Text And Icon Cards Area -->
+                                <div class="col-lg-6">
+                                    <div class="text-area offset-1">
+                                        <h4>Load everything behind the scene</h4>
+                                        <p> We kept performance in mind since our application is rather network-heavy and requires common re-rendering.
+                                            That's the key reason why we load everything behind scene with <code>Apple's Grand Central Dispatch Multi-threading</code> (Apple, 2009) and hint <code>UIView</code> whenever we finish loading
+                                            to refresh only bits of <code>Cells</code>. This ensures smallest amount of load on both CPU and GPU on mobile platforms. </p>
+                                        <p>Click on the code below to see an sample of implementation for such methods.</p>
+                                            <a class="image-link" href="images/async-load-code.png"><img class="img-fluid" src="images/async-load-code.png"  alt="alternative"/></a>
+                                    </div> <!-- end of text-area -->
+                                </div> <!-- end of col-md-8 -->
+
+                                <!-- Image Pane -->
+                                <div class="col-lg-6">
+                                    <img class="img-fluid" src="images/async-load.png" alt="alternative">
+                                </div>
+                                <!-- end of image pane -->
+
+                            </div> <!-- end of row -->
+                        </div> <!-- end of container -->
+                    </div> <!-- end of tab-pane -->
+                    <!-- end of tab -->
+
+                </div> <!-- end of tab-content -->
+                <!-- end of tabs content -->
+
+            </div> <!-- end of row -->
+        </div>
+    </div>
 
     <!-- References -->
     <div id="requirements-references" class="ex-basic-3">
@@ -117,9 +227,11 @@
                 <h3>References</h3>
                 <ul class="list-unstyled li-space-lg indent">
                     <li class="media"> <div class="media-body">Reenskaug, Trygve; Coplien, James O. (20 March 2009). "The DCI Architecture: A New Vision of Object-Oriented Programming". Artima Developer. Archived from the original (html) on 23 March 2009. Retrieved 3 August 2019. "More deeply, the framework exists to separate the representation of information from user interaction." </div></li><br>
-                    <li class="media"> <div class="media-body">European Commission (2017). X5GON Global OER Network(Ref. Ares(2018)2014644 - 16/04/2018). Retrieved from
-                        <a href="https://ec.europa.eu/research/participants/documents/downloadPublic?documentIds=080166e5b9fca9b8&appId=PPGMS">
-                            https://ec.europa.eu/research/participants/documents/downloadPublic?documentIds=080166e5b9fca9b8&appId=PPGMS</a></div></li>
+                    <li class="media"> <div class="media-body">Duell, Michael (July 1997). "Non-Software Examples of Design Patterns". Object Magazine. 7 (5): 54. ISSN 1055-3614.</div></li><br>
+                    <li class="media"> <div class="media-body">Freeman, Eric; Freeman, Elisabeth; Sierra, Kathy; Bates, Bert (2004). "Head First Design Patterns" (paperback). O'Reilly Media: 244. ISBN 978-0-596-00712-6. OCLC 809772256. Retrieved 2013-04-30.</div></li><br>
+                    <li class="media"> <div class="media-body">Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides (1994). Design Patterns: Elements of Reusable Object-Oriented Software. Addison Wesley. pp. 97ff. ISBN 0-201-63361-2.</div></li><br>
+                    <li class="media"> <div class="media-body">Apple (2020). Core Data | Apple Developer Documentation. [online] Available at: https://developer.apple.com/documentation/coredata [Accessed 22 Jan. 2020].</div></li><br>
+                    <li class="media"> <div class="media-body">Apple (2009). Apple Technical Brief on Grand Central Dispatch" (PDF). Archived from the original on September 20, 2009. Retrieved September 12, 2009.</div></li><br>
                 </ul>
             </div> <!-- end of text-container-->
         </div>
@@ -150,10 +262,8 @@
             },
             zoom: {
                 enabled: true, // By default it's false, so don't forget to enable it
-
                 duration: 300, // duration of the effect, in milliseconds
                 easing: 'ease-in-out', // CSS transition easing function
-
                 // The "opener" function should return the element from which popup will be zoomed in
                 // and to which popup will be scaled down
                 // By defailt it looks for an image tag:
@@ -163,7 +273,6 @@
                     return openerElement.is('img') ? openerElement : openerElement.find('img');
                 }
             }
-
         });
     </script>
     <script src="js/popper.min.js"></script> <!-- Popper tooltip library for Bootstrap -->
@@ -172,8 +281,8 @@
     <script src="js/swiper.min.js"></script> <!-- Swiper for image and text sliders -->
     <script src="js/morphext.min.js"></script> <!-- Morphtext rotating text in the header -->
     <script src="js/validator.min.js"></script> <!-- Validator.js - Bootstrap plugin that validates forms -->
+    <script src="js/run_prettify.js"></script>
     <script src="js/scripts.js"></script> <!-- Custom scripts -->
-
 </body>
 
 </html>
