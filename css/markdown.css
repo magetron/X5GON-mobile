@@ -11,7 +11,7 @@ a {
 a:hover {
     text-decoration: underline;
 }
-p, ul, ol {
+p {
     font-size: 20px;
     margin-left: 20px;
     line-height: 1.5;
