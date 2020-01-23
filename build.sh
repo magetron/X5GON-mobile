@@ -36,3 +36,4 @@ perl -pe 's|<zero-md .* src="external/research.md"></zero-md>|`cat research-md.h
 /bin/rm -rf footer.html
 /bin/rm -rf $research_md_html
 
+cd ..
