@@ -15,7 +15,7 @@
 
 #### To use GUI:
 
-Double click to open `x5gon-mobile.xcworkspace` and select build target on top left corner.
+Double click to open `x5gon-mobile.xcodeproj` and select build target on top left corner.
 
 Click `Build then Run the current scheme` to run.
 
