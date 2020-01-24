@@ -33,7 +33,7 @@ Meanwhile, our team considers tooling convenience when choosing our tech stack. 
 From a development perspective, `Swift` is, first of all, a compiled language, while `JavaScript` is an interpreted language (although most engines currently do Just-in-Time(JIT) compilation instead (Auler et al., 2014) ). This is an advantage for `React Native` and `Flutter` as they support hot-reloading during development (Bigio, 2016). It is very efficient as you can see changes instantly in less than 1 second, compared to `Swift` where you have to re-build in about 7 to 8 seconds (CodeMagic, 2020), as you can see below in Figure 1. 
 
 
-![Reload Speed](../images/swift-vs-flutter-reload.png)
+![Reload Speed](images/swift-vs-flutter-reload.png)
 
 *Figure 1. A comparison between Swift and Flutter Reload Speed (CodeMagic, 2020)*
 
@@ -76,7 +76,7 @@ Last but not least, our task does include building a performant and responsive a
 
 With reference to Bilberg (2018), who made a thorough investigation of performance between `Swift` and `React Native` through creating a similar app using both tech stacks and compare the time difference, we show the Figure below to better address the issue.
 
-![Swift and React Speed Comparison](../images/swift-vs-react.png)
+![Swift and React Speed Comparison](images/swift-vs-react.png)
 
 *Figure 2. A comparison between `Swift` and `React` on loading different number of graphical elements (Bilberg, 2018)*
 
