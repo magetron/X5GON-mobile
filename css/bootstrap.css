@@ -486,6 +486,12 @@ mark,
   height: auto;
 }
 
+.img-fluid-svg {
+  max-width: 100%;
+  height: auto;
+  background: #eeeeee;
+}
+
 .img-fluid-small {
   height: 20em;
 }
