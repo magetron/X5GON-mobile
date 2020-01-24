@@ -3,6 +3,7 @@
 mkdir static
 
 cp *.html static
+cp *.md static
 cp -r css static
 cp -r docs static
 cp -r images static
@@ -24,14 +25,15 @@ echo "<style>" >> $research_md_html
 cat css/markdown.css >> $research_md_html
 echo "</style>" >> $research_md_html
 echo "<xmp>" >> $research_md_html
-cat external/research.md >> $research_md_html
+cat research.md >> $research_md_html
 echo "</xmp>" >> $research_md_html
 echo "</template>" >> $research_md_html
 echo "</zero-md>" >> $research_md_html
 
-perl -pe 's|<zero-md .* src="external/research.md"></zero-md>|`cat research-md.html`|ge' -i research.html
+perl -pe 's|<zero-md .* src="research.md"></zero-md>|`cat research-md.html`|ge' -i research.html
 
 /bin/rm -rf external
+/bin/rm -rf research.md
 /bin/rm -rf nav.html
 /bin/rm -rf footer.html
 /bin/rm -rf $research_md_html
