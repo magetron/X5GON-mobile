@@ -28,7 +28,7 @@ class VideoPlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGes
     var delegate: PlayerViewControllerDelegate?
     var state = stateOfViewController.hidden
     var direction = Direction.none
-    var videoPlayer = AVPlayer()
+    var videoPlayerViewController = AVPlayerViewController()
     
     //MARK: Methods
     func customization() {
@@ -40,10 +40,10 @@ class VideoPlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGes
         self.player.layer.anchorPoint.applying(CGAffineTransform.init(translationX: -0.5, y: -0.5))
         self.tableView.tableFooterView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 0, height: 0))
         self.player.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(self.resumePlayView)))
-        let playerLayer = AVPlayerLayer.init(player: self.videoPlayer)
-        playerLayer.frame = self.player.frame
-        playerLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
-        self.player.layer.addSublayer(playerLayer)
+        videoPlayerViewController.view.frame = self.player.frame
+        videoPlayerViewController.videoGravity = AVLayerVideoGravity.resizeAspectFill
+        videoPlayerViewController.showsPlaybackControls = true
+        self.player.addSubview(videoPlayerViewController.view)
         NotificationCenter.default.addObserver(self, selector: #selector(self.tapPlayView), name: NSNotification.Name("open"), object: nil)
     }
     
@@ -79,7 +79,7 @@ class VideoPlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGes
     
 
     @objc func resumePlayView() {
-        self.videoPlayer.play()
+        self.videoPlayerViewController.player?.play()
         self.state = .fullScreen
         self.delegate?.didmaximize()
         self.animate()
@@ -89,7 +89,7 @@ class VideoPlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGes
         if let video = notification.object as? VideoModel {
             setVideo(video: video)
         }
-        self.videoPlayer.play()
+        self.videoPlayerViewController.player?.play()
         self.state = .fullScreen
         self.delegate?.didmaximize()
         self.animate()
@@ -136,7 +136,7 @@ class VideoPlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGes
             self.animate()
             self.delegate?.didEndedSwipe(toState: self.state)
             if self.state == .hidden {
-                self.videoPlayer.pause()
+                self.videoPlayerViewController.player?.pause()
             }
         }
     }
@@ -179,13 +179,16 @@ class VideoPlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGes
     func setVideo(video : VideoModel) {
         self.video = video
         if self.video.videoLink != nil {
-            self.videoPlayer.replaceCurrentItem(with: AVPlayerItem.init(url: self.video.videoLink))
+            if self.videoPlayerViewController.player == nil {
+                self.videoPlayerViewController.player = AVPlayer()
+            }
+            self.videoPlayerViewController.player?.replaceCurrentItem(with: AVPlayerItem.init(url: self.video.videoLink))
         }
         if self.video.suggestedVideos.count == 0 {
             self.video.fetchSuggestedVideos(async: true, refresher: self.refresher)
         }
         if self.state != .hidden {
-            self.videoPlayer.play()
+            self.videoPlayerViewController.player?.play()
         }
         self.tableView.reloadData()
     }
