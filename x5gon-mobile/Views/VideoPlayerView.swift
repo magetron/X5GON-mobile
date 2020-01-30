@@ -22,7 +22,6 @@ class VideoPlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGes
 
     //MARK: Properties
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var minimizeButton: UIButton!
     @IBOutlet weak var player: UIView!
     var video: VideoModel!
     var delegate: PlayerViewControllerDelegate?
@@ -51,7 +50,6 @@ class VideoPlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGes
         switch self.state {
             case .fullScreen:
                 UIView.animate(withDuration: 0.3, animations: {
-                    self.minimizeButton.alpha = 1
                     self.tableView.alpha = 1
                     self.player.transform = CGAffineTransform.identity
                     self.delegate?.setPreferStatusBarHidden(true)
@@ -59,7 +57,6 @@ class VideoPlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGes
             case .minimized:
                 UIView.animate(withDuration: 0.3, animations: {
                     self.delegate?.setPreferStatusBarHidden(false)
-                    self.minimizeButton.alpha = 0
                     self.tableView.alpha = 0
                     let scale = CGAffineTransform.init(scaleX: 0.5, y: 0.5)
                     let trasform = scale.concatenating(CGAffineTransform.init(translationX: -self.player.bounds.width/4, y: -self.player.bounds.height/4))
@@ -70,7 +67,6 @@ class VideoPlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGes
     }
     
     func changeValues(scaleFactor: CGFloat) {
-        self.minimizeButton.alpha = 1 - scaleFactor
         self.tableView.alpha = 1 - scaleFactor
         let scale = CGAffineTransform.init(scaleX: (1 - 0.5 * scaleFactor), y: (1 - 0.5 * scaleFactor))
         let trasform = scale.concatenating(CGAffineTransform.init(translationX: -(self.player.bounds.width / 4 * scaleFactor), y: -(self.player.bounds.height / 4 * scaleFactor)))
@@ -123,7 +119,6 @@ class VideoPlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGes
                 let factor: CGFloat = sender.translation(in: nil).x
                 self.delegate?.swipeToMinimize(translation: factor, toState: .hidden)
             } else {
-                print("Try back to fullscreen")
                 finalState = .fullScreen
                 let factor = 1 - (abs(sender.translation(in: nil).y) / UIScreen.main.bounds.height)
                 self.changeValues(scaleFactor: factor)
