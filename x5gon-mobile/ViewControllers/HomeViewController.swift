@@ -24,10 +24,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func fetchData() {
-        if (Videos.items.count == 0) {
-            Videos.loadItems()
+        if (VideoController.items.count == 0) {
+            VideoController.loadItems()
         }
-        self.videos = Videos.items
+        self.videos = VideoController.items
         self.tableView.reloadData()
     }
     

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD00457923E4E76A009CA522 /* PDFModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00457823E4E76A009CA522 /* PDFModel.swift */; };
+		CD00457B23E4E7AD009CA522 /* ContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00457A23E4E7AD009CA522 /* ContentModel.swift */; };
+		CD00457E23E4ED16009CA522 /* VideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00457D23E4ED16009CA522 /* VideoController.swift */; };
 		CDFD3BEC23CC784C000FCEF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFD3BEB23CC784C000FCEF6 /* AppDelegate.swift */; };
 		CDFD3BF223CC7853000FCEF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDFD3BF123CC7853000FCEF6 /* Assets.xcassets */; };
 		CDFD3BF523CC7853000FCEF6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDFD3BF423CC7853000FCEF6 /* Preview Assets.xcassets */; };
@@ -47,6 +50,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CD00457823E4E76A009CA522 /* PDFModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFModel.swift; sourceTree = "<group>"; };
+		CD00457A23E4E7AD009CA522 /* ContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentModel.swift; sourceTree = "<group>"; };
+		CD00457D23E4ED16009CA522 /* VideoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoController.swift; sourceTree = "<group>"; };
 		CDFD3BE823CC784C000FCEF6 /* x5gon-mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "x5gon-mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDFD3BEB23CC784C000FCEF6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CDFD3BF123CC7853000FCEF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -100,6 +106,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CD00457C23E4ECFF009CA522 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CD00457D23E4ED16009CA522 /* VideoController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		CDFD3BDF23CC784C000FCEF6 = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +137,7 @@
 		CDFD3BEA23CC784C000FCEF6 /* x5gon-mobile */ = {
 			isa = PBXGroup;
 			children = (
+				CD00457C23E4ECFF009CA522 /* Controllers */,
 				CDFD3C4B23CC7D8B000FCEF6 /* Helpers */,
 				CDFD3C4623CC7D02000FCEF6 /* Models */,
 				CDFD3C4323CC7CDE000FCEF6 /* Extensions */,
@@ -199,6 +214,8 @@
 			children = (
 				CDFD3C4723CC7D15000FCEF6 /* UserModel.swift */,
 				CDFD3C4923CC7D64000FCEF6 /* VideoModel.swift */,
+				CD00457823E4E76A009CA522 /* PDFModel.swift */,
+				CD00457A23E4E7AD009CA522 /* ContentModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -345,14 +362,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDFD3C4023CC7C9F000FCEF6 /* SearchView.swift in Sources */,
+				CD00457E23E4ED16009CA522 /* VideoController.swift in Sources */,
 				CDFD3C3E23CC7C8E000FCEF6 /* TabBarView.swift in Sources */,
 				CDFD3C4A23CC7D64000FCEF6 /* VideoModel.swift in Sources */,
 				CDFD3C2F23CC7986000FCEF6 /* MainViewController.swift in Sources */,
 				CDFD3C3923CC7C3F000FCEF6 /* AccountViewController.swift in Sources */,
 				CDFD3C4823CC7D15000FCEF6 /* UserModel.swift in Sources */,
 				CDFD3C2E23CC7986000FCEF6 /* NavViewController.swift in Sources */,
+				CD00457B23E4E7AD009CA522 /* ContentModel.swift in Sources */,
 				CDFD3C3323CC7BEE000FCEF6 /* TrendingViewController.swift in Sources */,
 				CDFD3C4523CC7CEA000FCEF6 /* Extensions.swift in Sources */,
+				CD00457923E4E76A009CA522 /* PDFModel.swift in Sources */,
 				CDFD3BEC23CC784C000FCEF6 /* AppDelegate.swift in Sources */,
 				CDFD3C3123CC79F0000FCEF6 /* HomeViewController.swift in Sources */,
 				CDFD3C3C23CC7C75000FCEF6 /* VideoPlayerView.swift in Sources */,

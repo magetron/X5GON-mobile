@@ -138,7 +138,7 @@ class VideoPlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGes
     
     //MARK: Delegate & dataSource methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let count = self.video?.suggestedVideos.count {
+        if let count = self.video?.suggestedContents.count {
             return count + 1
         }
         return 0
@@ -152,7 +152,7 @@ class VideoPlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGes
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! suggestionVideoCell
-            cell.set(video: self.video.suggestedVideos[indexPath.row - 1])
+            cell.set(video: (self.video.suggestedContents[indexPath.row - 1] as! VideoModel))
             return cell
         }
     }
@@ -161,7 +161,7 @@ class VideoPlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGes
         if (indexPath.row == 0) {
             return
         } else {
-            NotificationCenter.default.post(name: NSNotification.Name("open"), object: self.video.suggestedVideos[indexPath.row - 1])
+            NotificationCenter.default.post(name: NSNotification.Name("open"), object: self.video.suggestedContents[indexPath.row - 1])
         }
     }
     
@@ -179,8 +179,8 @@ class VideoPlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGes
             }
             self.videoPlayerViewController.player?.replaceCurrentItem(with: AVPlayerItem.init(url: self.video.videoLink))
         }
-        if self.video.suggestedVideos.count == 0 {
-            self.video.fetchSuggestedVideos(async: true, refresher: self.refresher)
+        if self.video.suggestedContents.count == 0 {
+            self.video.fetchSuggestedContents(async: true, refresher: self.refresher)
         }
         if self.state != .hidden {
             self.videoPlayerViewController.player?.play()
