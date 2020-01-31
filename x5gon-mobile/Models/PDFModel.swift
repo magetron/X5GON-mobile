@@ -14,14 +14,21 @@ import UIKit
 class PDFModel : ContentModel {
     override func fetchSuggestedContents (async : Bool, refresher: @escaping () -> Void) {
          if (async) {
-            
+             DispatchQueue.global().async {
+                 let pdfs = VideoController.fetchItems(keyWord: self.title, contentType: "text")
+                 super.suggestedContents = pdfs
+                 OperationQueue.main.addOperation ({
+                      refresher()
+                 })
+             }
          } else {
-
+             let pdfs = VideoController.fetchItems(keyWord: self.title, contentType: "text")
+             self.suggestedContents = pdfs
          }
      }
      
      override func generateInfo() {
-
+        self.duration = 0
      }
     
 }
