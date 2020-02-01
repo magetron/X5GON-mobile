@@ -15,10 +15,10 @@ class suggestionContentCell: UITableViewCell {
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var name: UILabel!
     
-    func set(video: VideoModel)  {
-        self.thumbnail.image = video.thumbnail
-        self.title.text = video.title
-        self.name.text = video.channel.name
+    func set(content: ContentModel)  {
+        self.thumbnail.image = content.thumbnail
+        self.title.text = content.title
+        self.name.text = content.channel.name
     }
     
     override func prepareForReuse() {

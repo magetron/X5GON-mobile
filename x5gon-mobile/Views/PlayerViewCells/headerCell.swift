@@ -22,16 +22,16 @@ class headerCell: UITableViewCell {
     var onDisLikeTapFunc: (() -> Void) = { () in return }
     
     
-    func set(video: VideoModel!, onLikeTapFunc: @escaping () -> Void, onDisLikeTapFunc: @escaping () -> Void) {
-        title.text = video!.title
-        viewCount.text = "\(video!.views) views"
-        likes.text = String(video!.likes)
-        disLikes.text = String(video!.disLikes)
-        channelTitle.text = video!.channel.name
-        channelPic.image = video!.channel.image
+    func set(content: ContentModel!, onLikeTapFunc: @escaping () -> Void, onDisLikeTapFunc: @escaping () -> Void) {
+        title.text = content!.title
+        viewCount.text = "\(content!.views) views"
+        likes.text = String(content!.likes)
+        disLikes.text = String(content!.disLikes)
+        channelTitle.text = content!.channel.name
+        channelPic.image = content!.channel.image
         channelPic.layer.cornerRadius = 25
         channelPic.clipsToBounds = true
-        channelSubscribers.text = "\(video!.channel.subscribers) subscribers"
+        channelSubscribers.text = "\(content!.channel.subscribers) subscribers"
         selectionStyle = .none
         let likeTap = UITapGestureRecognizer(target: self, action: #selector(onLikeTap))
         let disLikeTap = UITapGestureRecognizer(target: self, action: #selector(onDisLikeTap))

@@ -210,7 +210,7 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hai-Uu-zYx">
-                            <rect key="frame" x="0.0" y="233.33333333333334" width="415" height="476.66666666666663"/>
+                            <rect key="frame" x="0.0" y="259.33333333333326" width="415" height="450.66666666666674"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <prototypes>
                                 <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Header" rowHeight="199" id="5hc-ET-uzg" customClass="headerCell" customModule="x5gon_mobile" customModuleProvider="target">
@@ -377,7 +377,7 @@
                             </prototypes>
                         </tableView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="smd-ED-5eC">
-                            <rect key="frame" x="0.0" y="0.0" width="415" height="233.33333333333334"/>
+                            <rect key="frame" x="0.0" y="0.0" width="415" height="259.33333333333331"/>
                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <gestureRecognizers/>
                             <viewLayoutGuide key="safeArea" id="YFy-30-ufn"/>
@@ -389,7 +389,7 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="hai-Uu-zYx" secondAttribute="trailing" id="1MG-iQ-gBo"/>
-                        <constraint firstItem="smd-ED-5eC" firstAttribute="width" secondItem="smd-ED-5eC" secondAttribute="height" multiplier="16:9" id="Di0-QR-gRL"/>
+                        <constraint firstItem="smd-ED-5eC" firstAttribute="width" secondItem="smd-ED-5eC" secondAttribute="height" multiplier="16:10" id="Di0-QR-gRL"/>
                         <constraint firstItem="smd-ED-5eC" firstAttribute="leading" secondItem="5gL-Aw-hkc" secondAttribute="leading" id="Ef0-sU-5EZ"/>
                         <constraint firstAttribute="bottom" secondItem="hai-Uu-zYx" secondAttribute="bottom" id="W7e-tm-tWX"/>
                         <constraint firstItem="hai-Uu-zYx" firstAttribute="leading" secondItem="5gL-Aw-hkc" secondAttribute="leading" id="jYf-gc-nKX"/>

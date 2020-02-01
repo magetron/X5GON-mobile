@@ -23,7 +23,7 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
     //MARK: Properties
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var player: UIView!
-    var video: VideoModel!
+    var content: ContentModel!
     var delegate: PlayerViewControllerDelegate?
     var state = stateOfViewController.hidden
     var direction = Direction.none
@@ -42,7 +42,6 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         videoPlayerViewController.view.frame = self.player.frame
         videoPlayerViewController.videoGravity = AVLayerVideoGravity.resizeAspectFill
         videoPlayerViewController.showsPlaybackControls = true
-        self.player.addSubview(videoPlayerViewController.view)
         NotificationCenter.default.addObserver(self, selector: #selector(self.tapPlayView), name: NSNotification.Name("open"), object: nil)
     }
     
@@ -86,6 +85,8 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         print(notification.object is VideoModel)
         if let video = notification.object as? VideoModel {
             setVideo(video: video)
+        } else if let pdf = notification.object as? PDFModel {
+            setPDF(pdf: pdf)
         }
         self.videoPlayerViewController.player?.play()
         self.state = .fullScreen
@@ -140,7 +141,7 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
     
     //MARK: Delegate & dataSource methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let count = self.video?.suggestedContents.count {
+        if let count = self.content?.suggestedContents.count {
             return count + 1
         }
         return 0
@@ -150,11 +151,11 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "Header") as! headerCell
-            cell.set(video: self.video, onLikeTapFunc: self.OnLikeTap, onDisLikeTapFunc: self.OnDisLikeTap)
+            cell.set(content: self.content, onLikeTapFunc: self.OnLikeTap, onDisLikeTapFunc: self.OnDisLikeTap)
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! suggestionContentCell
-            cell.set(video: (self.video.suggestedContents[indexPath.row - 1] as! VideoModel))
+            cell.set(content: (self.content.suggestedContents[indexPath.row - 1]))
             return cell
         }
     }
@@ -163,7 +164,7 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         if (indexPath.row == 0) {
             return
         } else {
-            NotificationCenter.default.post(name: NSNotification.Name("open"), object: self.video.suggestedContents[indexPath.row - 1])
+            NotificationCenter.default.post(name: NSNotification.Name("open"), object: self.content.suggestedContents[indexPath.row - 1])
         }
     }
     
@@ -174,16 +175,19 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
     }
     
     func setVideo(video : VideoModel) {
-        self.video = video
-        print(self.video.videoLink)
-        if self.video.videoLink != nil {
-            if self.videoPlayerViewController.player == nil {
-                self.videoPlayerViewController.player = AVPlayer()
-            }
-            self.videoPlayerViewController.player?.replaceCurrentItem(with: AVPlayerItem.init(url: self.video.videoLink))
+        self.content = video
+        let selfVideo = self.content as! VideoModel
+        self.player.subviews.forEach({ $0.removeFromSuperview() })
+        self.player.addSubview(videoPlayerViewController.view)
+        if self.videoPlayerViewController.player == nil {
+            self.videoPlayerViewController.player = AVPlayer()
         }
-        if self.video.suggestedContents.count == 0 {
-            self.video.fetchSuggestedContents(async: true, refresher: self.refresher)
+
+        if selfVideo.videoLink != nil {
+            self.videoPlayerViewController.player?.replaceCurrentItem(with: AVPlayerItem.init(url: selfVideo.videoLink))
+        }
+        if selfVideo.suggestedContents.count == 0 {
+            selfVideo.fetchSuggestedContents(async: true, refresher: self.refresher)
         }
         if self.state != .hidden {
             self.videoPlayerViewController.player?.play()
@@ -191,13 +195,17 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         self.tableView.reloadData()
     }
     
+    func setPDF(pdf : PDFModel) {
+        self.content = pdf
+    }
+    
     func OnLikeTap () {
-        self.video.likes += 1
+        self.content.likes += 1
         refresher()
     }
     
     func OnDisLikeTap () {
-        self.video.disLikes += 1
+        self.content.disLikes += 1
         refresher()
     }
     

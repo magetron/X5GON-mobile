@@ -15,6 +15,7 @@
 		CDE92D9223E5D3CE004BB8BF /* headerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE92D9123E5D3CE004BB8BF /* headerCell.swift */; };
 		CDE92D9523E5D42D004BB8BF /* suggestionContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE92D9423E5D42D004BB8BF /* suggestionContentCell.swift */; };
 		CDE92D9723E5D49D004BB8BF /* ChannelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE92D9623E5D49D004BB8BF /* ChannelModel.swift */; };
+		CDE92D9923E62C0E004BB8BF /* ContentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE92D9823E62C0E004BB8BF /* ContentController.swift */; };
 		CDFD3BEC23CC784C000FCEF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFD3BEB23CC784C000FCEF6 /* AppDelegate.swift */; };
 		CDFD3BF223CC7853000FCEF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDFD3BF123CC7853000FCEF6 /* Assets.xcassets */; };
 		CDFD3BF523CC7853000FCEF6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDFD3BF423CC7853000FCEF6 /* Preview Assets.xcassets */; };
@@ -63,6 +64,7 @@
 		CDE92D9123E5D3CE004BB8BF /* headerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = headerCell.swift; sourceTree = "<group>"; };
 		CDE92D9423E5D42D004BB8BF /* suggestionContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = suggestionContentCell.swift; sourceTree = "<group>"; };
 		CDE92D9623E5D49D004BB8BF /* ChannelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelModel.swift; sourceTree = "<group>"; };
+		CDE92D9823E62C0E004BB8BF /* ContentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentController.swift; sourceTree = "<group>"; };
 		CDFD3BE823CC784C000FCEF6 /* x5gon-mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "x5gon-mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDFD3BEB23CC784C000FCEF6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CDFD3BF123CC7853000FCEF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 			children = (
 				CD00457D23E4ED16009CA522 /* VideoController.swift */,
 				CD00457F23E4F028009CA522 /* PDFController.swift */,
+				CDE92D9823E62C0E004BB8BF /* ContentController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 				CDFD3C2E23CC7986000FCEF6 /* NavViewController.swift in Sources */,
 				CD00458023E4F028009CA522 /* PDFController.swift in Sources */,
 				CD00457B23E4E7AD009CA522 /* ContentModel.swift in Sources */,
+				CDE92D9923E62C0E004BB8BF /* ContentController.swift in Sources */,
 				CDFD3C3323CC7BEE000FCEF6 /* TrendingViewController.swift in Sources */,
 				CDE92D9523E5D42D004BB8BF /* suggestionContentCell.swift in Sources */,
 				CDE92D9723E5D49D004BB8BF /* ChannelModel.swift in Sources */,

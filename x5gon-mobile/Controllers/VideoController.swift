@@ -9,11 +9,11 @@
 import Foundation
 
 
-class VideoController {
+class VideoController : ContentController{
     
     static var items = [VideoModel]()
 
-    static func loadPlaceHolders () -> [VideoModel] {
+    static func loadPlaceHolders () -> [ContentModel] {
         let playableVideo = VideoModel.init(title: "Big Buck Bunny", channelName: "Blender Foundation")
         playableVideo.videoLink = URL.init(string: "https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_30mb.mp4")!
         let suggestedVideo1 = VideoModel.init(title: "What Does Jared Kushner Believe", channelName: "Nerdwriter1")
@@ -35,55 +35,12 @@ class VideoController {
         return [playableVideo, video1, video2, video3, video4, video5, video6, video7, video8]
     }
     
-    static func fetchItems (keyWord : String, contentType : String) -> [VideoModel] {
-        var tmpItems = [VideoModel]()
-        let contentURLString = "https://platform.x5gon.org/api/v1/recommend/oer_materials?text=\"" + keyWord + "\"&type=" + contentType
-        let contentURL = URL(string: contentURLString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!
-        let semaphore = DispatchSemaphore(value: 0)
-        let dataTask = URLSession.shared.dataTask(with: contentURL) { data, response, error in
-            defer { semaphore.signal() }
-            guard let httpResponse = response as? HTTPURLResponse, let receivedData = data
-                else {
-                    print("error: not a valid http response")
-                    return
-                }
-            if (httpResponse.statusCode != 200) {
-                print("error: http response \(httpResponse.statusCode) not successful")
-            } else {
-                let jsonObject = try? JSONSerialization.jsonObject(with: receivedData, options: [])
-                guard let json = jsonObject as? [String: Any] else {
-                    print("error: invalid format")
-                    return
-                }
-                guard let recommendationMaterials = json["rec_materials"] as? [[String: Any]] else {
-                    print("error: invalid format")
-                    return
-                }
-                for material in recommendationMaterials {
-                    guard let title = material["title"] as? String, let provider = material["provider"] as? String, let url = material["url"] as? String
-                    else {
-                        print("error: invalid format")
-                        break
-                    }
-                    let newVideo = VideoModel.init(title: title, channelName: provider)
-                    let newVideoURL = URL.init(string: url)
-                    newVideo.initURL(url: newVideoURL!, regenerateInfo: true)
-                    tmpItems.append(newVideo)
-                }
-            }
-        }
-        dataTask.resume()
-        semaphore.wait()
-        return tmpItems
-    }
-    
-    
     static func loadDefaultItems() {
         let defaultKeyWord = "science"
         let defaultContentType = "video"
-        let defaultVideos = fetchItems(keyWord: defaultKeyWord, contentType: defaultContentType)
+        let defaultVideos = fetchItems(keyWord: defaultKeyWord, contentType: defaultContentType) as! [VideoModel]
         items.append(contentsOf: defaultVideos)
-        let placeHolders = loadPlaceHolders()
+        let placeHolders = loadPlaceHolders() as! [VideoModel]
         items.append(contentsOf: placeHolders)
         items.myShuffle()
     }
