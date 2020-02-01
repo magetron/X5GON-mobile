@@ -205,7 +205,7 @@
                         <outlet property="tableViewBottomConstraint" destination="axq-tC-z5v" id="59E-m3-zN8"/>
                     </connections>
                 </view>
-                <view contentMode="scaleToFill" id="5gL-Aw-hkc" customClass="VideoPlayerView" customModule="x5gon_mobile" customModuleProvider="target">
+                <view contentMode="scaleToFill" id="5gL-Aw-hkc" customClass="PlayerView" customModule="x5gon_mobile" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="415" height="710"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
@@ -327,7 +327,7 @@
                                         <outlet property="viewCount" destination="0ca-mZ-3VK" id="2Uv-mx-aol"/>
                                     </connections>
                                 </tableViewCell>
-                                <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="100" id="3q1-mt-wmI" customClass="suggestionVideoCell" customModule="x5gon_mobile" customModuleProvider="target">
+                                <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="100" id="3q1-mt-wmI" customClass="suggestionContentCell" customModule="x5gon_mobile" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="227" width="415" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3q1-mt-wmI" id="NAO-ZH-5eh">
@@ -537,7 +537,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="744"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="VideoCell" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="VideoCell" rowHeight="320" id="a1R-cz-mSD" customClass="VideoCell" customModule="x5gon_mobile" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="VideoCell" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="VideoCell" rowHeight="320" id="a1R-cz-mSD" customClass="ContentCell" customModule="x5gon_mobile" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="320"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="a1R-cz-mSD" id="b10-9C-i8T">
@@ -889,7 +889,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="VideoCell" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="VideoCell" rowHeight="320" id="m9m-8F-EQj" customClass="VideoCell" customModule="x5gon_mobile" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="VideoCell" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="VideoCell" rowHeight="320" id="m9m-8F-EQj" customClass="ContentCell" customModule="x5gon_mobile" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="98" width="414" height="320"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="m9m-8F-EQj" id="qg2-1x-kWN">

@@ -11,7 +11,7 @@ import UIKit
 class NavViewController: UINavigationController, PlayerViewControllerDelegate  {
 
     //MARK: Properties
-    @IBOutlet var playerView: VideoPlayerView!
+    @IBOutlet var playerView: PlayerView!
     @IBOutlet var searchView: SearchView!
     @IBOutlet var settingsView: SettingsView!
     let titleLabel = UILabel()

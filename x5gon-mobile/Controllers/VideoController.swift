@@ -78,7 +78,7 @@ class VideoController {
     }
     
     
-    static func loadItems() {
+    static func loadDefaultItems() {
         let defaultKeyWord = "science"
         let defaultContentType = "video"
         let defaultVideos = fetchItems(keyWord: defaultKeyWord, contentType: defaultContentType)

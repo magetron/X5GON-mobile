@@ -12,7 +12,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     //MARK: - Properties
     @IBOutlet weak var tableView: UITableView!
-    var videos = [VideoModel]()
+    var contents = [ContentModel]()
     var lastContentOffset: CGFloat = 0.0
     
     //MARK: Methods
@@ -25,25 +25,25 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func fetchData() {
         if (VideoController.items.count == 0) {
-            VideoController.loadItems()
+            VideoController.loadDefaultItems()
         }
-        self.videos = VideoController.items
+        self.contents = VideoController.items
         self.tableView.reloadData()
     }
     
     //MARK: Delegates
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.videos.count
+        return self.contents.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "VideoCell") as! VideoCell
-        cell.set(video: self.videos[indexPath.row])
+        let cell = tableView.dequeueReusableCell(withIdentifier: "VideoCell") as! ContentCell
+        cell.set(video: self.contents[indexPath.row])
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        NotificationCenter.default.post(name: NSNotification.Name("open"), object: videos[indexPath.row])
+        NotificationCenter.default.post(name: NSNotification.Name("open"), object: contents[indexPath.row])
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -65,46 +65,3 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.fetchData()
     }
 }
-
-//TableView Custom Classes
-class VideoCell: UITableViewCell {
-    
-    @IBOutlet weak var videoThumbnail: UIImageView!
-    @IBOutlet weak var durationLabel: UILabel!
-    @IBOutlet weak var channelPic: UIImageView!
-    @IBOutlet weak var videoTitle: UILabel!
-    @IBOutlet weak var videoDescription: UILabel!
-    
-    func customization()  {
-        self.channelPic.layer.cornerRadius = 24
-        self.channelPic.clipsToBounds  = true
-        self.durationLabel.layer.borderWidth = 0.5
-        self.durationLabel.layer.borderColor = UIColor.white.cgColor
-        self.durationLabel.sizeToFit()
-    }
-    
-    func set(video: VideoModel)  {
-        self.videoThumbnail.image = video.thumbnail
-        self.durationLabel.text = " \(video.duration.secondsToFormattedString()) "
-        self.durationLabel.layer.borderColor = UIColor.lightGray.cgColor
-        self.durationLabel.layer.borderWidth = 1.0
-        self.channelPic.image = video.channel.image
-        self.videoTitle.text = video.title
-        self.videoDescription.text = "\(video.channel.name)  • \(video.views)"
-    }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        self.videoThumbnail.image = UIImage.init(named: "emptyTumbnail")
-        self.durationLabel.text = nil
-        self.channelPic.image = nil
-        self.videoTitle.text = nil
-        self.videoDescription.text = nil
-    }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        self.customization()
-    }
-}
-

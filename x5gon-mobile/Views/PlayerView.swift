@@ -18,7 +18,7 @@ import UIKit
 import AVFoundation
 import AVKit
 
-class VideoPlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate {
+class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate {
 
     //MARK: Properties
     @IBOutlet weak var tableView: UITableView!
@@ -82,6 +82,8 @@ class VideoPlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGes
     }
     
     @objc func tapPlayView(_ notification: Notification) {
+        print("called")
+        print(notification.object is VideoModel)
         if let video = notification.object as? VideoModel {
             setVideo(video: video)
         }
@@ -151,7 +153,7 @@ class VideoPlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGes
             cell.set(video: self.video, onLikeTapFunc: self.OnLikeTap, onDisLikeTapFunc: self.OnDisLikeTap)
             return cell
         default:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! suggestionVideoCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! suggestionContentCell
             cell.set(video: (self.video.suggestedContents[indexPath.row - 1] as! VideoModel))
             return cell
         }
@@ -173,6 +175,7 @@ class VideoPlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGes
     
     func setVideo(video : VideoModel) {
         self.video = video
+        print(self.video.videoLink)
         if self.video.videoLink != nil {
             if self.videoPlayerViewController.player == nil {
                 self.videoPlayerViewController.player = AVPlayer()
@@ -206,73 +209,4 @@ class VideoPlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGes
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
-}
-
-class headerCell: UITableViewCell {
-    
-    @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var viewCount: UILabel!
-    @IBOutlet weak var likes: UILabel!
-    @IBOutlet weak var disLikes: UILabel!
-    @IBOutlet weak var channelTitle: UILabel!
-    @IBOutlet weak var channelPic: UIImageView!
-    @IBOutlet weak var channelSubscribers: UILabel!
-    var onLikeTapFunc: (() -> Void) = { () in return }
-    var onDisLikeTapFunc: (() -> Void) = { () in return }
-    
-    
-    func set(video: VideoModel!, onLikeTapFunc: @escaping () -> Void, onDisLikeTapFunc: @escaping () -> Void) {
-        title.text = video!.title
-        viewCount.text = "\(video!.views) views"
-        likes.text = String(video!.likes)
-        disLikes.text = String(video!.disLikes)
-        channelTitle.text = video!.channel.name
-        channelPic.image = video!.channel.image
-        channelPic.layer.cornerRadius = 25
-        channelPic.clipsToBounds = true
-        channelSubscribers.text = "\(video!.channel.subscribers) subscribers"
-        selectionStyle = .none
-        let likeTap = UITapGestureRecognizer(target: self, action: #selector(onLikeTap))
-        let disLikeTap = UITapGestureRecognizer(target: self, action: #selector(onDisLikeTap))
-        likes.isUserInteractionEnabled = true
-        disLikes.isUserInteractionEnabled = true
-        likes.addGestureRecognizer(likeTap)
-        disLikes.addGestureRecognizer(disLikeTap)
-        self.onLikeTapFunc = onLikeTapFunc
-        self.onDisLikeTapFunc = onDisLikeTapFunc
-    }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-    }
-    
-    @objc func onLikeTap(sender: UITapGestureRecognizer) {
-        onLikeTapFunc()
-    }
-    
-    @objc func onDisLikeTap(sender: UITapGestureRecognizer) {
-        onDisLikeTapFunc()
-    }
-    
-}
-
-class suggestionVideoCell: UITableViewCell {
-    
-    @IBOutlet weak var thumbnail: UIImageView!
-    @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var name: UILabel!
-    
-    func set(video: VideoModel)  {
-        self.thumbnail.image = video.thumbnail
-        self.title.text = video.title
-        self.name.text = video.channel.name
-    }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        self.thumbnail.image = UIImage.init(named: "Video Placeholder")
-        self.title.text = nil
-        self.name.text = nil
-    }
-    
 }
