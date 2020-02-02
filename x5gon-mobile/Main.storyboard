@@ -394,7 +394,7 @@
                         <constraint firstAttribute="bottom" secondItem="hai-Uu-zYx" secondAttribute="bottom" id="W7e-tm-tWX"/>
                         <constraint firstItem="hai-Uu-zYx" firstAttribute="leading" secondItem="5gL-Aw-hkc" secondAttribute="leading" id="jYf-gc-nKX"/>
                         <constraint firstItem="hai-Uu-zYx" firstAttribute="top" secondItem="smd-ED-5eC" secondAttribute="bottom" id="ncs-3a-DbD"/>
-                        <constraint firstItem="smd-ED-5eC" firstAttribute="top" secondItem="5gL-Aw-hkc" secondAttribute="top" id="p1h-Lb-SzC"/>
+                        <constraint firstItem="smd-ED-5eC" firstAttribute="topMargin" secondItem="sAW-0h-Tib" secondAttribute="top" constant="8" id="p1h-Lb-SzC"/>
                         <constraint firstAttribute="trailing" secondItem="smd-ED-5eC" secondAttribute="trailing" id="z0k-SK-GSM"/>
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="sAW-0h-Tib"/>
