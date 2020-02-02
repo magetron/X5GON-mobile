@@ -203,7 +203,13 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         let selfPDF = self.content as! PDFModel
         self.player.subviews.forEach({ $0.removeFromSuperview() })
         self.player.addSubview(pdfView)
-        pdfView.document = PDFDocument.init(url: selfPDF.contentLink)
+        if selfPDF.contentLink != nil {
+            pdfView.document = PDFDocument.init(url: selfPDF.contentLink)
+        }
+        if selfPDF.suggestedContents.count == 0 {
+            selfPDF.fetchSuggestedContents(async: true, refresher: self.refresher)
+        }
+        self.tableView.reloadData()
     }
     
     func OnLikeTap () {
