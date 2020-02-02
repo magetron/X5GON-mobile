@@ -34,8 +34,7 @@ class SearchView: UIView, UITextFieldDelegate {
         let searchResult = VideoController.fetchItems(keyWord: textField.text ?? "", contentType: "video") + PDFController.fetchItems(keyWord: textField.text ?? "", contentType: "text")
         print(self.parentViewController is NavViewController)
         let navViewController = self.parentViewController as! HomeViewController
-        homeViewController.contents = searchResult
-        homeViewController.tableView.reloadData()
+
         self.hideSearchView(self)
         return true
     }
