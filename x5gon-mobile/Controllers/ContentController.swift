@@ -18,7 +18,7 @@ extension ContentController {
 
     static func fetchItems (keyWord : String, contentType : String) -> [ContentModel] {
         var tmpItems = [ContentModel]()
-        let contentURLString = "https://platform.x5gon.org/api/v1/recommend/oer_materials?text=\"" + keyWord + "\"&type=" + contentType
+        let contentURLString = Environment.makeQueryURL(keyWord: keyWord, contentType: contentType)
         let contentURL = URL(string: contentURLString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!
         let semaphore = DispatchSemaphore(value: 0)
         let dataTask = URLSession.shared.dataTask(with: contentURL) { data, response, error in

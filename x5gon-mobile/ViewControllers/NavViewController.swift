@@ -126,15 +126,22 @@ class NavViewController: UINavigationController, PlayerViewControllerDelegate  {
             UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 5, options: [.beginFromCurrentState], animations: {
                 self.playerView.frame.origin = self.fullScreenOrigin
             })
+            setNavBarColor(color: UIColor.black)
         case .minimized:
             UIView.animate(withDuration: 0.3, animations: {
                 self.playerView.frame.origin = self.minimizedOrigin
             })
+            self.navigationBar.barTintColor = Environment.X5Color
         case .hidden:
             UIView.animate(withDuration: 0.3, animations: {
                 self.playerView.frame.origin = self.hiddenOrigin
             })
+            self.navigationBar.barTintColor = Environment.X5Color
         }
+    }
+    
+    func setNavBarColor(color: UIColor) {
+        self.navigationBar.barTintColor = color
     }
     
     func positionDuringSwipe(scaleFactor: CGFloat) -> CGPoint {
