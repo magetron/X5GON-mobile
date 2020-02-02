@@ -126,14 +126,17 @@ class NavViewController: UINavigationController, PlayerViewControllerDelegate  {
         case .fullScreen:
             UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 5, options: [.beginFromCurrentState], animations: {
                 self.playerView.frame.origin = self.fullScreenOrigin
+                self.navigationBar.barTintColor = UIColor.black;
             })
         case .minimized:
             UIView.animate(withDuration: 0.3, animations: {
                 self.playerView.frame.origin = self.minimizedOrigin
+                self.navigationBar.barTintColor = UIColor.rbg(r: 91, g: 149, b: 165)
             })
         case .hidden:
             UIView.animate(withDuration: 0.3, animations: {
                 self.playerView.frame.origin = self.hiddenOrigin
+                self.navigationBar.barTintColor = UIColor.rbg(r: 91, g: 149, b: 165)
             })
         }
     }
