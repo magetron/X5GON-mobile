@@ -17,6 +17,7 @@ protocol PlayerViewControllerDelegate {
 import UIKit
 import AVFoundation
 import AVKit
+import PDFKit
 
 class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate {
 
@@ -27,7 +28,9 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
     var delegate: PlayerViewControllerDelegate?
     var state = stateOfViewController.hidden
     var direction = Direction.none
-    var videoPlayerViewController = AVPlayerViewController()
+    var pdfView = PDFView()
+    let videoPlayerViewController = AVPlayerViewController()
+
     
     //MARK: Methods
     func customization() {
@@ -42,6 +45,8 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         videoPlayerViewController.view.frame = self.player.frame
         videoPlayerViewController.videoGravity = AVLayerVideoGravity.resizeAspectFill
         videoPlayerViewController.showsPlaybackControls = true
+        pdfView.frame = self.player.frame
+        pdfView.displayMode = PDFDisplayMode.singlePageContinuous
         NotificationCenter.default.addObserver(self, selector: #selector(self.tapPlayView), name: NSNotification.Name("open"), object: nil)
     }
     
@@ -81,14 +86,12 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
     }
     
     @objc func tapPlayView(_ notification: Notification) {
-        print("called")
-        print(notification.object is VideoModel)
         if let video = notification.object as? VideoModel {
             setVideo(video: video)
+            self.videoPlayerViewController.player?.play()
         } else if let pdf = notification.object as? PDFModel {
             setPDF(pdf: pdf)
         }
-        self.videoPlayerViewController.player?.play()
         self.state = .fullScreen
         self.delegate?.didmaximize()
         self.animate()
@@ -178,13 +181,13 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         self.content = video
         let selfVideo = self.content as! VideoModel
         self.player.subviews.forEach({ $0.removeFromSuperview() })
-        self.player.addSubview(videoPlayerViewController.view)
         if self.videoPlayerViewController.player == nil {
             self.videoPlayerViewController.player = AVPlayer()
         }
+        self.player.addSubview(videoPlayerViewController.view)
 
-        if selfVideo.videoLink != nil {
-            self.videoPlayerViewController.player?.replaceCurrentItem(with: AVPlayerItem.init(url: selfVideo.videoLink))
+        if selfVideo.contentLink != nil {
+            self.videoPlayerViewController.player?.replaceCurrentItem(with: AVPlayerItem.init(url: selfVideo.contentLink))
         }
         if selfVideo.suggestedContents.count == 0 {
             selfVideo.fetchSuggestedContents(async: true, refresher: self.refresher)
@@ -197,6 +200,10 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
     
     func setPDF(pdf : PDFModel) {
         self.content = pdf
+        let selfPDF = self.content as! PDFModel
+        self.player.subviews.forEach({ $0.removeFromSuperview() })
+        self.player.addSubview(pdfView)
+        pdfView.document = PDFDocument.init(url: selfPDF.contentLink)
     }
     
     func OnLikeTap () {

@@ -15,7 +15,7 @@ class VideoController : ContentController{
 
     static func loadPlaceHolders () -> [ContentModel] {
         let playableVideo = VideoModel.init(title: "Big Buck Bunny", channelName: "Blender Foundation")
-        playableVideo.videoLink = URL.init(string: "https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_30mb.mp4")!
+        playableVideo.contentLink = URL.init(string: "https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_30mb.mp4")!
         let suggestedVideo1 = VideoModel.init(title: "What Does Jared Kushner Believe", channelName: "Nerdwriter1")
         let suggestedVideo2 = VideoModel.init(title: "Moore's Law Is Ending. So, What's Next", channelName: "Seeker")
         let suggestedVideo3 = VideoModel.init(title: "What Bill Gates is afraid of", channelName: "Vox")
@@ -40,6 +40,7 @@ class VideoController : ContentController{
         let defaultContentType = "video"
         let defaultVideos = fetchItems(keyWord: defaultKeyWord, contentType: defaultContentType) as! [VideoModel]
         items.append(contentsOf: defaultVideos)
+        print(items.count)
         let placeHolders = loadPlaceHolders() as! [VideoModel]
         items.append(contentsOf: placeHolders)
         items.myShuffle()

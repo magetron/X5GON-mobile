@@ -17,7 +17,7 @@ protocol ContentController {
 extension ContentController {
 
     static func fetchItems (keyWord : String, contentType : String) -> [ContentModel] {
-        var tmpItems = [VideoModel]()
+        var tmpItems = [ContentModel]()
         let contentURLString = "https://platform.x5gon.org/api/v1/recommend/oer_materials?text=\"" + keyWord + "\"&type=" + contentType
         let contentURL = URL(string: contentURLString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!
         let semaphore = DispatchSemaphore(value: 0)
@@ -46,10 +46,18 @@ extension ContentController {
                         print("error: invalid format")
                         break
                     }
-                    let newVideo = VideoModel.init(title: title, channelName: provider)
-                    let newVideoURL = URL.init(string: url)
-                    newVideo.initURL(url: newVideoURL!, regenerateInfo: true)
-                    tmpItems.append(newVideo)
+                    if (contentType == "video") {
+                        let newVideo = VideoModel.init(title: title, channelName: provider)
+                        let newVideoURL = URL.init(string: url)
+                        newVideo.initURL(url: newVideoURL!, regenerateInfo: true)
+                        tmpItems.append(newVideo)
+                    } else if (contentType == "text") {
+                        let newPDF = PDFModel.init(title: title, channelName: provider)
+                        let newPDFURL = URL.init(string: url)
+                        newPDF.initURL(url: newPDFURL!, regenerateInfo: true)
+                        tmpItems.append(newPDF)
+                    }
+
                  }
              }
          }

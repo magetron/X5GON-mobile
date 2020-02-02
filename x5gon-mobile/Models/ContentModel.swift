@@ -17,7 +17,7 @@ class ContentModel {
     let views: Int
     let channel: ChannelModel
     var duration: Int
-    var videoLink: URL!
+    var contentLink: URL!
     var likes: Int
     var disLikes: Int
     var suggestedContents = [ContentModel]()
@@ -34,7 +34,7 @@ class ContentModel {
     }
     
     func initURL (url : URL, regenerateInfo : Bool) {
-        self.videoLink = url
+        self.contentLink = url
         if (regenerateInfo) {
             generateInfo()
         }

@@ -19,7 +19,7 @@ class PDFController : ContentController {
     
     static func loadDefaultItems() {
         let defaultKeyWord = "science"
-        let defaultContentType = "context"
+        let defaultContentType = "text"
         let defaultVideos = fetchItems(keyWord: defaultKeyWord, contentType: defaultContentType) as! [PDFModel]
         items.append(contentsOf: defaultVideos)
         let placeHolders = loadPlaceHolders() as! [PDFModel]

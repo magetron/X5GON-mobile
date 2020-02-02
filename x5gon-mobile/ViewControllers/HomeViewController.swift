@@ -30,7 +30,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         if (PDFController.items.count == 0) {
             PDFController.loadDefaultItems()
         }
-        self.contents = VideoController.items
+        self.contents = VideoController.items + PDFController.items
         self.tableView.reloadData()
     }
     

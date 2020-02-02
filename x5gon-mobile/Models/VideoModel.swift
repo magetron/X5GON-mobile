@@ -8,6 +8,7 @@
 
 import Foundation
 import AVFoundation
+import UIKit
 
 class VideoModel : ContentModel {
     
@@ -27,7 +28,7 @@ class VideoModel : ContentModel {
     }
     
     override func generateInfo() {
-        AVAsset(url: videoLink).generateThumbnail { [weak self] (image, duration) in
+        AVAsset(url: contentLink).generateThumbnail { [weak self] (image, duration) in
             DispatchQueue.main.async {
                 guard let image = image, let duration = duration else {
                     return
