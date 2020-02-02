@@ -46,7 +46,7 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         videoPlayerViewController.videoGravity = AVLayerVideoGravity.resizeAspectFill
         videoPlayerViewController.showsPlaybackControls = true
         pdfView.frame = self.player.frame
-        pdfView.displayMode = PDFDisplayMode.singlePageContinuous
+        pdfView.displayMode = PDFDisplayMode.singlePage
         NotificationCenter.default.addObserver(self, selector: #selector(self.tapPlayView), name: NSNotification.Name("open"), object: nil)
     }
     
@@ -114,23 +114,23 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         }
         var finalState = stateOfViewController.fullScreen
         switch self.state {
-        case .fullScreen:
-            let factor = (abs(sender.translation(in: nil).y) / UIScreen.main.bounds.height)
-            self.changeValues(scaleFactor: factor)
-            self.delegate?.swipeToMinimize(translation: factor, toState: .minimized)
-            finalState = .minimized
-        case .minimized:
-            if self.direction == .left {
-                finalState = .hidden
-                let factor: CGFloat = sender.translation(in: nil).x
-                self.delegate?.swipeToMinimize(translation: factor, toState: .hidden)
-            } else {
-                finalState = .fullScreen
-                let factor = 1 - (abs(sender.translation(in: nil).y) / UIScreen.main.bounds.height)
+            case .fullScreen:
+                let factor = (abs(sender.translation(in: nil).y) / UIScreen.main.bounds.height)
                 self.changeValues(scaleFactor: factor)
-                self.delegate?.swipeToMinimize(translation: factor, toState: .fullScreen)
-            }
-        default: break
+                self.delegate?.swipeToMinimize(translation: factor, toState: .minimized)
+                finalState = .minimized
+            case .minimized:
+                if self.direction == .left {
+                    finalState = .hidden
+                    let factor: CGFloat = sender.translation(in: nil).x
+                    self.delegate?.swipeToMinimize(translation: factor, toState: .hidden)
+                } else {
+                    finalState = .fullScreen
+                    let factor = 1 - (abs(sender.translation(in: nil).y) / UIScreen.main.bounds.height)
+                    self.changeValues(scaleFactor: factor)
+                    self.delegate?.swipeToMinimize(translation: factor, toState: .fullScreen)
+                }
+            default: break
         }
         if sender.state == .ended {
             self.state = finalState

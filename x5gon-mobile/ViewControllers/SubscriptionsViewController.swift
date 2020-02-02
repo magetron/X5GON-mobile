@@ -19,7 +19,7 @@ class SubscriptionsViewController: HomeViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "SubscriptionsCell") as! SubscriptionsCell
             return cell
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "VideoCell") as! ContentCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ContentCell") as! ContentCell
             cell.set(video: self.contents[indexPath.row - 1])
             return cell
         }
