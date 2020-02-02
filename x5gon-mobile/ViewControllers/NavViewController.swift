@@ -105,7 +105,6 @@ class NavViewController: UINavigationController, PlayerViewControllerDelegate  {
     }
     
     @objc func showSettings() {
-        print("Did load on NavController")
         self.settingsView.isHidden = false
         self.settingsView.tableViewBottomConstraint.constant = 0
         UIView.animate(withDuration: 0.3) { 

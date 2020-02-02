@@ -95,50 +95,12 @@
                                 </mask>
                             </variation>
                         </view>
-                        <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="48" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ju4-a9-fSq">
-                            <rect key="frame" x="0.0" y="83" width="415" height="280"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="280" id="Nau-as-5YJ"/>
-                            </constraints>
-                            <prototypes>
-                                <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="48" id="U2S-qP-muc" customClass="SearchCell" customModule="x5gon_mobile" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="28" width="415" height="48"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="U2S-qP-muc" id="IlN-Ob-ITT">
-                                        <rect key="frame" x="0.0" y="0.0" width="415" height="48"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lRW-Dh-dan">
-                                                <rect key="frame" x="48" y="0.0" width="367" height="48"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="lRW-Dh-dan" firstAttribute="top" secondItem="IlN-Ob-ITT" secondAttribute="top" id="FMz-3e-bJ4"/>
-                                            <constraint firstAttribute="bottom" secondItem="lRW-Dh-dan" secondAttribute="bottom" id="JV8-4V-J8X"/>
-                                            <constraint firstItem="lRW-Dh-dan" firstAttribute="leading" secondItem="IlN-Ob-ITT" secondAttribute="leading" constant="48" id="Mqe-82-Qc3"/>
-                                            <constraint firstAttribute="trailing" secondItem="lRW-Dh-dan" secondAttribute="trailing" id="ZGI-P0-bBJ"/>
-                                        </constraints>
-                                    </tableViewCellContentView>
-                                    <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
-                                    <connections>
-                                        <outlet property="resultLabel" destination="lRW-Dh-dan" id="MLj-OU-fcD"/>
-                                    </connections>
-                                </tableViewCell>
-                            </prototypes>
-                        </tableView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="qXP-rh-sR3" firstAttribute="leading" secondItem="ANr-Yc-KZ7" secondAttribute="leading" id="1Y0-26-ES1"/>
                         <constraint firstItem="qXP-rh-sR3" firstAttribute="top" secondItem="ANr-Yc-KZ7" secondAttribute="top" id="6Ol-ey-hDB"/>
                         <constraint firstAttribute="bottom" secondItem="6yL-mS-QRv" secondAttribute="bottom" id="6mD-PS-Z37"/>
-                        <constraint firstAttribute="trailing" secondItem="Ju4-a9-fSq" secondAttribute="trailing" id="UGD-6y-aMP"/>
-                        <constraint firstItem="Ju4-a9-fSq" firstAttribute="leading" secondItem="ANr-Yc-KZ7" secondAttribute="leading" id="cdC-vI-o3z"/>
-                        <constraint firstItem="Ju4-a9-fSq" firstAttribute="top" secondItem="qXP-rh-sR3" secondAttribute="bottom" id="cfH-sD-ydd"/>
                         <constraint firstAttribute="trailing" secondItem="6yL-mS-QRv" secondAttribute="trailing" id="jC0-FB-Dq5"/>
                         <constraint firstAttribute="trailing" secondItem="qXP-rh-sR3" secondAttribute="trailing" id="u4z-u7-gcI"/>
                         <constraint firstItem="6yL-mS-QRv" firstAttribute="top" secondItem="ANr-Yc-KZ7" secondAttribute="top" id="yDD-Xi-Ed9"/>
@@ -147,7 +109,6 @@
                     <viewLayoutGuide key="safeArea" id="a5U-xI-aeU"/>
                     <connections>
                         <outlet property="inputField" destination="Uzg-3R-Rxh" id="7Tq-vH-eOv"/>
-                        <outlet property="tableView" destination="Ju4-a9-fSq" id="LfW-Vo-m9R"/>
                     </connections>
                 </view>
                 <view contentMode="scaleToFill" id="WXf-FN-RHg" customClass="SettingsView" customModule="x5gon_mobile" customModuleProvider="target">
