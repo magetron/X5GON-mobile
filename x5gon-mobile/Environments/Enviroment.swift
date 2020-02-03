@@ -15,5 +15,8 @@ class Environment {
     static func makeQueryURL (keyWord: String, contentType: String) -> String {
         return "https://platform.x5gon.org/api/v1/recommend/oer_materials?text=\"" + keyWord + "\"&type=" + contentType
     }
+    
+    static var homeViewContoller:HomeViewController? = nil
+
 }
 

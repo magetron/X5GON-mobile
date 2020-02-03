@@ -14,6 +14,8 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     @IBOutlet var tabBarView: TabBarView!
     @IBOutlet weak var collectionView: UICollectionView!
     var views = [UIView]()
+    var viewControllers = [UIViewController]()
+    
     
     //MARK: Methods
     func customization()  {
@@ -34,6 +36,9 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         let trendingVC = self.storyboard?.instantiateViewController(withIdentifier: "TrendingViewController")
         let subscriptionsVC = self.storyboard?.instantiateViewController(withIdentifier: "SubscriptionsViewController")
         let accountVC = self.storyboard?.instantiateViewController(withIdentifier: "AccountViewController")
+        
+        Environment.homeViewContoller = (homeVC as! HomeViewController)
+        
         let viewControllers = [homeVC, trendingVC, subscriptionsVC, accountVC]
         for vc in viewControllers {
             self.addChild(vc!)
