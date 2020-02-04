@@ -28,89 +28,11 @@
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3On-42-oCh" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <view contentMode="scaleToFill" id="ANr-Yc-KZ7" customClass="SearchView" customModule="x5gon_mobile" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="0.0" width="415" height="710"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6yL-mS-QRv">
-                            <rect key="frame" x="0.0" y="0.0" width="415" height="710"/>
-                            <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-                            <connections>
-                                <action selector="hideSearchView:" destination="ANr-Yc-KZ7" eventType="touchUpInside" id="SbS-wm-yHp"/>
-                            </connections>
-                        </button>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qXP-rh-sR3">
-                            <rect key="frame" x="0.0" y="0.0" width="415" height="83"/>
-                            <subviews>
-                                <view alpha="0.14999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F1M-Ym-qHm">
-                                    <rect key="frame" x="0.0" y="0.0" width="415" height="35"/>
-                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="35" id="kgT-fi-hBn"/>
-                                    </constraints>
-                                </view>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XNm-lW-wAJ">
-                                    <rect key="frame" x="0.0" y="35" width="48" height="48"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="48" id="4pF-gk-uUd"/>
-                                        <constraint firstAttribute="height" constant="48" id="WZj-nk-PD2"/>
-                                    </constraints>
-                                    <state key="normal" backgroundImage="cancel"/>
-                                    <connections>
-                                        <action selector="hideSearchView:" destination="ANr-Yc-KZ7" eventType="touchUpInside" id="c1v-LD-CFu"/>
-                                    </connections>
-                                </button>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search on Youtube" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uzg-3R-Rxh">
-                                    <rect key="frame" x="48" y="35" width="347" height="48"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="48" id="bVz-wo-5iP"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <textInputTraits key="textInputTraits" keyboardAppearance="alert"/>
-                                </textField>
-                            </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstItem="Uzg-3R-Rxh" firstAttribute="leading" secondItem="XNm-lW-wAJ" secondAttribute="trailing" id="Dru-3N-l0c"/>
-                                <constraint firstAttribute="trailing" secondItem="F1M-Ym-qHm" secondAttribute="trailing" id="HDk-yo-i6d"/>
-                                <constraint firstAttribute="trailing" secondItem="Uzg-3R-Rxh" secondAttribute="trailing" constant="20" id="IYx-jA-kr3"/>
-                                <constraint firstItem="XNm-lW-wAJ" firstAttribute="leading" secondItem="qXP-rh-sR3" secondAttribute="leading" id="LMt-f9-zwO"/>
-                                <constraint firstAttribute="bottom" secondItem="XNm-lW-wAJ" secondAttribute="bottom" id="cwT-rg-gcP"/>
-                                <constraint firstAttribute="height" constant="68" id="gA8-VQ-Sdn">
-                                    <variation key="heightClass=compact-widthClass=compact" constant="48"/>
-                                    <variation key="heightClass=regular-widthClass=compact" constant="83"/>
-                                </constraint>
-                                <constraint firstItem="F1M-Ym-qHm" firstAttribute="leading" secondItem="qXP-rh-sR3" secondAttribute="leading" id="h34-Al-IuS"/>
-                                <constraint firstItem="Uzg-3R-Rxh" firstAttribute="centerY" secondItem="XNm-lW-wAJ" secondAttribute="centerY" id="j0K-ku-QB7"/>
-                                <constraint firstItem="F1M-Ym-qHm" firstAttribute="top" secondItem="qXP-rh-sR3" secondAttribute="top" id="tTM-53-MKh"/>
-                            </constraints>
-                            <variation key="heightClass=compact-widthClass=compact">
-                                <mask key="subviews">
-                                    <exclude reference="F1M-Ym-qHm"/>
-                                </mask>
-                            </variation>
-                            <variation key="heightClass=regular-widthClass=compact">
-                                <mask key="subviews">
-                                    <include reference="F1M-Ym-qHm"/>
-                                </mask>
-                            </variation>
-                        </view>
-                    </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstItem="qXP-rh-sR3" firstAttribute="leading" secondItem="ANr-Yc-KZ7" secondAttribute="leading" id="1Y0-26-ES1"/>
-                        <constraint firstItem="qXP-rh-sR3" firstAttribute="top" secondItem="ANr-Yc-KZ7" secondAttribute="top" id="6Ol-ey-hDB"/>
-                        <constraint firstAttribute="bottom" secondItem="6yL-mS-QRv" secondAttribute="bottom" id="6mD-PS-Z37"/>
-                        <constraint firstAttribute="trailing" secondItem="6yL-mS-QRv" secondAttribute="trailing" id="jC0-FB-Dq5"/>
-                        <constraint firstAttribute="trailing" secondItem="qXP-rh-sR3" secondAttribute="trailing" id="u4z-u7-gcI"/>
-                        <constraint firstItem="6yL-mS-QRv" firstAttribute="top" secondItem="ANr-Yc-KZ7" secondAttribute="top" id="yDD-Xi-Ed9"/>
-                        <constraint firstItem="6yL-mS-QRv" firstAttribute="leading" secondItem="ANr-Yc-KZ7" secondAttribute="leading" id="zUH-EP-tSz"/>
-                    </constraints>
-                    <viewLayoutGuide key="safeArea" id="a5U-xI-aeU"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="YLt-z9-6b6">
                     <connections>
-                        <outlet property="inputField" destination="Uzg-3R-Rxh" id="7Tq-vH-eOv"/>
+                        <action selector="minimizeGesture:" destination="5gL-Aw-hkc" id="dYl-hu-hHb"/>
                     </connections>
-                </view>
+                </panGestureRecognizer>
                 <view contentMode="scaleToFill" id="WXf-FN-RHg" customClass="SettingsView" customModule="x5gon_mobile" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="415" height="710"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -364,11 +286,89 @@
                         <outlet property="tableView" destination="hai-Uu-zYx" id="qat-db-Zn4"/>
                     </connections>
                 </view>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="YLt-z9-6b6">
+                <view contentMode="scaleToFill" id="ANr-Yc-KZ7" customClass="SearchView" customModule="x5gon_mobile" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="415" height="710"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6yL-mS-QRv">
+                            <rect key="frame" x="0.0" y="0.0" width="415" height="710"/>
+                            <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <connections>
+                                <action selector="hideSearchView:" destination="ANr-Yc-KZ7" eventType="touchUpInside" id="SbS-wm-yHp"/>
+                            </connections>
+                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qXP-rh-sR3">
+                            <rect key="frame" x="0.0" y="0.0" width="415" height="83"/>
+                            <subviews>
+                                <view alpha="0.14999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F1M-Ym-qHm">
+                                    <rect key="frame" x="0.0" y="0.0" width="415" height="35"/>
+                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="35" id="kgT-fi-hBn"/>
+                                    </constraints>
+                                </view>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XNm-lW-wAJ">
+                                    <rect key="frame" x="0.0" y="35" width="48" height="48"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="48" id="4pF-gk-uUd"/>
+                                        <constraint firstAttribute="height" constant="48" id="WZj-nk-PD2"/>
+                                    </constraints>
+                                    <state key="normal" backgroundImage="cancel"/>
+                                    <connections>
+                                        <action selector="hideSearchView:" destination="ANr-Yc-KZ7" eventType="touchUpInside" id="c1v-LD-CFu"/>
+                                    </connections>
+                                </button>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search on Youtube" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uzg-3R-Rxh">
+                                    <rect key="frame" x="48" y="35" width="347" height="48"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="48" id="bVz-wo-5iP"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <textInputTraits key="textInputTraits" keyboardAppearance="alert"/>
+                                </textField>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="Uzg-3R-Rxh" firstAttribute="leading" secondItem="XNm-lW-wAJ" secondAttribute="trailing" id="Dru-3N-l0c"/>
+                                <constraint firstAttribute="trailing" secondItem="F1M-Ym-qHm" secondAttribute="trailing" id="HDk-yo-i6d"/>
+                                <constraint firstAttribute="trailing" secondItem="Uzg-3R-Rxh" secondAttribute="trailing" constant="20" id="IYx-jA-kr3"/>
+                                <constraint firstItem="XNm-lW-wAJ" firstAttribute="leading" secondItem="qXP-rh-sR3" secondAttribute="leading" id="LMt-f9-zwO"/>
+                                <constraint firstAttribute="bottom" secondItem="XNm-lW-wAJ" secondAttribute="bottom" id="cwT-rg-gcP"/>
+                                <constraint firstAttribute="height" constant="68" id="gA8-VQ-Sdn">
+                                    <variation key="heightClass=compact-widthClass=compact" constant="48"/>
+                                    <variation key="heightClass=regular-widthClass=compact" constant="83"/>
+                                </constraint>
+                                <constraint firstItem="F1M-Ym-qHm" firstAttribute="leading" secondItem="qXP-rh-sR3" secondAttribute="leading" id="h34-Al-IuS"/>
+                                <constraint firstItem="Uzg-3R-Rxh" firstAttribute="centerY" secondItem="XNm-lW-wAJ" secondAttribute="centerY" id="j0K-ku-QB7"/>
+                                <constraint firstItem="F1M-Ym-qHm" firstAttribute="top" secondItem="qXP-rh-sR3" secondAttribute="top" id="tTM-53-MKh"/>
+                            </constraints>
+                            <variation key="heightClass=compact-widthClass=compact">
+                                <mask key="subviews">
+                                    <exclude reference="F1M-Ym-qHm"/>
+                                </mask>
+                            </variation>
+                            <variation key="heightClass=regular-widthClass=compact">
+                                <mask key="subviews">
+                                    <include reference="F1M-Ym-qHm"/>
+                                </mask>
+                            </variation>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="qXP-rh-sR3" firstAttribute="leading" secondItem="ANr-Yc-KZ7" secondAttribute="leading" id="1Y0-26-ES1"/>
+                        <constraint firstItem="qXP-rh-sR3" firstAttribute="top" secondItem="ANr-Yc-KZ7" secondAttribute="top" id="6Ol-ey-hDB"/>
+                        <constraint firstAttribute="bottom" secondItem="6yL-mS-QRv" secondAttribute="bottom" id="6mD-PS-Z37"/>
+                        <constraint firstAttribute="trailing" secondItem="6yL-mS-QRv" secondAttribute="trailing" id="jC0-FB-Dq5"/>
+                        <constraint firstAttribute="trailing" secondItem="qXP-rh-sR3" secondAttribute="trailing" id="u4z-u7-gcI"/>
+                        <constraint firstItem="6yL-mS-QRv" firstAttribute="top" secondItem="ANr-Yc-KZ7" secondAttribute="top" id="yDD-Xi-Ed9"/>
+                        <constraint firstItem="6yL-mS-QRv" firstAttribute="leading" secondItem="ANr-Yc-KZ7" secondAttribute="leading" id="zUH-EP-tSz"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="a5U-xI-aeU"/>
                     <connections>
-                        <action selector="minimizeGesture:" destination="5gL-Aw-hkc" id="dYl-hu-hHb"/>
+                        <outlet property="inputField" destination="Uzg-3R-Rxh" id="7Tq-vH-eOv"/>
                     </connections>
-                </panGestureRecognizer>
+                </view>
             </objects>
             <point key="canvasLocation" x="-134" y="154"/>
         </scene>

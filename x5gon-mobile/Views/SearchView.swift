@@ -33,9 +33,6 @@ class SearchView: UIView, UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         let searchResult = VideoController.fetchItems(keyWord: textField.text ?? "", contentType: "video") + PDFController.fetchItems(keyWord: textField.text ?? "", contentType: "text")
         Environment.homeViewContoller?.contents = searchResult
-        print(Environment.homeViewContoller?.contents.count)
-        print(searchResult.count)
-        print("here")
         Environment.homeViewContoller?.tableView.reloadData()
         self.hideSearchView(self)
         return true

@@ -198,11 +198,27 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         self.tableView.reloadData()
     }
     
+    @objc func returnFromPlayerView () {
+        self.state = stateOfViewController.hidden
+        self.animate()
+        self.delegate?.didEndedSwipe(toState: self.state)
+        if self.state == .hidden {
+            self.videoPlayerViewController.player?.pause()
+        }
+    }
+    
     func setPDF(pdf : PDFModel) {
         self.content = pdf
         let selfPDF = self.content as! PDFModel
         self.player.subviews.forEach({ $0.removeFromSuperview() })
         self.player.addSubview(pdfView)
+        let returnButton = UIButton.init(frame: CGRect(x: 10, y: 0, width: 60, height: 35))
+        returnButton.backgroundColor = UIColor.clear
+        returnButton.setTitleColor(UIColor.systemBlue, for: UIControl.State.normal)
+        returnButton.setTitle("< Back", for: UIControl.State.normal)
+        returnButton.addTarget(nil, action: #selector(returnFromPlayerView), for: UIControl.Event.touchUpInside)
+        self.player.addSubview(returnButton)
+        
         if selfPDF.contentLink != nil {
             pdfView.document = PDFDocument.init(url: selfPDF.contentLink)
         }

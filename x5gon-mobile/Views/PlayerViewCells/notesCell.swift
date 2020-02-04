@@ -8,7 +8,9 @@
 
 import Foundation
 
+/*
 class notesCell: UITableViewCell {
 
 
 }
+*/
