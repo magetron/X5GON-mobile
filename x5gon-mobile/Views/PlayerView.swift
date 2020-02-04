@@ -145,7 +145,7 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
     //MARK: Delegate & dataSource methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let count = self.content?.suggestedContents.count {
-            return count + 1
+            return count + 2
         }
         return 0
     }
@@ -156,19 +156,26 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
             let cell = tableView.dequeueReusableCell(withIdentifier: "Header") as! headerCell
             cell.set(content: self.content, onLikeTapFunc: self.OnLikeTap, onDisLikeTapFunc: self.OnDisLikeTap)
             return cell
+        case 1:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Notes", for: indexPath) as! notesCell
+            return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! suggestionContentCell
-            cell.set(content: (self.content.suggestedContents[indexPath.row - 1]))
+            cell.set(content: (self.content.suggestedContents[indexPath.row - 2]))
             return cell
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if (indexPath.row == 0) {
+        if (indexPath.row <= 1) {
             return
         } else {
             NotificationCenter.default.post(name: NSNotification.Name("open"), object: self.content.suggestedContents[indexPath.row - 1])
         }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
     
     //MARK: View lifecycle
