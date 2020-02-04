@@ -32,7 +32,7 @@ class ContentCell: UITableViewCell {
         self.durationLabel.layer.borderWidth = 1.0
         self.channelPic.image = video.channel.image
         self.videoTitle.text = video.title
-        self.videoDescription.text = "\(video.channel.name)  • \(video.views)"
+        self.videoDescription.text = "\(video.channel.name)  • \(video.views) • \(video.contentType)"
     }
     
     override func prepareForReuse() {

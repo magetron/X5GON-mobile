@@ -29,6 +29,7 @@ class PDFModel : ContentModel {
      
      override func generateInfo() {
         self.duration = 0
+        self.contentType = "PDF"
      }
     
 }

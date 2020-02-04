@@ -18,6 +18,7 @@ class ContentModel {
     let channel: ChannelModel
     var duration: Int
     var contentLink: URL!
+    var contentType: String
     var likes: Int
     var disLikes: Int
     var suggestedContents = [ContentModel]()
@@ -30,6 +31,7 @@ class ContentModel {
         self.duration = Int(arc4random_uniform(400))
         self.likes = Int(arc4random_uniform(1000))
         self.disLikes = Int(arc4random_uniform(1000))
+        self.contentType = "Video"
         self.channel = ChannelModel.init(name: channelName, image: UIImage.init(named: channelName) ?? UIImage.init(named: "Channel Placeholder")!)
     }
     
