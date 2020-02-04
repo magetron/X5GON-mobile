@@ -14,7 +14,6 @@ class notesCell: UITableViewCell, UITextViewDelegate {
     
     func customisation () {
         self.textView.sizeToFit()
-        self.textView.isScrollEnabled = false
     }
     
     override func awakeFromNib() {
@@ -25,7 +24,5 @@ class notesCell: UITableViewCell, UITextViewDelegate {
     override func prepareForReuse() {
         super.prepareForReuse()
     }
-    
-    
     
 }
