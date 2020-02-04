@@ -13,6 +13,7 @@
 		CD00458023E4F028009CA522 /* PDFController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00457F23E4F028009CA522 /* PDFController.swift */; };
 		CD318CAB23E78AFA0091017B /* Enviroment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD318CAA23E78AFA0091017B /* Enviroment.swift */; };
 		CD7CBA3D23E96E1E003BF035 /* notesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7CBA3C23E96E1E003BF035 /* notesCell.swift */; };
+		CD7CBA4023E99BDC003BF035 /* TabBarCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7CBA3F23E99BDC003BF035 /* TabBarCellCollectionViewCell.swift */; };
 		CDE92D9023E5D396004BB8BF /* ContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE92D8F23E5D396004BB8BF /* ContentCell.swift */; };
 		CDE92D9223E5D3CE004BB8BF /* headerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE92D9123E5D3CE004BB8BF /* headerCell.swift */; };
 		CDE92D9523E5D42D004BB8BF /* suggestionContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE92D9423E5D42D004BB8BF /* suggestionContentCell.swift */; };
@@ -64,6 +65,7 @@
 		CD00457F23E4F028009CA522 /* PDFController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFController.swift; sourceTree = "<group>"; };
 		CD318CAA23E78AFA0091017B /* Enviroment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enviroment.swift; sourceTree = "<group>"; };
 		CD7CBA3C23E96E1E003BF035 /* notesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notesCell.swift; sourceTree = "<group>"; };
+		CD7CBA3F23E99BDC003BF035 /* TabBarCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCellCollectionViewCell.swift; sourceTree = "<group>"; };
 		CDE92D8F23E5D396004BB8BF /* ContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCell.swift; sourceTree = "<group>"; };
 		CDE92D9123E5D3CE004BB8BF /* headerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = headerCell.swift; sourceTree = "<group>"; };
 		CDE92D9423E5D42D004BB8BF /* suggestionContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = suggestionContentCell.swift; sourceTree = "<group>"; };
@@ -138,6 +140,14 @@
 				CD318CAA23E78AFA0091017B /* Enviroment.swift */,
 			);
 			path = Environments;
+			sourceTree = "<group>";
+		};
+		CD7CBA3E23E99BAF003BF035 /* TabBarViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				CD7CBA3F23E99BDC003BF035 /* TabBarCellCollectionViewCell.swift */,
+			);
+			path = TabBarViewCells;
 			sourceTree = "<group>";
 		};
 		CDE92D8E23E5D389004BB8BF /* HomeViewCells */ = {
@@ -242,6 +252,7 @@
 				CDFD3C3B23CC7C75000FCEF6 /* PlayerView.swift */,
 				CDE92D9323E5D3DC004BB8BF /* PlayerViewCells */,
 				CDFD3C3D23CC7C8E000FCEF6 /* TabBarView.swift */,
+				CD7CBA3E23E99BAF003BF035 /* TabBarViewCells */,
 				CDFD3C3F23CC7C9F000FCEF6 /* SearchView.swift */,
 				CDFD3C4123CC7CBD000FCEF6 /* SettingsView.swift */,
 			);
@@ -415,6 +426,7 @@
 				CDFD3C3E23CC7C8E000FCEF6 /* TabBarView.swift in Sources */,
 				CDFD3C4A23CC7D64000FCEF6 /* VideoModel.swift in Sources */,
 				CDFD3C2F23CC7986000FCEF6 /* MainViewController.swift in Sources */,
+				CD7CBA4023E99BDC003BF035 /* TabBarCellCollectionViewCell.swift in Sources */,
 				CDE92D9223E5D3CE004BB8BF /* headerCell.swift in Sources */,
 				CDFD3C3923CC7C3F000FCEF6 /* AccountViewController.swift in Sources */,
 				CDFD3C4823CC7D15000FCEF6 /* UserModel.swift in Sources */,

@@ -21,11 +21,13 @@ class TabBarView: UIView, UICollectionViewDelegateFlowLayout, UICollectionViewDa
     func customization() {
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
-        self.backgroundColor = UIColor.rbg(r: 91, g: 149, b: 165)
+        self.backgroundColor = Environment.X5Color
         NotificationCenter.default.addObserver(self, selector: #selector(self.animateMenu(notification:)), name: Notification.Name.init(rawValue: "scrollMenu"), object: nil)
     }
+
     
     @objc func animateMenu(notification: Notification) {
+        print("animate")
         if let info = notification.userInfo {
             let userInfo = info as! [String: CGFloat]
             self.whiteBarLeadingConstraint.constant = self.whiteBar.bounds.width * userInfo["length"]!
@@ -72,7 +74,4 @@ class TabBarView: UIView, UICollectionViewDelegateFlowLayout, UICollectionViewDa
     }
 }
 
-//TabBarCell Class
-class TabBarCellCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var icon: UIImageView!
-}
+

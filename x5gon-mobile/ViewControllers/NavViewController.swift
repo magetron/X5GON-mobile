@@ -66,7 +66,7 @@ class NavViewController: UINavigationController, PlayerViewControllerDelegate  {
         let _ = NSLayoutConstraint.init(item: self.navigationBar, attribute: .left, relatedBy: .equal, toItem: self.titleLabel, attribute: .left, multiplier: 1.0, constant: -10).isActive = true
         self.titleLabel.widthAnchor.constraint(equalToConstant: 200).isActive = true
         //NavigationBar color and shadow
-        self.navigationBar.barTintColor = UIColor.rbg(r: 91, g: 149, b: 165)
+        self.navigationBar.barTintColor = Environment.X5Color
         self.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationBar.shadowImage = UIImage()
         self.navigationItem.hidesBackButton = true
@@ -126,22 +126,30 @@ class NavViewController: UINavigationController, PlayerViewControllerDelegate  {
             UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 5, options: [.beginFromCurrentState], animations: {
                 self.playerView.frame.origin = self.fullScreenOrigin
             })
-            setNavBarColor(color: UIColor.black)
+            setHide(hide: true)
         case .minimized:
             UIView.animate(withDuration: 0.3, animations: {
                 self.playerView.frame.origin = self.minimizedOrigin
             })
-            self.navigationBar.barTintColor = Environment.X5Color
+            setHide(hide: false)
         case .hidden:
             UIView.animate(withDuration: 0.3, animations: {
                 self.playerView.frame.origin = self.hiddenOrigin
             })
-            self.navigationBar.barTintColor = Environment.X5Color
+            setHide(hide: false)
         }
     }
     
-    func setNavBarColor(color: UIColor) {
-        self.navigationBar.barTintColor = color
+    func setHide(hide: Bool) {
+        if (hide) {
+            self.navigationBar.barTintColor = UIColor.black
+            Environment.mainViewController?.tabBarView.collectionView.isHidden = true
+            Environment.mainViewController?.tabBarView.backgroundColor = UIColor.black
+        } else {
+            self.navigationBar.barTintColor = Environment.X5Color
+            Environment.mainViewController?.tabBarView.collectionView.isHidden = false
+            Environment.mainViewController?.tabBarView.backgroundColor = Environment.X5Color
+        }
     }
     
     func positionDuringSwipe(scaleFactor: CGFloat) -> CGPoint {
@@ -200,7 +208,6 @@ class NavViewController: UINavigationController, PlayerViewControllerDelegate  {
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
-   
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(true)
