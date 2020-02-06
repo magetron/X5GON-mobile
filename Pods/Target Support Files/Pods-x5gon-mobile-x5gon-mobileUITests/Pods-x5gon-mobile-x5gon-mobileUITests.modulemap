@@ -1,0 +1,6 @@
+framework module Pods_x5gon_mobile_x5gon_mobileUITests {
+  umbrella header "Pods-x5gon-mobile-x5gon-mobileUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

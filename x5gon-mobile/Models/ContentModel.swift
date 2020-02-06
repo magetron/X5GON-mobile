@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-
 class ContentModel {
     
     //MARK: Properties

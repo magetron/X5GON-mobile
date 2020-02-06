@@ -7,13 +7,15 @@
 //
 
 import UIKit
-
+import MarkdownKit
 class notesCell: UITableViewCell, UITextViewDelegate {
-    
+    let markDownParser = MarkdownParser()
+    let sampleString = "**iosprogramming** can be *markdown* as well!" //for test
     @IBOutlet weak var textView: UITextView!
     
     func customisation () {
         self.textView.sizeToFit()
+        self.textView.attributedText = markDownParser.parse(sampleString)
     }
     
     override func awakeFromNib() {
