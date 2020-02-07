@@ -43,7 +43,7 @@ extension UIView {
         self.center = parentView.convert(parentView.center, from:parentView.superview)
     }
     
-    func clearSubVioew () {
+    func clearSubViews () {
         self.subviews.forEach({ $0.removeFromSuperview() })
     }
 }

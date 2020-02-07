@@ -187,7 +187,7 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
     func setVideo(video : VideoModel) {
         self.content = video
         let selfVideo = self.content as! VideoModel
-        self.player.subviews.forEach({ $0.removeFromSuperview() })
+        self.player.clearSubViews()
         if self.videoPlayerViewController.player == nil {
             self.videoPlayerViewController.player = AVPlayer()
         }
@@ -217,7 +217,7 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
     func setPDF(pdf : PDFModel) {
         self.content = pdf
         let selfPDF = self.content as! PDFModel
-        self.player.subviews.forEach({ $0.removeFromSuperview() })
+        self.player.clearSubViews()
         self.player.addSubview(pdfView)
         let returnButton = UIButton.init(frame: CGRect(x: 10, y: 0, width: 60, height: 35))
         returnButton.backgroundColor = UIColor.clear

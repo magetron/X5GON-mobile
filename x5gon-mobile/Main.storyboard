@@ -217,27 +217,23 @@
                                         <rect key="frame" x="0.0" y="0.0" width="415" height="122.33333587646484"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Put your notes here." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Gvb-zU-ugi">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SlA-Ra-CqX">
                                                 <rect key="frame" x="20" y="11" width="375" height="100.33333333333333"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="375" id="5BU-27-5Lq"/>
-                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="750" constant="100" id="hEn-2b-Axj"/>
+                                                    <constraint firstAttribute="height" constant="100" id="Of0-J8-ymc"/>
                                                 </constraints>
-                                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
+                                            </view>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="Gvb-zU-ugi" firstAttribute="top" secondItem="NAO-ZH-5eh" secondAttribute="topMargin" id="3J9-qT-34X"/>
-                                            <constraint firstItem="Gvb-zU-ugi" firstAttribute="trailing" secondItem="NAO-ZH-5eh" secondAttribute="trailingMargin" id="NU0-58-1SZ"/>
-                                            <constraint firstItem="Gvb-zU-ugi" firstAttribute="leading" secondItem="NAO-ZH-5eh" secondAttribute="leadingMargin" id="PxS-ro-9jk"/>
-                                            <constraint firstItem="Gvb-zU-ugi" firstAttribute="bottom" secondItem="NAO-ZH-5eh" secondAttribute="bottomMargin" id="Uek-jc-bxw"/>
+                                            <constraint firstItem="SlA-Ra-CqX" firstAttribute="trailing" secondItem="NAO-ZH-5eh" secondAttribute="trailingMargin" id="B8C-OX-jp6"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="SlA-Ra-CqX" secondAttribute="bottom" id="Jjt-0s-YQA"/>
+                                            <constraint firstItem="SlA-Ra-CqX" firstAttribute="leading" secondItem="NAO-ZH-5eh" secondAttribute="leadingMargin" id="T6k-6g-roc"/>
+                                            <constraint firstItem="SlA-Ra-CqX" firstAttribute="top" secondItem="NAO-ZH-5eh" secondAttribute="topMargin" id="Vvu-6F-Iwu"/>
                                         </constraints>
                                     </tableViewCellContentView>
                                     <connections>
-                                        <outlet property="textView" destination="Gvb-zU-ugi" id="037-Xc-nLB"/>
+                                        <outlet property="notesView" destination="SlA-Ra-CqX" id="S7l-wP-vb4"/>
                                     </connections>
                                 </tableViewCell>
                                 <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="100" id="DHl-mx-9Wa" customClass="suggestionContentCell" customModule="x5gon_mobile" customModuleProvider="target">
