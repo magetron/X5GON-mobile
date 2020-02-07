@@ -7,13 +7,37 @@
 //
 
 import UIKit
+import Down
 
 class notesCell: UITableViewCell, UITextViewDelegate {
     
-    @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var notesView: UIView!
+    var editTextView = UITextView()
+    var markDownView:UIView?
     
     func customisation () {
-        self.textView.sizeToFit()
+        editTextView.text = "Put some **Markdown** notes here."
+        markDownView = try! DownView.init(frame: self.notesView.frame, markdownString: editTextView.text)
+        markDownView!.frame = notesView.frame
+        notesView.addSubview(markDownView!)
+        markDownView!.centreView(parentView: notesView)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.tapMarkdownView))
+        self.notesView.addGestureRecognizer(tap)
+    }
+    
+    @objc func tapMarkdownView(sender: UITapGestureRecognizer) {
+        self.notesView.clearSubViews()
+        notesView.addSubview(editTextView)
+        editTextView.centreView(parentView: notesView)
+        self.notesView.reloadInputViews()
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        self.notesView.clearSubViews()
+        let mdView = markDownView as! DownView
+        try? mdView.update(markdownString: textView.text) {
+            
+        }
     }
     
     override func awakeFromNib() {
