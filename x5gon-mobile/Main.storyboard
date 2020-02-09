@@ -21,6 +21,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
+                        <outlet property="LoginView" destination="j2c-3d-vS7" id="2RW-W0-0uJ"/>
                         <outlet property="playerView" destination="5gL-Aw-hkc" id="A3j-yc-Mww"/>
                         <outlet property="searchView" destination="ANr-Yc-KZ7" id="Xgw-fc-31x"/>
                         <outlet property="settingsView" destination="WXf-FN-RHg" id="mne-lk-lhX"/>
@@ -28,6 +29,49 @@
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3On-42-oCh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="j2c-3d-vS7" customClass="LoginView" customModule="x5gon_mobile" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="415" height="710"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="klR-0b-sOy">
+                            <rect key="frame" x="147.66666666666666" y="74" width="119.99999999999997" height="120"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="120" id="6Zo-Rf-n67"/>
+                                <constraint firstAttribute="height" constant="120" id="zZ0-wq-kEA"/>
+                            </constraints>
+                        </imageView>
+                        <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8eA-0E-S1L">
+                            <rect key="frame" x="40" y="243" width="334" height="34"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9o5-Ed-rtO">
+                            <rect key="frame" x="40" y="309" width="334" height="34"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jaf-N4-YdD">
+                            <rect key="frame" x="155" y="380" width="104" height="41"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                            <state key="normal" title="Login"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstItem="klR-0b-sOy" firstAttribute="top" secondItem="tgR-x1-9fg" secondAttribute="top" constant="30" id="GnL-Dn-Nbh"/>
+                        <constraint firstItem="klR-0b-sOy" firstAttribute="centerX" secondItem="9o5-Ed-rtO" secondAttribute="centerX" id="MBe-1C-RHB"/>
+                        <constraint firstItem="Jaf-N4-YdD" firstAttribute="leading" secondItem="tgR-x1-9fg" secondAttribute="leading" constant="155" id="N3P-RW-eGi"/>
+                        <constraint firstItem="9o5-Ed-rtO" firstAttribute="top" secondItem="8eA-0E-S1L" secondAttribute="bottom" constant="32" id="O7W-ZE-e52"/>
+                        <constraint firstItem="klR-0b-sOy" firstAttribute="centerX" secondItem="j2c-3d-vS7" secondAttribute="centerX" id="QBp-l4-xrq"/>
+                        <constraint firstItem="klR-0b-sOy" firstAttribute="centerX" secondItem="8eA-0E-S1L" secondAttribute="centerX" id="Uvy-Zc-1Jf"/>
+                        <constraint firstItem="9o5-Ed-rtO" firstAttribute="leading" secondItem="tgR-x1-9fg" secondAttribute="leading" constant="40" id="WNq-d6-9Df"/>
+                        <constraint firstItem="Jaf-N4-YdD" firstAttribute="top" secondItem="9o5-Ed-rtO" secondAttribute="bottom" constant="37" id="Yla-O3-JbA"/>
+                        <constraint firstItem="9o5-Ed-rtO" firstAttribute="leading" secondItem="8eA-0E-S1L" secondAttribute="leading" id="qtd-xD-AVj"/>
+                        <constraint firstItem="8eA-0E-S1L" firstAttribute="top" secondItem="klR-0b-sOy" secondAttribute="bottom" constant="49" id="r5C-UN-9Xy"/>
+                        <constraint firstItem="Jaf-N4-YdD" firstAttribute="centerX" secondItem="klR-0b-sOy" secondAttribute="centerX" id="uvo-fW-TrI"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="tgR-x1-9fg"/>
+                </view>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="YLt-z9-6b6">
                     <connections>
                         <action selector="minimizeGesture:" destination="5gL-Aw-hkc" id="dYl-hu-hHb"/>
@@ -510,7 +554,7 @@
                     </connections>
                 </view>
             </objects>
-            <point key="canvasLocation" x="563.768115942029" y="154.01785714285714"/>
+            <point key="canvasLocation" x="549" y="154"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="IoZ-Md-WPO">
@@ -1171,6 +1215,7 @@
         <image name="cancel" width="48" height="48"/>
         <image name="doc.text.fill" catalog="system" width="56" height="64"/>
         <image name="emptyTumbnail" width="375" height="211"/>
+        <image name="logo" width="341.33334350585938" height="341.33334350585938"/>
         <image name="music.house.fill" catalog="system" width="64" height="52"/>
         <image name="thumbDown" width="25" height="25"/>
         <image name="thumbUp" width="25" height="25"/>

@@ -38,6 +38,7 @@ class UserModel {
         self.playlists = playlists
         self.name = name
     }
+    
 }
 
 struct Playlist {

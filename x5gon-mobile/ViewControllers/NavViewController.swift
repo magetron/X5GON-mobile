@@ -14,6 +14,7 @@ class NavViewController: UINavigationController, PlayerViewControllerDelegate  {
     @IBOutlet var playerView: PlayerView!
     @IBOutlet var searchView: SearchView!
     @IBOutlet var settingsView: SettingsView!
+    @IBOutlet var loginView: LoginView!
     let titleLabel = UILabel()
     let names = ["Home", "Trending", "Subscriptions", "Account"]
     let hiddenOrigin: CGPoint = {
@@ -40,10 +41,10 @@ class NavViewController: UINavigationController, PlayerViewControllerDelegate  {
         settingsButton.addTarget(self, action: #selector(self.showSettings), for: UIControl.Event.touchUpInside)
         self.navigationBar.addSubview(settingsButton)
         settingsButton.translatesAutoresizingMaskIntoConstraints = false
-        let _ = NSLayoutConstraint.init(item: self.navigationBar, attribute: .height, relatedBy: .equal, toItem: settingsButton, attribute: .height, multiplier: 1.0, constant: 0).isActive = true
-        let _ = NSLayoutConstraint.init(item: settingsButton, attribute: .width, relatedBy: .equal, toItem: settingsButton, attribute: .height, multiplier: 1.0, constant: 0).isActive = true
-        let _ = NSLayoutConstraint.init(item: self.navigationBar, attribute: .centerY, relatedBy: .equal, toItem: settingsButton, attribute: .centerY, multiplier: 1.0, constant: 0).isActive = true
-        let _ = NSLayoutConstraint.init(item: self.navigationBar, attribute: .right, relatedBy: .equal, toItem: settingsButton, attribute: .right, multiplier: 1.0, constant: 10).isActive = true
+        NSLayoutConstraint.init(item: self.navigationBar, attribute: .height, relatedBy: .equal, toItem: settingsButton, attribute: .height, multiplier: 1.0, constant: 0).isActive = true
+        NSLayoutConstraint.init(item: settingsButton, attribute: .width, relatedBy: .equal, toItem: settingsButton, attribute: .height, multiplier: 1.0, constant: 0).isActive = true
+        NSLayoutConstraint.init(item: self.navigationBar, attribute: .centerY, relatedBy: .equal, toItem: settingsButton, attribute: .centerY, multiplier: 1.0, constant: 0).isActive = true
+        NSLayoutConstraint.init(item: self.navigationBar, attribute: .right, relatedBy: .equal, toItem: settingsButton, attribute: .right, multiplier: 1.0, constant: 10).isActive = true
         //SearchButton
         let searchButton = UIButton.init(type: .system)
         searchButton.setImage(UIImage.init(named: "navSearch"), for: .normal)
@@ -51,43 +52,51 @@ class NavViewController: UINavigationController, PlayerViewControllerDelegate  {
         searchButton.addTarget(self, action: #selector(self.showSearch), for: UIControl.Event.touchUpInside)
         self.navigationBar.addSubview(searchButton)
         searchButton.translatesAutoresizingMaskIntoConstraints = false
-        let _ = NSLayoutConstraint.init(item: self.navigationBar, attribute: .height, relatedBy: .equal, toItem: searchButton, attribute: .height, multiplier: 1.0, constant: 0).isActive = true
-        let _ = NSLayoutConstraint.init(item: searchButton, attribute: .width, relatedBy: .equal, toItem: searchButton, attribute: .height, multiplier: 1.0, constant: 0).isActive = true
-        let _ = NSLayoutConstraint.init(item: self.navigationBar, attribute: .centerY, relatedBy: .equal, toItem: searchButton, attribute: .centerY, multiplier: 1.0, constant: 0).isActive = true
-        let _ = NSLayoutConstraint.init(item: searchButton, attribute: .right, relatedBy: .equal, toItem: settingsButton, attribute: .left, multiplier: 1.0, constant: -10).isActive = true
+        NSLayoutConstraint.init(item: self.navigationBar, attribute: .height, relatedBy: .equal, toItem: searchButton, attribute: .height, multiplier: 1.0, constant: 0).isActive = true
+        NSLayoutConstraint.init(item: searchButton, attribute: .width, relatedBy: .equal, toItem: searchButton, attribute: .height, multiplier: 1.0, constant: 0).isActive = true
+        NSLayoutConstraint.init(item: self.navigationBar, attribute: .centerY, relatedBy: .equal, toItem: searchButton, attribute: .centerY, multiplier: 1.0, constant: 0).isActive = true
+        NSLayoutConstraint.init(item: searchButton, attribute: .right, relatedBy: .equal, toItem: settingsButton, attribute: .left, multiplier: 1.0, constant: -10).isActive = true
         //TitleLabel setup
         self.titleLabel.font = UIFont.systemFont(ofSize: 18)
         self.titleLabel.textColor =  UIColor.white
         self.titleLabel.text = self.names[0]
         self.navigationBar.addSubview(self.titleLabel)
         self.titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        let _ = NSLayoutConstraint.init(item: self.navigationBar, attribute: .centerY, relatedBy: .equal, toItem: self.titleLabel, attribute: .centerY, multiplier: 1.0, constant: 0).isActive = true
-        let _ = NSLayoutConstraint.init(item: self.navigationBar, attribute: .height, relatedBy: .equal, toItem: self.titleLabel, attribute: .height, multiplier: 1.0, constant: 0).isActive = true
-        let _ = NSLayoutConstraint.init(item: self.navigationBar, attribute: .left, relatedBy: .equal, toItem: self.titleLabel, attribute: .left, multiplier: 1.0, constant: -10).isActive = true
+        NSLayoutConstraint.init(item: self.navigationBar, attribute: .centerY, relatedBy: .equal, toItem: self.titleLabel, attribute: .centerY, multiplier: 1.0, constant: 0).isActive = true
+        NSLayoutConstraint.init(item: self.navigationBar, attribute: .height, relatedBy: .equal, toItem: self.titleLabel, attribute: .height, multiplier: 1.0, constant: 0).isActive = true
+        NSLayoutConstraint.init(item: self.navigationBar, attribute: .left, relatedBy: .equal, toItem: self.titleLabel, attribute: .left, multiplier: 1.0, constant: -10).isActive = true
         self.titleLabel.widthAnchor.constraint(equalToConstant: 200).isActive = true
         //NavigationBar color and shadow
         self.navigationBar.barTintColor = Environment.X5Color
         self.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationBar.shadowImage = UIImage()
         self.navigationItem.hidesBackButton = true
+        guard let v = self.view else { return }
         //SearchView setup
         self.view.addSubview(self.searchView)
         self.searchView.translatesAutoresizingMaskIntoConstraints = false
-        guard let v = self.view else { return }
-        let _ = NSLayoutConstraint.init(item: v, attribute: .top, relatedBy: .equal, toItem: self.searchView, attribute: .top, multiplier: 1.0, constant: 0).isActive = true
-        let _ = NSLayoutConstraint.init(item: v, attribute: .left, relatedBy: .equal, toItem: self.searchView, attribute: .left, multiplier: 1.0, constant: 0).isActive = true
-        let _ = NSLayoutConstraint.init(item: v, attribute: .right, relatedBy: .equal, toItem: self.searchView, attribute: .right, multiplier: 1.0, constant: 0).isActive = true
-        let _ = NSLayoutConstraint.init(item: v, attribute: .bottom, relatedBy: .equal, toItem: self.searchView, attribute: .bottom, multiplier: 1.0, constant: 0).isActive = true
+        NSLayoutConstraint.init(item: v, attribute: .top, relatedBy: .equal, toItem: self.searchView, attribute: .top, multiplier: 1.0, constant: 0).isActive = true
+        NSLayoutConstraint.init(item: v, attribute: .left, relatedBy: .equal, toItem: self.searchView, attribute: .left, multiplier: 1.0, constant: 0).isActive = true
+        NSLayoutConstraint.init(item: v, attribute: .right, relatedBy: .equal, toItem: self.searchView, attribute: .right, multiplier: 1.0, constant: 0).isActive = true
+        NSLayoutConstraint.init(item: v, attribute: .bottom, relatedBy: .equal, toItem: self.searchView, attribute: .bottom, multiplier: 1.0, constant: 0).isActive = true
         self.searchView.isHidden = true
         //SettingsView setup
         self.view.addSubview(self.settingsView)
         self.settingsView.translatesAutoresizingMaskIntoConstraints = false
-        let _ = NSLayoutConstraint.init(item: v, attribute: .top, relatedBy: .equal, toItem: self.settingsView, attribute: .top, multiplier: 1.0, constant: 0).isActive = true
-        let _ = NSLayoutConstraint.init(item: v, attribute: .left, relatedBy: .equal, toItem: self.settingsView, attribute: .left, multiplier: 1.0, constant: 0).isActive = true
-        let _ = NSLayoutConstraint.init(item: v, attribute: .right, relatedBy: .equal, toItem: self.settingsView, attribute: .right, multiplier: 1.0, constant: 0).isActive = true
-        let _ = NSLayoutConstraint.init(item: v, attribute: .bottom, relatedBy: .equal, toItem: self.settingsView, attribute: .bottom, multiplier: 1.0, constant: 0).isActive = true
+        NSLayoutConstraint.init(item: v, attribute: .top, relatedBy: .equal, toItem: self.settingsView, attribute: .top, multiplier: 1.0, constant: 0).isActive = true
+        NSLayoutConstraint.init(item: v, attribute: .left, relatedBy: .equal, toItem: self.settingsView, attribute: .left, multiplier: 1.0, constant: 0).isActive = true
+        NSLayoutConstraint.init(item: v, attribute: .right, relatedBy: .equal, toItem: self.settingsView, attribute: .right, multiplier: 1.0, constant: 0).isActive = true
+        NSLayoutConstraint.init(item: v, attribute: .bottom, relatedBy: .equal, toItem: self.settingsView, attribute: .bottom, multiplier: 1.0, constant: 0).isActive = true
         self.settingsView.isHidden = true
-        //PLayerView setup
+        //LoginView setup
+        self.view.addSubview(self.loginView)
+        self.loginView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.init(item: v, attribute: .top, relatedBy: .equal, toItem: self.loginView, attribute: .top, multiplier: 1.0, constant: 0).isActive = true
+        NSLayoutConstraint.init(item: v, attribute: .left, relatedBy: .equal, toItem: self.loginView, attribute: .left, multiplier: 1.0, constant: 0).isActive = true
+        NSLayoutConstraint.init(item: v, attribute: .right, relatedBy: .equal, toItem: self.loginView, attribute: .right, multiplier: 1.0, constant: 0).isActive = true
+        NSLayoutConstraint.init(item: v, attribute: .bottom, relatedBy: .equal, toItem: self.loginView, attribute: .bottom, multiplier: 1.0, constant: 0).isActive = true
+        self.loginView.isHidden = true
+        //PlayerView setup
         self.playerView.frame = CGRect.init(origin: self.hiddenOrigin, size: UIScreen.main.bounds.size)
         self.playerView.delegate = self
         //NotificaionCenter Setup
@@ -111,6 +120,10 @@ class NavViewController: UINavigationController, PlayerViewControllerDelegate  {
             self.settingsView.backgroundView.alpha = 0.5
             self.settingsView.layoutIfNeeded()
         }
+    }
+    
+    func showLogin () {
+         self.loginView.isHidden = false
     }
     
     @objc func changeTitle(notification: Notification)  {

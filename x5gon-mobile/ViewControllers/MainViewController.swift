@@ -14,7 +14,6 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     @IBOutlet var tabBarView: TabBarView!
     @IBOutlet weak var collectionView: UICollectionView!
     var views = [UIView]()
-    var viewControllers = [UIViewController]()
     
     //MARK: Methods
     func customization()  {
@@ -43,7 +42,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         for vc in viewControllers {
             self.addChild(vc!)
             vc!.didMove(toParent: self)
-            vc!.view.frame = CGRect.init(x: 0, y: 0, width: self.view.bounds.width, height: (self.view.bounds.height - 44))
+            vc!.view.frame = CGRect.init(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height)
             self.views.append(vc!.view)
         }
         self.collectionView.reloadData()

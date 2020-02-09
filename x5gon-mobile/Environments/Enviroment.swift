@@ -12,6 +12,8 @@ import UIKit
 class Environment {
     static let X5Color = UIColor.rbg(r: 91, g: 149, b: 165)
     
+    static let X5URL = "http://x5learn.org/"
+    
     static func makeQueryURL (keyWord: String, contentType: String) -> String {
         return "https://platform.x5gon.org/api/v1/recommend/oer_materials?text=\"" + keyWord + "\"&type=" + contentType
     }
