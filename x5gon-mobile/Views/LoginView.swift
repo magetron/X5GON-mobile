@@ -20,10 +20,10 @@ class LoginView: UIView {
     }
     
     @IBAction func loginButtonPressed(_ sender: Any) {
-        let username = self.usernameTextField.text
-        let password = self.passwordTextField.text
-        let csrfToken = Environment.getCSRFToken()
-        
+        let username = self.usernameTextField.text ?? ""
+        let password = self.passwordTextField.text ?? ""
+        let csrfToken = UserController.getCSRFToken()
+        UserController.loginWith(username: username, password: password, csrfToken: csrfToken)
         
     }
     
