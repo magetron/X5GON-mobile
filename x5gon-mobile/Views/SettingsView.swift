@@ -14,8 +14,9 @@ class SettingsView: UIView, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var backgroundView: UIButton!
     @IBOutlet weak var tableViewBottomConstraint: NSLayoutConstraint!
-     let items = ["Settings", "Terms & privacy policy", "Send Feedback", "Help", "Switch Account", "Cancel"]
-
+    let items = ["Settings", "Terms & privacy policy", "Send Feedback", "Help", "Login", "Cancel"]
+    var showLogin: (() -> Void) = { () in return }
+    
     //MARK: Methods
     func customization() {
         self.tableView.delegate = self
@@ -49,6 +50,10 @@ class SettingsView: UIView, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.hideSettingsView(self)
+        let navViewController = self.parentViewController as! NavViewController
+        if (self.items[indexPath.row] == "Login") {
+            navViewController.showLogin()
+        }
     }
     
     //MARK: View LifeCycle

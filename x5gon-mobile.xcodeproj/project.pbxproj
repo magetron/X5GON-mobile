@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,7 @@
 		CD318CAB23E78AFA0091017B /* Enviroment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD318CAA23E78AFA0091017B /* Enviroment.swift */; };
 		CD7CBA3D23E96E1E003BF035 /* notesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7CBA3C23E96E1E003BF035 /* notesCell.swift */; };
 		CD7CBA4023E99BDC003BF035 /* TabBarCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7CBA3F23E99BDC003BF035 /* TabBarCellCollectionViewCell.swift */; };
+		CDDDD6D623F0B4E5003C1EE5 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDDD6D523F0B4E5003C1EE5 /* LoginView.swift */; };
 		CDE92D9023E5D396004BB8BF /* ContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE92D8F23E5D396004BB8BF /* ContentCell.swift */; };
 		CDE92D9223E5D3CE004BB8BF /* headerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE92D9123E5D3CE004BB8BF /* headerCell.swift */; };
 		CDE92D9523E5D42D004BB8BF /* suggestionContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE92D9423E5D42D004BB8BF /* suggestionContentCell.swift */; };
@@ -70,6 +71,7 @@
 		CD318CAA23E78AFA0091017B /* Enviroment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enviroment.swift; sourceTree = "<group>"; };
 		CD7CBA3C23E96E1E003BF035 /* notesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notesCell.swift; sourceTree = "<group>"; };
 		CD7CBA3F23E99BDC003BF035 /* TabBarCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCellCollectionViewCell.swift; sourceTree = "<group>"; };
+		CDDDD6D523F0B4E5003C1EE5 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		CDE92D8F23E5D396004BB8BF /* ContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCell.swift; sourceTree = "<group>"; };
 		CDE92D9123E5D3CE004BB8BF /* headerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = headerCell.swift; sourceTree = "<group>"; };
 		CDE92D9423E5D42D004BB8BF /* suggestionContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = suggestionContentCell.swift; sourceTree = "<group>"; };
@@ -135,7 +137,6 @@
 				01FEECE77A4C8C131A415A86 /* Pods-x5gon-mobile.debug.xcconfig */,
 				99BCE8FA627D1E8B4FCB577C /* Pods-x5gon-mobile.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -272,6 +273,7 @@
 				CD7CBA3E23E99BAF003BF035 /* TabBarViewCells */,
 				CDFD3C3F23CC7C9F000FCEF6 /* SearchView.swift */,
 				CDFD3C4123CC7CBD000FCEF6 /* SettingsView.swift */,
+				CDDDD6D523F0B4E5003C1EE5 /* LoginView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -510,6 +512,7 @@
 				CD00457923E4E76A009CA522 /* PDFModel.swift in Sources */,
 				CDE92D9023E5D396004BB8BF /* ContentCell.swift in Sources */,
 				CDFD3BEC23CC784C000FCEF6 /* AppDelegate.swift in Sources */,
+				CDDDD6D623F0B4E5003C1EE5 /* LoginView.swift in Sources */,
 				CDFD3C3123CC79F0000FCEF6 /* HomeViewController.swift in Sources */,
 				CDFD3C3C23CC7C75000FCEF6 /* PlayerView.swift in Sources */,
 				CDFD3C4223CC7CBD000FCEF6 /* SettingsView.swift in Sources */,
