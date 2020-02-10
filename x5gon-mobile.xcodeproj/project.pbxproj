@@ -12,7 +12,7 @@
 		CD00457B23E4E7AD009CA522 /* ContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00457A23E4E7AD009CA522 /* ContentModel.swift */; };
 		CD00457E23E4ED16009CA522 /* VideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00457D23E4ED16009CA522 /* VideoController.swift */; };
 		CD00458023E4F028009CA522 /* PDFController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00457F23E4F028009CA522 /* PDFController.swift */; };
-		CD318CAB23E78AFA0091017B /* Enviroment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD318CAA23E78AFA0091017B /* Enviroment.swift */; };
+		CD318CAB23E78AFA0091017B /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD318CAA23E78AFA0091017B /* Environment.swift */; };
 		CD7CBA3D23E96E1E003BF035 /* notesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7CBA3C23E96E1E003BF035 /* notesCell.swift */; };
 		CD7CBA4023E99BDC003BF035 /* TabBarCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7CBA3F23E99BDC003BF035 /* TabBarCellCollectionViewCell.swift */; };
 		CDDDD6D623F0B4E5003C1EE5 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDDD6D523F0B4E5003C1EE5 /* LoginView.swift */; };
@@ -68,7 +68,7 @@
 		CD00457A23E4E7AD009CA522 /* ContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentModel.swift; sourceTree = "<group>"; };
 		CD00457D23E4ED16009CA522 /* VideoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoController.swift; sourceTree = "<group>"; };
 		CD00457F23E4F028009CA522 /* PDFController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFController.swift; sourceTree = "<group>"; };
-		CD318CAA23E78AFA0091017B /* Enviroment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enviroment.swift; sourceTree = "<group>"; };
+		CD318CAA23E78AFA0091017B /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		CD7CBA3C23E96E1E003BF035 /* notesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notesCell.swift; sourceTree = "<group>"; };
 		CD7CBA3F23E99BDC003BF035 /* TabBarCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCellCollectionViewCell.swift; sourceTree = "<group>"; };
 		CDDDD6D523F0B4E5003C1EE5 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -153,7 +153,7 @@
 		CD318CA923E78ADD0091017B /* Environments */ = {
 			isa = PBXGroup;
 			children = (
-				CD318CAA23E78AFA0091017B /* Enviroment.swift */,
+				CD318CAA23E78AFA0091017B /* Environment.swift */,
 			);
 			path = Environments;
 			sourceTree = "<group>";
@@ -493,7 +493,7 @@
 			files = (
 				CDFD3C4023CC7C9F000FCEF6 /* SearchView.swift in Sources */,
 				CD00457E23E4ED16009CA522 /* VideoController.swift in Sources */,
-				CD318CAB23E78AFA0091017B /* Enviroment.swift in Sources */,
+				CD318CAB23E78AFA0091017B /* Environment.swift in Sources */,
 				CDFD3C3E23CC7C8E000FCEF6 /* TabBarView.swift in Sources */,
 				CDFD3C4A23CC7D64000FCEF6 /* VideoModel.swift in Sources */,
 				CDFD3C2F23CC7986000FCEF6 /* MainViewController.swift in Sources */,
