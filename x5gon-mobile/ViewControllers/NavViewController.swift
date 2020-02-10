@@ -123,7 +123,12 @@ class NavViewController: UINavigationController, PlayerViewControllerDelegate  {
     }
     
     func showLogin () {
-         self.loginView.isHidden = false
+        self.loginView.isHidden = false
+        self.loginView.center.y += self.loginView.bounds.height
+        UIView.animate(withDuration: 0.6) {
+            self.loginView.center.y -= self.loginView.bounds.height
+            self.loginView.layoutIfNeeded()
+        }
     }
     
     @objc func changeTitle(notification: Notification)  {
