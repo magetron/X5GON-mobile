@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftSoup
 import UIKit
 
 class Environment {
@@ -20,6 +21,34 @@ class Environment {
     
     static var mainViewController:MainViewController? = nil
     static var homeViewContoller:HomeViewController? = nil
+    static var csrfToken = ""
+    
+    private static func queryCSRFToken () {
+        let semaphore = DispatchSemaphore(value: 0)
+        let task = URLSession.shared.dataTask(with: URL.init(string: Environment.X5URL + "login")!) {(data, response, error) in
+            defer { semaphore.signal() }
+            guard let data = data else { return }
+            do {
+                let divFields: Elements = try SwiftSoup.parse(String(decoding: data, as: UTF8.self)).body()!.select("div")
+                let centreDiv = divFields.array()[1]
+                let inputFields = try centreDiv.select("form").first()!.select("input")
+                for inputField in inputFields {
+                    if inputField.id() == "csrf_token" {
+                        self.csrfToken = try inputField.val()
+                    }
+                }
+            } catch {
+                print("error: cannot fetch csrf token")
+            }
+        }
+        task.resume()
+        semaphore.wait()
+    }
+    
+    static func getCSRFToken () -> String {
+        queryCSRFToken()
+        return self.csrfToken
+    }
 
 }
 
