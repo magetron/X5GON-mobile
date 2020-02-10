@@ -40,20 +40,23 @@
                                 <constraint firstAttribute="height" constant="120" id="zZ0-wq-kEA"/>
                             </constraints>
                         </imageView>
-                        <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8eA-0E-S1L">
-                            <rect key="frame" x="40" y="243" width="334" height="34"/>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8eA-0E-S1L">
+                            <rect key="frame" x="40" y="243" width="335" height="34"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
-                        <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9o5-Ed-rtO">
-                            <rect key="frame" x="40" y="309" width="334" height="34"/>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9o5-Ed-rtO">
+                            <rect key="frame" x="40" y="309" width="335" height="34"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
-                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jaf-N4-YdD">
-                            <rect key="frame" x="155" y="380" width="104" height="41"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jaf-N4-YdD">
+                            <rect key="frame" x="155" y="380" width="105" height="41"/>
                             <fontDescription key="fontDescription" type="system" pointSize="24"/>
                             <state key="normal" title="Login"/>
+                            <connections>
+                                <action selector="loginButtonPressed:" destination="j2c-3d-vS7" eventType="touchUpInside" id="wIg-xs-2Q5"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -71,6 +74,11 @@
                         <constraint firstItem="Jaf-N4-YdD" firstAttribute="centerX" secondItem="klR-0b-sOy" secondAttribute="centerX" id="uvo-fW-TrI"/>
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="tgR-x1-9fg"/>
+                    <connections>
+                        <outlet property="loginButton" destination="Jaf-N4-YdD" id="3py-JP-mcG"/>
+                        <outlet property="passwordTextField" destination="9o5-Ed-rtO" id="OqX-ci-V29"/>
+                        <outlet property="usernameTextField" destination="8eA-0E-S1L" id="Nyh-1O-Zfc"/>
+                    </connections>
                 </view>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="YLt-z9-6b6">
                     <connections>

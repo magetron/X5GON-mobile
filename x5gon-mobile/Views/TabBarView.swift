@@ -27,7 +27,6 @@ class TabBarView: UIView, UICollectionViewDelegateFlowLayout, UICollectionViewDa
 
     
     @objc func animateMenu(notification: Notification) {
-        print("animate")
         if let info = notification.userInfo {
             let userInfo = info as! [String: CGFloat]
             self.whiteBarLeadingConstraint.constant = self.whiteBar.bounds.width * userInfo["length"]!

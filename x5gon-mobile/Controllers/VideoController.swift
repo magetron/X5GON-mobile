@@ -40,7 +40,6 @@ class VideoController : ContentController{
         let defaultContentType = "video"
         let defaultVideos = fetchItems(keyWord: defaultKeyWord, contentType: defaultContentType) as! [VideoModel]
         items.append(contentsOf: defaultVideos)
-        print(items.count)
         let placeHolders = loadPlaceHolders() as! [VideoModel]
         items.append(contentsOf: placeHolders)
         items.myShuffle()
