@@ -9,18 +9,18 @@
 import Foundation
 import UIKit
 
-class ContentModel {
+class Content {
     
     //MARK: Properties
     var thumbnail: UIImage
     let title: String
     let views: Int
-    let channel: ChannelModel
+    let channel: Channel
     var duration: Int
     var contentLink: URL!
     var likes: Int
     var disLikes: Int
-    var suggestedContents = [ContentModel]()
+    var suggestedContents = [Content]()
         
     //MARK: Inits
     init(title: String, channelName: String) {
@@ -30,7 +30,7 @@ class ContentModel {
         self.duration = Int(arc4random_uniform(400))
         self.likes = Int(arc4random_uniform(1000))
         self.disLikes = Int(arc4random_uniform(1000))
-        self.channel = ChannelModel.init(name: channelName, image: UIImage.init(named: channelName) ?? UIImage.init(named: "Channel Placeholder")!)
+        self.channel = Channel.init(name: channelName, image: UIImage.init(named: channelName) ?? UIImage.init(named: "Channel Placeholder")!)
     }
     
     func initURL (url : URL, regenerateInfo : Bool) {

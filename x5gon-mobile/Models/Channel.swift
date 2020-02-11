@@ -9,18 +9,18 @@
 import Foundation
 import UIKit
 
-class ChannelModel {
+class Channel {
     
     let name: String
     let image: UIImage
     var subscribers = 0
     
-    class func fetchData(completion: @escaping (([ChannelModel]) -> Void)) {
-        var items = [ChannelModel]()
+    class func fetchData(completion: @escaping (([Channel]) -> Void)) {
+        var items = [Channel]()
         for i in 0...18 {
             let name = ""
             let image = UIImage.init(named: "channel\(i)")
-            let channel = ChannelModel.init(name: name, image: image!)
+            let channel = Channel.init(name: name, image: image!)
             items.append(channel)
         }
         items.myShuffle()

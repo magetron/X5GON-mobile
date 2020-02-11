@@ -10,14 +10,14 @@ import Foundation
 
 protocol ContentController {
 
-    static func loadPlaceHolders () -> [ContentModel]
+    static func loadPlaceHolders () -> [Content]
     static func loadDefaultItems()
 }
 
 extension ContentController {
 
-    static func fetchItems (keyWord : String, contentType : String) -> [ContentModel] {
-        var tmpItems = [ContentModel]()
+    static func fetchItems (keyWord : String, contentType : String) -> [Content] {
+        var tmpItems = [Content]()
         let contentURLString = Environment.makeQueryURL(keyWord: keyWord, contentType: contentType)
         let contentURL = URL(string: contentURLString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!
         let semaphore = DispatchSemaphore(value: 0)
@@ -47,12 +47,12 @@ extension ContentController {
                         break
                     }
                     if (contentType == "video") {
-                        let newVideo = VideoModel.init(title: title, channelName: provider)
+                        let newVideo = Video.init(title: title, channelName: provider)
                         let newVideoURL = URL.init(string: url)
                         newVideo.initURL(url: newVideoURL!, regenerateInfo: true)
                         tmpItems.append(newVideo)
                     } else if (contentType == "text") {
-                        let newPDF = PDFModel.init(title: title, channelName: provider)
+                        let newPDF = PDF.init(title: title, channelName: provider)
                         let newPDFURL = URL.init(string: url)
                         newPDF.initURL(url: newPDFURL!, regenerateInfo: true)
                         tmpItems.append(newPDF)

@@ -10,7 +10,7 @@ import Foundation
 import AVFoundation
 import UIKit
 
-class VideoModel : ContentModel {
+class Video : Content {
     
     override func fetchSuggestedContents (async : Bool, refresher: @escaping () -> Void) {
         if (async) {

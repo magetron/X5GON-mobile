@@ -12,7 +12,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     //MARK: - Properties
     @IBOutlet weak var tableView: UITableView!
-    var contents = [ContentModel]()
+    var contents = [Content]()
     var lastContentOffset: CGFloat = 0.0
     
     //MARK: Methods

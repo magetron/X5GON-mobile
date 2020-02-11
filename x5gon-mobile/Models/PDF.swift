@@ -11,7 +11,7 @@ import AVFoundation
 import UIKit
 
 
-class PDFModel : ContentModel {
+class PDF : Content {
     override func fetchSuggestedContents (async : Bool, refresher: @escaping () -> Void) {
          if (async) {
              DispatchQueue.global().async {

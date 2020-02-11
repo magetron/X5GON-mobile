@@ -30,13 +30,13 @@ class SubscriptionsViewController: HomeViewController {
 class SubscriptionsCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout  {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    var channels = [ChannelModel]()
+    var channels = [Channel]()
     
     func customization() {
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         self.collectionView.contentInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
-        ChannelModel.fetchData { [weak self] channels in
+        Channel.fetchData { [weak self] channels in
             guard let weakSelf = self else {
                 return
             }

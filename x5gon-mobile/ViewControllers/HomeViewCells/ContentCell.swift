@@ -25,7 +25,7 @@ class ContentCell: UITableViewCell {
         self.durationLabel.sizeToFit()
     }
     
-    func set(video: ContentModel)  {
+    func set(video: Content)  {
         self.videoThumbnail.image = video.thumbnail
         self.durationLabel.text = " \(video.duration.secondsToFormattedString()) "
         self.durationLabel.layer.borderColor = UIColor.lightGray.cgColor

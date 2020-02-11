@@ -15,7 +15,7 @@ class suggestionContentCell: UITableViewCell {
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var name: UILabel!
     
-    func set(content: ContentModel)  {
+    func set(content: Content)  {
         self.thumbnail.image = content.thumbnail
         self.title.text = content.title
         self.name.text = content.channel.name

@@ -14,7 +14,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var tableView: UITableView!
     let menuTitles = ["History", "My Videos", "Notifications", "Watch Later"]
     var items = 5
-    var user = UserModel.init(name: "Loading", profilePic: UIImage(), backgroundImage: UIImage(), playlists: [Playlist]())
+    var user = User.init(name: "Loading", profilePic: UIImage(), backgroundImage: UIImage(), playlists: [Playlist]())
     var lastContentOffset: CGFloat = 0.0
     
     //MARK: Methods
@@ -24,14 +24,9 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.tableView.scrollIndicatorInsets = UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 300
-        UserModel.fetchData { [weak self] response in
-            guard let weakSelf = self else {
-                return
-            }
-            weakSelf.user = response
-            weakSelf.items += response.playlists.count
-            weakSelf.tableView.reloadData()
-        }
+        self.user = User.generateDefaultUser()
+        self.items += self.user.playlists.count
+        self.tableView.reloadData()
     }
     
     // MARK: Delegates

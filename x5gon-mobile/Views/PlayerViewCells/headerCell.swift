@@ -22,7 +22,7 @@ class headerCell: UITableViewCell {
     var onDisLikeTapFunc: (() -> Void) = { () in return }
     
     
-    func set(content: ContentModel!, onLikeTapFunc: @escaping () -> Void, onDisLikeTapFunc: @escaping () -> Void) {
+    func set(content: Content!, onLikeTapFunc: @escaping () -> Void, onDisLikeTapFunc: @escaping () -> Void) {
         title.text = content!.title
         viewCount.text = "\(content!.views) views"
         likes.text = String(content!.likes)

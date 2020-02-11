@@ -10,19 +10,19 @@ import Foundation
 
 class PDFController : ContentController {
     
-    static var items = [PDFModel]()
+    static var items = [PDF]()
 
-    static func loadPlaceHolders () -> [ContentModel] {
-        let pdf = PDFModel.init(title: "A PDF File", channelName: "Blender Foundation")
+    static func loadPlaceHolders () -> [Content] {
+        let pdf = PDF.init(title: "A PDF File", channelName: "Blender Foundation")
         return [pdf]
     }
     
     static func loadDefaultItems() {
         let defaultKeyWord = "science"
         let defaultContentType = "text"
-        let defaultVideos = fetchItems(keyWord: defaultKeyWord, contentType: defaultContentType) as! [PDFModel]
+        let defaultVideos = fetchItems(keyWord: defaultKeyWord, contentType: defaultContentType) as! [PDF]
         items.append(contentsOf: defaultVideos)
-        let placeHolders = loadPlaceHolders() as! [PDFModel]
+        let placeHolders = loadPlaceHolders() as! [PDF]
         items.append(contentsOf: placeHolders)
         items.myShuffle()
     }

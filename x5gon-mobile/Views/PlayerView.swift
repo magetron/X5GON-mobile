@@ -24,7 +24,7 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
     //MARK: Properties
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var player: UIView!
-    var content: ContentModel!
+    var content: Content!
     var delegate: PlayerViewControllerDelegate?
     var state = stateOfViewController.hidden
     var direction = Direction.none
@@ -86,10 +86,10 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
     }
     
     @objc func tapPlayView(_ notification: Notification) {
-        if let video = notification.object as? VideoModel {
+        if let video = notification.object as? Video {
             setVideo(video: video)
             self.videoPlayerViewController.player?.play()
-        } else if let pdf = notification.object as? PDFModel {
+        } else if let pdf = notification.object as? PDF {
             setPDF(pdf: pdf)
         }
         self.state = .fullScreen
@@ -184,9 +184,9 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         self.customization()
     }
     
-    func setVideo(video : VideoModel) {
+    func setVideo(video : Video) {
         self.content = video
-        let selfVideo = self.content as! VideoModel
+        let selfVideo = self.content as! Video
         self.player.clearSubViews()
         if self.videoPlayerViewController.player == nil {
             self.videoPlayerViewController.player = AVPlayer()
@@ -214,9 +214,9 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         }
     }
     
-    func setPDF(pdf : PDFModel) {
+    func setPDF(pdf : PDF) {
         self.content = pdf
-        let selfPDF = self.content as! PDFModel
+        let selfPDF = self.content as! PDF
         self.player.clearSubViews()
         self.player.addSubview(pdfView)
         let returnButton = UIButton.init(frame: CGRect(x: 10, y: 0, width: 60, height: 35))
