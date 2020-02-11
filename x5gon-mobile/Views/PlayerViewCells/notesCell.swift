@@ -17,10 +17,7 @@ class notesCell: UITableViewCell, UITextViewDelegate {
     
     func customisation () {
         editTextView.text = "Put some **Markdown** notes here."
-        markDownView = try! DownView.init(frame: self.notesView.frame, markdownString: editTextView.text)
-        markDownView!.frame = notesView.frame
-        notesView.addSubview(markDownView!)
-        markDownView!.centreView(parentView: notesView)
+        buildMarkDownView()
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.tapMarkdownView))
         self.addGestureRecognizer(tap)
     }
@@ -38,11 +35,8 @@ class notesCell: UITableViewCell, UITextViewDelegate {
     
     @objc func tapeditTextView(sender: UITapGestureRecognizer) {
         self.notesView.clearSubViews()
-        editTextView.insertText(" Put some **Markdown** notes here.")
-        markDownView = try! DownView.init(frame: self.notesView.frame, markdownString: editTextView.text)
-        markDownView!.frame = notesView.frame
-        notesView.addSubview(markDownView!)
-        markDownView!.centreView(parentView: notesView)
+        editTextView.insertText("\nPut some **Markdown** notes here.")
+        buildMarkDownView()
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.tapMarkdownView))
         self.addGestureRecognizer(tap)
     //        self.reloadInputViews()
@@ -56,6 +50,13 @@ class notesCell: UITableViewCell, UITextViewDelegate {
             return false
         }
         return true
+    }
+    
+    func buildMarkDownView(){
+        markDownView = try! DownView.init(frame: self.notesView.frame, markdownString: editTextView.text)
+        markDownView!.frame = notesView.frame
+        notesView.addSubview(markDownView!)
+        markDownView!.centreView(parentView: notesView)
     }
     
     
