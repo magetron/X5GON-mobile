@@ -269,9 +269,9 @@
                                         <rect key="frame" x="0.0" y="0.0" width="415" height="122.33333587646484"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SlA-Ra-CqX">
+                                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SlA-Ra-CqX">
                                                 <rect key="frame" x="20" y="11" width="375" height="100.33333333333333"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="Of0-J8-ymc"/>
                                                 </constraints>

@@ -21,17 +21,33 @@ class notesCell: UITableViewCell, UITextViewDelegate {
         markDownView!.frame = notesView.frame
         notesView.addSubview(markDownView!)
         markDownView!.centreView(parentView: notesView)
-        self.isUserInteractionEnabled = true
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.tapMarkdownView))
         self.addGestureRecognizer(tap)
     }
     
     @objc func tapMarkdownView(sender: UITapGestureRecognizer) {
         self.notesView.clearSubViews()
+        editTextView.frame = notesView.frame
         notesView.addSubview(editTextView)
         editTextView.centreView(parentView: notesView)
-        self.reloadInputViews()
+        editTextView.isEditable = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.TotapMarkdownView))
+        self.addGestureRecognizer(tap)
+//        self.reloadInputViews()
     }
+    
+    @objc func TotapMarkdownView(sender: UITapGestureRecognizer) {
+        editTextView.insertText("sdfjdljsflkjsl")
+    //        self.reloadInputViews()
+    }
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if text == "\n" {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
+    }
+    
     
     func textViewDidEndEditing(_ textView: UITextView) {
         self.notesView.clearSubViews()
