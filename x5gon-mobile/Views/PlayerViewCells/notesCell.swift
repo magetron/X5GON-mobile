@@ -27,7 +27,6 @@ class notesCell: UITableViewCell, UITextViewDelegate {
     }
     
     @objc func tapMarkdownView(sender: UITapGestureRecognizer) {
-        print("tap")
         self.notesView.clearSubViews()
         notesView.addSubview(editTextView)
         editTextView.centreView(parentView: notesView)

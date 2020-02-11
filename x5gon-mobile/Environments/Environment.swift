@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftSoup
 import UIKit
 
 class Environment {
@@ -20,6 +21,5 @@ class Environment {
     
     static var mainViewController:MainViewController? = nil
     static var homeViewContoller:HomeViewController? = nil
-
 }
 
