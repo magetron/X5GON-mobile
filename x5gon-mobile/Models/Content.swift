@@ -23,7 +23,7 @@ class Content {
     var suggestedContents = [Content]()
         
     //MARK: Inits
-    init(title: String, channelName: String) {
+    init(title: String, channelName: String, url: URL) {
         self.thumbnail = UIImage.init(named: title) ?? UIImage.init(named: "Video Placeholder")!
         self.title = title
         self.views = Int(arc4random_uniform(1000000))
@@ -31,17 +31,16 @@ class Content {
         self.likes = Int(arc4random_uniform(1000))
         self.disLikes = Int(arc4random_uniform(1000))
         self.channel = Channel.init(name: channelName, image: UIImage.init(named: channelName) ?? UIImage.init(named: "Channel Placeholder")!)
-    }
-    
-    func initURL (url : URL, regenerateInfo : Bool) {
         self.contentLink = url
-        if (regenerateInfo) {
-            generateInfo()
-        }
+        self.generateContentInfo()
     }
     
-    func generateInfo () { }
+    func generateContentInfo () {
+        fatalError("error: directly calling content generateContentInfo()")
+    }
     
-    func fetchSuggestedContents (async : Bool, refresher: @escaping () -> Void) { }
+    func fetchSuggestedContents (refresher: @escaping () -> Void) {
+        fatalError("error: directly calling content fetchSuggestedContents()")
+    }
     
 }

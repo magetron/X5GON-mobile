@@ -20,11 +20,16 @@ class LoginView: UIView {
     }
     
     @IBAction func loginButtonPressed(_ sender: Any) {
-        let username = self.usernameTextField.text ?? ""
-        let password = self.passwordTextField.text ?? ""
-        let csrfToken = UserController.getCSRFToken()
-        UserController.loginWith(username: username, password: password, csrfToken: csrfToken)
-        
+        guard let username = self.usernameTextField.text else {
+            // login view exit
+            return
+        }
+        guard let password = self.passwordTextField.text else {
+            // login view exit
+            return
+        }
+        // login
+
     }
     
     override func awakeFromNib () {

@@ -15,18 +15,17 @@ class Channel {
     let image: UIImage
     var subscribers = 0
     
-    class func fetchData(completion: @escaping (([Channel]) -> Void)) {
-        var items = [Channel]()
+    static func generateDefaultChannels () -> [Channel] {
+        var channels = [Channel]()
         for i in 0...18 {
             let name = ""
             let image = UIImage.init(named: "channel\(i)")
             let channel = Channel.init(name: name, image: image!)
-            items.append(channel)
+            channels.append(channel)
         }
-        items.myShuffle()
-        completion(items)
+        channels.myShuffle()
+        return channels
     }
-
     
     init(name: String, image: UIImage) {
         self.name = name

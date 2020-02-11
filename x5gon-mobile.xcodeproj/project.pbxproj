@@ -10,19 +10,19 @@
 		099078A5DDC288D3AB120013 /* libPods-x5gon-mobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 855071D7BC1DED7D2BB41C4F /* libPods-x5gon-mobile.a */; };
 		CD00457923E4E76A009CA522 /* PDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00457823E4E76A009CA522 /* PDF.swift */; };
 		CD00457B23E4E7AD009CA522 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00457A23E4E7AD009CA522 /* Content.swift */; };
-		CD00457E23E4ED16009CA522 /* VideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00457D23E4ED16009CA522 /* VideoController.swift */; };
 		CD00458023E4F028009CA522 /* PDFController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00457F23E4F028009CA522 /* PDFController.swift */; };
 		CD2D76F823F35D030031E3F1 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2D76F723F35D030031E3F1 /* Playlist.swift */; };
 		CD318CAB23E78AFA0091017B /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD318CAA23E78AFA0091017B /* Environment.swift */; };
 		CD7CBA3D23E96E1E003BF035 /* notesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7CBA3C23E96E1E003BF035 /* notesCell.swift */; };
 		CD7CBA4023E99BDC003BF035 /* TabBarCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7CBA3F23E99BDC003BF035 /* TabBarCellCollectionViewCell.swift */; };
-		CDD5488823F214330085B669 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD5488723F214330085B669 /* UserController.swift */; };
+		CDA5D0AA23F3736200AA6902 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA5D0A823F3736200AA6902 /* API.swift */; };
+		CDA5D0AB23F3736200AA6902 /* APIAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA5D0A923F3736200AA6902 /* APIAdapter.swift */; };
+		CDA5D0AD23F3737E00AA6902 /* VideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA5D0AC23F3737E00AA6902 /* VideoController.swift */; };
 		CDDDD6D623F0B4E5003C1EE5 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDDD6D523F0B4E5003C1EE5 /* LoginView.swift */; };
 		CDE92D9023E5D396004BB8BF /* ContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE92D8F23E5D396004BB8BF /* ContentCell.swift */; };
 		CDE92D9223E5D3CE004BB8BF /* headerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE92D9123E5D3CE004BB8BF /* headerCell.swift */; };
 		CDE92D9523E5D42D004BB8BF /* suggestionContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE92D9423E5D42D004BB8BF /* suggestionContentCell.swift */; };
 		CDE92D9723E5D49D004BB8BF /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE92D9623E5D49D004BB8BF /* Channel.swift */; };
-		CDE92D9923E62C0E004BB8BF /* ContentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE92D9823E62C0E004BB8BF /* ContentController.swift */; };
 		CDFD3BEC23CC784C000FCEF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFD3BEB23CC784C000FCEF6 /* AppDelegate.swift */; };
 		CDFD3BF223CC7853000FCEF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDFD3BF123CC7853000FCEF6 /* Assets.xcassets */; };
 		CDFD3BF523CC7853000FCEF6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDFD3BF423CC7853000FCEF6 /* Preview Assets.xcassets */; };
@@ -68,19 +68,19 @@
 		99BCE8FA627D1E8B4FCB577C /* Pods-x5gon-mobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-x5gon-mobile.release.xcconfig"; path = "Target Support Files/Pods-x5gon-mobile/Pods-x5gon-mobile.release.xcconfig"; sourceTree = "<group>"; };
 		CD00457823E4E76A009CA522 /* PDF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDF.swift; sourceTree = "<group>"; };
 		CD00457A23E4E7AD009CA522 /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
-		CD00457D23E4ED16009CA522 /* VideoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoController.swift; sourceTree = "<group>"; };
 		CD00457F23E4F028009CA522 /* PDFController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFController.swift; sourceTree = "<group>"; };
 		CD2D76F723F35D030031E3F1 /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
 		CD318CAA23E78AFA0091017B /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		CD7CBA3C23E96E1E003BF035 /* notesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notesCell.swift; sourceTree = "<group>"; };
 		CD7CBA3F23E99BDC003BF035 /* TabBarCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCellCollectionViewCell.swift; sourceTree = "<group>"; };
-		CDD5488723F214330085B669 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		CDA5D0A823F3736200AA6902 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		CDA5D0A923F3736200AA6902 /* APIAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIAdapter.swift; sourceTree = "<group>"; };
+		CDA5D0AC23F3737E00AA6902 /* VideoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoController.swift; sourceTree = "<group>"; };
 		CDDDD6D523F0B4E5003C1EE5 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		CDE92D8F23E5D396004BB8BF /* ContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCell.swift; sourceTree = "<group>"; };
 		CDE92D9123E5D3CE004BB8BF /* headerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = headerCell.swift; sourceTree = "<group>"; };
 		CDE92D9423E5D42D004BB8BF /* suggestionContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = suggestionContentCell.swift; sourceTree = "<group>"; };
 		CDE92D9623E5D49D004BB8BF /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
-		CDE92D9823E62C0E004BB8BF /* ContentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentController.swift; sourceTree = "<group>"; };
 		CDFD3BE823CC784C000FCEF6 /* x5gon-mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "x5gon-mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDFD3BEB23CC784C000FCEF6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CDFD3BF123CC7853000FCEF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -147,10 +147,10 @@
 		CD00457C23E4ECFF009CA522 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				CD00457D23E4ED16009CA522 /* VideoController.swift */,
-				CDD5488723F214330085B669 /* UserController.swift */,
+				CDA5D0A823F3736200AA6902 /* API.swift */,
+				CDA5D0A923F3736200AA6902 /* APIAdapter.swift */,
+				CDA5D0AC23F3737E00AA6902 /* VideoController.swift */,
 				CD00457F23E4F028009CA522 /* PDFController.swift */,
-				CDE92D9823E62C0E004BB8BF /* ContentController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -498,30 +498,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDFD3C4023CC7C9F000FCEF6 /* SearchView.swift in Sources */,
-				CD00457E23E4ED16009CA522 /* VideoController.swift in Sources */,
 				CD318CAB23E78AFA0091017B /* Environment.swift in Sources */,
 				CDFD3C3E23CC7C8E000FCEF6 /* TabBarView.swift in Sources */,
+				CDA5D0AA23F3736200AA6902 /* API.swift in Sources */,
 				CDFD3C4A23CC7D64000FCEF6 /* Video.swift in Sources */,
 				CDFD3C2F23CC7986000FCEF6 /* MainViewController.swift in Sources */,
 				CD7CBA4023E99BDC003BF035 /* TabBarCellCollectionViewCell.swift in Sources */,
 				CDE92D9223E5D3CE004BB8BF /* headerCell.swift in Sources */,
 				CDFD3C3923CC7C3F000FCEF6 /* AccountViewController.swift in Sources */,
+				CDA5D0AB23F3736200AA6902 /* APIAdapter.swift in Sources */,
 				CDFD3C4823CC7D15000FCEF6 /* User.swift in Sources */,
 				CDFD3C2E23CC7986000FCEF6 /* NavViewController.swift in Sources */,
 				CD00458023E4F028009CA522 /* PDFController.swift in Sources */,
 				CD00457B23E4E7AD009CA522 /* Content.swift in Sources */,
-				CDE92D9923E62C0E004BB8BF /* ContentController.swift in Sources */,
 				CDFD3C3323CC7BEE000FCEF6 /* TrendingViewController.swift in Sources */,
 				CDE92D9523E5D42D004BB8BF /* suggestionContentCell.swift in Sources */,
 				CDE92D9723E5D49D004BB8BF /* Channel.swift in Sources */,
 				CDFD3C4523CC7CEA000FCEF6 /* Extensions.swift in Sources */,
-				CDD5488823F214330085B669 /* UserController.swift in Sources */,
 				CD00457923E4E76A009CA522 /* PDF.swift in Sources */,
 				CD2D76F823F35D030031E3F1 /* Playlist.swift in Sources */,
 				CDE92D9023E5D396004BB8BF /* ContentCell.swift in Sources */,
 				CDFD3BEC23CC784C000FCEF6 /* AppDelegate.swift in Sources */,
 				CDDDD6D623F0B4E5003C1EE5 /* LoginView.swift in Sources */,
 				CDFD3C3123CC79F0000FCEF6 /* HomeViewController.swift in Sources */,
+				CDA5D0AD23F3737E00AA6902 /* VideoController.swift in Sources */,
 				CDFD3C3C23CC7C75000FCEF6 /* PlayerView.swift in Sources */,
 				CDFD3C4223CC7CBD000FCEF6 /* SettingsView.swift in Sources */,
 				CD7CBA3D23E96E1E003BF035 /* notesCell.swift in Sources */,

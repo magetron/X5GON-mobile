@@ -197,7 +197,7 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
             self.videoPlayerViewController.player?.replaceCurrentItem(with: AVPlayerItem.init(url: selfVideo.contentLink))
         }
         if selfVideo.suggestedContents.count == 0 {
-            selfVideo.fetchSuggestedContents(async: true, refresher: self.refresher)
+            selfVideo.fetchSuggestedContents(refresher: self.refresher)
         }
         if self.state != .hidden {
             self.videoPlayerViewController.player?.play()
@@ -230,7 +230,7 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
             pdfView.document = PDFDocument.init(url: selfPDF.contentLink)
         }
         if selfPDF.suggestedContents.count == 0 {
-            selfPDF.fetchSuggestedContents(async: true, refresher: self.refresher)
+            selfPDF.fetchSuggestedContents(refresher: self.refresher)
         }
         self.tableView.reloadData()
     }

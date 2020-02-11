@@ -8,19 +8,19 @@
 
 import Foundation
 
-class PDFController : ContentController {
+class PDFController {
     
     static var items = [PDF]()
 
     static func loadPlaceHolders () -> [Content] {
-        let pdf = PDF.init(title: "A PDF File", channelName: "Blender Foundation")
+        let pdf = PDF.init(title: "Community Meeting 2016", channelName: "Blender Foundation", url: URL.init(string: "https://download.blender.org/institute/sig2016-2.pdf")!)
         return [pdf]
     }
     
     static func loadDefaultItems() {
         let defaultKeyWord = "science"
         let defaultContentType = "text"
-        let defaultVideos = fetchItems(keyWord: defaultKeyWord, contentType: defaultContentType) as! [PDF]
+        let defaultVideos = API.fetchContents(keyWord: defaultKeyWord, contentType: defaultContentType) as! [PDF]
         items.append(contentsOf: defaultVideos)
         let placeHolders = loadPlaceHolders() as! [PDF]
         items.append(contentsOf: placeHolders)

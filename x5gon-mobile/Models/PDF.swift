@@ -12,22 +12,18 @@ import UIKit
 
 
 class PDF : Content {
-    override func fetchSuggestedContents (async : Bool, refresher: @escaping () -> Void) {
-         if (async) {
-             DispatchQueue.global().async {
-                 let pdfs = PDFController.fetchItems(keyWord: self.title, contentType: "text")
-                 super.suggestedContents = pdfs
-                 OperationQueue.main.addOperation ({
-                      refresher()
-                 })
-             }
-         } else {
-             let pdfs = PDFController.fetchItems(keyWord: self.title, contentType: "text")
-             self.suggestedContents = pdfs
+    
+    override func fetchSuggestedContents (refresher: @escaping () -> Void) {
+         DispatchQueue.global().async {
+             let pdfs = API.fetchContents(keyWord: self.title, contentType: "text")
+             super.suggestedContents = pdfs
+             OperationQueue.main.addOperation ({
+                  refresher()
+             })
          }
      }
      
-     override func generateInfo() {
+     override func generateContentInfo() {
         self.duration = 0
      }
     

@@ -36,13 +36,8 @@ class SubscriptionsCell: UITableViewCell, UICollectionViewDataSource, UICollecti
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         self.collectionView.contentInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
-        Channel.fetchData { [weak self] channels in
-            guard let weakSelf = self else {
-                return
-            }
-            weakSelf.channels = channels
-            weakSelf.collectionView.reloadData()
-        }
+        self.channels = Channel.generateDefaultChannels()
+        self.collectionView.reloadData()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
