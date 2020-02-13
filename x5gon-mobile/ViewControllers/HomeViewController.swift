@@ -21,17 +21,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.tableView.scrollIndicatorInsets = UIEdgeInsets(top: 50, left: 0, bottom: 30, right: 0)
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 300
-    }
-    
-    func fetchData() {
-        if (VideoController.items.count == 0) {
-            VideoController.loadDefaultItems()
-        }
-        if (PDFController.items.count == 0) {
-            PDFController.loadDefaultItems()
-        }
-        self.contents = VideoController.items + PDFController.items
-        self.tableView.reloadData()
+        MainController.initContents()
     }
     
     //MARK: Delegates
@@ -65,6 +55,5 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         self.customization()
-        self.fetchData()
     }
 }

@@ -12,8 +12,5 @@ import UIKit
 
 class Environment {
     static let X5Color = UIColor.rbg(r: 91, g: 149, b: 165)
-    
-    static var mainViewController:MainViewController? = nil
-    static var homeViewContoller:HomeViewController? = nil
 }
 

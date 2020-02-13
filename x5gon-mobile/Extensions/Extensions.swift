@@ -28,21 +28,6 @@ extension AVAsset {
 }
 
 extension UIView {
-    var parentViewController: UIViewController? {
-        var parentResponder: UIResponder? = self
-        while parentResponder != nil {
-            parentResponder = parentResponder!.next
-            if let viewController = parentResponder as? UIViewController {
-                return viewController
-            }
-        }
-        return nil
-    }
-    
-    func centreView (parentView: UIView) {
-        self.center = parentView.convert(parentView.center, from:parentView.superview)
-    }
-    
     func clearSubViews () {
         self.subviews.forEach({ $0.removeFromSuperview() })
     }

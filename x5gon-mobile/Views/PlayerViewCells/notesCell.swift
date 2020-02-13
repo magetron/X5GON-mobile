@@ -20,7 +20,6 @@ class notesCell: UITableViewCell, UITextViewDelegate {
         markDownView = try! DownView.init(frame: self.notesView.frame, markdownString: editTextView.text)
         markDownView!.frame = notesView.frame
         notesView.addSubview(markDownView!)
-        markDownView!.centreView(parentView: notesView)
         self.isUserInteractionEnabled = true
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.tapMarkdownView))
         self.addGestureRecognizer(tap)
@@ -29,7 +28,6 @@ class notesCell: UITableViewCell, UITextViewDelegate {
     @objc func tapMarkdownView(sender: UITapGestureRecognizer) {
         self.notesView.clearSubViews()
         notesView.addSubview(editTextView)
-        editTextView.centreView(parentView: notesView)
         self.reloadInputViews()
     }
     

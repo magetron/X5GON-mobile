@@ -32,15 +32,18 @@ class Content {
         self.disLikes = Int(arc4random_uniform(1000))
         self.channel = Channel.init(name: channelName, image: UIImage.init(named: channelName) ?? UIImage.init(named: "Channel Placeholder")!)
         self.contentLink = url
-        self.generateContentInfo()
     }
     
-    func generateContentInfo () {
+    func fetchContentInfo () {
         fatalError("error: directly calling content generateContentInfo()")
     }
     
     func fetchSuggestedContents (refresher: @escaping () -> Void) {
         fatalError("error: directly calling content fetchSuggestedContents()")
+    }
+    
+    static func fetchDefaultContents () -> [Content] {
+        fatalError("error: directly calling content fetchDefaultContents()")
     }
     
 }

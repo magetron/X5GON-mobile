@@ -50,9 +50,8 @@ class SettingsView: UIView, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.hideSettingsView(self)
-        let navViewController = self.parentViewController as! NavViewController
         if (self.items[indexPath.row] == "Login") {
-            navViewController.showLogin()
+            MainController.navViewController?.showLogin()
         }
     }
     

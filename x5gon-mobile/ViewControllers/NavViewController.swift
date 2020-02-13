@@ -33,6 +33,8 @@ class NavViewController: UINavigationController, PlayerViewControllerDelegate  {
 
     //Methods
     func customization() {
+        MainController.navViewController = self
+        
         //NavigationBar buttons
         //Settings Button
         let settingsButton = UIButton.init(type: .system)
@@ -144,29 +146,17 @@ class NavViewController: UINavigationController, PlayerViewControllerDelegate  {
             UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 5, options: [.beginFromCurrentState], animations: {
                 self.playerView.frame.origin = self.fullScreenOrigin
             })
-            setHide(hide: true)
+            MainController.setHideTopBar(hide: true)
         case .minimized:
             UIView.animate(withDuration: 0.3, animations: {
                 self.playerView.frame.origin = self.minimizedOrigin
             })
-            setHide(hide: false)
+            MainController.setHideTopBar(hide: false)
         case .hidden:
             UIView.animate(withDuration: 0.3, animations: {
                 self.playerView.frame.origin = self.hiddenOrigin
             })
-            setHide(hide: false)
-        }
-    }
-    
-    func setHide(hide: Bool) {
-        if (hide) {
-            self.navigationBar.barTintColor = UIColor.black
-            Environment.mainViewController?.tabBarView.collectionView.isHidden = true
-            Environment.mainViewController?.tabBarView.backgroundColor = UIColor.black
-        } else {
-            self.navigationBar.barTintColor = Environment.X5Color
-            Environment.mainViewController?.tabBarView.collectionView.isHidden = false
-            Environment.mainViewController?.tabBarView.backgroundColor = Environment.X5Color
+            MainController.setHideTopBar(hide: false)
         }
     }
     

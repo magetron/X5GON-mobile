@@ -31,9 +31,7 @@ class SearchView: UIView, UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        let searchResult = API.fetchContents(keyWord: textField.text ?? "", contentType: "video") + API.fetchContents(keyWord: textField.text ?? "", contentType: "text")
-        Environment.homeViewContoller?.contents = searchResult
-        Environment.homeViewContoller?.tableView.reloadData()
+        MainController.search(keyword: textField.text ?? "", contentType: "any")
         self.hideSearchView(self)
         return true
     }

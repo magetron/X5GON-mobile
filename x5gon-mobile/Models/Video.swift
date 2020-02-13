@@ -12,6 +12,11 @@ import UIKit
 
 class Video : Content {
     
+    override init (title: String, channelName: String, url: URL) {
+        super.init(title: title, channelName: channelName, url: url)
+        self.fetchContentInfo()
+    }
+    
     override func fetchSuggestedContents (refresher: @escaping () -> Void) {
         DispatchQueue.global().async {
             let videos = API.fetchContents(keyWord: self.title, contentType: "video")
@@ -22,7 +27,7 @@ class Video : Content {
         }
     }
     
-    override func generateContentInfo() {
+    override func fetchContentInfo() {
         AVAsset(url: contentLink).generateThumbnail { [weak self] (image, duration) in
             DispatchQueue.main.async {
                 guard let image = image, let duration = duration else {
