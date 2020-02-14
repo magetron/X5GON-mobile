@@ -41,13 +41,13 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         self.tableView.estimatedRowHeight = 90
         self.player.layer.anchorPoint.applying(CGAffineTransform.init(translationX: -0.5, y: -0.5))
         self.tableView.tableFooterView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 0, height: 0))
-        self.player.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(self.resumePlayView)))
+        self.player.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(self.resumePlayerView)))
         videoPlayerViewController.view.frame = self.player.frame
         videoPlayerViewController.videoGravity = AVLayerVideoGravity.resizeAspectFill
         videoPlayerViewController.showsPlaybackControls = true
         pdfView.frame = self.player.frame
         pdfView.displayMode = PDFDisplayMode.singlePage
-        NotificationCenter.default.addObserver(self, selector: #selector(self.tapPlayView), name: NSNotification.Name("open"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.newPlayerView), name: NSNotification.Name("open"), object: nil)
     }
     
     func animate()  {
@@ -78,14 +78,14 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
     }
     
 
-    @objc func resumePlayView() {
+    @objc func resumePlayerView() {
         self.videoPlayerViewController.player?.play()
         self.state = .fullScreen
         self.delegate?.didmaximize()
         self.animate()
     }
     
-    @objc func tapPlayView(_ notification: Notification) {
+    @objc func newPlayerView(_ notification: Notification) {
         if let video = notification.object as? Video {
             setVideo(video: video)
             self.videoPlayerViewController.player?.play()
@@ -154,7 +154,9 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "Header") as! headerCell
-            cell.set(content: self.content, onLikeTapFunc: self.OnLikeTap, onDisLikeTapFunc: self.OnDisLikeTap)
+            cell.set(content: self.content,
+                     onLikeTapFunc: { () -> Void in self.content.like(); self.tableView.reloadData() },
+                     onDisLikeTapFunc: { () -> Void in self.content.dislike(); self.tableView.reloadData() })
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "Notes", for: indexPath) as! notesCell
@@ -178,6 +180,15 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         return UITableView.automaticDimension
     }
     
+    @objc func returnFromPlayerView () {
+        self.state = stateOfViewController.hidden
+        self.animate()
+        self.delegate?.didEndedSwipe(toState: self.state)
+        if self.state == .hidden {
+            self.videoPlayerViewController.player?.pause()
+        }
+    }
+    
     //MARK: View lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -193,26 +204,17 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         }
         self.player.addSubview(videoPlayerViewController.view)
 
-        if selfVideo.contentLink != nil {
-            self.videoPlayerViewController.player?.replaceCurrentItem(with: AVPlayerItem.init(url: selfVideo.contentLink))
-        }
+        self.videoPlayerViewController.player?.replaceCurrentItem(with: AVPlayerItem.init(url: selfVideo.contentLink))
         if selfVideo.suggestedContents.count == 0 {
-            selfVideo.fetchSuggestedContents(refresher: self.refresher)
+            selfVideo.fetchSuggestedContents()
+            self.tableView.reloadData()
         }
         if self.state != .hidden {
             self.videoPlayerViewController.player?.play()
         }
         self.tableView.reloadData()
     }
-    
-    @objc func returnFromPlayerView () {
-        self.state = stateOfViewController.hidden
-        self.animate()
-        self.delegate?.didEndedSwipe(toState: self.state)
-        if self.state == .hidden {
-            self.videoPlayerViewController.player?.pause()
-        }
-    }
+
     
     func setPDF(pdf : PDF) {
         self.content = pdf
@@ -225,30 +227,13 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         returnButton.setTitle("< Back", for: UIControl.State.normal)
         returnButton.addTarget(nil, action: #selector(returnFromPlayerView), for: UIControl.Event.touchUpInside)
         self.player.addSubview(returnButton)
-        
-        if selfPDF.contentLink != nil {
-            pdfView.document = PDFDocument.init(url: selfPDF.contentLink)
-        }
+        pdfView.document = PDFDocument.init(url: selfPDF.contentLink)
         if selfPDF.suggestedContents.count == 0 {
-            selfPDF.fetchSuggestedContents(refresher: self.refresher)
+            selfPDF.fetchSuggestedContents()
+            self.tableView.reloadData()
         }
         self.tableView.reloadData()
     }
-    
-    func OnLikeTap () {
-        self.content.likes += 1
-        refresher()
-    }
-    
-    func OnDisLikeTap () {
-        self.content.disLikes += 1
-        refresher()
-    }
-    
-    func refresher () {
-        self.tableView.reloadData()
-    }
-    
     
     deinit {
         NotificationCenter.default.removeObserver(self)

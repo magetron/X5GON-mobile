@@ -38,12 +38,20 @@ class Content {
         fatalError("error: directly calling content generateContentInfo()")
     }
     
-    func fetchSuggestedContents (refresher: @escaping () -> Void) {
+    func fetchSuggestedContents () {
         fatalError("error: directly calling content fetchSuggestedContents()")
     }
     
     static func fetchDefaultContents () -> [Content] {
         fatalError("error: directly calling content fetchDefaultContents()")
+    }
+    
+    func like () {
+        self.likes += 1;
+    }
+    
+    func dislike () {
+        self.disLikes += 1;
     }
     
 }

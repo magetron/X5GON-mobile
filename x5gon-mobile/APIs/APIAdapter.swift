@@ -28,7 +28,7 @@ class X5GONAPIAdapter : APIAdapter {
     }
     
     static func generateContentQueryURL(keyWord: String, contentType: String) -> String {
-        return rootURL() + APIVersion() + "recommend/oer_materials?text=" + keyWord + "&type=" + contentType
+        return rootURL() + APIVersion() + "recommend/oer_materials?text=" + keyWord + "&types=" + contentType
     }
     
     static func generateLoginQueryURL() -> String {

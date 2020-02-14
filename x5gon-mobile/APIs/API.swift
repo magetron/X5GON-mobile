@@ -55,11 +55,8 @@ class API {
                         let newPDF = PDF.init(title: title, channelName: providerName, url: URL.init(string: url)!)
                         tmpItems.append(newPDF)
                     }
-
                  }
-
              }
-
          }
          dataTask.resume()
          semaphore.wait()
@@ -152,7 +149,6 @@ class API {
 
         task.resume()
         semaphore.wait()
-        print(authenticationToken)
         return authenticationToken
     }
 }

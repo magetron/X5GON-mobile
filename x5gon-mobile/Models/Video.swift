@@ -14,16 +14,14 @@ class Video : Content {
     
     override init (title: String, channelName: String, url: URL) {
         super.init(title: title, channelName: channelName, url: url)
+        print(url.absoluteString)
         self.fetchContentInfo()
     }
     
-    override func fetchSuggestedContents (refresher: @escaping () -> Void) {
+    override func fetchSuggestedContents () {
         DispatchQueue.global().async {
             let videos = API.fetchContents(keyWord: self.title, contentType: "video")
             super.suggestedContents = videos
-            OperationQueue.main.addOperation ({
-                 refresher()
-            })
         }
     }
     

@@ -21,15 +21,22 @@ class LoginView: UIView {
     
     @IBAction func loginButtonPressed(_ sender: Any) {
         guard let username = self.usernameTextField.text else {
-            // login view exit
             return
         }
         guard let password = self.passwordTextField.text else {
-            // login view exit
             return
         }
-        // login
-
+        MainController.login(username: username, password: password)
+        self.hideLoginView(self)
+    }
+    
+    @IBAction func hideLoginView(_ sender: Any) {
+        UIView.animate(withDuration: 0.6) {
+            self.center.y -= self.bounds.height
+            self.layoutIfNeeded()
+        }
+        self.center.y += self.bounds.height
+        self.isHidden = true
     }
     
     override func awakeFromNib () {

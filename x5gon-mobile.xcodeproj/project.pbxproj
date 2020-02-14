@@ -150,6 +150,14 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		CD1A10BB23F63E4500303328 /* MainViews */ = {
+			isa = PBXGroup;
+			children = (
+				CDFD3C3D23CC7C8E000FCEF6 /* TabBarView.swift */,
+			);
+			path = MainViews;
+			sourceTree = "<group>";
+		};
 		CD318CA923E78ADD0091017B /* Environments */ = {
 			isa = PBXGroup;
 			children = (
@@ -224,7 +232,6 @@
 				CD00457C23E4ECFF009CA522 /* Controllers */,
 				CDFD3C4B23CC7D8B000FCEF6 /* Helpers */,
 				CDFD3C4623CC7D02000FCEF6 /* Models */,
-				CDFD3C3A23CC7C66000FCEF6 /* Views */,
 				CDFD3C1D23CC78F5000FCEF6 /* ViewControllers */,
 				CDFD3C1B23CC78B4000FCEF6 /* Main.storyboard */,
 				CDFD3BEB23CC784C000FCEF6 /* AppDelegate.swift */,
@@ -264,7 +271,9 @@
 			isa = PBXGroup;
 			children = (
 				CDFD3C2D23CC7986000FCEF6 /* MainViewController.swift */,
+				CD1A10BB23F63E4500303328 /* MainViews */,
 				CDFD3C2C23CC7986000FCEF6 /* NavViewController.swift */,
+				CDFD3C3A23CC7C66000FCEF6 /* NavViews */,
 				CDFD3C5023CC869F000FCEF6 /* SubscriptionsViewController.swift */,
 				CDFD3C3023CC79F0000FCEF6 /* HomeViewController.swift */,
 				CDE92D8E23E5D389004BB8BF /* HomeViewCells */,
@@ -274,18 +283,17 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		CDFD3C3A23CC7C66000FCEF6 /* Views */ = {
+		CDFD3C3A23CC7C66000FCEF6 /* NavViews */ = {
 			isa = PBXGroup;
 			children = (
 				CDFD3C3B23CC7C75000FCEF6 /* PlayerView.swift */,
 				CDE92D9323E5D3DC004BB8BF /* PlayerViewCells */,
-				CDFD3C3D23CC7C8E000FCEF6 /* TabBarView.swift */,
 				CD7CBA3E23E99BAF003BF035 /* TabBarViewCells */,
 				CDFD3C3F23CC7C9F000FCEF6 /* SearchView.swift */,
 				CDFD3C4123CC7CBD000FCEF6 /* SettingsView.swift */,
 				CDDDD6D523F0B4E5003C1EE5 /* LoginView.swift */,
 			);
-			path = Views;
+			path = NavViews;
 			sourceTree = "<group>";
 		};
 		CDFD3C4323CC7CDE000FCEF6 /* Extensions */ = {

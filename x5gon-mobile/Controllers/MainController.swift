@@ -32,12 +32,8 @@ class MainController {
         }
     }
     
-    static func initContents () {
-        homeViewController?.contents = fetchDefaultContents()
-        homeViewController?.tableView.reloadData()
-    }
     
-    private static func fetchDefaultContents() -> [Content] {
+    static func fetchDefaultContents() -> [Content] {
         var items = [Content]()
         let pdf = PDF.init(title: "Community Meeting 2016", channelName: "Blender Foundation", url: URL.init(string: "https://download.blender.org/institute/sig2016-2.pdf")!)
         items.append(pdf)
@@ -48,7 +44,6 @@ class MainController {
         items.append(playableVideo)
         let defaultVideos = API.fetchContents(keyWord: defaultKeyWord, contentType: "video") as! [Video]
         items.append(contentsOf: defaultVideos)
-        items.myShuffle()
         return items
     }
     

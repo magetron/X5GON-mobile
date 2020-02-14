@@ -18,13 +18,10 @@ class PDF : Content {
         self.fetchContentInfo()
     }
     
-    override func fetchSuggestedContents (refresher: @escaping () -> Void) {
+    override func fetchSuggestedContents () {
         DispatchQueue.global().async {
             let pdfs = API.fetchContents(keyWord: self.title, contentType: "text")
             super.suggestedContents = pdfs
-            OperationQueue.main.addOperation ({
-                refresher()
-            })
         }
     }
      
