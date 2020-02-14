@@ -263,33 +263,37 @@
                                     </connections>
                                 </tableViewCell>
                                 <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Notes" id="3q1-mt-wmI" customClass="notesCell" customModule="x5gon_mobile" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="227" width="415" height="122.33333587646484"/>
+                                    <rect key="frame" x="0.0" y="227" width="415" height="90.666664123535156"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3q1-mt-wmI" id="NAO-ZH-5eh">
-                                        <rect key="frame" x="0.0" y="0.0" width="415" height="122.33333587646484"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="415" height="90.666664123535156"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SlA-Ra-CqX">
-                                                <rect key="frame" x="20" y="11" width="375" height="100.33333333333333"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="N8c-qu-W3R">
+                                                <rect key="frame" x="20" y="11" width="375" height="68.333333333333329"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="100" id="Of0-J8-ymc"/>
+                                                    <constraint firstAttribute="height" constant="68" id="pv4-jI-UOE"/>
                                                 </constraints>
-                                            </view>
+                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="SlA-Ra-CqX" firstAttribute="trailing" secondItem="NAO-ZH-5eh" secondAttribute="trailingMargin" id="B8C-OX-jp6"/>
-                                            <constraint firstAttribute="bottomMargin" secondItem="SlA-Ra-CqX" secondAttribute="bottom" id="Jjt-0s-YQA"/>
-                                            <constraint firstItem="SlA-Ra-CqX" firstAttribute="leading" secondItem="NAO-ZH-5eh" secondAttribute="leadingMargin" id="T6k-6g-roc"/>
-                                            <constraint firstItem="SlA-Ra-CqX" firstAttribute="top" secondItem="NAO-ZH-5eh" secondAttribute="topMargin" id="Vvu-6F-Iwu"/>
+                                            <constraint firstItem="N8c-qu-W3R" firstAttribute="top" secondItem="NAO-ZH-5eh" secondAttribute="top" constant="11" id="KFp-hA-ahJ"/>
+                                            <constraint firstAttribute="trailing" secondItem="N8c-qu-W3R" secondAttribute="trailing" constant="20" id="M45-Si-SYR"/>
+                                            <constraint firstAttribute="bottom" secondItem="N8c-qu-W3R" secondAttribute="bottom" constant="11.333335876464844" id="Uvf-1Y-gVv"/>
+                                            <constraint firstItem="N8c-qu-W3R" firstAttribute="leading" secondItem="NAO-ZH-5eh" secondAttribute="leading" constant="20" symbolic="YES" id="bxk-yC-khc"/>
                                         </constraints>
                                     </tableViewCellContentView>
                                     <connections>
-                                        <outlet property="notesView" destination="SlA-Ra-CqX" id="S7l-wP-vb4"/>
+                                        <outlet property="textView" destination="N8c-qu-W3R" id="FlT-yz-L3B"/>
                                     </connections>
                                 </tableViewCell>
                                 <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="100" id="DHl-mx-9Wa" customClass="suggestionContentCell" customModule="x5gon_mobile" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="349.33333587646484" width="415" height="100"/>
+                                    <rect key="frame" x="0.0" y="317.66666412353516" width="415" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DHl-mx-9Wa" id="7sY-8H-dnu">
                                         <rect key="frame" x="0.0" y="0.0" width="415" height="100"/>
@@ -396,7 +400,7 @@
                                         <action selector="hideSearchView:" destination="ANr-Yc-KZ7" eventType="touchUpInside" id="c1v-LD-CFu"/>
                                     </connections>
                                 </button>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search on Youtube" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uzg-3R-Rxh">
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search on X5Learn" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uzg-3R-Rxh">
                                     <rect key="frame" x="48" y="35" width="347" height="48"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="48" id="bVz-wo-5iP"/>

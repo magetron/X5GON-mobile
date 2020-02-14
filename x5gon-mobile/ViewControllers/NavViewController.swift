@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NavViewController: UINavigationController, PlayerViewControllerDelegate  {
+class NavViewController: UINavigationController, PlayerViewControllerDelegate, SettingsViewControllerDelegate  {
 
     //MARK: Properties
     @IBOutlet var playerView: PlayerView!
@@ -90,6 +90,7 @@ class NavViewController: UINavigationController, PlayerViewControllerDelegate  {
         NSLayoutConstraint.init(item: v, attribute: .right, relatedBy: .equal, toItem: self.settingsView, attribute: .right, multiplier: 1.0, constant: 0).isActive = true
         NSLayoutConstraint.init(item: v, attribute: .bottom, relatedBy: .equal, toItem: self.settingsView, attribute: .bottom, multiplier: 1.0, constant: 0).isActive = true
         self.settingsView.isHidden = true
+        self.settingsView.delegate = self
         //LoginView setup
         self.view.addSubview(self.loginView)
         self.loginView.translatesAutoresizingMaskIntoConstraints = false

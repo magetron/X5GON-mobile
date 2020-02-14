@@ -14,7 +14,6 @@ class Video : Content {
     
     override init (title: String, channelName: String, url: URL) {
         super.init(title: title, channelName: channelName, url: url)
-        print(url.absoluteString)
         self.fetchContentInfo()
     }
     

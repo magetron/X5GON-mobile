@@ -26,8 +26,10 @@ class LoginView: UIView {
         guard let password = self.passwordTextField.text else {
             return
         }
-        MainController.login(username: username, password: password)
-        self.hideLoginView(self)
+        let loginSuccess = MainController.login(username: username, password: password)
+        if (loginSuccess) {
+            self.hideLoginView(self)
+        }
     }
     
     @IBAction func hideLoginView(_ sender: Any) {

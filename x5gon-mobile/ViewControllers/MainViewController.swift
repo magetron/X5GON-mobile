@@ -64,6 +64,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         }
     }
     
+    
     //MARK: Delegates
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.views.count

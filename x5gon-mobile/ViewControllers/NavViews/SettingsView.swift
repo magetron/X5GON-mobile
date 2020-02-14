@@ -8,12 +8,18 @@
 
 import UIKit
 
+protocol SettingsViewControllerDelegate {
+    func showLogin () -> Void
+}
+
+
 class SettingsView: UIView, UITableViewDelegate, UITableViewDataSource {
     
     //MARK: Properties
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var backgroundView: UIButton!
     @IBOutlet weak var tableViewBottomConstraint: NSLayoutConstraint!
+    var delegate:SettingsViewControllerDelegate?
     let items = ["Settings", "Terms & privacy policy", "Send Feedback", "Help", "Login", "Cancel"]
     var showLogin: (() -> Void) = { () in return }
     
@@ -51,7 +57,7 @@ class SettingsView: UIView, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.hideSettingsView(self)
         if (self.items[indexPath.row] == "Login") {
-            MainController.navViewController?.showLogin()
+            self.delegate?.showLogin()
         }
     }
     

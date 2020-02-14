@@ -22,7 +22,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 300
         self.contents = MainController.fetchDefaultContents()
-        print("contents count: \(contents.count)")
     }
     
     //MARK: Delegates

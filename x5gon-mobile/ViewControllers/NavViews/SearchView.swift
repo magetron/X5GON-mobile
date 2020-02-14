@@ -21,7 +21,6 @@ class SearchView: UIView, UITextFieldDelegate {
     
     @IBAction func hideSearchView(_ sender: Any) {
         self.inputField.text = ""
-        self.suggestions.removeAll()
         self.inputField.resignFirstResponder()
         UIView.animate(withDuration: 0.2, animations: {
             self.alpha = 0
@@ -41,9 +40,5 @@ class SearchView: UIView, UITextFieldDelegate {
         super.awakeFromNib()
         self.customization()
     }
-}
-
-class SearchCell: UITableViewCell {
-    @IBOutlet weak var resultLabel: UILabel!
 }
 

@@ -53,9 +53,10 @@ class MainController {
         homeViewController?.tableView.reloadData()
     }
     
-    static func login (username: String, password: String) {
+    static func login (username: String, password: String) -> Bool {
         let csrfToken = API.fetchCSRFToken()
         authenticationToken = API.fetchLoginTokenWith(username: username, password: password, csrfToken: csrfToken)
+        return authenticationToken != ""
     }
     
     static func logout () {

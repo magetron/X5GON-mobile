@@ -206,8 +206,10 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
 
         self.videoPlayerViewController.player?.replaceCurrentItem(with: AVPlayerItem.init(url: selfVideo.contentLink))
         if selfVideo.suggestedContents.count == 0 {
-            selfVideo.fetchSuggestedContents()
-            self.tableView.reloadData()
+            DispatchQueue.main.async {
+                selfVideo.fetchSuggestedContents()
+                self.tableView.reloadData()
+            }
         }
         if self.state != .hidden {
             self.videoPlayerViewController.player?.play()
