@@ -12,8 +12,8 @@
 		CD00457B23E4E7AD009CA522 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00457A23E4E7AD009CA522 /* Content.swift */; };
 		CD2D76F823F35D030031E3F1 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2D76F723F35D030031E3F1 /* Playlist.swift */; };
 		CD318CAB23E78AFA0091017B /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD318CAA23E78AFA0091017B /* Environment.swift */; };
+		CD42D68F23F751D40048ADC5 /* TabBarCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD42D68E23F751D40048ADC5 /* TabBarCellCollectionViewCell.swift */; };
 		CD7CBA3D23E96E1E003BF035 /* notesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7CBA3C23E96E1E003BF035 /* notesCell.swift */; };
-		CD7CBA4023E99BDC003BF035 /* TabBarCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7CBA3F23E99BDC003BF035 /* TabBarCellCollectionViewCell.swift */; };
 		CDA5D0AA23F3736200AA6902 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA5D0A823F3736200AA6902 /* API.swift */; };
 		CDA5D0AB23F3736200AA6902 /* APIAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA5D0A923F3736200AA6902 /* APIAdapter.swift */; };
 		CDC6643323F45536009A08FF /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC6643223F45536009A08FF /* MainController.swift */; };
@@ -69,8 +69,8 @@
 		CD00457A23E4E7AD009CA522 /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
 		CD2D76F723F35D030031E3F1 /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
 		CD318CAA23E78AFA0091017B /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		CD42D68E23F751D40048ADC5 /* TabBarCellCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabBarCellCollectionViewCell.swift; path = "x5gon-mobile/ViewControllers/MainViews/TabBarViewCells/TabBarCellCollectionViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		CD7CBA3C23E96E1E003BF035 /* notesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notesCell.swift; sourceTree = "<group>"; };
-		CD7CBA3F23E99BDC003BF035 /* TabBarCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCellCollectionViewCell.swift; sourceTree = "<group>"; };
 		CDA5D0A823F3736200AA6902 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		CDA5D0A923F3736200AA6902 /* APIAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIAdapter.swift; sourceTree = "<group>"; };
 		CDC6643223F45536009A08FF /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
@@ -154,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				CDFD3C3D23CC7C8E000FCEF6 /* TabBarView.swift */,
+				CD7CBA3E23E99BAF003BF035 /* TabBarViewCells */,
 			);
 			path = MainViews;
 			sourceTree = "<group>";
@@ -169,9 +170,10 @@
 		CD7CBA3E23E99BAF003BF035 /* TabBarViewCells */ = {
 			isa = PBXGroup;
 			children = (
-				CD7CBA3F23E99BDC003BF035 /* TabBarCellCollectionViewCell.swift */,
+				CD42D68E23F751D40048ADC5 /* TabBarCellCollectionViewCell.swift */,
 			);
-			path = TabBarViewCells;
+			name = TabBarViewCells;
+			path = ../NavViews/TabBarViewCells;
 			sourceTree = "<group>";
 		};
 		CDC6643123F4550E009A08FF /* APIs */ = {
@@ -288,7 +290,6 @@
 			children = (
 				CDFD3C3B23CC7C75000FCEF6 /* PlayerView.swift */,
 				CDE92D9323E5D3DC004BB8BF /* PlayerViewCells */,
-				CD7CBA3E23E99BAF003BF035 /* TabBarViewCells */,
 				CDFD3C3F23CC7C9F000FCEF6 /* SearchView.swift */,
 				CDFD3C4123CC7CBD000FCEF6 /* SettingsView.swift */,
 				CDDDD6D523F0B4E5003C1EE5 /* LoginView.swift */,
@@ -510,6 +511,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD42D68F23F751D40048ADC5 /* TabBarCellCollectionViewCell.swift in Sources */,
 				CDFD3C4023CC7C9F000FCEF6 /* SearchView.swift in Sources */,
 				CD318CAB23E78AFA0091017B /* Environment.swift in Sources */,
 				CDFD3C3E23CC7C8E000FCEF6 /* TabBarView.swift in Sources */,
@@ -517,7 +519,6 @@
 				CDC6643323F45536009A08FF /* MainController.swift in Sources */,
 				CDFD3C4A23CC7D64000FCEF6 /* Video.swift in Sources */,
 				CDFD3C2F23CC7986000FCEF6 /* MainViewController.swift in Sources */,
-				CD7CBA4023E99BDC003BF035 /* TabBarCellCollectionViewCell.swift in Sources */,
 				CDE92D9223E5D3CE004BB8BF /* headerCell.swift in Sources */,
 				CDFD3C3923CC7C3F000FCEF6 /* AccountViewController.swift in Sources */,
 				CDA5D0AB23F3736200AA6902 /* APIAdapter.swift in Sources */,

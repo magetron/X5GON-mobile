@@ -54,6 +54,7 @@ class MainController {
     }
     
     static func login (username: String, password: String) -> Bool {
+        logout()
         let csrfToken = API.fetchCSRFToken()
         authenticationToken = API.fetchLoginTokenWith(username: username, password: password, csrfToken: csrfToken)
         return authenticationToken != ""

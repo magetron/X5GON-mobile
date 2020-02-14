@@ -28,11 +28,11 @@ class LoginView: UIView {
         }
         let loginSuccess = MainController.login(username: username, password: password)
         if (loginSuccess) {
-            self.hideLoginView(self)
+            self.hideLoginView()
         }
     }
     
-    @IBAction func hideLoginView(_ sender: Any) {
+    func hideLoginView() {
         UIView.animate(withDuration: 0.6) {
             self.center.y -= self.bounds.height
             self.layoutIfNeeded()
