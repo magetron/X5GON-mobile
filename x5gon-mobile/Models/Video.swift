@@ -18,10 +18,8 @@ class Video : Content {
     }
     
     override func fetchSuggestedContents () {
-        DispatchQueue.global().async {
-            let videos = API.fetchContents(keyWord: self.title, contentType: "video")
-            super.suggestedContents = videos
-        }
+        let videos = API.fetchContents(keyWord: self.title, contentType: "video")
+        super.suggestedContents = videos
     }
     
     override func fetchContentInfo() {

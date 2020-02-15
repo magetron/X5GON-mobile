@@ -19,10 +19,8 @@ class PDF : Content {
     }
     
     override func fetchSuggestedContents () {
-        DispatchQueue.global().async {
-            let pdfs = API.fetchContents(keyWord: self.title, contentType: "text")
-            super.suggestedContents = pdfs
-        }
+        let pdfs = API.fetchContents(keyWord: self.title, contentType: "text")
+        super.suggestedContents = pdfs
     }
      
     override func fetchContentInfo() {

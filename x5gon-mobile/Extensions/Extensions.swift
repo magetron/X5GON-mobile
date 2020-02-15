@@ -9,6 +9,15 @@
 import UIKit
 import AVFoundation
 
+func refresher (updateContent: @escaping () -> Void, viewReload: @escaping () -> Void) {
+    DispatchQueue.global().async {
+        updateContent()
+        DispatchQueue.main.async {
+            viewReload()
+        }
+    }
+}
+
 extension AVAsset {
     func generateThumbnail(completion: @escaping (UIImage?, Int?) -> Void) {
         DispatchQueue.global().async {

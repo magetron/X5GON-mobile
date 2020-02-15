@@ -206,10 +206,7 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
 
         self.videoPlayerViewController.player?.replaceCurrentItem(with: AVPlayerItem.init(url: selfVideo.contentLink))
         if selfVideo.suggestedContents.count == 0 {
-            DispatchQueue.main.async {
-                selfVideo.fetchSuggestedContents()
-                self.tableView.reloadData()
-            }
+            refresher(updateContent: { () -> Void in selfVideo.fetchSuggestedContents() }, viewReload: { () -> Void in self.tableView.reloadData()})
         }
         if self.state != .hidden {
             self.videoPlayerViewController.player?.play()
@@ -231,8 +228,7 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         self.player.addSubview(returnButton)
         pdfView.document = PDFDocument.init(url: selfPDF.contentLink)
         if selfPDF.suggestedContents.count == 0 {
-            selfPDF.fetchSuggestedContents()
-            self.tableView.reloadData()
+            refresher(updateContent: { () -> Void in selfPDF.fetchSuggestedContents() }, viewReload: { () -> Void in self.tableView.reloadData()})
         }
         self.tableView.reloadData()
     }

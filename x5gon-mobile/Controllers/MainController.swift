@@ -48,9 +48,12 @@ class MainController {
     }
     
     
-    static func search (keyword: String, contentType: String) {
-        homeViewController?.contents = API.fetchContents(keyWord: keyword, contentType: contentType)
-        homeViewController?.tableView.reloadData()
+    static func search (keyword: String, contentType: String) -> [Content] {
+        if (contentType == "any") {
+            return API.fetchContents(keyWord: keyword)
+        } else {
+            return API.fetchContents(keyWord: keyword, contentType: contentType)
+        }
     }
     
     static func login (username: String, password: String) -> Bool {

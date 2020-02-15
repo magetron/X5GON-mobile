@@ -13,6 +13,16 @@ class API {
     static let oldAdapter = X5GONAPIAdapter.self
     static let newAdapter = X5LearnAPIAdapter.self
     
+    
+    static func fetchContents (keyWord: String) -> [Content] {
+        var results = [Content]()
+        results.append(contentsOf: fetchContents(keyWord: keyWord, contentType: "video"))
+        results.append(contentsOf:fetchContents(keyWord: keyWord, contentType: "pdf"))
+        results.append(contentsOf:fetchContents(keyWord: keyWord, contentType: "audio"))
+        return results.shuffled()
+    }
+    
+    
     static func fetchContents (keyWord : String, contentType : String) -> [Content] {
         var tmpItems = [Content]()
         let contentURLString = oldAdapter.generateContentQueryURL(keyWord: keyWord, contentType: contentType)
@@ -48,7 +58,7 @@ class API {
                             print("error: invalid format")
                             break
                     }
-                    if (contentType == "video") {
+                    if (contentType == "video" || contentType == "audio") {
                         let newVideo = Video.init(title: title, channelName: providerName, url: URL.init(string: url)!)
                         tmpItems.append(newVideo)
                     } else if (contentType == "text") {
