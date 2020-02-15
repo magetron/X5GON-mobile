@@ -14,6 +14,8 @@ protocol APIAdapter {
     static func generateContentQueryURL (keyWord: String, contentType: String) -> String
     static func generateLoginQueryURL () -> String
     static func gererateLogoutQueryURL () -> String
+    static func generateUserSessionQueryURL () -> String
+    static func generateFeaturedContentURL () -> String
 }
 
 class X5GONAPIAdapter : APIAdapter {
@@ -37,6 +39,14 @@ class X5GONAPIAdapter : APIAdapter {
     
     static func gererateLogoutQueryURL() -> String {
         fatalError("error: X5GON does not provide a logout URL")
+    }
+    
+    static func generateUserSessionQueryURL() -> String {
+        fatalError("error: X5GON does not provide a user-session URL")
+    }
+    
+    static func generateFeaturedContentURL() -> String {
+        fatalError("error: X5GON does not provide featured contents URL")
     }
     
 }
@@ -63,7 +73,13 @@ class X5LearnAPIAdapter : APIAdapter {
         return rootURL() + "logout"
     }
     
+    static func generateUserSessionQueryURL() -> String {
+        return rootURL() + APIVersion() + "session"
+    }
     
+    static func generateFeaturedContentURL() -> String {
+        return rootURL() + APIVersion() + "featured"
+    }
     
 }
 

@@ -31,6 +31,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     // MARK: Delegates
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(self.items)
         return self.items
     }
     
@@ -59,50 +60,10 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if (self.lastContentOffset > scrollView.contentOffset.y) {
-            NotificationCenter.default.post(name: NSNotification.Name("hide"), object: false)
-        } else {
-            NotificationCenter.default.post(name: NSNotification.Name("hide"), object: true)
-        }
-    }
-    
     //MARK: -  ViewController Lifecylce
     override func viewDidLoad() {
         super.viewDidLoad()
         self.customization()
-    }
-}
-
-class AccountHeaderCell: UITableViewCell {
-    
-    @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var profilePic: UIImageView!
-    @IBOutlet weak var backgroundImage: UIImageView!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        self.profilePic.layer.cornerRadius = 25
-        self.profilePic.clipsToBounds = true
-    }
-}
-
-class AccountMenuCell: UITableViewCell {
-    
-    @IBOutlet weak var menuIcon: UIImageView!
-    @IBOutlet weak var menuTitles: UILabel!
-    
-}
-
-class AccountPlaylistCell: UITableViewCell {
-    
-    @IBOutlet weak var pic: UIImageView!
-    @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var numberOfVideos: UILabel!
-    
-    override func awakeFromNib() {
-        self.pic.layer.cornerRadius = 5
-        self.pic.clipsToBounds = true
     }
 }
 

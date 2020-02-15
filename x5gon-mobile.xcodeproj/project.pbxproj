@@ -13,6 +13,9 @@
 		CD2D76F823F35D030031E3F1 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2D76F723F35D030031E3F1 /* Playlist.swift */; };
 		CD318CAB23E78AFA0091017B /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD318CAA23E78AFA0091017B /* Environment.swift */; };
 		CD42D68F23F751D40048ADC5 /* TabBarCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD42D68E23F751D40048ADC5 /* TabBarCellCollectionViewCell.swift */; };
+		CD48FAA223F80253004415E7 /* AccountHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD48FAA123F80253004415E7 /* AccountHeaderCell.swift */; };
+		CD48FAA423F8026F004415E7 /* AccountMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD48FAA323F8026F004415E7 /* AccountMenuCell.swift */; };
+		CD48FAA623F8027E004415E7 /* AccountPlaylistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD48FAA523F8027E004415E7 /* AccountPlaylistCell.swift */; };
 		CD7CBA3D23E96E1E003BF035 /* notesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7CBA3C23E96E1E003BF035 /* notesCell.swift */; };
 		CDA5D0AA23F3736200AA6902 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA5D0A823F3736200AA6902 /* API.swift */; };
 		CDA5D0AB23F3736200AA6902 /* APIAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA5D0A923F3736200AA6902 /* APIAdapter.swift */; };
@@ -70,6 +73,9 @@
 		CD2D76F723F35D030031E3F1 /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
 		CD318CAA23E78AFA0091017B /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		CD42D68E23F751D40048ADC5 /* TabBarCellCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabBarCellCollectionViewCell.swift; path = "x5gon-mobile/ViewControllers/MainViews/TabBarViewCells/TabBarCellCollectionViewCell.swift"; sourceTree = SOURCE_ROOT; };
+		CD48FAA123F80253004415E7 /* AccountHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountHeaderCell.swift; sourceTree = "<group>"; };
+		CD48FAA323F8026F004415E7 /* AccountMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountMenuCell.swift; sourceTree = "<group>"; };
+		CD48FAA523F8027E004415E7 /* AccountPlaylistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountPlaylistCell.swift; sourceTree = "<group>"; };
 		CD7CBA3C23E96E1E003BF035 /* notesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notesCell.swift; sourceTree = "<group>"; };
 		CDA5D0A823F3736200AA6902 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		CDA5D0A923F3736200AA6902 /* APIAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIAdapter.swift; sourceTree = "<group>"; };
@@ -153,6 +159,13 @@
 		CD1A10BB23F63E4500303328 /* MainViews */ = {
 			isa = PBXGroup;
 			children = (
+				CDFD3C2D23CC7986000FCEF6 /* MainViewController.swift */,
+				CDFD3C3823CC7C3F000FCEF6 /* AccountViewController.swift */,
+				CD48FAA023F80242004415E7 /* AccountViewCells */,
+				CDFD3C3023CC79F0000FCEF6 /* HomeViewController.swift */,
+				CDE92D8E23E5D389004BB8BF /* HomeViewCells */,
+				CDFD3C5023CC869F000FCEF6 /* SubscriptionsViewController.swift */,
+				CDFD3C3223CC7BEE000FCEF6 /* TrendingViewController.swift */,
 				CDFD3C3D23CC7C8E000FCEF6 /* TabBarView.swift */,
 				CD7CBA3E23E99BAF003BF035 /* TabBarViewCells */,
 			);
@@ -165,6 +178,16 @@
 				CD318CAA23E78AFA0091017B /* Environment.swift */,
 			);
 			path = Environments;
+			sourceTree = "<group>";
+		};
+		CD48FAA023F80242004415E7 /* AccountViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				CD48FAA123F80253004415E7 /* AccountHeaderCell.swift */,
+				CD48FAA323F8026F004415E7 /* AccountMenuCell.swift */,
+				CD48FAA523F8027E004415E7 /* AccountPlaylistCell.swift */,
+			);
+			path = AccountViewCells;
 			sourceTree = "<group>";
 		};
 		CD7CBA3E23E99BAF003BF035 /* TabBarViewCells */ = {
@@ -272,15 +295,8 @@
 		CDFD3C1D23CC78F5000FCEF6 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				CDFD3C2D23CC7986000FCEF6 /* MainViewController.swift */,
 				CD1A10BB23F63E4500303328 /* MainViews */,
-				CDFD3C2C23CC7986000FCEF6 /* NavViewController.swift */,
 				CDFD3C3A23CC7C66000FCEF6 /* NavViews */,
-				CDFD3C5023CC869F000FCEF6 /* SubscriptionsViewController.swift */,
-				CDFD3C3023CC79F0000FCEF6 /* HomeViewController.swift */,
-				CDE92D8E23E5D389004BB8BF /* HomeViewCells */,
-				CDFD3C3223CC7BEE000FCEF6 /* TrendingViewController.swift */,
-				CDFD3C3823CC7C3F000FCEF6 /* AccountViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -288,6 +304,7 @@
 		CDFD3C3A23CC7C66000FCEF6 /* NavViews */ = {
 			isa = PBXGroup;
 			children = (
+				CDFD3C2C23CC7986000FCEF6 /* NavViewController.swift */,
 				CDFD3C3B23CC7C75000FCEF6 /* PlayerView.swift */,
 				CDE92D9323E5D3DC004BB8BF /* PlayerViewCells */,
 				CDFD3C3F23CC7C9F000FCEF6 /* SearchView.swift */,
@@ -521,6 +538,7 @@
 				CDFD3C2F23CC7986000FCEF6 /* MainViewController.swift in Sources */,
 				CDE92D9223E5D3CE004BB8BF /* headerCell.swift in Sources */,
 				CDFD3C3923CC7C3F000FCEF6 /* AccountViewController.swift in Sources */,
+				CD48FAA223F80253004415E7 /* AccountHeaderCell.swift in Sources */,
 				CDA5D0AB23F3736200AA6902 /* APIAdapter.swift in Sources */,
 				CDFD3C4823CC7D15000FCEF6 /* User.swift in Sources */,
 				CDFD3C2E23CC7986000FCEF6 /* NavViewController.swift in Sources */,
@@ -534,10 +552,12 @@
 				CDE92D9023E5D396004BB8BF /* ContentCell.swift in Sources */,
 				CDFD3BEC23CC784C000FCEF6 /* AppDelegate.swift in Sources */,
 				CDDDD6D623F0B4E5003C1EE5 /* LoginView.swift in Sources */,
+				CD48FAA623F8027E004415E7 /* AccountPlaylistCell.swift in Sources */,
 				CDFD3C3123CC79F0000FCEF6 /* HomeViewController.swift in Sources */,
 				CDFD3C3C23CC7C75000FCEF6 /* PlayerView.swift in Sources */,
 				CDFD3C4223CC7CBD000FCEF6 /* SettingsView.swift in Sources */,
 				CD7CBA3D23E96E1E003BF035 /* notesCell.swift in Sources */,
+				CD48FAA423F8026F004415E7 /* AccountMenuCell.swift in Sources */,
 				CDFD3C5123CC869F000FCEF6 /* SubscriptionsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -462,9 +463,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" directionalLockEnabled="YES" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="21b-8B-xKP">
-                                <rect key="frame" x="0.0" y="44" width="414" height="810"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="21b-8B-xKP">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="uPJ-N8-JX4">
                                     <size key="itemSize" width="415" height="775"/>
@@ -474,13 +474,12 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="kda-z4-TRp">
-                                        <rect key="frame" x="0.0" y="17.666666666666668" width="415" height="775"/>
+                                        <rect key="frame" x="0.0" y="21.666666666666668" width="415" height="775"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Yyj-Op-a8j">
                                             <rect key="frame" x="0.0" y="0.0" width="415" height="775"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                        </view>
-                                        <size key="customSize" width="415" height="775"/>
+                                        </collectionViewCellContentView>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -490,6 +489,12 @@
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="21b-8B-xKP" firstAttribute="centerX" secondItem="p6B-aT-0Cf" secondAttribute="centerX" id="KVA-db-Zxv"/>
+                            <constraint firstItem="7Uh-uJ-009" firstAttribute="bottom" secondItem="21b-8B-xKP" secondAttribute="bottom" id="SoW-f1-8jc"/>
+                            <constraint firstItem="21b-8B-xKP" firstAttribute="top" secondItem="7Uh-uJ-009" secondAttribute="top" id="TTR-j5-hnR"/>
+                            <constraint firstItem="21b-8B-xKP" firstAttribute="leading" secondItem="7Uh-uJ-009" secondAttribute="leading" id="qlE-BX-aIF"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="7Uh-uJ-009"/>
                     </view>
                     <navigationItem key="navigationItem" id="G3p-6R-CdC"/>
@@ -576,8 +581,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="312" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="D6L-sQ-vdX">
-                                <rect key="frame" x="0.0" y="88" width="414" height="744"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="D6L-sQ-vdX">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ContentCell" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ContentCell" rowHeight="320" id="a1R-cz-mSD" customClass="ContentCell" customModule="x5gon_mobile" customModuleProvider="target">
@@ -681,7 +686,7 @@
                             <constraint firstItem="D6L-sQ-vdX" firstAttribute="leading" secondItem="jOB-3w-jXg" secondAttribute="leading" id="47s-ab-Hkz"/>
                             <constraint firstItem="D6L-sQ-vdX" firstAttribute="top" secondItem="jOB-3w-jXg" secondAttribute="top" id="FWl-nH-QGj"/>
                             <constraint firstItem="jOB-3w-jXg" firstAttribute="trailing" secondItem="D6L-sQ-vdX" secondAttribute="trailing" id="hJM-wj-hRK"/>
-                            <constraint firstItem="jOB-3w-jXg" firstAttribute="bottom" secondItem="D6L-sQ-vdX" secondAttribute="bottom" constant="30" id="vUa-k2-uIl"/>
+                            <constraint firstItem="jOB-3w-jXg" firstAttribute="bottom" secondItem="D6L-sQ-vdX" secondAttribute="bottom" id="vUa-k2-uIl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jOB-3w-jXg"/>
                     </view>
@@ -702,8 +707,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="300" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="m7g-gP-rtJ">
-                                <rect key="frame" x="0.0" y="88" width="414" height="744"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="m7g-gP-rtJ">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SubscriptionsCell" rowHeight="80" id="qXw-OU-mZz" customClass="SubscriptionsCell" customModule="x5gon_mobile" customModuleProvider="target">
@@ -862,7 +867,7 @@
                             <constraint firstItem="7ti-xH-5Ux" firstAttribute="trailing" secondItem="m7g-gP-rtJ" secondAttribute="trailing" id="Ze3-T5-CdH"/>
                             <constraint firstItem="m7g-gP-rtJ" firstAttribute="leading" secondItem="7ti-xH-5Ux" secondAttribute="leading" id="b29-7L-2D3"/>
                             <constraint firstItem="m7g-gP-rtJ" firstAttribute="top" secondItem="7ti-xH-5Ux" secondAttribute="top" id="flD-9U-cVH"/>
-                            <constraint firstItem="7ti-xH-5Ux" firstAttribute="bottom" secondItem="m7g-gP-rtJ" secondAttribute="bottom" constant="30" id="hFA-uT-Pz3"/>
+                            <constraint firstItem="7ti-xH-5Ux" firstAttribute="bottom" secondItem="m7g-gP-rtJ" secondAttribute="bottom" id="hFA-uT-Pz3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7ti-xH-5Ux"/>
                     </view>
@@ -883,8 +888,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="300" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="e7n-W0-ij7">
-                                <rect key="frame" x="0.0" y="88" width="414" height="744"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="e7n-W0-ij7">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TrendingCell" rowHeight="70" id="1iC-uN-9lf">
@@ -1033,7 +1038,7 @@
                             <constraint firstItem="e7n-W0-ij7" firstAttribute="leading" secondItem="zBu-iW-Eye" secondAttribute="leading" id="2xA-QG-EWi"/>
                             <constraint firstItem="e7n-W0-ij7" firstAttribute="top" secondItem="zBu-iW-Eye" secondAttribute="top" id="Nib-yu-yfQ"/>
                             <constraint firstItem="zBu-iW-Eye" firstAttribute="trailing" secondItem="e7n-W0-ij7" secondAttribute="trailing" id="ihp-jh-XOW"/>
-                            <constraint firstItem="zBu-iW-Eye" firstAttribute="bottom" secondItem="e7n-W0-ij7" secondAttribute="bottom" constant="30" id="nDH-DW-cPf"/>
+                            <constraint firstItem="zBu-iW-Eye" firstAttribute="bottom" secondItem="e7n-W0-ij7" secondAttribute="bottom" id="nDH-DW-cPf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zBu-iW-Eye"/>
                     </view>

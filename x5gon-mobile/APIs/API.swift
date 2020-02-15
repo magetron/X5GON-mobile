@@ -161,4 +161,44 @@ class API {
         semaphore.wait()
         return authenticationToken
     }
+    
+    static func fetchUser () -> User {
+        var tmpUser:User?
+        let contentURLString = newAdapter.generateUserSessionQueryURL()
+        let contentURL = URL(string: contentURLString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!
+        let semaphore = DispatchSemaphore(value: 0)
+        let dataTask = URLSession.shared.dataTask(with: contentURL) { data, response, error in
+            defer { semaphore.signal() }
+            guard let httpResponse = response as? HTTPURLResponse, let receivedData = data
+                else {
+                    print("error: not a valid http response")
+                    return
+                }
+            if (httpResponse.statusCode != 200) {
+                print("error: http response \(httpResponse.statusCode) not successful")
+            } else {
+                let jsonObject = try? JSONSerialization.jsonObject(with: receivedData, options: [])
+                guard let json = jsonObject as? [String: Any] else {
+                    print("error: invalid format")
+                    return
+                }
+                guard let loggedInUserInfo = json["loggedInUser"] as? [String: Any] else {
+                    print("error: invalid format")
+                    return
+                }
+                guard let userProfile = loggedInUserInfo["userProfile"] as? [String: Any] else {
+                    print("error: invalid format")
+                    return
+                }
+                guard let firstName = userProfile["firstName"] as? String, let lastName = userProfile["lastName"] as? String, let email = userProfile["email"] as? String else {
+                    print("error: invalid format")
+                    return
+                }
+                tmpUser = User.init(name: firstName + lastName, profilePic: UIImage.init(named: "profilePic")!, backgroundImage: UIImage.init(named: "banner")!, playlists: [])
+             }
+         }
+         dataTask.resume()
+         semaphore.wait()
+         return tmpUser ?? User.generateDefaultUser()
+    }
 }
