@@ -32,7 +32,6 @@ class MainController {
         }
     }
     
-    
     static func fetchDefaultContents() -> [Content] {
         var items = [Content]()
         let pdf = PDF.init(title: "Community Meeting 2016", channelName: "Blender Foundation", url: URL.init(string: "https://download.blender.org/institute/sig2016-2.pdf")!)
@@ -56,7 +55,7 @@ class MainController {
         logout()
         let csrfToken = API.fetchCSRFToken()
         authenticationToken = API.fetchLoginTokenWith(username: username, password: password, csrfToken: csrfToken)
-        refresher(updateContent: {() -> Void in MainController.accountViewController?.user = API.fetchUser()}, viewReload: {() -> Void in MainController.accountViewController?.tableView.reloadData()
+        refresher(updateContent: {() -> Void in MainController.accountViewController?.setUser(user: API.fetchUser())}, viewReload: {() -> Void in MainController.accountViewController?.tableView.reloadData()
         })
         return authenticationToken != ""
     }
