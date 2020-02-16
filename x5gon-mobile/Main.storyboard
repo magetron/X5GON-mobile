@@ -145,7 +145,7 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hai-Uu-zYx">
-                            <rect key="frame" x="0.0" y="259.33333333333326" width="415" height="450.66666666666674"/>
+                            <rect key="frame" x="0.0" y="259.33333333333326" width="415" height="450.66666666666663"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <prototypes>
                                 <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Header" rowHeight="199" id="5hc-ET-uzg" customClass="headerCell" customModule="x5gon_mobile" customModuleProvider="target">
@@ -269,9 +269,13 @@
                                         <rect key="frame" x="0.0" y="0.0" width="415" height="97"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BEq-W8-3Ds">
-                                                <rect key="frame" x="20" y="0.0" width="375" height="100.33333333333333"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BEq-W8-3Ds">
+                                                <rect key="frame" x="20" y="11" width="375" height="75"/>
                                                 <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="100.33" id="gUD-hE-Jft"/>
+                                                    <constraint firstAttribute="width" constant="375" id="m2a-PF-Cyh"/>
+                                                </constraints>
                                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -287,6 +291,7 @@
                                     </tableViewCellContentView>
                                     <connections>
                                         <outlet property="noteView" destination="BEq-W8-3Ds" id="9jP-YN-a7z"/>
+                                        <outlet property="noteViewHC" destination="gUD-hE-Jft" id="qlc-w8-gVf"/>
                                     </connections>
                                 </tableViewCell>
                                 <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="100" id="DHl-mx-9Wa" customClass="suggestionContentCell" customModule="x5gon_mobile" customModuleProvider="target">

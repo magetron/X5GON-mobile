@@ -221,6 +221,7 @@ class NavViewController: UINavigationController, PlayerViewControllerDelegate  {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.customization()
+    
     }
     
     deinit {

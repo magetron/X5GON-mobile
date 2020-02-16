@@ -13,6 +13,7 @@ class notesCell: UITableViewCell, UITextViewDelegate {
     
 
     @IBOutlet weak var noteView: UITextView!
+    @IBOutlet weak var noteViewHC: NSLayoutConstraint!
     
     func customisation () {
 //        let tap = UITapGestureRecognizer(target: self, action: #selector(self.tapMarkdownView))
@@ -56,6 +57,11 @@ class notesCell: UITableViewCell, UITextViewDelegate {
 //        markDownView!.centreView(parentView: notesView)
 //    }
 //
+    
+    func textViewDidChange(_ textView: UITextView) {
+        noteViewHC.constant = self.noteView.contentSize.height
+        
+    }
     
     
     override func awakeFromNib() {
