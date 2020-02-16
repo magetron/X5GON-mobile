@@ -262,34 +262,35 @@
                                         <outlet property="viewCount" destination="0ca-mZ-3VK" id="2Uv-mx-aol"/>
                                     </connections>
                                 </tableViewCell>
-                                <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Notes" id="3q1-mt-wmI" customClass="notesCell" customModule="x5gon_mobile" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="227" width="415" height="122.33333587646484"/>
+                                <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Notes" rowHeight="97" id="3q1-mt-wmI" customClass="notesCell" customModule="x5gon_mobile" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="227" width="415" height="97"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3q1-mt-wmI" id="NAO-ZH-5eh">
-                                        <rect key="frame" x="0.0" y="0.0" width="415" height="122.33333587646484"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="415" height="97"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <subviews>
-                                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SlA-Ra-CqX">
-                                                <rect key="frame" x="20" y="11" width="375" height="100.33333333333333"/>
-                                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="100" id="Of0-J8-ymc"/>
-                                                </constraints>
-                                            </view>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BEq-W8-3Ds">
+                                                <rect key="frame" x="20" y="0.0" width="375" height="100.33333333333333"/>
+                                                <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="SlA-Ra-CqX" firstAttribute="trailing" secondItem="NAO-ZH-5eh" secondAttribute="trailingMargin" id="B8C-OX-jp6"/>
-                                            <constraint firstAttribute="bottomMargin" secondItem="SlA-Ra-CqX" secondAttribute="bottom" id="Jjt-0s-YQA"/>
-                                            <constraint firstItem="SlA-Ra-CqX" firstAttribute="leading" secondItem="NAO-ZH-5eh" secondAttribute="leadingMargin" id="T6k-6g-roc"/>
-                                            <constraint firstItem="SlA-Ra-CqX" firstAttribute="top" secondItem="NAO-ZH-5eh" secondAttribute="topMargin" id="Vvu-6F-Iwu"/>
+                                            <constraint firstItem="BEq-W8-3Ds" firstAttribute="centerX" secondItem="NAO-ZH-5eh" secondAttribute="centerX" id="2g5-xi-BTN"/>
+                                            <constraint firstItem="BEq-W8-3Ds" firstAttribute="centerY" secondItem="NAO-ZH-5eh" secondAttribute="centerY" constant="1.6666666666666643" id="BfI-wR-oSE"/>
+                                            <constraint firstItem="BEq-W8-3Ds" firstAttribute="width" secondItem="NAO-ZH-5eh" secondAttribute="width" multiplier="0.903614" id="X9j-mb-KQO"/>
+                                            <constraint firstItem="BEq-W8-3Ds" firstAttribute="height" secondItem="NAO-ZH-5eh" secondAttribute="height" multiplier="1.03436" id="dye-tr-XHK"/>
+                                            <constraint firstItem="BEq-W8-3Ds" firstAttribute="width" secondItem="NAO-ZH-5eh" secondAttribute="height" multiplier="375:97" id="txP-rd-Xk6"/>
                                         </constraints>
                                     </tableViewCellContentView>
                                     <connections>
-                                        <outlet property="notesView" destination="SlA-Ra-CqX" id="S7l-wP-vb4"/>
+                                        <outlet property="noteView" destination="BEq-W8-3Ds" id="9jP-YN-a7z"/>
                                     </connections>
                                 </tableViewCell>
                                 <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="100" id="DHl-mx-9Wa" customClass="suggestionContentCell" customModule="x5gon_mobile" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="349.33333587646484" width="415" height="100"/>
+                                    <rect key="frame" x="0.0" y="324" width="415" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DHl-mx-9Wa" id="7sY-8H-dnu">
                                         <rect key="frame" x="0.0" y="0.0" width="415" height="100"/>
