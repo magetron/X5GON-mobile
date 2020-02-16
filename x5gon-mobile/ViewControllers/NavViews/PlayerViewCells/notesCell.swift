@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Down
 
 class notesCell: UITableViewCell, UITextViewDelegate {
     
