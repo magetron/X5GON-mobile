@@ -17,7 +17,7 @@ class User {
     let backgroundImage: UIImage
     var playlists = [Playlist]()
 
-    init(name: String, profilePic: UIImage, backgroundImage: UIImage, playlists: Array<Playlist>) {
+    init(name: String, profilePic: UIImage, backgroundImage: UIImage, playlists: [Playlist]) {
         self.profilePic = profilePic
         self.backgroundImage = backgroundImage
         self.playlists = playlists

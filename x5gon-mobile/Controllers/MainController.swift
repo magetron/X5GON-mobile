@@ -32,18 +32,13 @@ class MainController {
         }
     }
     
-    
     static func fetchDefaultContents() -> [Content] {
         var items = [Content]()
         let pdf = PDF.init(title: "Community Meeting 2016", channelName: "Blender Foundation", url: URL.init(string: "https://download.blender.org/institute/sig2016-2.pdf")!)
         items.append(pdf)
-        let defaultKeyWord = "science"
-        let defaultPDFs = API.fetchContents(keyWord: defaultKeyWord, contentType: "text") as! [PDF]
-        items.append(contentsOf: defaultPDFs)
-        let playableVideo = Video.init(title: "Big Buck Bunny", channelName: "Blender Foundation", url: URL.init(string: "https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_30mb.mp4")!)
-        items.append(playableVideo)
-        let defaultVideos = API.fetchContents(keyWord: defaultKeyWord, contentType: "video") as! [Video]
-        items.append(contentsOf: defaultVideos)
+        let video = Video.init(title: "Big Buck Bunny", channelName: "Blender Foundation", url: URL.init(string: "https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_30mb.mp4")!)
+        items.append(video)
+        items.append(contentsOf: API.fetchContents(keyWord: "science"))
         return items
     }
     
@@ -60,6 +55,8 @@ class MainController {
         logout()
         let csrfToken = API.fetchCSRFToken()
         authenticationToken = API.fetchLoginTokenWith(username: username, password: password, csrfToken: csrfToken)
+        refresher(updateContent: {() -> Void in MainController.accountViewController?.setUser(user: API.fetchUser())}, viewReload: {() -> Void in MainController.accountViewController?.tableView.reloadData()
+        })
         return authenticationToken != ""
     }
     
