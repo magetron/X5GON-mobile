@@ -32,7 +32,7 @@ class NavViewController: UINavigationController, PlayerViewControllerDelegate, S
     let fullScreenOrigin = CGPoint.init(x: 0, y: 0)
 
     //Methods
-    func customization() {
+    func customisation() {
         MainController.navViewController = self
         
         //NavigationBar buttons
@@ -211,7 +211,7 @@ class NavViewController: UINavigationController, PlayerViewControllerDelegate, S
     //MARK: ViewController lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.customization()
+        self.customisation()
     }
     
     deinit {

@@ -32,7 +32,7 @@ class SubscriptionsCell: UITableViewCell, UICollectionViewDataSource, UICollecti
     @IBOutlet weak var collectionView: UICollectionView!
     var channels = [Channel]()
     
-    func customization() {
+    func customisation() {
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         self.collectionView.contentInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
@@ -56,7 +56,7 @@ class SubscriptionsCell: UITableViewCell, UICollectionViewDataSource, UICollecti
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.customization()
+        self.customisation()
     }
 }
 

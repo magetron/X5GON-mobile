@@ -16,7 +16,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     var views = [UIView]()
     
     //MARK: Methods
-    func customization()  {
+    func customisation()  {
         MainController.mainViewController = self
         
         self.view.backgroundColor = Environment.X5Color
@@ -88,7 +88,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     //MARK: ViewController lifecyle
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.customization()
+        self.customisation()
     }
     
     deinit {

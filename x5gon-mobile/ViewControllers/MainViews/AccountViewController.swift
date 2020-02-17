@@ -19,7 +19,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     //MARK: Methods
 
-    func customization() {
+    func customisation() {
         self.tableView.contentInset = UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
         self.tableView.scrollIndicatorInsets = UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
         self.tableView.rowHeight = UITableView.automaticDimension
@@ -66,7 +66,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     //MARK: -  ViewController Lifecylce
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.customization()
+        self.customisation()
     }
 }
 

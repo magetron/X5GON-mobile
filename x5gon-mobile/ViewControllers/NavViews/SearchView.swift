@@ -15,7 +15,7 @@ class SearchView: UIView, UITextFieldDelegate {
     var suggestions = [String]()
     
     //MARK: Methods
-    func customization() {
+    func customisation() {
         self.inputField.delegate = self
     }
     
@@ -33,8 +33,7 @@ class SearchView: UIView, UITextFieldDelegate {
         let text = textField.text ?? ""
         refresher(updateContent: {() -> Void in
             let result = MainController.search(keyword: text, contentType: "any")
-            MainController.homeViewController?.contents = result
-            print("result \(result.count)")
+            MainController.homeViewController?.updateContents(newContents: result)
         }, viewReload: {() -> Void in MainController.homeViewController?.tableView.reloadData()})
         self.hideSearchView(self)
         return true
@@ -43,7 +42,7 @@ class SearchView: UIView, UITextFieldDelegate {
     //MARK: View LifeCycle
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.customization()
+        self.customisation()
     }
 }
 
