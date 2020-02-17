@@ -16,29 +16,13 @@ class notesCell: UITableViewCell, UITextViewDelegate {
     @IBOutlet weak var noteViewHC: NSLayoutConstraint!
     
     func customisation () {
-//        let tap = UITapGestureRecognizer(target: self, action: #selector(self.tapMarkdownView))
-//        self.addGestureRecognizer(tap)
+        let tap = UILongPressGestureRecognizer(target: self, action: #selector(self.tapMarkdownView))
+        self.addGestureRecognizer(tap)
     }
-//
-//    @objc func tapMarkdownView(sender: UITapGestureRecognizer) {
-//        self.notesView.clearSubViews()
-//        editTextView.frame = notesView.frame
-//        notesView.addSubview(editTextView)
-//        editTextView.centreView(parentView: notesView)
-//        editTextView.isEditable = true
-//        let tap = UITapGestureRecognizer(target: self, action: #selector(self.tapeditTextView))
-//        self.addGestureRecognizer(tap)
-////        self.reloadInputViews()
-//    }
-//
-//    @objc func tapeditTextView(sender: UITapGestureRecognizer) {
-//        self.notesView.clearSubViews()
-//        editTextView.insertText("\nPut some **Markdown** notes here.")
-//        buildMarkDownView()
-//        let tap = UITapGestureRecognizer(target: self, action: #selector(self.tapMarkdownView))
-//        self.addGestureRecognizer(tap)
-//    //        self.reloadInputViews()
-//    }
+    @objc func tapMarkdownView(sender: UILongPressGestureRecognizer) {
+        noteViewHC.constant = self.noteView.contentSize.height
+        
+    }
     
     
     
@@ -50,6 +34,11 @@ class notesCell: UITableViewCell, UITextViewDelegate {
         return true
     }
     
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        noteViewHC.constant = self.noteView.contentSize.height
+    }
+    
 //    func buildMarkDownView(){
 //        markDownView = try! DownView.init(frame: self.notesView.frame, markdownString: editTextView.text)
 //        markDownView!.frame = notesView.frame
@@ -57,13 +46,12 @@ class notesCell: UITableViewCell, UITextViewDelegate {
 //        markDownView!.centreView(parentView: notesView)
 //    }
 //
-    
-    func textViewDidChange(_ textView: UITextView) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        self.noteView.resignFirstResponder()
         noteViewHC.constant = self.noteView.contentSize.height
-        
+        print("end texting")
     }
-    
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         customisation()
