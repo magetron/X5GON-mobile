@@ -39,10 +39,10 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         let trendingVC = self.storyboard?.instantiateViewController(withIdentifier: "TrendingViewController")
         let subscriptionsVC = self.storyboard?.instantiateViewController(withIdentifier: "SubscriptionsViewController")
         let accountVC = self.storyboard?.instantiateViewController(withIdentifier: "AccountViewController")
-        MainController.homeViewController = homeVC as? HomeViewController
-        MainController.trendingViewController = trendingVC as? TrendingViewController
-        MainController.subscriptionViewController = subscriptionsVC as? SubscriptionsViewController
-        MainController.accountViewController = accountVC as? AccountViewController
+        MainController.homeViewController = homeVC as! HomeViewController
+        MainController.trendingViewController = trendingVC as! TrendingViewController
+        MainController.subscriptionViewController = subscriptionsVC as! SubscriptionsViewController
+        MainController.accountViewController = accountVC as! AccountViewController
         
         let viewControllers = [homeVC, trendingVC, subscriptionsVC, accountVC]
         for vc in viewControllers {

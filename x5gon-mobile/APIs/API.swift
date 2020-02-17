@@ -12,27 +12,19 @@ class API {
     
     static let oldAdapter = X5GONAPIAdapter.self
     static let newAdapter = X5LearnAPIAdapter.self
+    static var authenticationToken = ""
     
-    static func fetchContents (keyWord : String, contentType : String) -> [Content] {
-        var tmpItems = [Content]()
-        let contentURLString = newAdapter.generateContentQueryURL(keyWord: keyWord, contentType: contentType)
-        let contentURL = URL(string:contentURLString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!
-        let semaphore = DispatchSemaphore(value: 0)
-        let dataTask = URLSession.shared.dataTask(with: contentURL) { data, response, error in
-            defer { semaphore.signal() }
-            tmpItems = parseContents(response: response, data: data)
-        }
-        dataTask.resume()
-        semaphore.wait()
-        return tmpItems
+    private static func applyAuthToken (request: inout URLRequest) {
+        request.addValue(authenticationToken, forHTTPHeaderField: "Authentication-Token")
     }
     
-    static func fetchFeatureContents () -> [Content] {
+    private static func fetchContents (urlString: String) -> [Content] {
         var tmpItems = [Content]()
-        let contentURLString = newAdapter.generateFeaturedContentURL()
-        let contentURL = URL(string:contentURLString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!
+        let contentURL = URL(string:urlString .addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!
+        var request = URLRequest(url: contentURL)
+        applyAuthToken(request: &request)
         let semaphore = DispatchSemaphore(value: 0)
-        let dataTask = URLSession.shared.dataTask(with: contentURL) { data, response, error in
+        let dataTask = URLSession.shared.dataTask(with: request) { data, response, error in
             defer { semaphore.signal() }
             tmpItems = parseContents(response: response, data: data)
         }
@@ -71,6 +63,14 @@ class API {
             }
         }
         return tmpItems
+    }
+    
+    static func fetchContents (keyWord : String, contentType : String) -> [Content] {
+        return fetchContents(urlString: newAdapter.generateContentQueryURL(keyWord: keyWord, contentType: contentType))
+    }
+    
+    static func fetchFeaturedContents () -> [Content] {
+        return fetchContents(urlString: newAdapter.generateFeaturedContentURL())
     }
     
     static func DEPRECATED_fetchContents (keyWord: String) -> [Content] {

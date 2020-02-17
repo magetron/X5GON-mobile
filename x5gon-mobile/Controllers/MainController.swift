@@ -18,7 +18,6 @@ class MainController {
     static var accountViewController:AccountViewController?
  
     static var user = User.generateDefaultUser()
-    static var authenticationToken = ""
     
     static func setHideTopBar(hide: Bool) {
         if (hide) {
@@ -33,7 +32,7 @@ class MainController {
     }
     
     static func fetchDefaultContents () -> [Content] {
-        return API.fetchFeatureContents()
+        return API.fetchFeaturedContents()
     }
     
     static func DEPRECATED_fetchDefaultContents() -> [Content] {
@@ -58,14 +57,14 @@ class MainController {
     static func login (username: String, password: String) -> Bool {
         logout()
         let csrfToken = API.fetchCSRFToken()
-        authenticationToken = API.fetchLoginTokenWith(username: username, password: password, csrfToken: csrfToken)
+        API.authenticationToken = API.fetchLoginTokenWith(username: username, password: password, csrfToken: csrfToken)
         refresher(updateContent: {() -> Void in MainController.accountViewController?.setUser(user: API.fetchUser())}, viewReload: {() -> Void in MainController.accountViewController?.tableView.reloadData()
         })
-        return authenticationToken != ""
+        return API.authenticationToken != ""
     }
     
     static func logout () {
-        authenticationToken = ""
+        API.authenticationToken = ""
         API.logout()
     }
     
