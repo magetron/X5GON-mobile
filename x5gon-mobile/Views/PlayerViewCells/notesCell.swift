@@ -16,12 +16,7 @@ class notesCell: UITableViewCell, UITextViewDelegate {
     @IBOutlet weak var noteViewHC: NSLayoutConstraint!
     
     func customisation () {
-        let tap = UILongPressGestureRecognizer(target: self, action: #selector(self.tapMarkdownView))
-        self.addGestureRecognizer(tap)
-    }
-    @objc func tapMarkdownView(sender: UILongPressGestureRecognizer) {
-        noteViewHC.constant = self.noteView.contentSize.height
-        
+
     }
     
     
@@ -33,7 +28,6 @@ class notesCell: UITableViewCell, UITextViewDelegate {
         }
         return true
     }
-    
     
     func textViewDidEndEditing(_ textView: UITextView) {
         noteViewHC.constant = self.noteView.contentSize.height
@@ -49,7 +43,9 @@ class notesCell: UITableViewCell, UITextViewDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         self.noteView.resignFirstResponder()
+   //     noteViewHC.constant = self.noteView.contentSize.height
         noteViewHC.constant = self.noteView.contentSize.height
+        print(self.noteView.contentSize.height)
         print("end texting")
     }
     override func awakeFromNib() {

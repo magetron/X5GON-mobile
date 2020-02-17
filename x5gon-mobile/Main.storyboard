@@ -269,8 +269,8 @@
                                         <rect key="frame" x="0.0" y="0.0" width="415" height="97"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BEq-W8-3Ds">
-                                                <rect key="frame" x="20" y="11" width="375" height="75"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BEq-W8-3Ds">
+                                                <rect key="frame" x="20" y="-1.6666666666666643" width="375" height="100.33333333333331"/>
                                                 <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100.33" id="gUD-hE-Jft"/>
@@ -282,11 +282,9 @@
                                             </textView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="BEq-W8-3Ds" firstAttribute="centerX" secondItem="NAO-ZH-5eh" secondAttribute="centerX" id="2g5-xi-BTN"/>
-                                            <constraint firstItem="BEq-W8-3Ds" firstAttribute="centerY" secondItem="NAO-ZH-5eh" secondAttribute="centerY" constant="1.6666666666666643" id="BfI-wR-oSE"/>
-                                            <constraint firstItem="BEq-W8-3Ds" firstAttribute="width" secondItem="NAO-ZH-5eh" secondAttribute="width" multiplier="0.903614" id="X9j-mb-KQO"/>
-                                            <constraint firstItem="BEq-W8-3Ds" firstAttribute="height" secondItem="NAO-ZH-5eh" secondAttribute="height" multiplier="1.03436" id="dye-tr-XHK"/>
-                                            <constraint firstItem="BEq-W8-3Ds" firstAttribute="width" secondItem="NAO-ZH-5eh" secondAttribute="height" multiplier="375:97" id="txP-rd-Xk6"/>
+                                            <constraint firstItem="BEq-W8-3Ds" firstAttribute="centerY" secondItem="NAO-ZH-5eh" secondAttribute="centerY" id="Oxm-zl-I76"/>
+                                            <constraint firstItem="BEq-W8-3Ds" firstAttribute="centerX" secondItem="NAO-ZH-5eh" secondAttribute="centerX" id="dzk-sc-b9e"/>
+                                            <constraint firstItem="BEq-W8-3Ds" firstAttribute="width" secondItem="NAO-ZH-5eh" secondAttribute="height" multiplier="375:97" id="g5b-mv-VLw"/>
                                         </constraints>
                                     </tableViewCellContentView>
                                     <connections>
