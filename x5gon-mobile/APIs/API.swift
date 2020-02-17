@@ -13,17 +13,75 @@ class API {
     static let oldAdapter = X5GONAPIAdapter.self
     static let newAdapter = X5LearnAPIAdapter.self
     
+    static func fetchContents (keyWord : String, contentType : String) -> [Content] {
+        var tmpItems = [Content]()
+        let contentURLString = newAdapter.generateContentQueryURL(keyWord: keyWord, contentType: contentType)
+        let contentURL = URL(string:contentURLString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!
+        let semaphore = DispatchSemaphore(value: 0)
+        let dataTask = URLSession.shared.dataTask(with: contentURL) { data, response, error in
+            defer { semaphore.signal() }
+            tmpItems = parseContents(response: response, data: data)
+        }
+        dataTask.resume()
+        semaphore.wait()
+        return tmpItems
+    }
     
-    static func fetchContents (keyWord: String) -> [Content] {
+    static func fetchFeatureContents () -> [Content] {
+        var tmpItems = [Content]()
+        let contentURLString = newAdapter.generateFeaturedContentURL()
+        let contentURL = URL(string:contentURLString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!
+        let semaphore = DispatchSemaphore(value: 0)
+        let dataTask = URLSession.shared.dataTask(with: contentURL) { data, response, error in
+            defer { semaphore.signal() }
+            tmpItems = parseContents(response: response, data: data)
+        }
+        dataTask.resume()
+        semaphore.wait()
+        return tmpItems
+    }
+    
+    private static func parseContents (response: URLResponse?, data: Data?) -> [Content] {
+        var tmpItems = [Content]()
+        guard let httpResponse = response as? HTTPURLResponse, let receivedData = data
+            else {
+                print("error: not a valid http response")
+                return []
+            }
+        if (httpResponse.statusCode != 200) {
+            print("error: http response \(httpResponse.statusCode) not successful")
+        } else {
+            let jsonObject = try? JSONSerialization.jsonObject(with: receivedData, options: [])
+            guard let materialArray = jsonObject as? [[String:Any]] else {
+                print("error: invalid format")
+                return []
+            }
+            for material in materialArray {
+                guard let title = material["title"] as? String, let provider = material["provider"] as? String, let url = material["url"] as? String , let mediaType = material["mediatype"] as? String else {
+                        print("error: invalid format")
+                        return []
+                    }
+                if (mediaType == "video" || mediaType == "audio") {
+                    let newVideo = Video.init(title: title, channelName: provider, url: URL.init(string: url)!)
+                    tmpItems.append(newVideo)
+                } else if (mediaType == "text") {
+                    let newPDF = PDF.init(title: title, channelName: provider, url: URL.init(string: url)!)
+                    tmpItems.append(newPDF)
+                }
+            }
+        }
+        return tmpItems
+    }
+    
+    static func DEPRECATED_fetchContents (keyWord: String) -> [Content] {
         var results = [Content]()
-        results.append(contentsOf: fetchContents(keyWord: keyWord, contentType: "video"))
-        results.append(contentsOf:fetchContents(keyWord: keyWord, contentType: "pdf"))
-        results.append(contentsOf:fetchContents(keyWord: keyWord, contentType: "audio"))
+        results.append(contentsOf: DEPRECATED_fetchContents(keyWord: keyWord, contentType: "video"))
+        results.append(contentsOf: DEPRECATED_fetchContents(keyWord: keyWord, contentType: "pdf"))
+        results.append(contentsOf: DEPRECATED_fetchContents(keyWord: keyWord, contentType: "audio"))
         return results.shuffled()
     }
     
-    
-    static func fetchContents (keyWord : String, contentType : String) -> [Content] {
+    static func DEPRECATED_fetchContents (keyWord : String, contentType : String) -> [Content] {
         var tmpItems = [Content]()
         let contentURLString = oldAdapter.generateContentQueryURL(keyWord: keyWord, contentType: contentType)
         let contentURL = URL(string: contentURLString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!
