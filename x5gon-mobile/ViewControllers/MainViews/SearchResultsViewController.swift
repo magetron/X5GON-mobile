@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SubscriptionsViewController: HomeViewController {
+class SearchResultsViewController: HomeViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.contents.count + 1
