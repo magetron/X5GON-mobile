@@ -13,8 +13,8 @@ class MainController {
     static var mainViewController:MainViewController?
     static var homeViewController:HomeViewController?
     static var navViewController:NavViewController?
-    static var subscriptionViewController:SubscriptionsViewController?
-    static var trendingViewController:TrendingViewController?
+    static var searchResultsViewController:SearchResultsViewController?
+    static var featuredViewController:FeaturedViewController?
     static var accountViewController:AccountViewController?
  
     static var user = User.generateDefaultUser()
@@ -32,6 +32,10 @@ class MainController {
     }
     
     static func fetchDefaultContents () -> [Content] {
+        return API.fetchContents(keyWord: "science", contentType: "any")
+    }
+    
+    static func fetchFeaturedContents () -> [Content] {
         return API.fetchFeaturedContents()
     }
     

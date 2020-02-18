@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TrendingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
+class FeaturedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
     
     //MARK: - Properties
     @IBOutlet weak var tableView: UITableView!
@@ -21,23 +21,18 @@ class TrendingViewController: UIViewController, UITableViewDelegate, UITableView
         self.tableView.scrollIndicatorInsets = UIEdgeInsets(top: 50, left: 0, bottom: 30, right: 0)
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 300
-        refresher(updateContent: {() -> Void in self.contents = MainController.fetchDefaultContents()}, viewReload: {() -> Void in self.tableView.reloadData()})
+        refresher(updateContent: {() -> Void in self.contents = MainController.fetchFeaturedContents()}, viewReload: {() -> Void in self.tableView.reloadData()})
     }
     
     //MARK: Delegates
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.contents.count + 1
+        return self.contents.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "TrendingCell")
-            return cell!
-        } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ContentCell") as! ContentCell
-            cell.set(video: self.contents[indexPath.row - 1])
-            return cell
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ContentCell") as! ContentCell
+        cell.set(video: self.contents[indexPath.row])
+        return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

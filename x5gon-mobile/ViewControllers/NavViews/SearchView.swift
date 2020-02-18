@@ -33,7 +33,7 @@ class SearchView: UIView, UITextFieldDelegate {
         let text = textField.text ?? ""
         refresher(updateContent: {() -> Void in
             let result = MainController.search(keyword: text, contentType: "any")
-            MainController.homeViewController?.updateContents(newContents: result)
+            MainController.homeViewController?.contents = result
         }, viewReload: {() -> Void in MainController.homeViewController?.tableView.reloadData()})
         self.hideSearchView(self)
         return true

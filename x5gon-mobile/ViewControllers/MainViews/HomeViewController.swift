@@ -8,12 +8,7 @@
 
 import UIKit
 
-protocol HomeViewProtocol {
-    var contents:[Content] { get set }
-    func customisation()
-}
-
-class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, HomeViewProtocol  {
+class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
     
     //MARK: - Properties
     @IBOutlet weak var tableView: UITableView!
