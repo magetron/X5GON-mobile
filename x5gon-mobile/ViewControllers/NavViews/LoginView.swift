@@ -15,7 +15,7 @@ class LoginView: UIView {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
 
-    func customization () {
+    func customisation () {
         self.passwordTextField.isSecureTextEntry = true
     }
     
@@ -43,6 +43,6 @@ class LoginView: UIView {
     
     override func awakeFromNib () {
         super.awakeFromNib()
-        self.customization()
+        self.customisation()
     }
 }

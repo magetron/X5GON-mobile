@@ -18,7 +18,7 @@ class TabBarView: UIView, UICollectionViewDelegateFlowLayout, UICollectionViewDa
     var selectedIndex = 0
     
     //MARK: Methods
-    func customization() {
+    func customisation() {
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         self.backgroundColor = Environment.X5Color
@@ -65,7 +65,7 @@ class TabBarView: UIView, UICollectionViewDelegateFlowLayout, UICollectionViewDa
     //MARK: View LifeCycle
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.customization()
+        self.customisation()
     }
     
     deinit {

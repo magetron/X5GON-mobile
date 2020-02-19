@@ -17,7 +17,7 @@ class ContentCell: UITableViewCell {
     @IBOutlet weak var videoTitle: UILabel!
     @IBOutlet weak var videoDescription: UILabel!
     
-    func customization()  {
+    func customisation()  {
         self.channelPic.layer.cornerRadius = 24
         self.channelPic.clipsToBounds  = true
         self.durationLabel.layer.borderWidth = 0.5
@@ -46,7 +46,7 @@ class ContentCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.customization()
+        self.customisation()
     }
 }
 

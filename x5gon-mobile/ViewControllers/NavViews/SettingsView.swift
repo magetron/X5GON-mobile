@@ -24,7 +24,7 @@ class SettingsView: UIView, UITableViewDelegate, UITableViewDataSource {
     var showLogin: (() -> Void) = { () in return }
     
     //MARK: Methods
-    func customization() {
+    func customisation() {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.backgroundView.alpha = 0
@@ -64,7 +64,7 @@ class SettingsView: UIView, UITableViewDelegate, UITableViewDataSource {
     //MARK: View LifeCycle
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.customization()
+        self.customisation()
     }
 }
 

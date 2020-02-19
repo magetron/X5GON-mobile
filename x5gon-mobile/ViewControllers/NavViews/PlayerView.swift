@@ -33,7 +33,7 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
 
     
     //MARK: Methods
-    func customization() {
+    func customisation() {
         self.backgroundColor = UIColor.clear
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -192,7 +192,7 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
     //MARK: View lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.customization()
+        self.customisation()
     }
     
     func setVideo(video : Video) {

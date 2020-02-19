@@ -1,5 +1,5 @@
 //
-//  HomeViewController.swift
+//  SubscriptionViewController.swift
 //  x5gon-mobile
 //
 //  Created by Patrick Wu on 13/01/2020.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
+class SearchResultsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
     
     //MARK: - Properties
     @IBOutlet weak var tableView: UITableView!
@@ -21,9 +21,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.tableView.scrollIndicatorInsets = UIEdgeInsets(top: 50, left: 0, bottom: 30, right: 0)
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 300
-        refresher(updateContent: {() -> Void in self.contents = MainController.fetchDefaultContents()}, viewReload: {() -> Void in self.tableView.reloadData()})
+        refresher(updateContent: {() -> Void in self.contents = MainController.fetchFeaturedContents()}, viewReload: {() -> Void in self.tableView.reloadData()})
     }
-    
     
     //MARK: Delegates
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -46,3 +45,4 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.customisation()
     }
 }
+

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,7 +12,11 @@
 		CD00457B23E4E7AD009CA522 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00457A23E4E7AD009CA522 /* Content.swift */; };
 		CD2D76F823F35D030031E3F1 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2D76F723F35D030031E3F1 /* Playlist.swift */; };
 		CD318CAB23E78AFA0091017B /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD318CAA23E78AFA0091017B /* Environment.swift */; };
+		CD32CBDE23FD84F6009EA273 /* SubscriptionsChannelViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD32CBDD23FD84F6009EA273 /* SubscriptionsChannelViewCell.swift */; };
+		CD32CBE023FD855D009EA273 /* SubscriptionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD32CBDF23FD855D009EA273 /* SubscriptionsCell.swift */; };
 		CD42D68F23F751D40048ADC5 /* TabBarCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD42D68E23F751D40048ADC5 /* TabBarCellCollectionViewCell.swift */; };
+		CD43130F23F9FA3400B5C620 /* X5GONAPIAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD43130E23F9FA3400B5C620 /* X5GONAPIAdapter.swift */; };
+		CD43131123F9FBFC00B5C620 /* X5LearnAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD43131023F9FBFC00B5C620 /* X5LearnAdapter.swift */; };
 		CD48FAA223F80253004415E7 /* AccountHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD48FAA123F80253004415E7 /* AccountHeaderCell.swift */; };
 		CD48FAA423F8026F004415E7 /* AccountMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD48FAA323F8026F004415E7 /* AccountMenuCell.swift */; };
 		CD48FAA623F8027E004415E7 /* AccountPlaylistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD48FAA523F8027E004415E7 /* AccountPlaylistCell.swift */; };
@@ -34,7 +38,7 @@
 		CDFD3C2E23CC7986000FCEF6 /* NavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFD3C2C23CC7986000FCEF6 /* NavViewController.swift */; };
 		CDFD3C2F23CC7986000FCEF6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFD3C2D23CC7986000FCEF6 /* MainViewController.swift */; };
 		CDFD3C3123CC79F0000FCEF6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFD3C3023CC79F0000FCEF6 /* HomeViewController.swift */; };
-		CDFD3C3323CC7BEE000FCEF6 /* TrendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFD3C3223CC7BEE000FCEF6 /* TrendingViewController.swift */; };
+		CDFD3C3323CC7BEE000FCEF6 /* FeaturedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFD3C3223CC7BEE000FCEF6 /* FeaturedViewController.swift */; };
 		CDFD3C3923CC7C3F000FCEF6 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFD3C3823CC7C3F000FCEF6 /* AccountViewController.swift */; };
 		CDFD3C3C23CC7C75000FCEF6 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFD3C3B23CC7C75000FCEF6 /* PlayerView.swift */; };
 		CDFD3C3E23CC7C8E000FCEF6 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFD3C3D23CC7C8E000FCEF6 /* TabBarView.swift */; };
@@ -43,7 +47,7 @@
 		CDFD3C4523CC7CEA000FCEF6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFD3C4423CC7CEA000FCEF6 /* Extensions.swift */; };
 		CDFD3C4823CC7D15000FCEF6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFD3C4723CC7D15000FCEF6 /* User.swift */; };
 		CDFD3C4A23CC7D64000FCEF6 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFD3C4923CC7D64000FCEF6 /* Video.swift */; };
-		CDFD3C5123CC869F000FCEF6 /* SubscriptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFD3C5023CC869F000FCEF6 /* SubscriptionsViewController.swift */; };
+		CDFD3C5123CC869F000FCEF6 /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFD3C5023CC869F000FCEF6 /* SearchResultsViewController.swift */; };
 		CDFD3C5523CC8AB0000FCEF6 /* LaunchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDFD3C5423CC8AB0000FCEF6 /* LaunchView.xib */; };
 /* End PBXBuildFile section */
 
@@ -72,7 +76,11 @@
 		CD00457A23E4E7AD009CA522 /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
 		CD2D76F723F35D030031E3F1 /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
 		CD318CAA23E78AFA0091017B /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		CD32CBDD23FD84F6009EA273 /* SubscriptionsChannelViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionsChannelViewCell.swift; sourceTree = "<group>"; };
+		CD32CBDF23FD855D009EA273 /* SubscriptionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionsCell.swift; sourceTree = "<group>"; };
 		CD42D68E23F751D40048ADC5 /* TabBarCellCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabBarCellCollectionViewCell.swift; path = "x5gon-mobile/ViewControllers/MainViews/TabBarViewCells/TabBarCellCollectionViewCell.swift"; sourceTree = SOURCE_ROOT; };
+		CD43130E23F9FA3400B5C620 /* X5GONAPIAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = X5GONAPIAdapter.swift; sourceTree = "<group>"; };
+		CD43131023F9FBFC00B5C620 /* X5LearnAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = X5LearnAdapter.swift; sourceTree = "<group>"; };
 		CD48FAA123F80253004415E7 /* AccountHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountHeaderCell.swift; sourceTree = "<group>"; };
 		CD48FAA323F8026F004415E7 /* AccountMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountMenuCell.swift; sourceTree = "<group>"; };
 		CD48FAA523F8027E004415E7 /* AccountPlaylistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountPlaylistCell.swift; sourceTree = "<group>"; };
@@ -100,7 +108,7 @@
 		CDFD3C2C23CC7986000FCEF6 /* NavViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavViewController.swift; sourceTree = "<group>"; };
 		CDFD3C2D23CC7986000FCEF6 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		CDFD3C3023CC79F0000FCEF6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		CDFD3C3223CC7BEE000FCEF6 /* TrendingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingViewController.swift; sourceTree = "<group>"; };
+		CDFD3C3223CC7BEE000FCEF6 /* FeaturedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedViewController.swift; sourceTree = "<group>"; };
 		CDFD3C3823CC7C3F000FCEF6 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		CDFD3C3B23CC7C75000FCEF6 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		CDFD3C3D23CC7C8E000FCEF6 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
@@ -109,7 +117,7 @@
 		CDFD3C4423CC7CEA000FCEF6 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		CDFD3C4723CC7D15000FCEF6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CDFD3C4923CC7D64000FCEF6 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
-		CDFD3C5023CC869F000FCEF6 /* SubscriptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionsViewController.swift; sourceTree = "<group>"; };
+		CDFD3C5023CC869F000FCEF6 /* SearchResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
 		CDFD3C5423CC8AB0000FCEF6 /* LaunchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -164,8 +172,10 @@
 				CD48FAA023F80242004415E7 /* AccountViewCells */,
 				CDFD3C3023CC79F0000FCEF6 /* HomeViewController.swift */,
 				CDE92D8E23E5D389004BB8BF /* HomeViewCells */,
-				CDFD3C5023CC869F000FCEF6 /* SubscriptionsViewController.swift */,
-				CDFD3C3223CC7BEE000FCEF6 /* TrendingViewController.swift */,
+				CDFD3C5023CC869F000FCEF6 /* SearchResultsViewController.swift */,
+				CD32CBDD23FD84F6009EA273 /* SubscriptionsChannelViewCell.swift */,
+				CD32CBDF23FD855D009EA273 /* SubscriptionsCell.swift */,
+				CDFD3C3223CC7BEE000FCEF6 /* FeaturedViewController.swift */,
 				CDFD3C3D23CC7C8E000FCEF6 /* TabBarView.swift */,
 				CD7CBA3E23E99BAF003BF035 /* TabBarViewCells */,
 			);
@@ -178,6 +188,15 @@
 				CD318CAA23E78AFA0091017B /* Environment.swift */,
 			);
 			path = Environments;
+			sourceTree = "<group>";
+		};
+		CD43130D23F9FA1600B5C620 /* APIAdapters */ = {
+			isa = PBXGroup;
+			children = (
+				CD43131023F9FBFC00B5C620 /* X5LearnAdapter.swift */,
+				CD43130E23F9FA3400B5C620 /* X5GONAPIAdapter.swift */,
+			);
+			path = APIAdapters;
 			sourceTree = "<group>";
 		};
 		CD48FAA023F80242004415E7 /* AccountViewCells */ = {
@@ -202,8 +221,9 @@
 		CDC6643123F4550E009A08FF /* APIs */ = {
 			isa = PBXGroup;
 			children = (
-				CDA5D0A823F3736200AA6902 /* API.swift */,
 				CDA5D0A923F3736200AA6902 /* APIAdapter.swift */,
+				CD43130D23F9FA1600B5C620 /* APIAdapters */,
+				CDA5D0A823F3736200AA6902 /* API.swift */,
 			);
 			path = APIs;
 			sourceTree = "<group>";
@@ -515,6 +535,7 @@
 				CD318CAB23E78AFA0091017B /* Environment.swift in Sources */,
 				CDFD3C3E23CC7C8E000FCEF6 /* TabBarView.swift in Sources */,
 				CDA5D0AA23F3736200AA6902 /* API.swift in Sources */,
+				CD32CBDE23FD84F6009EA273 /* SubscriptionsChannelViewCell.swift in Sources */,
 				CDC6643323F45536009A08FF /* MainController.swift in Sources */,
 				CDFD3C4A23CC7D64000FCEF6 /* Video.swift in Sources */,
 				CDFD3C2F23CC7986000FCEF6 /* MainViewController.swift in Sources */,
@@ -525,12 +546,13 @@
 				CDFD3C4823CC7D15000FCEF6 /* User.swift in Sources */,
 				CDFD3C2E23CC7986000FCEF6 /* NavViewController.swift in Sources */,
 				CD00457B23E4E7AD009CA522 /* Content.swift in Sources */,
-				CDFD3C3323CC7BEE000FCEF6 /* TrendingViewController.swift in Sources */,
+				CDFD3C3323CC7BEE000FCEF6 /* FeaturedViewController.swift in Sources */,
 				CDE92D9523E5D42D004BB8BF /* suggestionContentCell.swift in Sources */,
 				CDE92D9723E5D49D004BB8BF /* Channel.swift in Sources */,
 				CDFD3C4523CC7CEA000FCEF6 /* Extensions.swift in Sources */,
 				CD00457923E4E76A009CA522 /* PDF.swift in Sources */,
 				CD2D76F823F35D030031E3F1 /* Playlist.swift in Sources */,
+				CD43131123F9FBFC00B5C620 /* X5LearnAdapter.swift in Sources */,
 				CDE92D9023E5D396004BB8BF /* ContentCell.swift in Sources */,
 				CDFD3BEC23CC784C000FCEF6 /* AppDelegate.swift in Sources */,
 				CDDDD6D623F0B4E5003C1EE5 /* LoginView.swift in Sources */,
@@ -538,9 +560,11 @@
 				CDFD3C3123CC79F0000FCEF6 /* HomeViewController.swift in Sources */,
 				CDFD3C3C23CC7C75000FCEF6 /* PlayerView.swift in Sources */,
 				CDFD3C4223CC7CBD000FCEF6 /* SettingsView.swift in Sources */,
+				CD43130F23F9FA3400B5C620 /* X5GONAPIAdapter.swift in Sources */,
 				CD7CBA3D23E96E1E003BF035 /* notesCell.swift in Sources */,
+				CD32CBE023FD855D009EA273 /* SubscriptionsCell.swift in Sources */,
 				CD48FAA423F8026F004415E7 /* AccountMenuCell.swift in Sources */,
-				CDFD3C5123CC869F000FCEF6 /* SubscriptionsViewController.swift in Sources */,
+				CDFD3C5123CC869F000FCEF6 /* SearchResultsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

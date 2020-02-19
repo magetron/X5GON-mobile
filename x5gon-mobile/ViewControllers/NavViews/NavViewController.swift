@@ -16,7 +16,7 @@ class NavViewController: UINavigationController, PlayerViewControllerDelegate, S
     @IBOutlet var settingsView: SettingsView!
     @IBOutlet var loginView: LoginView!
     let titleLabel = UILabel()
-    let names = ["Home", "Trending", "Subscriptions", "Account"]
+    let names = ["Home", "Featured", "Search Results", "Account"]
     let hiddenOrigin: CGPoint = {
         let y = UIScreen.main.bounds.height - (UIScreen.main.bounds.width * 9 / 32) - 10
         let x = -UIScreen.main.bounds.width
@@ -32,7 +32,7 @@ class NavViewController: UINavigationController, PlayerViewControllerDelegate, S
     let fullScreenOrigin = CGPoint.init(x: 0, y: 0)
 
     //Methods
-    func customization() {
+    func customisation() {
         MainController.navViewController = self
         
         //NavigationBar buttons
@@ -211,7 +211,7 @@ class NavViewController: UINavigationController, PlayerViewControllerDelegate, S
     //MARK: ViewController lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.customization()
+        self.customisation()
     }
     
     deinit {

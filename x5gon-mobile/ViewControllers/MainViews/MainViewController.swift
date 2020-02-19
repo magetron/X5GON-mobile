@@ -16,7 +16,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     var views = [UIView]()
     
     //MARK: Methods
-    func customization()  {
+    func customisation()  {
         MainController.mainViewController = self
         
         self.view.backgroundColor = Environment.X5Color
@@ -36,15 +36,15 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         //ViewControllers init
         let homeVC = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController")
-        let trendingVC = self.storyboard?.instantiateViewController(withIdentifier: "TrendingViewController")
-        let subscriptionsVC = self.storyboard?.instantiateViewController(withIdentifier: "SubscriptionsViewController")
+        let featuredVC = self.storyboard?.instantiateViewController(withIdentifier: "FeaturedViewController")
+        let searchResultsVC = self.storyboard?.instantiateViewController(withIdentifier: "SearchResultsViewController")
         let accountVC = self.storyboard?.instantiateViewController(withIdentifier: "AccountViewController")
-        MainController.homeViewController = homeVC as? HomeViewController
-        MainController.trendingViewController = trendingVC as? TrendingViewController
-        MainController.subscriptionViewController = subscriptionsVC as? SubscriptionsViewController
-        MainController.accountViewController = accountVC as? AccountViewController
+        MainController.homeViewController = (homeVC as! HomeViewController)
+        MainController.featuredViewController = (featuredVC as! FeaturedViewController)
+        MainController.searchResultsViewController = (searchResultsVC as! SearchResultsViewController)
+        MainController.accountViewController = (accountVC as! AccountViewController)
         
-        let viewControllers = [homeVC, trendingVC, subscriptionsVC, accountVC]
+        let viewControllers = [homeVC, featuredVC, searchResultsVC, accountVC]
         for vc in viewControllers {
             self.addChild(vc!)
             vc!.didMove(toParent: self)
@@ -88,7 +88,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     //MARK: ViewController lifecyle
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.customization()
+        self.customisation()
     }
     
     deinit {

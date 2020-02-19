@@ -1,38 +1,21 @@
 //
-//  SubscriptionViewController.swift
+//  SubscriptionsCell.swift
 //  x5gon-mobile
 //
-//  Created by Patrick Wu on 13/01/2020.
+//  Created by Patrick Wu on 19/02/2020.
 //  Copyright © 2020 x5gon. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
-class SubscriptionsViewController: HomeViewController {
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.contents.count + 1
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "SubscriptionsCell") as! SubscriptionsCell
-            return cell
-        } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ContentCell") as! ContentCell
-            cell.set(video: self.contents[indexPath.row - 1])
-            return cell
-        }
-    }
-}
-
-//TableView Custom Classes
+// Custom Classes
 class SubscriptionsCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout  {
     
     @IBOutlet weak var collectionView: UICollectionView!
     var channels = [Channel]()
     
-    func customization() {
+    func customisation() {
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         self.collectionView.contentInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
@@ -56,19 +39,10 @@ class SubscriptionsCell: UITableViewCell, UICollectionViewDataSource, UICollecti
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.customization()
+        self.customisation()
     }
 }
 
-class SubscriptionsCVCell: UICollectionViewCell {
-    @IBOutlet weak var channelPic: UIImageView!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        self.channelPic.layer.cornerRadius = 25
-        self.channelPic.clipsToBounds = true
-    }
-    
-    
-}
+
+
 

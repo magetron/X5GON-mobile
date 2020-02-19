@@ -699,10 +699,10 @@
             </objects>
             <point key="canvasLocation" x="1218.840579710145" y="154.01785714285714"/>
         </scene>
-        <!--Subscriptions View Controller-->
+        <!--Search Results View Controller-->
         <scene sceneID="aPQ-x4-q0v">
             <objects>
-                <viewController storyboardIdentifier="SubscriptionsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="aDq-q3-D8c" customClass="SubscriptionsViewController" customModule="x5gon_mobile" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchResultsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="aDq-q3-D8c" customClass="SearchResultsViewController" customModule="x5gon_mobile" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ai2-qH-G7Z">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -711,64 +711,8 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SubscriptionsCell" rowHeight="80" id="qXw-OU-mZz" customClass="SubscriptionsCell" customModule="x5gon_mobile" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="80"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qXw-OU-mZz" id="n3E-eJ-O0J">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" prefetchingEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a4n-dN-5o0">
-                                                    <rect key="frame" x="0.0" y="14.999999999999996" width="414" height="50.666666666666657"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="50" id="ySK-e2-yqQ"/>
-                                                    </constraints>
-                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="uSx-Y0-AG5">
-                                                        <size key="itemSize" width="50" height="50"/>
-                                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                    </collectionViewFlowLayout>
-                                                    <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ChannelModel" id="8CH-uS-FbC" customClass="SubscriptionsCVCell" customModule="x5gon_mobile" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.33333333333333331" width="50" height="50"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                                <autoresizingMask key="autoresizingMask"/>
-                                                                <subviews>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ah9-JB-nhk">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                                    </imageView>
-                                                                </subviews>
-                                                            </view>
-                                                            <constraints>
-                                                                <constraint firstAttribute="trailing" secondItem="ah9-JB-nhk" secondAttribute="trailing" id="7iA-24-VL6"/>
-                                                                <constraint firstItem="ah9-JB-nhk" firstAttribute="leading" secondItem="8CH-uS-FbC" secondAttribute="leading" id="b7X-Fc-QUa"/>
-                                                                <constraint firstItem="ah9-JB-nhk" firstAttribute="top" secondItem="8CH-uS-FbC" secondAttribute="top" id="p26-6H-P7Y"/>
-                                                                <constraint firstAttribute="bottom" secondItem="ah9-JB-nhk" secondAttribute="bottom" id="vPp-N0-KBq"/>
-                                                            </constraints>
-                                                            <connections>
-                                                                <outlet property="channelPic" destination="ah9-JB-nhk" id="681-9g-WTI"/>
-                                                            </connections>
-                                                        </collectionViewCell>
-                                                    </cells>
-                                                </collectionView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="a4n-dN-5o0" secondAttribute="trailing" id="SzV-y4-kdR"/>
-                                                <constraint firstItem="a4n-dN-5o0" firstAttribute="leading" secondItem="n3E-eJ-O0J" secondAttribute="leading" id="aW6-R7-INj"/>
-                                                <constraint firstAttribute="bottom" secondItem="a4n-dN-5o0" secondAttribute="bottom" constant="14.5" id="c6W-iW-6e9"/>
-                                                <constraint firstItem="a4n-dN-5o0" firstAttribute="top" secondItem="n3E-eJ-O0J" secondAttribute="top" constant="15" id="ngE-2V-3ki"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="collectionView" destination="a4n-dN-5o0" id="96z-mo-AFt"/>
-                                        </connections>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ContentCell" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ContentCell" rowHeight="320" id="ak9-os-phX" customClass="ContentCell" customModule="x5gon_mobile" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="108" width="414" height="320"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="320"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ak9-os-phX" id="exa-wQ-NnW">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="320"/>
@@ -880,10 +824,10 @@
             </objects>
             <point key="canvasLocation" x="2565.217391304348" y="152.00892857142856"/>
         </scene>
-        <!--Trending View Controller-->
+        <!--Featured View Controller-->
         <scene sceneID="RKe-TG-VKF">
             <objects>
-                <viewController storyboardIdentifier="TrendingViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8JF-rv-0h3" customClass="TrendingViewController" customModule="x5gon_mobile" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FeaturedViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8JF-rv-0h3" customClass="FeaturedViewController" customModule="x5gon_mobile" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lGe-dC-A9x">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -892,53 +836,8 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TrendingCell" rowHeight="70" id="1iC-uN-9lf">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="70"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1iC-uN-9lf" id="hh4-Lu-bnZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="75" translatesAutoresizingMaskIntoConstraints="NO" id="gMi-1g-UGz">
-                                                    <rect key="frame" x="33" y="10.999999999999996" width="348" height="48.666666666666657"/>
-                                                    <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kaJ-mX-vFW">
-                                                            <rect key="frame" x="0.0" y="0.0" width="68.666666666666671" height="48.666666666666664"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="32" id="Fnz-yZ-Dqb"/>
-                                                            </constraints>
-                                                            <state key="normal" title="Audio" image="music.house.fill" catalog="system"/>
-                                                            <state key="highlighted" title=" Audio"/>
-                                                        </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bNE-1j-rf9">
-                                                            <rect key="frame" x="143.66666666666666" y="0.0" width="74.333333333333343" height="48.666666666666664"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="32" id="e9U-aD-zuh"/>
-                                                            </constraints>
-                                                            <state key="normal" title=" Video" image="video.fill" catalog="system"/>
-                                                        </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eWM-gt-BjB">
-                                                            <rect key="frame" x="293" y="0.0" width="55" height="48.666666666666664"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="32" id="Rbc-l6-WWa"/>
-                                                            </constraints>
-                                                            <state key="normal" title=" PDF" image="doc.text.fill" catalog="system"/>
-                                                        </button>
-                                                    </subviews>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="32" id="m7W-Vi-wPV"/>
-                                                    </constraints>
-                                                </stackView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="gMi-1g-UGz" firstAttribute="centerX" secondItem="hh4-Lu-bnZ" secondAttribute="centerX" id="RUN-Gm-xy3"/>
-                                                <constraint firstItem="gMi-1g-UGz" firstAttribute="top" secondItem="hh4-Lu-bnZ" secondAttribute="top" constant="11" id="dCr-Dq-mI9"/>
-                                                <constraint firstAttribute="bottom" secondItem="gMi-1g-UGz" secondAttribute="bottom" constant="10.5" id="taw-os-7h4"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ContentCell" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ContentCell" rowHeight="320" id="m9m-8F-EQj" customClass="ContentCell" customModule="x5gon_mobile" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="98" width="414" height="320"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="320"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="m9m-8F-EQj" id="qg2-1x-kWN">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="320"/>
@@ -1044,7 +943,7 @@
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="tableView" destination="e7n-W0-ij7" id="kDO-dm-k0O"/>
+                        <outlet property="tableView" destination="e7n-W0-ij7" id="s37-2W-vs9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eiY-hE-n6m" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1230,12 +1129,9 @@
     </scenes>
     <resources>
         <image name="cancel" width="48" height="48"/>
-        <image name="doc.text.fill" catalog="system" width="56" height="64"/>
         <image name="emptyTumbnail" width="375" height="211"/>
         <image name="logo" width="341.33334350585938" height="341.33334350585938"/>
-        <image name="music.house.fill" catalog="system" width="64" height="52"/>
         <image name="thumbDown" width="25" height="25"/>
         <image name="thumbUp" width="25" height="25"/>
-        <image name="video.fill" catalog="system" width="64" height="40"/>
     </resources>
 </document>
