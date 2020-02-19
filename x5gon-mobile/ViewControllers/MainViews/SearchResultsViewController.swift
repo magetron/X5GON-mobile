@@ -8,67 +8,41 @@
 
 import UIKit
 
-class SearchResultsViewController: HomeViewController {
+class SearchResultsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.contents.count + 1
-    }
+    //MARK: - Properties
+    @IBOutlet weak var tableView: UITableView!
+    var contents = [Content]()
+    var lastContentOffset: CGFloat = 0.0
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "SubscriptionsCell") as! SubscriptionsCell
-            return cell
-        } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ContentCell") as! ContentCell
-            cell.set(video: self.contents[indexPath.row - 1])
-            return cell
-        }
-    }
-}
-
-//TableView Custom Classes
-class SubscriptionsCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout  {
-    
-    @IBOutlet weak var collectionView: UICollectionView!
-    var channels = [Channel]()
-    
+    //MARK: Methods
     func customisation() {
-        self.collectionView.delegate = self
-        self.collectionView.dataSource = self
-        self.collectionView.contentInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
-        self.channels = Channel.generateDefaultChannels()
-        self.collectionView.reloadData()
+        self.tableView.contentInset = UIEdgeInsets(top: 50, left: 0, bottom: 30, right: 0)
+        self.tableView.scrollIndicatorInsets = UIEdgeInsets(top: 50, left: 0, bottom: 30, right: 0)
+        self.tableView.rowHeight = UITableView.automaticDimension
+        self.tableView.estimatedRowHeight = 300
+        refresher(updateContent: {() -> Void in self.contents = MainController.fetchFeaturedContents()}, viewReload: {() -> Void in self.tableView.reloadData()})
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.channels.count
+    //MARK: Delegates
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.contents.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ChannelModel", for: indexPath) as! SubscriptionsCVCell
-        cell.channelPic.image = self.channels[indexPath.row].image
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ContentCell") as! ContentCell
+        cell.set(video: self.contents[indexPath.row])
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize.init(width: 50, height: 50)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        NotificationCenter.default.post(name: NSNotification.Name("open"), object: contents[indexPath.row])
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    //MARK: -  ViewController Lifecylce
+    override func viewDidLoad() {
+        super.viewDidLoad()
         self.customisation()
     }
-}
-
-class SubscriptionsCVCell: UICollectionViewCell {
-    @IBOutlet weak var channelPic: UIImageView!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        self.channelPic.layer.cornerRadius = 25
-        self.channelPic.clipsToBounds = true
-    }
-    
-    
 }
 
