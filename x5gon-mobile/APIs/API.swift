@@ -154,9 +154,8 @@ class API {
         semaphore.wait()
         if (csrfToken == "") {
             print("error: cannot fetch csrf token")
-        } else {
-            return csrfToken
         }
+        return csrfToken
     }
     
     static func logout () {
