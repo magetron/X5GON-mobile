@@ -13,25 +13,33 @@ class notesCell: UITableViewCell, UITextViewDelegate {
     @IBOutlet weak var textView: UITextView!
     
     @IBOutlet weak var textViewHC: NSLayoutConstraint!
+    var textHolder = ""
     func customisation () {
-        textView.text = "Put some notes here"
+        textView.text = "Write Your Note Here \n"
+        textView.textColor = UIColor.lightGray
+        textView.returnKeyType = .done
+        textView.delegate = self
+        textViewHC.constant = self.textView.contentSize.height
     }
-    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.text == "Write Your Note Here \n"{
+            textView.text = ""
+            textView.textColor = UIColor.black
+        }
+    }
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        if text == "\n" {
+        if textView.text == "\n" {
             textView.resignFirstResponder()
-            return false
         }
         return true
     }
-     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-         super.touchesBegan(touches, with: event)
-         self.textView.resignFirstResponder()
-    //     noteViewHC.constant = self.noteView.contentSize.height
-         textViewHC.constant = self.textView.contentSize.height
-         print(self.textView.contentSize.height)
-         print("end texting")
-     }
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text == ""{
+            textView.text = "Write Your Note Here \n"
+            textView.textColor = UIColor.lightGray
+        }
+        textViewHC.constant = self.textView.contentSize.height
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
