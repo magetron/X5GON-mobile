@@ -153,7 +153,7 @@ class API {
         task.resume()
         semaphore.wait()
         if (csrfToken == "") {
-            fatalError("error: cannot fetch csrf token")
+            print("error: cannot fetch csrf token")
         } else {
             return csrfToken
         }
