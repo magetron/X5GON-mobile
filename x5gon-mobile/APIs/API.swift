@@ -155,7 +155,7 @@ class API {
         if (csrfToken == "") {
             print("error: cannot fetch csrf token")
         }
-        return csrfToken
+        return csrfToken 
     }
     
     static func logout () {
