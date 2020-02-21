@@ -78,6 +78,7 @@
 		CD318CAA23E78AFA0091017B /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		CD32CBDD23FD84F6009EA273 /* SubscriptionsChannelViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionsChannelViewCell.swift; sourceTree = "<group>"; };
 		CD32CBDF23FD855D009EA273 /* SubscriptionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionsCell.swift; sourceTree = "<group>"; };
+		CD35243324006EB70041034E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD42D68E23F751D40048ADC5 /* TabBarCellCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabBarCellCollectionViewCell.swift; path = "x5gon-mobile/ViewControllers/MainViews/TabBarViewCells/TabBarCellCollectionViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		CD43130E23F9FA3400B5C620 /* X5GONAPIAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = X5GONAPIAdapter.swift; sourceTree = "<group>"; };
 		CD43131023F9FBFC00B5C620 /* X5LearnAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = X5LearnAdapter.swift; sourceTree = "<group>"; };
@@ -97,7 +98,6 @@
 		CDFD3BEB23CC784C000FCEF6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CDFD3BF123CC7853000FCEF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CDFD3BF423CC7853000FCEF6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		CDFD3BF923CC7853000FCEF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Info.plist; path = ../../Info.plist; sourceTree = "<group>"; };
 		CDFD3BFE23CC7854000FCEF6 /* x5gon-mobileTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "x5gon-mobileTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDFD3C0223CC7854000FCEF6 /* x5gon_mobileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = x5gon_mobileTests.swift; sourceTree = "<group>"; };
 		CDFD3C0423CC7854000FCEF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -358,7 +358,7 @@
 		CDFD3C4B23CC7D8B000FCEF6 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				CDFD3BF923CC7853000FCEF6 /* Info.plist */,
+				CD35243324006EB70041034E /* Info.plist */,
 				CDFD3C5423CC8AB0000FCEF6 /* LaunchView.xib */,
 			);
 			path = Helpers;

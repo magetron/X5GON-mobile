@@ -9,6 +9,12 @@
 import Foundation
 import UIKit
 
+@objc protocol PlayerViewHeaderCellDelegate {
+    func onLikeTap()
+    func onDisLikeTap()
+}
+
+
 class headerCell: UITableViewCell {
     
     @IBOutlet weak var title: UILabel!
@@ -18,11 +24,9 @@ class headerCell: UITableViewCell {
     @IBOutlet weak var channelTitle: UILabel!
     @IBOutlet weak var channelPic: UIImageView!
     @IBOutlet weak var channelSubscribers: UILabel!
-    var onLikeTapFunc: (() -> Void) = { () in return }
-    var onDisLikeTapFunc: (() -> Void) = { () in return }
+    var delegate: PlayerViewHeaderCellDelegate?
     
-    
-    func set(content: Content!, onLikeTapFunc: @escaping () -> Void, onDisLikeTapFunc: @escaping () -> Void) {
+    func set(content: Content!) {
         title.text = content!.title
         viewCount.text = "\(content!.views) views"
         likes.text = String(content!.likes)
@@ -33,26 +37,16 @@ class headerCell: UITableViewCell {
         channelPic.clipsToBounds = true
         channelSubscribers.text = "\(content!.channel.subscribers) subscribers"
         selectionStyle = .none
-        let likeTap = UITapGestureRecognizer(target: self, action: #selector(onLikeTap))
-        let disLikeTap = UITapGestureRecognizer(target: self, action: #selector(onDisLikeTap))
+        let likeTap = UITapGestureRecognizer(target: self, action: #selector(self.delegate?.onLikeTap))
+        let disLikeTap = UITapGestureRecognizer(target: self, action: #selector(self.delegate?.onDisLikeTap))
         likes.isUserInteractionEnabled = true
         disLikes.isUserInteractionEnabled = true
         likes.addGestureRecognizer(likeTap)
         disLikes.addGestureRecognizer(disLikeTap)
-        self.onLikeTapFunc = onLikeTapFunc
-        self.onDisLikeTapFunc = onDisLikeTapFunc
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
-    }
-    
-    @objc func onLikeTap(sender: UITapGestureRecognizer) {
-        onLikeTapFunc()
-    }
-    
-    @objc func onDisLikeTap(sender: UITapGestureRecognizer) {
-        onDisLikeTapFunc()
     }
     
 }

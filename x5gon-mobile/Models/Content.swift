@@ -20,16 +20,20 @@ class Content {
     var contentLink: URL!
     var likes: Int
     var disLikes: Int
+    var id: Int
+    var description: String
     var suggestedContents = [Content]()
         
     //MARK: Inits
-    init(title: String, channelName: String, url: URL) {
+    init(title: String, id: Int, channelName: String, description: String, url: URL) {
         self.thumbnail = UIImage.init(named: title) ?? UIImage.init(named: "Video Placeholder")!
         self.title = title
         self.views = Int(arc4random_uniform(1000000))
-        self.duration = Int(arc4random_uniform(400))
-        self.likes = Int(arc4random_uniform(1000))
-        self.disLikes = Int(arc4random_uniform(1000))
+        self.duration = 0
+        self.id = id
+        self.likes = 0
+        self.disLikes = 0
+        self.description = description
         self.channel = Channel.init(name: channelName, image: UIImage.init(named: channelName) ?? UIImage.init(named: "Channel Placeholder")!)
         self.contentLink = url
     }

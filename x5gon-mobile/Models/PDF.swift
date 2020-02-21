@@ -13,8 +13,8 @@ import UIKit
 
 class PDF : Content {
     
-    override init (title: String, channelName: String, url: URL) {
-        super.init(title: title, channelName: channelName, url: url)
+    override init (title: String, id: Int, channelName: String, description: String, url: URL) {
+        super.init(title: title, id: id, channelName: channelName, description: description, url: url)
         self.fetchContentInfo()
     }
     

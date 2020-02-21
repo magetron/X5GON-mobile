@@ -49,15 +49,15 @@ class API {
                 return []
             }
             for material in materialArray {
-                guard let title = material["title"] as? String, let provider = material["provider"] as? String, let url = material["url"] as? String , let mediaType = material["mediatype"] as? String else {
+                guard let title = material["title"] as? String, let provider = material["provider"] as? String, let url = material["url"] as? String , let mediaType = material["mediatype"] as? String, let id = material["id"] as? Int, let description = material["description"] as? String else {
                         print("error: invalid format")
                         return []
                     }
                 if (mediaType == "video" || mediaType == "audio") {
-                    let newVideo = Video.init(title: title, channelName: provider, url: URL.init(string: url)!)
+                    let newVideo = Video.init(title: title, id: id, channelName: provider, description: description, url: URL.init(string: url)!)
                     tmpItems.append(newVideo)
                 } else if (mediaType == "text") {
-                    let newPDF = PDF.init(title: title, channelName: provider, url: URL.init(string: url)!)
+                    let newPDF = PDF.init(title: title, id: id, channelName: provider, description: description, url: URL.init(string: url)!)
                     tmpItems.append(newPDF)
                 }
             }
@@ -71,64 +71,6 @@ class API {
     
     static func fetchFeaturedContents () -> [Content] {
         return fetchContents(urlString: newAdapter.generateFeaturedContentURL())
-    }
-    
-    static func DEPRECATED_fetchContents (keyWord: String) -> [Content] {
-        var results = [Content]()
-        results.append(contentsOf: DEPRECATED_fetchContents(keyWord: keyWord, contentType: "video"))
-        results.append(contentsOf: DEPRECATED_fetchContents(keyWord: keyWord, contentType: "pdf"))
-        results.append(contentsOf: DEPRECATED_fetchContents(keyWord: keyWord, contentType: "audio"))
-        return results.shuffled()
-    }
-    
-    static func DEPRECATED_fetchContents (keyWord : String, contentType : String) -> [Content] {
-        var tmpItems = [Content]()
-        let contentURLString = oldAdapter.generateContentQueryURL(keyWord: keyWord, contentType: contentType)
-        let contentURL = URL(string: contentURLString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!
-        let semaphore = DispatchSemaphore(value: 0)
-        let dataTask = URLSession.shared.dataTask(with: contentURL) { data, response, error in
-            defer { semaphore.signal() }
-            guard let httpResponse = response as? HTTPURLResponse, let receivedData = data
-                else {
-                    print("error: not a valid http response")
-                    return
-                }
-            if (httpResponse.statusCode != 200) {
-                print("error: http response \(httpResponse.statusCode) not successful")
-            } else {
-                let jsonObject = try? JSONSerialization.jsonObject(with: receivedData, options: [])
-                guard let json = jsonObject as? [String: Any] else {
-                    print("error: invalid format")
-                    return
-                }
-                guard let recommendationMaterials = json["rec_materials"] as? [[String: Any]] else {
-                    print("error: invalid format")
-                    return
-                }
-                for material in recommendationMaterials {
-                    guard let title = material["title"] as? String, let provider = material["provider"] as? [String : Any], let url = material["url"] as? String
-                    else {
-                        print("error: invalid format")
-                        break
-                    }
-                    guard let providerName = provider["name"] as? String
-                        else {
-                            print("error: invalid format")
-                            break
-                    }
-                    if (contentType == "video" || contentType == "audio") {
-                        let newVideo = Video.init(title: title, channelName: providerName, url: URL.init(string: url)!)
-                        tmpItems.append(newVideo)
-                    } else if (contentType == "text") {
-                        let newPDF = PDF.init(title: title, channelName: providerName, url: URL.init(string: url)!)
-                        tmpItems.append(newPDF)
-                    }
-                 }
-             }
-         }
-         dataTask.resume()
-         semaphore.wait()
-         return tmpItems
     }
     
     static func fetchCSRFToken () -> String {
@@ -258,4 +200,63 @@ class API {
          semaphore.wait()
          return tmpUser ?? User.generateDefaultUser()
     }
+    
+    /*
+    static func DEPRECATED_fetchContents (keyWord: String) -> [Content] {
+        var results = [Content]()
+        results.append(contentsOf: DEPRECATED_fetchContents(keyWord: keyWord, contentType: "video"))
+        results.append(contentsOf: DEPRECATED_fetchContents(keyWord: keyWord, contentType: "pdf"))
+        results.append(contentsOf: DEPRECATED_fetchContents(keyWord: keyWord, contentType: "audio"))
+        return results.shuffled()
+    }
+    
+    static func DEPRECATED_fetchContents (keyWord : String, contentType : String) -> [Content] {
+        var tmpItems = [Content]()
+        let contentURLString = oldAdapter.generateContentQueryURL(keyWord: keyWord, contentType: contentType)
+        let contentURL = URL(string: contentURLString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!
+        let semaphore = DispatchSemaphore(value: 0)
+        let dataTask = URLSession.shared.dataTask(with: contentURL) { data, response, error in
+            defer { semaphore.signal() }
+            guard let httpResponse = response as? HTTPURLResponse, let receivedData = data
+                else {
+                    print("error: not a valid http response")
+                    return
+                }
+            if (httpResponse.statusCode != 200) {
+                print("error: http response \(httpResponse.statusCode) not successful")
+            } else {
+                let jsonObject = try? JSONSerialization.jsonObject(with: receivedData, options: [])
+                guard let json = jsonObject as? [String: Any] else {
+                    print("error: invalid format")
+                    return
+                }
+                guard let recommendationMaterials = json["rec_materials"] as? [[String: Any]] else {
+                    print("error: invalid format")
+                    return
+                }
+                for material in recommendationMaterials {
+                    guard let title = material["title"] as? String, let provider = material["provider"] as? [String : Any], let url = material["url"] as? String
+                    else {
+                        print("error: invalid format")
+                        break
+                    }
+                    guard let providerName = provider["name"] as? String
+                        else {
+                            print("error: invalid format")
+                            break
+                    }
+                    if (contentType == "video" || contentType == "audio") {
+                        let newVideo = Video.init(title: title, channelName: providerName, url: URL.init(string: url)!)
+                        tmpItems.append(newVideo)
+                    } else if (contentType == "text") {
+                        let newPDF = PDF.init(title: title, channelName: providerName, url: URL.init(string: url)!)
+                        tmpItems.append(newPDF)
+                    }
+                 }
+             }
+         }
+         dataTask.resume()
+         semaphore.wait()
+         return tmpItems
+    }*/
 }

@@ -19,7 +19,7 @@ import AVFoundation
 import AVKit
 import PDFKit
 
-class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate {
+class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate, PlayerViewHeaderCellDelegate {
 
     //MARK: Properties
     @IBOutlet weak var tableView: UITableView!
@@ -97,6 +97,14 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         self.animate()
     }
     
+    @objc func onLikeTap() {
+        self.content.like()
+    }
+    
+    @objc func onDisLikeTap() {
+        self.content.dislike()
+    }
+    
     @IBAction func minimize(_ sender: UIButton) {
         self.state = .minimized
         self.delegate?.didMinimize()
@@ -154,9 +162,8 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "Header") as! headerCell
-            cell.set(content: self.content,
-                     onLikeTapFunc: { () -> Void in self.content.like(); self.tableView.reloadData() },
-                     onDisLikeTapFunc: { () -> Void in self.content.dislike(); self.tableView.reloadData() })
+            cell.delegate = self
+            cell.set(content: self.content)
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "Notes", for: indexPath) as! notesCell

@@ -66,7 +66,7 @@ class NavViewController: UINavigationController, PlayerViewControllerDelegate, S
         self.titleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.init(item: self.navigationBar, attribute: .centerY, relatedBy: .equal, toItem: self.titleLabel, attribute: .centerY, multiplier: 1.0, constant: 0).isActive = true
         NSLayoutConstraint.init(item: self.navigationBar, attribute: .height, relatedBy: .equal, toItem: self.titleLabel, attribute: .height, multiplier: 1.0, constant: 0).isActive = true
-        NSLayoutConstraint.init(item: self.navigationBar, attribute: .left, relatedBy: .equal, toItem: self.titleLabel, attribute: .left, multiplier: 1.0, constant: -10).isActive = true
+        NSLayoutConstraint.init(item: self.navigationBar, attribute: .left, relatedBy: .equal, toItem: self.titleLabel, attribute: .left, multiplier: 1.0, constant: -15).isActive = true
         self.titleLabel.widthAnchor.constraint(equalToConstant: 200).isActive = true
         //NavigationBar color and shadow
         self.navigationBar.barTintColor = Environment.X5Color
