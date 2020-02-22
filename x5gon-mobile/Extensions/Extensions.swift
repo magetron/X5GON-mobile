@@ -10,12 +10,8 @@ import UIKit
 import AVFoundation
 
 func refresher (updateContent: @escaping () -> Void, viewReload: @escaping () -> Void) {
-    DispatchQueue.global().async {
-        updateContent()
-        DispatchQueue.main.async {
-            viewReload()
-        }
-    }
+    updateContent()
+    viewReload()
 }
 
 extension AVAsset {
