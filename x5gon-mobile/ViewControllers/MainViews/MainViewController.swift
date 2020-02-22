@@ -93,5 +93,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     deinit {
         NotificationCenter.default.removeObserver(self)
+        MainController.queue.cancelAllOperations()
+        MainController.queue.waitUntilAllOperationsAreFinished()
     }
 }

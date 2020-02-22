@@ -19,6 +19,8 @@ class MainController {
  
     static var user = User.generateDefaultUser()
     
+    static var queue = OperationQueue()
+    
     static func setHideTopBar(hide: Bool) {
         if (hide) {
             navViewController?.navigationBar.barTintColor = UIColor.black
