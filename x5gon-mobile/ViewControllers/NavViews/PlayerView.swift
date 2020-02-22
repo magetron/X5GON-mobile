@@ -86,7 +86,6 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
     }
     
     @objc func newPlayerView(_ notification: Notification) {
-        print("here")
         if let video = notification.object as? Video {
             setVideo(video: video)
             self.videoPlayerViewController.player?.play()

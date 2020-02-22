@@ -201,7 +201,7 @@ class API {
          return tmpUser ?? User.generateDefaultUser()
     }
     
-    /*
+    
     static func DEPRECATED_fetchContents (keyWord: String) -> [Content] {
         var results = [Content]()
         results.append(contentsOf: DEPRECATED_fetchContents(keyWord: keyWord, contentType: "video"))
@@ -246,10 +246,10 @@ class API {
                             break
                     }
                     if (contentType == "video" || contentType == "audio") {
-                        let newVideo = Video.init(title: title, channelName: providerName, url: URL.init(string: url)!)
+                        let newVideo = Video.init(title: title, id: 0, channelName: providerName, description: "", url: URL.init(string: url)!)
                         tmpItems.append(newVideo)
                     } else if (contentType == "text") {
-                        let newPDF = PDF.init(title: title, channelName: providerName, url: URL.init(string: url)!)
+                        let newPDF = PDF.init(title: title, id: 0, channelName: providerName, description: "", url: URL.init(string: url)!)
                         tmpItems.append(newPDF)
                     }
                  }
@@ -258,5 +258,5 @@ class API {
          dataTask.resume()
          semaphore.wait()
          return tmpItems
-    }*/
+    }
 }

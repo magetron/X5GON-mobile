@@ -32,7 +32,8 @@ class MainController {
     }
     
     static func fetchDefaultContents () -> [Content] {
-        return API.fetchContents(keyWord: "science", contentType: "any")
+        let contents = API.DEPRECATED_fetchContents(keyWord: "science")
+        return contents
     }
     
     static func fetchFeaturedContents () -> [Content] {
