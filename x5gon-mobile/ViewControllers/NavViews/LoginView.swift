@@ -33,12 +33,13 @@ class LoginView: UIView {
     }
     
     func hideLoginView() {
-        UIView.animate(withDuration: 0.6) {
-            self.center.y -= self.bounds.height
+        UIView.animate(withDuration: 0.6, animations: {
+            self.transform = CGAffineTransform.init(translationX: 0, y: self.bounds.height)
             self.layoutIfNeeded()
+        }) { (isSuccessful) in
+            self.isHidden = true
+            self.transform = .identity
         }
-        self.center.y += self.bounds.height
-        self.isHidden = true
     }
     
     override func awakeFromNib () {

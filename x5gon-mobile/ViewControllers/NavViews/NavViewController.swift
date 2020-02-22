@@ -36,6 +36,7 @@ class NavViewController: UINavigationController, PlayerViewControllerDelegate, S
         MainController.navViewController = self
         
         //NavigationBar buttons
+        
         //Settings Button
         let settingsButton = UIButton.init(type: .system)
         settingsButton.setImage(UIImage.init(named: "navSettings"), for: .normal)
@@ -47,6 +48,7 @@ class NavViewController: UINavigationController, PlayerViewControllerDelegate, S
         NSLayoutConstraint.init(item: settingsButton, attribute: .width, relatedBy: .equal, toItem: settingsButton, attribute: .height, multiplier: 1.0, constant: 0).isActive = true
         NSLayoutConstraint.init(item: self.navigationBar, attribute: .centerY, relatedBy: .equal, toItem: settingsButton, attribute: .centerY, multiplier: 1.0, constant: 0).isActive = true
         NSLayoutConstraint.init(item: self.navigationBar, attribute: .right, relatedBy: .equal, toItem: settingsButton, attribute: .right, multiplier: 1.0, constant: 10).isActive = true
+        
         //SearchButton
         let searchButton = UIButton.init(type: .system)
         searchButton.setImage(UIImage.init(named: "navSearch"), for: .normal)
@@ -58,6 +60,7 @@ class NavViewController: UINavigationController, PlayerViewControllerDelegate, S
         NSLayoutConstraint.init(item: searchButton, attribute: .width, relatedBy: .equal, toItem: searchButton, attribute: .height, multiplier: 1.0, constant: 0).isActive = true
         NSLayoutConstraint.init(item: self.navigationBar, attribute: .centerY, relatedBy: .equal, toItem: searchButton, attribute: .centerY, multiplier: 1.0, constant: 0).isActive = true
         NSLayoutConstraint.init(item: searchButton, attribute: .right, relatedBy: .equal, toItem: settingsButton, attribute: .left, multiplier: 1.0, constant: -10).isActive = true
+        
         //TitleLabel setup
         self.titleLabel.font = UIFont.systemFont(ofSize: 18)
         self.titleLabel.textColor =  UIColor.white
@@ -74,6 +77,7 @@ class NavViewController: UINavigationController, PlayerViewControllerDelegate, S
         self.navigationBar.shadowImage = UIImage()
         self.navigationItem.hidesBackButton = true
         guard let v = self.view else { return }
+        
         //SearchView setup
         self.view.addSubview(self.searchView)
         self.searchView.translatesAutoresizingMaskIntoConstraints = false
@@ -82,6 +86,7 @@ class NavViewController: UINavigationController, PlayerViewControllerDelegate, S
         NSLayoutConstraint.init(item: v, attribute: .right, relatedBy: .equal, toItem: self.searchView, attribute: .right, multiplier: 1.0, constant: 0).isActive = true
         NSLayoutConstraint.init(item: v, attribute: .bottom, relatedBy: .equal, toItem: self.searchView, attribute: .bottom, multiplier: 1.0, constant: 0).isActive = true
         self.searchView.isHidden = true
+        
         //SettingsView setup
         self.view.addSubview(self.settingsView)
         self.settingsView.translatesAutoresizingMaskIntoConstraints = false
@@ -91,6 +96,7 @@ class NavViewController: UINavigationController, PlayerViewControllerDelegate, S
         NSLayoutConstraint.init(item: v, attribute: .bottom, relatedBy: .equal, toItem: self.settingsView, attribute: .bottom, multiplier: 1.0, constant: 0).isActive = true
         self.settingsView.isHidden = true
         self.settingsView.delegate = self
+        
         //LoginView setup
         self.view.addSubview(self.loginView)
         self.loginView.translatesAutoresizingMaskIntoConstraints = false
@@ -99,9 +105,12 @@ class NavViewController: UINavigationController, PlayerViewControllerDelegate, S
         NSLayoutConstraint.init(item: v, attribute: .right, relatedBy: .equal, toItem: self.loginView, attribute: .right, multiplier: 1.0, constant: 0).isActive = true
         NSLayoutConstraint.init(item: v, attribute: .bottom, relatedBy: .equal, toItem: self.loginView, attribute: .bottom, multiplier: 1.0, constant: 0).isActive = true
         self.loginView.isHidden = true
+        
         //PlayerView setup
+        self.view.addSubview(self.playerView)
         self.playerView.frame = CGRect.init(origin: self.hiddenOrigin, size: UIScreen.main.bounds.size)
         self.playerView.delegate = self
+        
         //NotificaionCenter Setup
         NotificationCenter.default.addObserver(self, selector: #selector(self.changeTitle(notification:)), name: Notification.Name.init(rawValue: "scrollMenu"), object: nil)
     }
