@@ -10,15 +10,17 @@ import UIKit
 import AVFoundation
 
 func refresher (updateContent: @escaping () -> Void, viewReload: @escaping () -> Void) {
-    MainController.queue.addOperation {
+    DispatchQueue.global().async{
         updateContent()
-        viewReload()
+        DispatchQueue.main.async{
+            viewReload()
+        }
     }
 }
 
 extension AVAsset {
     func generateThumbnail(completion: @escaping (UIImage?, Int?) -> Void) {
-        MainController.queue.addOperation {
+        DispatchQueue.global().async {
             let imageGenerator = AVAssetImageGenerator(asset: self)
             let time = CMTime(seconds: 60.0, preferredTimescale: 600)
             let times = [NSValue(time: time)]

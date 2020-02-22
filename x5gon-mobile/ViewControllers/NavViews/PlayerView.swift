@@ -98,13 +98,13 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
     }
     
     func onLikeTap() {
-        //refresher(updateContent: {
-        //    () -> Void in self.content.like() }, viewReload: { () -> Void in self.tableView.reloadData()})
+        refresher(updateContent: {
+            () -> Void in self.content.like() }, viewReload: { () -> Void in self.tableView.reloadData()})
     }
     
     func onDisLikeTap() {
-        //refresher(updateContent: {
-        //    () -> Void in self.content.dislike() }, viewReload: { () -> Void in self.tableView.reloadData()})
+        refresher(updateContent: {
+            () -> Void in self.content.dislike() }, viewReload: { () -> Void in self.tableView.reloadData()})
     }
     
     
@@ -209,7 +209,7 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
 
         self.videoPlayerViewController.player?.replaceCurrentItem(with: AVPlayerItem.init(url: selfVideo.contentLink))
         if selfVideo.suggestedContents.count == 0 {
-            //refresher(updateContent: { () -> Void in selfVideo.fetchSuggestedContents() }, viewReload: { () -> Void in self.tableView.reloadData()})
+            refresher(updateContent: { () -> Void in selfVideo.fetchSuggestedContents() }, viewReload: { () -> Void in self.tableView.reloadData()})
         }
         if self.state != .hidden {
             self.videoPlayerViewController.player?.play()
@@ -231,7 +231,7 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         self.player.addSubview(returnButton)
         pdfView.document = PDFDocument.init(url: selfPDF.contentLink)
         if selfPDF.suggestedContents.count == 0 {
-            //refresher(updateContent: { () -> Void in selfPDF.fetchSuggestedContents() }, viewReload: { () -> Void in self.tableView.reloadData()})
+            refresher(updateContent: { () -> Void in selfPDF.fetchSuggestedContents() }, viewReload: { () -> Void in self.tableView.reloadData()})
         }
         self.tableView.reloadData()
     }

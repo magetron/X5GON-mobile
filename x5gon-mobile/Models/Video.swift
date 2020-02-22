@@ -24,13 +24,11 @@ class Video : Content {
     
     override func fetchContentInfo() {
         AVAsset(url: contentLink).generateThumbnail { [weak self] (image, duration) in
-            DispatchQueue.main.async {
-                guard let image = image, let duration = duration else {
-                    return
-                }
-                self?.thumbnail = image
-                self?.duration = duration
+            guard let image = image, let duration = duration else {
+                return
             }
+            self?.thumbnail = image
+            self?.duration = duration
         }
     }
     
