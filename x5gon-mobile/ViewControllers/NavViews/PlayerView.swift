@@ -86,6 +86,7 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
     }
     
     @objc func newPlayerView(_ notification: Notification) {
+        print("here")
         if let video = notification.object as? Video {
             setVideo(video: video)
             self.videoPlayerViewController.player?.play()
@@ -97,19 +98,16 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         self.animate()
     }
     
-    @objc func onLikeTap() {
-        self.content.like()
+    func onLikeTap() {
+        refresher(updateContent: {
+            () -> Void in self.content.like() }, viewReload: { () -> Void in self.tableView.reloadData()})
     }
     
-    @objc func onDisLikeTap() {
-        self.content.dislike()
+    func onDisLikeTap() {
+        refresher(updateContent: {
+            () -> Void in self.content.dislike() }, viewReload: { () -> Void in self.tableView.reloadData()})
     }
     
-    @IBAction func minimize(_ sender: UIButton) {
-        self.state = .minimized
-        self.delegate?.didMinimize()
-        self.animate()
-    }
     
     @IBAction func minimizeGesture(_ sender: UIPanGestureRecognizer) {
         if sender.state == .began {
@@ -162,8 +160,7 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "Header") as! headerCell
-            cell.delegate = self
-            cell.set(content: self.content)
+            cell.set(content: self.content, onLikeTapFunc: self.onLikeTap, onDisLikeTapFunc: self.onDisLikeTap)
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "Notes", for: indexPath) as! notesCell

@@ -172,10 +172,10 @@
 				CD48FAA023F80242004415E7 /* AccountViewCells */,
 				CDFD3C3023CC79F0000FCEF6 /* HomeViewController.swift */,
 				CDE92D8E23E5D389004BB8BF /* HomeViewCells */,
+				CDFD3C3223CC7BEE000FCEF6 /* FeaturedViewController.swift */,
 				CDFD3C5023CC869F000FCEF6 /* SearchResultsViewController.swift */,
 				CD32CBDD23FD84F6009EA273 /* SubscriptionsChannelViewCell.swift */,
 				CD32CBDF23FD855D009EA273 /* SubscriptionsCell.swift */,
-				CDFD3C3223CC7BEE000FCEF6 /* FeaturedViewController.swift */,
 				CDFD3C3D23CC7C8E000FCEF6 /* TabBarView.swift */,
 				CD7CBA3E23E99BAF003BF035 /* TabBarViewCells */,
 			);

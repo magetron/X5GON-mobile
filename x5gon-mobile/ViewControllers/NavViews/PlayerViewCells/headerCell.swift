@@ -14,21 +14,27 @@ import UIKit
     func onDisLikeTap()
 }
 
-
 class headerCell: UITableViewCell {
     
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var viewCount: UILabel!
     @IBOutlet weak var likes: UILabel!
+    @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var disLikes: UILabel!
     @IBOutlet weak var channelTitle: UILabel!
     @IBOutlet weak var channelPic: UIImageView!
     @IBOutlet weak var channelSubscribers: UILabel!
-    var delegate: PlayerViewHeaderCellDelegate?
+    @IBOutlet weak var thumbUp: UIImageView!
+    @IBOutlet weak var thumbDown: UIImageView!
+    var onLikeTapFunc = { () -> Void in return}
+    var onDisLikeTapFunc = { () -> Void in return}
     
-    func set(content: Content!) {
+    func set(content: Content!, onLikeTapFunc: @escaping () -> Void, onDisLikeTapFunc: @escaping () -> Void) {
         title.text = content!.title
         viewCount.text = "\(content!.views) views"
+        descriptionTextView.text = (content.description == "") ? "No description available" : content.description
+        descriptionTextView.sizeToFit()
+        descriptionTextView.isScrollEnabled = false
         likes.text = String(content!.likes)
         disLikes.text = String(content!.disLikes)
         channelTitle.text = content!.channel.name
@@ -37,16 +43,25 @@ class headerCell: UITableViewCell {
         channelPic.clipsToBounds = true
         channelSubscribers.text = "\(content!.channel.subscribers) subscribers"
         selectionStyle = .none
-        let likeTap = UITapGestureRecognizer(target: self, action: #selector(self.delegate?.onLikeTap))
-        let disLikeTap = UITapGestureRecognizer(target: self, action: #selector(self.delegate?.onDisLikeTap))
-        likes.isUserInteractionEnabled = true
-        disLikes.isUserInteractionEnabled = true
-        likes.addGestureRecognizer(likeTap)
-        disLikes.addGestureRecognizer(disLikeTap)
+        self.onLikeTapFunc = onLikeTapFunc
+        self.onDisLikeTapFunc = onDisLikeTapFunc
+        let likeTap = UITapGestureRecognizer(target: self, action: #selector(self.onLikeTap))
+        let disLikeTap = UITapGestureRecognizer(target: self, action: #selector(self.onDisLikeTap))
+        thumbUp.isUserInteractionEnabled = true; thumbDown.isUserInteractionEnabled = true
+        thumbUp.addGestureRecognizer(likeTap); thumbDown.addGestureRecognizer(disLikeTap)
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
     }
+    
+    @objc func onLikeTap () {
+        onLikeTapFunc()
+    }
+    
+    @objc func onDisLikeTap () {
+        onDisLikeTapFunc()
+    }
+    
     
 }
