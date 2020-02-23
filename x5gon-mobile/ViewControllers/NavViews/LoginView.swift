@@ -8,7 +8,7 @@
 
 import UIKit
 import Foundation
-import SwiftSoup
+
 
 class LoginView: UIView {
     @IBOutlet weak var usernameTextField: UITextField!
@@ -17,6 +17,10 @@ class LoginView: UIView {
 
     func customisation () {
         self.passwordTextField.isSecureTextEntry = true
+        self.isUserInteractionEnabled = true
+        let swipeToExit = UISwipeGestureRecognizer(target: self, action: #selector(self.hideLoginView))
+        swipeToExit.direction = .down
+        self.addGestureRecognizer(swipeToExit)
     }
     
     @IBAction func loginButtonPressed(_ sender: Any) {
@@ -32,13 +36,14 @@ class LoginView: UIView {
         }
     }
     
-    func hideLoginView() {
+    @objc func hideLoginView() {
         UIView.animate(withDuration: 0.6, animations: {
-            self.transform = CGAffineTransform.init(translationX: 0, y: self.bounds.height)
+            self.transform = CGAffineTransform.init(translationX: 0, y: self.bounds.height - 90)
             self.layoutIfNeeded()
         }) { (isSuccessful) in
             self.isHidden = true
             self.transform = .identity
+            self.center.y -= 90
         }
     }
     

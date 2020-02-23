@@ -81,7 +81,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-       let scrollIndex = scrollView.contentOffset.x / self.view.bounds.width
+        let scrollIndex = scrollView.contentOffset.x / self.view.bounds.width
         NotificationCenter.default.post(name: Notification.Name.init(rawValue: "scrollMenu"), object: nil, userInfo: ["length": scrollIndex])
     }
     

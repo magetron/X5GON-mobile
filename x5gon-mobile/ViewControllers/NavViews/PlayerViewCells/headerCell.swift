@@ -35,6 +35,7 @@ class headerCell: UITableViewCell {
         descriptionTextView.text = (content.description == "") ? "No description available" : content.description
         descriptionTextView.sizeToFit()
         descriptionTextView.isScrollEnabled = false
+        descriptionTextView.isEditable = false
         likes.text = String(content!.likes)
         disLikes.text = String(content!.disLikes)
         channelTitle.text = content!.channel.name

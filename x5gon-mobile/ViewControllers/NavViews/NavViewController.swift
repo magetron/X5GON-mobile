@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NavViewController: UINavigationController, PlayerViewControllerDelegate, SettingsViewControllerDelegate  {
+class NavViewController: UINavigationController, PlayerViewControllerDelegate, SettingsViewControllerDelegate {
 
     //MARK: Properties
     @IBOutlet var playerView: PlayerView!
@@ -138,7 +138,7 @@ class NavViewController: UINavigationController, PlayerViewControllerDelegate, S
         self.loginView.isHidden = false
         self.loginView.center.y += self.loginView.bounds.height
         UIView.animate(withDuration: 0.6) {
-            self.loginView.center.y -= self.loginView.bounds.height
+            self.loginView.center.y -= self.loginView.bounds.height - 90
             self.loginView.layoutIfNeeded()
         }
     }
