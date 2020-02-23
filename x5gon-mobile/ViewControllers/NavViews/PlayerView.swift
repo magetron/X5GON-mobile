@@ -24,6 +24,7 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
     //MARK: Properties
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var player: UIView!
+    @IBOutlet weak var navigationViewButton: UIButton!
     var content: Content!
     var delegate: PlayerViewControllerDelegate?
     var state = stateOfViewController.hidden
@@ -48,6 +49,10 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         pdfView.frame = self.player.frame
         pdfView.displayMode = PDFDisplayMode.singlePage
         NotificationCenter.default.addObserver(self, selector: #selector(self.newPlayerView), name: NSNotification.Name("open"), object: nil)
+    }
+    
+    @IBAction func didTapPlayerNavigationViewButton(_ sender: UIButton) {
+        
     }
     
     func animate()  {
@@ -96,6 +101,8 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         self.delegate?.didmaximize()
         self.animate()
     }
+    
+    @objc
     
     func onLikeTap() {
         refresher(updateContent: {

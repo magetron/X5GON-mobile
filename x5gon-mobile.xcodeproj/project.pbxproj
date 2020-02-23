@@ -10,6 +10,7 @@
 		099078A5DDC288D3AB120013 /* libPods-x5gon-mobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 855071D7BC1DED7D2BB41C4F /* libPods-x5gon-mobile.a */; };
 		CD00457923E4E76A009CA522 /* PDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00457823E4E76A009CA522 /* PDF.swift */; };
 		CD00457B23E4E7AD009CA522 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00457A23E4E7AD009CA522 /* Content.swift */; };
+		CD01753124020BAB0081A9AC /* playerNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD01753024020BAB0081A9AC /* playerNavigationView.swift */; };
 		CD2D76F823F35D030031E3F1 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2D76F723F35D030031E3F1 /* Playlist.swift */; };
 		CD318CAB23E78AFA0091017B /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD318CAA23E78AFA0091017B /* Environment.swift */; };
 		CD32CBDE23FD84F6009EA273 /* SubscriptionsChannelViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD32CBDD23FD84F6009EA273 /* SubscriptionsChannelViewCell.swift */; };
@@ -74,6 +75,7 @@
 		99BCE8FA627D1E8B4FCB577C /* Pods-x5gon-mobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-x5gon-mobile.release.xcconfig"; path = "Target Support Files/Pods-x5gon-mobile/Pods-x5gon-mobile.release.xcconfig"; sourceTree = "<group>"; };
 		CD00457823E4E76A009CA522 /* PDF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDF.swift; sourceTree = "<group>"; };
 		CD00457A23E4E7AD009CA522 /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
+		CD01753024020BAB0081A9AC /* playerNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = playerNavigationView.swift; sourceTree = "<group>"; };
 		CD2D76F723F35D030031E3F1 /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
 		CD318CAA23E78AFA0091017B /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		CD32CBDD23FD84F6009EA273 /* SubscriptionsChannelViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionsChannelViewCell.swift; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 				CDE92D9123E5D3CE004BB8BF /* headerCell.swift */,
 				CD7CBA3C23E96E1E003BF035 /* notesCell.swift */,
 				CDE92D9423E5D42D004BB8BF /* suggestionContentCell.swift */,
+				CD01753024020BAB0081A9AC /* playerNavigationView.swift */,
 			);
 			path = PlayerViewCells;
 			sourceTree = "<group>";
@@ -547,6 +550,7 @@
 				CDFD3C2E23CC7986000FCEF6 /* NavViewController.swift in Sources */,
 				CD00457B23E4E7AD009CA522 /* Content.swift in Sources */,
 				CDFD3C3323CC7BEE000FCEF6 /* FeaturedViewController.swift in Sources */,
+				CD01753124020BAB0081A9AC /* playerNavigationView.swift in Sources */,
 				CDE92D9523E5D42D004BB8BF /* suggestionContentCell.swift in Sources */,
 				CDE92D9723E5D49D004BB8BF /* Channel.swift in Sources */,
 				CDFD3C4523CC7CEA000FCEF6 /* Extensions.swift in Sources */,
