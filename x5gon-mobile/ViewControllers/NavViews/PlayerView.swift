@@ -25,6 +25,8 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var player: UIView!
     @IBOutlet weak var navigationViewButton: UIButton!
+    @IBOutlet weak var navigationView: playerNavigationView!
+    
     var content: Content!
     var delegate: PlayerViewControllerDelegate?
     var state = stateOfViewController.hidden
@@ -35,6 +37,14 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
     
     //MARK: Methods
     func customisation() {
+        self.addSubview(self.navigationView)
+        self.navigationView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.init(item: self, attribute: .top, relatedBy: .equal, toItem: self.navigationView, attribute: .top, multiplier: 1.0, constant: 0).isActive = true
+        NSLayoutConstraint.init(item: self, attribute: .left, relatedBy: .equal, toItem: self.navigationView, attribute: .left, multiplier: 1.0, constant: 0).isActive = true
+        NSLayoutConstraint.init(item: self, attribute: .right, relatedBy: .equal, toItem: self.navigationView, attribute: .right, multiplier: 1.0, constant: 0).isActive = true
+        NSLayoutConstraint.init(item: self, attribute: .bottom, relatedBy: .equal, toItem: self.navigationView, attribute: .bottom, multiplier: 1.0, constant: 0).isActive = true
+        self.navigationView.isHidden = true
+        
         self.backgroundColor = UIColor.clear
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -51,10 +61,16 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         NotificationCenter.default.addObserver(self, selector: #selector(self.newPlayerView), name: NSNotification.Name("open"), object: nil)
     }
     
-    @IBAction func didTapPlayerNavigationViewButton(_ sender: UIButton) {
-        
+    @IBAction func showNavigation(_ sender: Any) {
+        self.navigationView.isHidden = false
+        self.navigationView.tableView.center.x += self.navigationView.bounds.width;
+        UIView.animate(withDuration: 0.6) {
+            self.navigationView.backgroundView.alpha = 0.5
+            self.navigationView.tableView.center.x -= self.navigationView.bounds.width
+        }
     }
     
+
     func animate()  {
         switch self.state {
             case .fullScreen:

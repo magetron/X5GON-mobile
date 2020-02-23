@@ -239,24 +239,23 @@
                                                     <color key="titleColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="didTapPlayerNavigationViewButton:" destination="5gL-Aw-hkc" eventType="touchUpInside" id="WWG-kn-sOI"/>
+                                                    <action selector="showNavigation:" destination="5gL-Aw-hkc" eventType="touchUpInside" id="VYx-2x-ba9"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="ghd-Go-5tw" firstAttribute="trailing" secondItem="bwh-c8-ljN" secondAttribute="trailing" id="0Aa-HD-rug"/>
                                             <constraint firstItem="BW9-Ht-IWc" firstAttribute="top" secondItem="0ca-mZ-3VK" secondAttribute="bottom" constant="14" id="1cN-AT-BNh"/>
                                             <constraint firstItem="IZ9-Xp-GaY" firstAttribute="trailing" secondItem="5VB-wW-c7d" secondAttribute="trailingMargin" id="2Rh-tQ-FQp"/>
                                             <constraint firstItem="bwh-c8-ljN" firstAttribute="trailing" secondItem="5VB-wW-c7d" secondAttribute="trailingMargin" id="6RP-0a-aVA"/>
                                             <constraint firstItem="0n3-CX-chw" firstAttribute="leading" secondItem="016-Rn-zZs" secondAttribute="leading" id="73k-m3-2op"/>
                                             <constraint firstItem="FM6-uO-2GO" firstAttribute="top" secondItem="0ca-mZ-3VK" secondAttribute="bottom" constant="11.333333333333336" id="7Jm-5H-AbN"/>
-                                            <constraint firstItem="0ca-mZ-3VK" firstAttribute="top" secondItem="ghd-Go-5tw" secondAttribute="bottom" constant="9.6666666666666643" id="AJs-vs-lwr"/>
                                             <constraint firstItem="IZ9-Xp-GaY" firstAttribute="top" secondItem="7mI-94-9Pe" secondAttribute="bottom" constant="7" id="BLN-Eg-nnw"/>
                                             <constraint firstItem="BnV-rd-kCv" firstAttribute="leading" secondItem="5VB-wW-c7d" secondAttribute="leadingMargin" id="C7Q-Of-3np"/>
+                                            <constraint firstItem="ghd-Go-5tw" firstAttribute="trailing" secondItem="bwh-c8-ljN" secondAttribute="trailing" id="Csw-Lc-nkg"/>
                                             <constraint firstItem="016-Rn-zZs" firstAttribute="top" secondItem="0ca-mZ-3VK" secondAttribute="bottom" constant="11.333333333333336" id="HsH-y9-dSM"/>
-                                            <constraint firstItem="ghd-Go-5tw" firstAttribute="top" secondItem="5VB-wW-c7d" secondAttribute="topMargin" id="N9E-KE-2ud"/>
                                             <constraint firstItem="7mI-94-9Pe" firstAttribute="top" secondItem="BnV-rd-kCv" secondAttribute="top" id="Nz1-eL-DR7"/>
                                             <constraint firstItem="IZ9-Xp-GaY" firstAttribute="leading" secondItem="BnV-rd-kCv" secondAttribute="trailing" constant="8" id="OFb-Oz-wYl"/>
+                                            <constraint firstItem="0ca-mZ-3VK" firstAttribute="top" secondItem="ghd-Go-5tw" secondAttribute="bottom" constant="9.6666666666666643" id="OGw-Zm-S8r"/>
                                             <constraint firstItem="7mI-94-9Pe" firstAttribute="trailing" secondItem="5VB-wW-c7d" secondAttribute="trailingMargin" id="PMg-xk-E8M"/>
                                             <constraint firstItem="BnV-rd-kCv" firstAttribute="top" secondItem="6AR-op-Iwf" secondAttribute="bottom" constant="8" symbolic="YES" id="RI4-dj-QPk"/>
                                             <constraint firstItem="0ca-mZ-3VK" firstAttribute="top" secondItem="bwh-c8-ljN" secondAttribute="bottom" constant="5.5" id="VMd-Lx-Mrq"/>
@@ -271,6 +270,7 @@
                                             <constraint firstItem="BW9-Ht-IWc" firstAttribute="leading" secondItem="FM6-uO-2GO" secondAttribute="trailing" constant="10" id="lpY-yX-e2e"/>
                                             <constraint firstItem="6AR-op-Iwf" firstAttribute="top" secondItem="0n3-CX-chw" secondAttribute="bottom" constant="8" id="oKa-DU-SAz"/>
                                             <constraint firstItem="016-Rn-zZs" firstAttribute="leading" secondItem="5VB-wW-c7d" secondAttribute="leadingMargin" id="qd8-CZ-2D5"/>
+                                            <constraint firstItem="ghd-Go-5tw" firstAttribute="top" secondItem="5VB-wW-c7d" secondAttribute="topMargin" id="uBU-eL-XyO"/>
                                             <constraint firstItem="7mI-94-9Pe" firstAttribute="leading" secondItem="BnV-rd-kCv" secondAttribute="trailing" constant="8" id="x4v-9t-Mc5"/>
                                             <constraint firstItem="0ca-mZ-3VK" firstAttribute="trailing" secondItem="5VB-wW-c7d" secondAttribute="trailingMargin" id="xWp-G2-9rz"/>
                                             <constraint firstAttribute="bottom" secondItem="BnV-rd-kCv" secondAttribute="bottom" constant="11" id="xb8-pe-9Jz"/>
@@ -392,7 +392,7 @@
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="sAW-0h-Tib"/>
                     <connections>
-                        <outlet property="navigationViewButton" destination="ghd-Go-5tw" id="XZE-6q-ESh"/>
+                        <outlet property="navigationView" destination="gGU-Ai-btD" id="qjb-3l-DMj"/>
                         <outlet property="player" destination="smd-ED-5eC" id="fom-5B-WmU"/>
                         <outlet property="tableView" destination="hai-Uu-zYx" id="qat-db-Zn4"/>
                     </connections>
@@ -480,15 +480,15 @@
                         <outlet property="inputField" destination="Uzg-3R-Rxh" id="7Tq-vH-eOv"/>
                     </connections>
                 </view>
-                <view contentMode="scaleToFill" id="gGU-Ai-btD" customClass="playerNavigationView">
+                <view contentMode="scaleToFill" id="gGU-Ai-btD" customClass="playerNavigationView" customModule="x5gon_mobile" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="415" height="710"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <button opaque="NO" alpha="0.60000002384185791" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w0P-EG-wrT" customClass="playerNavigationView">
+                        <button opaque="NO" alpha="0.60000002384185791" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w0P-EG-wrT">
                             <rect key="frame" x="0.0" y="0.0" width="415" height="710"/>
                             <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                             <connections>
-                                <action selector="hideSearchView:" destination="gGU-Ai-btD" eventType="touchUpInside" id="kAp-Qj-tfb"/>
+                                <action selector="hideNavigationView:" destination="gGU-Ai-btD" eventType="touchUpInside" id="nzX-Ko-frx"/>
                             </connections>
                         </button>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qVB-u1-cdk">
@@ -505,6 +505,10 @@
                         <constraint firstAttribute="bottom" secondItem="w0P-EG-wrT" secondAttribute="bottom" id="xH1-Fw-VZq"/>
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="wk1-Vy-hb4"/>
+                    <connections>
+                        <outlet property="backgroundView" destination="w0P-EG-wrT" id="ian-L4-2bK"/>
+                        <outlet property="tableView" destination="qVB-u1-cdk" id="csf-Vc-gjk"/>
+                    </connections>
                 </view>
             </objects>
             <point key="canvasLocation" x="-134" y="154"/>
