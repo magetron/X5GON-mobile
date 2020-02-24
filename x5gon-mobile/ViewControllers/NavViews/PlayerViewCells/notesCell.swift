@@ -19,12 +19,14 @@ class notesCell: UITableViewCell, UITextViewDelegate {
         textView.returnKeyType = .done
         textView.delegate = self
     }
+
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.text == "Write Your Note Here"{
             textView.text = ""
             textView.textColor = UIColor.black
         }
     }
+
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if textView.text == "\n" {
             textView.resignFirstResponder()
@@ -32,6 +34,7 @@ class notesCell: UITableViewCell, UITextViewDelegate {
         }
         return true
     }
+
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text == ""{
             textView.text = "Write Your Note Here"
