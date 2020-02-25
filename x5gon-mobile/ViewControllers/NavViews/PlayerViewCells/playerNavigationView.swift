@@ -12,6 +12,7 @@ class playerNavigationView: UIView, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var backgroundView: UIButton!
     @IBOutlet weak var tableView: UITableView!
+    var wiki: Wiki
     
     func customisation () {
         self.tableView.delegate = self

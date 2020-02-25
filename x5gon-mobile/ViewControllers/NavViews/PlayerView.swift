@@ -227,16 +227,16 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
             self.videoPlayerViewController.player = AVPlayer()
         }
         self.player.addSubview(videoPlayerViewController.view)
-
         self.videoPlayerViewController.player?.replaceCurrentItem(with: AVPlayerItem.init(url: selfVideo.contentLink))
         if selfVideo.suggestedContents.count == 0 {
             refresher(updateContent: { () -> Void in selfVideo.fetchSuggestedContents() }, viewReload: { () -> Void in self.tableView.reloadData()})
         }
-        refresher(updateContent: {() -> Void in selfVideo.fetchWikiChunkEnrichments() }, viewReload: { () -> Void in return })
+        if selfVideo.wiki.chunks.count == 0 {
+            refresher(updateContent: {() -> Void in selfVideo.fetchWikiChunkEnrichments() }, viewReload: { () -> Void in self.navigationView.wiki = selfVideo.wiki })
+        }
         if self.state != .hidden {
             self.videoPlayerViewController.player?.play()
         }
-        self.tableView.reloadData()
     }
 
     
@@ -255,7 +255,9 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         if selfPDF.suggestedContents.count == 0 {
             refresher(updateContent: { () -> Void in selfPDF.fetchSuggestedContents() }, viewReload: { () -> Void in self.tableView.reloadData()})
         }
-        self.tableView.reloadData()
+        if selfPDF.wiki.chunks.count == 0 {
+            refresher(updateContent: {() -> Void in selfPDF.fetchWikiChunkEnrichments() }, viewReload: { () -> Void in self.navigationView.wiki = selfPDF.wiki })
+        }
     }
     
     deinit {

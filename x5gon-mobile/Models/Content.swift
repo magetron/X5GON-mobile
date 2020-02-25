@@ -49,7 +49,6 @@ class Content {
     
     func fetchWikiChunkEnrichments () {
         self.wiki = API.fetchWikiChunkEnrichments(ids: [id])
-        print(wiki)
     }
     
     func like () {
