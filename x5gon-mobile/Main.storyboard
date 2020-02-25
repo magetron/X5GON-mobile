@@ -233,8 +233,11 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ghd-Go-5tw">
-                                                <rect key="frame" x="286" y="11" width="109" height="22"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ghd-Go-5tw">
+                                                <rect key="frame" x="286" y="74" width="109" height="22"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="109" id="fTT-0m-khU"/>
+                                                </constraints>
                                                 <state key="normal" title="Sidebar" image="sidebar.right" catalog="system">
                                                     <color key="titleColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
@@ -251,14 +254,13 @@
                                             <constraint firstItem="FM6-uO-2GO" firstAttribute="top" secondItem="0ca-mZ-3VK" secondAttribute="bottom" constant="11.333333333333336" id="7Jm-5H-AbN"/>
                                             <constraint firstItem="IZ9-Xp-GaY" firstAttribute="top" secondItem="7mI-94-9Pe" secondAttribute="bottom" constant="7" id="BLN-Eg-nnw"/>
                                             <constraint firstItem="BnV-rd-kCv" firstAttribute="leading" secondItem="5VB-wW-c7d" secondAttribute="leadingMargin" id="C7Q-Of-3np"/>
-                                            <constraint firstItem="ghd-Go-5tw" firstAttribute="trailing" secondItem="bwh-c8-ljN" secondAttribute="trailing" id="Csw-Lc-nkg"/>
                                             <constraint firstItem="016-Rn-zZs" firstAttribute="top" secondItem="0ca-mZ-3VK" secondAttribute="bottom" constant="11.333333333333336" id="HsH-y9-dSM"/>
                                             <constraint firstItem="7mI-94-9Pe" firstAttribute="top" secondItem="BnV-rd-kCv" secondAttribute="top" id="Nz1-eL-DR7"/>
                                             <constraint firstItem="IZ9-Xp-GaY" firstAttribute="leading" secondItem="BnV-rd-kCv" secondAttribute="trailing" constant="8" id="OFb-Oz-wYl"/>
-                                            <constraint firstItem="0ca-mZ-3VK" firstAttribute="top" secondItem="ghd-Go-5tw" secondAttribute="bottom" constant="9.6666666666666643" id="OGw-Zm-S8r"/>
                                             <constraint firstItem="7mI-94-9Pe" firstAttribute="trailing" secondItem="5VB-wW-c7d" secondAttribute="trailingMargin" id="PMg-xk-E8M"/>
                                             <constraint firstItem="BnV-rd-kCv" firstAttribute="top" secondItem="6AR-op-Iwf" secondAttribute="bottom" constant="8" symbolic="YES" id="RI4-dj-QPk"/>
                                             <constraint firstItem="0ca-mZ-3VK" firstAttribute="top" secondItem="bwh-c8-ljN" secondAttribute="bottom" constant="5.5" id="VMd-Lx-Mrq"/>
+                                            <constraint firstItem="ghd-Go-5tw" firstAttribute="top" secondItem="cn9-zh-jEI" secondAttribute="top" id="WKq-hW-y59"/>
                                             <constraint firstItem="bwh-c8-ljN" firstAttribute="leading" secondItem="5VB-wW-c7d" secondAttribute="leadingMargin" id="YO0-1c-c6G"/>
                                             <constraint firstItem="cn9-zh-jEI" firstAttribute="top" secondItem="0ca-mZ-3VK" secondAttribute="bottom" constant="14.333333333333336" id="a8n-IL-Zc9"/>
                                             <constraint firstItem="FM6-uO-2GO" firstAttribute="leading" secondItem="cn9-zh-jEI" secondAttribute="trailing" constant="16" id="a9w-41-aqF"/>
@@ -270,11 +272,12 @@
                                             <constraint firstItem="BW9-Ht-IWc" firstAttribute="leading" secondItem="FM6-uO-2GO" secondAttribute="trailing" constant="10" id="lpY-yX-e2e"/>
                                             <constraint firstItem="6AR-op-Iwf" firstAttribute="top" secondItem="0n3-CX-chw" secondAttribute="bottom" constant="8" id="oKa-DU-SAz"/>
                                             <constraint firstItem="016-Rn-zZs" firstAttribute="leading" secondItem="5VB-wW-c7d" secondAttribute="leadingMargin" id="qd8-CZ-2D5"/>
-                                            <constraint firstItem="ghd-Go-5tw" firstAttribute="top" secondItem="5VB-wW-c7d" secondAttribute="topMargin" id="uBU-eL-XyO"/>
+                                            <constraint firstItem="ghd-Go-5tw" firstAttribute="top" secondItem="5VB-wW-c7d" secondAttribute="top" constant="74" id="sK0-9H-hCc"/>
                                             <constraint firstItem="7mI-94-9Pe" firstAttribute="leading" secondItem="BnV-rd-kCv" secondAttribute="trailing" constant="8" id="x4v-9t-Mc5"/>
                                             <constraint firstItem="0ca-mZ-3VK" firstAttribute="trailing" secondItem="5VB-wW-c7d" secondAttribute="trailingMargin" id="xWp-G2-9rz"/>
                                             <constraint firstAttribute="bottom" secondItem="BnV-rd-kCv" secondAttribute="bottom" constant="11" id="xb8-pe-9Jz"/>
                                             <constraint firstItem="bwh-c8-ljN" firstAttribute="top" secondItem="5VB-wW-c7d" secondAttribute="topMargin" constant="3" id="yKL-Qa-aOh"/>
+                                            <constraint firstItem="ghd-Go-5tw" firstAttribute="trailing" secondItem="0ca-mZ-3VK" secondAttribute="trailing" id="zXB-TT-jB5"/>
                                         </constraints>
                                     </tableViewCellContentView>
                                     <connections>

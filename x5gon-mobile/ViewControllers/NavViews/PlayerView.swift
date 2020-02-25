@@ -118,8 +118,6 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         self.animate()
     }
     
-    @objc
-    
     func onLikeTap() {
         refresher(updateContent: {
             () -> Void in self.content.like() }, viewReload: { () -> Void in self.tableView.reloadData()})
@@ -234,6 +232,7 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         if selfVideo.suggestedContents.count == 0 {
             refresher(updateContent: { () -> Void in selfVideo.fetchSuggestedContents() }, viewReload: { () -> Void in self.tableView.reloadData()})
         }
+        refresher(updateContent: {() -> Void in selfVideo.fetchWikiChunkEnrichments() }, viewReload: { () -> Void in return })
         if self.state != .hidden {
             self.videoPlayerViewController.player?.play()
         }

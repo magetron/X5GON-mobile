@@ -25,6 +25,9 @@
 		CDA5D0AA23F3736200AA6902 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA5D0A823F3736200AA6902 /* API.swift */; };
 		CDA5D0AB23F3736200AA6902 /* APIAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA5D0A923F3736200AA6902 /* APIAdapter.swift */; };
 		CDC6643323F45536009A08FF /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC6643223F45536009A08FF /* MainController.swift */; };
+		CDDB99D5240593E900B79460 /* Wiki.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDB99D4240593E900B79460 /* Wiki.swift */; };
+		CDDB99D72405941A00B79460 /* WikiChunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDB99D62405941A00B79460 /* WikiChunk.swift */; };
+		CDDB99D92405943300B79460 /* WikiEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDB99D82405943300B79460 /* WikiEntity.swift */; };
 		CDDDD6D623F0B4E5003C1EE5 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDDD6D523F0B4E5003C1EE5 /* LoginView.swift */; };
 		CDE92D9023E5D396004BB8BF /* ContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE92D8F23E5D396004BB8BF /* ContentCell.swift */; };
 		CDE92D9223E5D3CE004BB8BF /* headerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE92D9123E5D3CE004BB8BF /* headerCell.swift */; };
@@ -91,6 +94,9 @@
 		CDA5D0A823F3736200AA6902 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		CDA5D0A923F3736200AA6902 /* APIAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIAdapter.swift; sourceTree = "<group>"; };
 		CDC6643223F45536009A08FF /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
+		CDDB99D4240593E900B79460 /* Wiki.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wiki.swift; sourceTree = "<group>"; };
+		CDDB99D62405941A00B79460 /* WikiChunk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiChunk.swift; sourceTree = "<group>"; };
+		CDDB99D82405943300B79460 /* WikiEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiEntity.swift; sourceTree = "<group>"; };
 		CDDDD6D523F0B4E5003C1EE5 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		CDE92D8F23E5D396004BB8BF /* ContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCell.swift; sourceTree = "<group>"; };
 		CDE92D9123E5D3CE004BB8BF /* headerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = headerCell.swift; sourceTree = "<group>"; };
@@ -354,6 +360,9 @@
 				CD00457A23E4E7AD009CA522 /* Content.swift */,
 				CDE92D9623E5D49D004BB8BF /* Channel.swift */,
 				CD2D76F723F35D030031E3F1 /* Playlist.swift */,
+				CDDB99D4240593E900B79460 /* Wiki.swift */,
+				CDDB99D62405941A00B79460 /* WikiChunk.swift */,
+				CDDB99D82405943300B79460 /* WikiEntity.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -542,6 +551,8 @@
 				CD32CBDE23FD84F6009EA273 /* SubscriptionsChannelViewCell.swift in Sources */,
 				CDC6643323F45536009A08FF /* MainController.swift in Sources */,
 				CDFD3C4A23CC7D64000FCEF6 /* Video.swift in Sources */,
+				CDDB99D72405941A00B79460 /* WikiChunk.swift in Sources */,
+				CDDB99D92405943300B79460 /* WikiEntity.swift in Sources */,
 				CDFD3C2F23CC7986000FCEF6 /* MainViewController.swift in Sources */,
 				CDE92D9223E5D3CE004BB8BF /* headerCell.swift in Sources */,
 				CDFD3C3923CC7C3F000FCEF6 /* AccountViewController.swift in Sources */,
@@ -559,6 +570,7 @@
 				CD43131123F9FBFC00B5C620 /* X5LearnAdapter.swift in Sources */,
 				CDE92D9023E5D396004BB8BF /* ContentCell.swift in Sources */,
 				CDFD3BEC23CC784C000FCEF6 /* AppDelegate.swift in Sources */,
+				CDDB99D5240593E900B79460 /* Wiki.swift in Sources */,
 				CDDDD6D623F0B4E5003C1EE5 /* LoginView.swift in Sources */,
 				CD48FAA623F8027E004415E7 /* AccountPlaylistCell.swift in Sources */,
 				CDFD3C3123CC79F0000FCEF6 /* HomeViewController.swift in Sources */,

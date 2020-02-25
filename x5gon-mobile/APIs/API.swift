@@ -260,9 +260,9 @@ class API {
          return tmpItems
     }
     
-    static func fetchWikiChunkEnrichments (id: Int, completion:  @escaping () -> Void) {
-        let ids = [id]
-        var request = URLRequest(url: URL(string: newAdapter.generateLoginQueryURL())!)
+    static func fetchWikiChunkEnrichments (ids: [Int]) -> Wiki {
+        var tmpWiki: Wiki?
+        var request = URLRequest(url: URL(string: newAdapter.generateWikiChunkEnrichmentsURL())!)
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"
         let parameters: [String: Any] = [
@@ -273,7 +273,7 @@ class API {
         } catch let error {
             print("error: \(error.localizedDescription)")
         }
-        
+        applyAuthToken(request: &request)
         let semaphore = DispatchSemaphore(value: 0)
             let task = URLSession.shared.dataTask(with: request) { data, response, error in
                 defer { semaphore.signal() }
@@ -282,9 +282,29 @@ class API {
                         print("error: not a valid http response")
                         return
                     }
-                print(receivedData.base64EncodedString())
+                if (httpResponse.statusCode != 200) {
+                    print("error: http response \(httpResponse.statusCode) not successful")
+                } else {
+                    let jsonObject = try? JSONSerialization.jsonObject(with: receivedData, options: [])
+                    guard let json = jsonObject as? [[String: Any]] else { print("error: invalid format"); return }
+                    guard let chunks = json[0]["chunks"] as? [[String: Any]] else { print("error: invalid format"); return }
+                    var chunkArr = [WikiChunk]()
+                    for chunk in chunks {
+                        guard let entities = chunk["entities"] as? [[String: Any]] else { print("error: invalid format"); return }
+                        var entityArr = [WikiEntity]()
+                        for entity in entities {
+                            guard let id = entity["id"] as? String, let title = entity["title"] as? String, let url = entity["url"] as? String else { print("error: invalid format"); return }
+                            let tmpEntity = WikiEntity.init(id: id, title: title, url: URL.init(string: url)!)
+                            entityArr.append(tmpEntity)
+                        }
+                        guard let length = chunk["length"] as? Double, let start = chunk["start"] as? Double, let text = chunk["text"] as? String else { print("error: invalid format"); return }
+                        let tmpChunk = WikiChunk.init(entities: entityArr, length: length, start: start, text: text)
+                        chunkArr.append(tmpChunk)
+                    }
+                    tmpWiki = Wiki.init(chunks: chunkArr)
+                }
         }
-        
-        
+        semaphore.wait()
+        return tmpWiki ?? Wiki.init(chunks: [])
     }
 }
