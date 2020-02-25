@@ -491,16 +491,19 @@
                                 <action selector="hideNavigationView:" destination="gGU-Ai-btD" eventType="touchUpInside" id="nzX-Ko-frx"/>
                             </connections>
                         </button>
-                        <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qVB-u1-cdk">
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qVB-u1-cdk">
                             <rect key="frame" x="175" y="0.0" width="240" height="710"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         </tableView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstItem="qVB-u1-cdk" firstAttribute="bottom" secondItem="w0P-EG-wrT" secondAttribute="bottom" id="0hg-UB-9i2"/>
+                        <constraint firstItem="qVB-u1-cdk" firstAttribute="leading" secondItem="wk1-Vy-hb4" secondAttribute="leading" constant="175" id="1L3-cU-LiT"/>
                         <constraint firstAttribute="trailing" secondItem="w0P-EG-wrT" secondAttribute="trailing" id="9fn-Ph-gtn"/>
+                        <constraint firstItem="qVB-u1-cdk" firstAttribute="trailing" secondItem="w0P-EG-wrT" secondAttribute="trailing" id="Ah6-KP-LdP"/>
                         <constraint firstItem="w0P-EG-wrT" firstAttribute="top" secondItem="gGU-Ai-btD" secondAttribute="top" id="FFs-0u-qoM"/>
+                        <constraint firstItem="qVB-u1-cdk" firstAttribute="top" secondItem="w0P-EG-wrT" secondAttribute="top" id="WD6-hR-ePY"/>
                         <constraint firstItem="w0P-EG-wrT" firstAttribute="leading" secondItem="gGU-Ai-btD" secondAttribute="leading" id="kPz-UF-HKa"/>
                         <constraint firstAttribute="bottom" secondItem="w0P-EG-wrT" secondAttribute="bottom" id="xH1-Fw-VZq"/>
                     </constraints>

@@ -259,4 +259,32 @@ class API {
          semaphore.wait()
          return tmpItems
     }
+    
+    static func fetchWikiChunkEnrichments (id: Int, completion:  @escaping () -> Void) {
+        let ids = [id]
+        var request = URLRequest(url: URL(string: newAdapter.generateLoginQueryURL())!)
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = "POST"
+        let parameters: [String: Any] = [
+            "ids": ids
+        ]
+        do {
+            request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
+        } catch let error {
+            print("error: \(error.localizedDescription)")
+        }
+        
+        let semaphore = DispatchSemaphore(value: 0)
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                defer { semaphore.signal() }
+                guard let httpResponse = response as? HTTPURLResponse, let receivedData = data
+                    else {
+                        print("error: not a valid http response")
+                        return
+                    }
+                print(receivedData.base64EncodedString())
+        }
+        
+        
+    }
 }
