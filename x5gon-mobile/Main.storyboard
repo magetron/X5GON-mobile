@@ -233,6 +233,18 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ghd-Go-5tw">
+                                                <rect key="frame" x="296" y="71" width="109" height="22"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="109" id="fTT-0m-khU"/>
+                                                </constraints>
+                                                <state key="normal" title="Sidebar" image="sidebar.right" catalog="system">
+                                                    <color key="titleColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="showNavigation:" destination="5gL-Aw-hkc" eventType="touchUpInside" id="VYx-2x-ba9"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="BW9-Ht-IWc" firstAttribute="top" secondItem="0ca-mZ-3VK" secondAttribute="bottom" constant="14" id="1cN-AT-BNh"/>
@@ -248,6 +260,7 @@
                                             <constraint firstItem="7mI-94-9Pe" firstAttribute="trailing" secondItem="5VB-wW-c7d" secondAttribute="trailingMargin" id="PMg-xk-E8M"/>
                                             <constraint firstItem="BnV-rd-kCv" firstAttribute="top" secondItem="6AR-op-Iwf" secondAttribute="bottom" constant="8" symbolic="YES" id="RI4-dj-QPk"/>
                                             <constraint firstItem="0ca-mZ-3VK" firstAttribute="top" secondItem="bwh-c8-ljN" secondAttribute="bottom" constant="5.5" id="VMd-Lx-Mrq"/>
+                                            <constraint firstItem="ghd-Go-5tw" firstAttribute="top" secondItem="cn9-zh-jEI" secondAttribute="top" constant="-3" id="WKq-hW-y59"/>
                                             <constraint firstItem="bwh-c8-ljN" firstAttribute="leading" secondItem="5VB-wW-c7d" secondAttribute="leadingMargin" id="YO0-1c-c6G"/>
                                             <constraint firstItem="cn9-zh-jEI" firstAttribute="top" secondItem="0ca-mZ-3VK" secondAttribute="bottom" constant="14.333333333333336" id="a8n-IL-Zc9"/>
                                             <constraint firstItem="FM6-uO-2GO" firstAttribute="leading" secondItem="cn9-zh-jEI" secondAttribute="trailing" constant="16" id="a9w-41-aqF"/>
@@ -259,10 +272,12 @@
                                             <constraint firstItem="BW9-Ht-IWc" firstAttribute="leading" secondItem="FM6-uO-2GO" secondAttribute="trailing" constant="10" id="lpY-yX-e2e"/>
                                             <constraint firstItem="6AR-op-Iwf" firstAttribute="top" secondItem="0n3-CX-chw" secondAttribute="bottom" constant="8" id="oKa-DU-SAz"/>
                                             <constraint firstItem="016-Rn-zZs" firstAttribute="leading" secondItem="5VB-wW-c7d" secondAttribute="leadingMargin" id="qd8-CZ-2D5"/>
+                                            <constraint firstItem="ghd-Go-5tw" firstAttribute="top" secondItem="5VB-wW-c7d" secondAttribute="top" constant="71" id="sK0-9H-hCc"/>
                                             <constraint firstItem="7mI-94-9Pe" firstAttribute="leading" secondItem="BnV-rd-kCv" secondAttribute="trailing" constant="8" id="x4v-9t-Mc5"/>
                                             <constraint firstItem="0ca-mZ-3VK" firstAttribute="trailing" secondItem="5VB-wW-c7d" secondAttribute="trailingMargin" id="xWp-G2-9rz"/>
                                             <constraint firstAttribute="bottom" secondItem="BnV-rd-kCv" secondAttribute="bottom" constant="11" id="xb8-pe-9Jz"/>
                                             <constraint firstItem="bwh-c8-ljN" firstAttribute="top" secondItem="5VB-wW-c7d" secondAttribute="topMargin" constant="3" id="yKL-Qa-aOh"/>
+                                            <constraint firstItem="ghd-Go-5tw" firstAttribute="trailing" secondItem="0ca-mZ-3VK" secondAttribute="trailing" constant="10" id="zXB-TT-jB5"/>
                                         </constraints>
                                     </tableViewCellContentView>
                                     <connections>
@@ -380,6 +395,7 @@
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="sAW-0h-Tib"/>
                     <connections>
+                        <outlet property="navigationView" destination="gGU-Ai-btD" id="qjb-3l-DMj"/>
                         <outlet property="player" destination="smd-ED-5eC" id="fom-5B-WmU"/>
                         <outlet property="tableView" destination="hai-Uu-zYx" id="qat-db-Zn4"/>
                     </connections>
@@ -465,6 +481,49 @@
                     <viewLayoutGuide key="safeArea" id="a5U-xI-aeU"/>
                     <connections>
                         <outlet property="inputField" destination="Uzg-3R-Rxh" id="7Tq-vH-eOv"/>
+                    </connections>
+                </view>
+                <view contentMode="scaleToFill" id="gGU-Ai-btD" customClass="playerNavigationView" customModule="x5gon_mobile" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="415" height="710"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <button opaque="NO" alpha="0.60000002384185791" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w0P-EG-wrT">
+                            <rect key="frame" x="0.0" y="0.0" width="415" height="710"/>
+                            <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <connections>
+                                <action selector="hideNavigationView:" destination="gGU-Ai-btD" eventType="touchUpInside" id="nzX-Ko-frx"/>
+                            </connections>
+                        </button>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qVB-u1-cdk">
+                            <rect key="frame" x="175" y="0.0" width="240" height="710"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <prototypes>
+                                <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PlayerNavigationCell" id="Hdn-ft-koN">
+                                    <rect key="frame" x="0.0" y="28" width="240" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Hdn-ft-koN" id="GaV-Vn-N6Q">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </tableViewCellContentView>
+                                </tableViewCell>
+                            </prototypes>
+                        </tableView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="qVB-u1-cdk" firstAttribute="bottom" secondItem="w0P-EG-wrT" secondAttribute="bottom" id="0hg-UB-9i2"/>
+                        <constraint firstItem="qVB-u1-cdk" firstAttribute="leading" secondItem="wk1-Vy-hb4" secondAttribute="leading" constant="175" id="1L3-cU-LiT"/>
+                        <constraint firstAttribute="trailing" secondItem="w0P-EG-wrT" secondAttribute="trailing" id="9fn-Ph-gtn"/>
+                        <constraint firstItem="qVB-u1-cdk" firstAttribute="trailing" secondItem="w0P-EG-wrT" secondAttribute="trailing" id="Ah6-KP-LdP"/>
+                        <constraint firstItem="w0P-EG-wrT" firstAttribute="top" secondItem="gGU-Ai-btD" secondAttribute="top" id="FFs-0u-qoM"/>
+                        <constraint firstItem="qVB-u1-cdk" firstAttribute="top" secondItem="w0P-EG-wrT" secondAttribute="top" id="WD6-hR-ePY"/>
+                        <constraint firstItem="w0P-EG-wrT" firstAttribute="leading" secondItem="gGU-Ai-btD" secondAttribute="leading" id="kPz-UF-HKa"/>
+                        <constraint firstAttribute="bottom" secondItem="w0P-EG-wrT" secondAttribute="bottom" id="xH1-Fw-VZq"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="wk1-Vy-hb4"/>
+                    <connections>
+                        <outlet property="backgroundView" destination="w0P-EG-wrT" id="ian-L4-2bK"/>
+                        <outlet property="tableView" destination="qVB-u1-cdk" id="csf-Vc-gjk"/>
                     </connections>
                 </view>
             </objects>
@@ -1146,6 +1205,7 @@
         <image name="cancel" width="48" height="48"/>
         <image name="emptyTumbnail" width="375" height="211"/>
         <image name="logo" width="341.33334350585938" height="341.33334350585938"/>
+        <image name="sidebar.right" catalog="system" width="64" height="46"/>
         <image name="thumbDown" width="25" height="25"/>
         <image name="thumbUp" width="25" height="25"/>
     </resources>

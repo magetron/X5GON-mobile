@@ -38,5 +38,9 @@ class X5LearnAPIAdapter : APIAdapter {
         return rootURL() + APIVersion() + "featured"
     }
     
+    static func generateWikiChunkEnrichmentsURL () -> String {
+        return rootURL() + APIVersion() + "wikichunk_enrichments"
+    }
+    
 }
 

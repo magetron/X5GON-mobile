@@ -10,6 +10,7 @@
 		099078A5DDC288D3AB120013 /* libPods-x5gon-mobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 855071D7BC1DED7D2BB41C4F /* libPods-x5gon-mobile.a */; };
 		CD00457923E4E76A009CA522 /* PDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00457823E4E76A009CA522 /* PDF.swift */; };
 		CD00457B23E4E7AD009CA522 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00457A23E4E7AD009CA522 /* Content.swift */; };
+		CD0175332403103A0081A9AC /* playerNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0175322403103A0081A9AC /* playerNavigationView.swift */; };
 		CD2D76F823F35D030031E3F1 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2D76F723F35D030031E3F1 /* Playlist.swift */; };
 		CD318CAB23E78AFA0091017B /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD318CAA23E78AFA0091017B /* Environment.swift */; };
 		CD32CBDE23FD84F6009EA273 /* SubscriptionsChannelViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD32CBDD23FD84F6009EA273 /* SubscriptionsChannelViewCell.swift */; };
@@ -24,6 +25,9 @@
 		CDA5D0AA23F3736200AA6902 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA5D0A823F3736200AA6902 /* API.swift */; };
 		CDA5D0AB23F3736200AA6902 /* APIAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA5D0A923F3736200AA6902 /* APIAdapter.swift */; };
 		CDC6643323F45536009A08FF /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC6643223F45536009A08FF /* MainController.swift */; };
+		CDDB99D5240593E900B79460 /* Wiki.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDB99D4240593E900B79460 /* Wiki.swift */; };
+		CDDB99D72405941A00B79460 /* WikiChunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDB99D62405941A00B79460 /* WikiChunk.swift */; };
+		CDDB99D92405943300B79460 /* WikiEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDB99D82405943300B79460 /* WikiEntity.swift */; };
 		CDDDD6D623F0B4E5003C1EE5 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDDD6D523F0B4E5003C1EE5 /* LoginView.swift */; };
 		CDE92D9023E5D396004BB8BF /* ContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE92D8F23E5D396004BB8BF /* ContentCell.swift */; };
 		CDE92D9223E5D3CE004BB8BF /* headerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE92D9123E5D3CE004BB8BF /* headerCell.swift */; };
@@ -74,6 +78,7 @@
 		99BCE8FA627D1E8B4FCB577C /* Pods-x5gon-mobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-x5gon-mobile.release.xcconfig"; path = "Target Support Files/Pods-x5gon-mobile/Pods-x5gon-mobile.release.xcconfig"; sourceTree = "<group>"; };
 		CD00457823E4E76A009CA522 /* PDF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDF.swift; sourceTree = "<group>"; };
 		CD00457A23E4E7AD009CA522 /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
+		CD0175322403103A0081A9AC /* playerNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = playerNavigationView.swift; sourceTree = "<group>"; };
 		CD2D76F723F35D030031E3F1 /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
 		CD318CAA23E78AFA0091017B /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		CD32CBDD23FD84F6009EA273 /* SubscriptionsChannelViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionsChannelViewCell.swift; sourceTree = "<group>"; };
@@ -89,6 +94,9 @@
 		CDA5D0A823F3736200AA6902 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		CDA5D0A923F3736200AA6902 /* APIAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIAdapter.swift; sourceTree = "<group>"; };
 		CDC6643223F45536009A08FF /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
+		CDDB99D4240593E900B79460 /* Wiki.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wiki.swift; sourceTree = "<group>"; };
+		CDDB99D62405941A00B79460 /* WikiChunk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiChunk.swift; sourceTree = "<group>"; };
+		CDDB99D82405943300B79460 /* WikiEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiEntity.swift; sourceTree = "<group>"; };
 		CDDDD6D523F0B4E5003C1EE5 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		CDE92D8F23E5D396004BB8BF /* ContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCell.swift; sourceTree = "<group>"; };
 		CDE92D9123E5D3CE004BB8BF /* headerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = headerCell.swift; sourceTree = "<group>"; };
@@ -242,6 +250,7 @@
 				CDE92D9123E5D3CE004BB8BF /* headerCell.swift */,
 				CD7CBA3C23E96E1E003BF035 /* notesCell.swift */,
 				CDE92D9423E5D42D004BB8BF /* suggestionContentCell.swift */,
+				CD0175322403103A0081A9AC /* playerNavigationView.swift */,
 			);
 			path = PlayerViewCells;
 			sourceTree = "<group>";
@@ -351,6 +360,9 @@
 				CD00457A23E4E7AD009CA522 /* Content.swift */,
 				CDE92D9623E5D49D004BB8BF /* Channel.swift */,
 				CD2D76F723F35D030031E3F1 /* Playlist.swift */,
+				CDDB99D4240593E900B79460 /* Wiki.swift */,
+				CDDB99D62405941A00B79460 /* WikiChunk.swift */,
+				CDDB99D82405943300B79460 /* WikiEntity.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -531,6 +543,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD42D68F23F751D40048ADC5 /* TabBarCellCollectionViewCell.swift in Sources */,
+				CD0175332403103A0081A9AC /* playerNavigationView.swift in Sources */,
 				CDFD3C4023CC7C9F000FCEF6 /* SearchView.swift in Sources */,
 				CD318CAB23E78AFA0091017B /* Environment.swift in Sources */,
 				CDFD3C3E23CC7C8E000FCEF6 /* TabBarView.swift in Sources */,
@@ -538,6 +551,8 @@
 				CD32CBDE23FD84F6009EA273 /* SubscriptionsChannelViewCell.swift in Sources */,
 				CDC6643323F45536009A08FF /* MainController.swift in Sources */,
 				CDFD3C4A23CC7D64000FCEF6 /* Video.swift in Sources */,
+				CDDB99D72405941A00B79460 /* WikiChunk.swift in Sources */,
+				CDDB99D92405943300B79460 /* WikiEntity.swift in Sources */,
 				CDFD3C2F23CC7986000FCEF6 /* MainViewController.swift in Sources */,
 				CDE92D9223E5D3CE004BB8BF /* headerCell.swift in Sources */,
 				CDFD3C3923CC7C3F000FCEF6 /* AccountViewController.swift in Sources */,
@@ -555,6 +570,7 @@
 				CD43131123F9FBFC00B5C620 /* X5LearnAdapter.swift in Sources */,
 				CDE92D9023E5D396004BB8BF /* ContentCell.swift in Sources */,
 				CDFD3BEC23CC784C000FCEF6 /* AppDelegate.swift in Sources */,
+				CDDB99D5240593E900B79460 /* Wiki.swift in Sources */,
 				CDDDD6D623F0B4E5003C1EE5 /* LoginView.swift in Sources */,
 				CD48FAA623F8027E004415E7 /* AccountPlaylistCell.swift in Sources */,
 				CDFD3C3123CC79F0000FCEF6 /* HomeViewController.swift in Sources */,

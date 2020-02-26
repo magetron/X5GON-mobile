@@ -17,13 +17,14 @@ class Content {
     let views: Int
     let channel: Channel
     var duration: Int
-    var contentLink: URL!
+    var contentLink: URL
     var likes: Int
     var disLikes: Int
     var id: Int
     var description: String
     var suggestedContents = [Content]()
-        
+    var wiki = Wiki.init(chunks: [])
+            
     //MARK: Inits
     init(title: String, id: Int, channelName: String, description: String, url: URL) {
         self.thumbnail = UIImage.init(named: title) ?? UIImage.init(named: "Video Placeholder")!
@@ -44,6 +45,10 @@ class Content {
     
     func fetchSuggestedContents () {
         fatalError("error: directly calling content fetchSuggestedContents()")
+    }
+    
+    func fetchWikiChunkEnrichments () {
+        self.wiki = API.fetchWikiChunkEnrichments(ids: [id])
     }
     
     func like () {
