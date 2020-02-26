@@ -24,7 +24,6 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
     //MARK: Properties
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var player: UIView!
-    @IBOutlet weak var navigationViewButton: UIButton!
     @IBOutlet weak var navigationView: playerNavigationView!
     
     var content: Content!
@@ -70,7 +69,7 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         }
     }
     
-
+    
     func animate()  {
         switch self.state {
             case .fullScreen:
