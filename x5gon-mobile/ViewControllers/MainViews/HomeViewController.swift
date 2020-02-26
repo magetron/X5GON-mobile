@@ -41,6 +41,18 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         NotificationCenter.default.post(name: NSNotification.Name("open"), object: contents[indexPath.row])
     }
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if (self.lastContentOffset > scrollView.contentOffset.y) {
+            NotificationCenter.default.post(name: NSNotification.Name("hide"), object: false)
+        } else if(self.lastContentOffset < scrollView.contentOffset.y){
+            NotificationCenter.default.post(name: NSNotification.Name("hide"), object: true)
+        }
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        self.lastContentOffset = scrollView.contentOffset.y;
+    }
+    
     //MARK: -  ViewController Lifecylce
     override func viewDidLoad() {
         super.viewDidLoad()
