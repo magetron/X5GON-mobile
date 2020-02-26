@@ -232,11 +232,12 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
             refresher(updateContent: { () -> Void in selfVideo.fetchSuggestedContents() }, viewReload: { () -> Void in self.tableView.reloadData()})
         }
         if selfVideo.wiki.chunks.count == 0 {
-            refresher(updateContent: {() -> Void in selfVideo.fetchWikiChunkEnrichments() }, viewReload: { () -> Void in self.navigationView.wiki = selfVideo.wiki })
+            refresher(updateContent: {() -> Void in selfVideo.fetchWikiChunkEnrichments() }, viewReload: { () -> Void in self.navigationView.wiki = selfVideo.wiki; self.navigationView.tableView.reloadData() })
         }
         if self.state != .hidden {
             self.videoPlayerViewController.player?.play()
         }
+        self.tableView.reloadData()
     }
 
     
@@ -256,8 +257,9 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
             refresher(updateContent: { () -> Void in selfPDF.fetchSuggestedContents() }, viewReload: { () -> Void in self.tableView.reloadData()})
         }
         if selfPDF.wiki.chunks.count == 0 {
-            refresher(updateContent: {() -> Void in selfPDF.fetchWikiChunkEnrichments() }, viewReload: { () -> Void in self.navigationView.wiki = selfPDF.wiki })
+            refresher(updateContent: {() -> Void in selfPDF.fetchWikiChunkEnrichments() }, viewReload: { () -> Void in self.navigationView.wiki = selfPDF.wiki; self.navigationView.tableView.reloadData() })
         }
+        self.tableView.reloadData()
     }
     
     deinit {

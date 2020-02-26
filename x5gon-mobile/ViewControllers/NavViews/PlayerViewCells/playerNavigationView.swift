@@ -12,7 +12,7 @@ class playerNavigationView: UIView, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var backgroundView: UIButton!
     @IBOutlet weak var tableView: UITableView!
-    var wiki: Wiki
+    var wiki: Wiki?
     
     func customisation () {
         self.tableView.delegate = self
@@ -26,11 +26,25 @@ class playerNavigationView: UIView, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        if (wiki == nil) {
+            return 0
+        }
+        var count = 0
+        for chunk in wiki!.chunks {
+            count += chunk.entities.count
+        }
+        return count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell.init()
+        if (wiki == nil) {
+            return UITableViewCell.init()
+        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PlayerNavigationCell", for: indexPath)
+        let prefixString = "\(indexPath.row / wiki!.chunks.count).\(indexPath.row % wiki!.chunks.count)"
+        let contentString = wiki!.chunks[indexPath.row / wiki!.chunks.count].entities[indexPath.row % wiki!.chunks.count].title
+        cell.textLabel?.text = prefixString + contentString
+        return cell
     }
     
     override func awakeFromNib() {
