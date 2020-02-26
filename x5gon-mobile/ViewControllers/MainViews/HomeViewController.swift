@@ -48,7 +48,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             NotificationCenter.default.post(name: NSNotification.Name("hide"), object: true)
         }
     }
-    
+
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         self.lastContentOffset = scrollView.contentOffset.y;
     }
