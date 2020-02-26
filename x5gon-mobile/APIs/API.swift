@@ -287,6 +287,10 @@ class API {
             } else {
                 let jsonObject = try? JSONSerialization.jsonObject(with: receivedData, options: [])
                 guard let json = jsonObject as? [[String: Any]] else { print("error: invalid format"); return }
+                if (json.count == 0) {
+                    print("error: invalid format");
+                    return
+                }
                 guard let chunks = json[0]["chunks"] as? [[String: Any]] else { print("error: invalid format"); return }
                 var chunkArr = [WikiChunk]()
                 for chunk in chunks {

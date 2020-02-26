@@ -31,10 +31,10 @@ class MainController {
             mainViewController?.tabBarView.collectionView.isHidden = false
             mainViewController?.tabBarView.backgroundColor = Environment.X5Color
         }
-    }
+    }      
     
     static func fetchDefaultContents () -> [Content] {
-        let contents = API.DEPRECATED_fetchContents(keyWord: "science")
+        let contents = API.fetchContents(keyWord: "science", contentType: "any")
         return contents
     }
     
