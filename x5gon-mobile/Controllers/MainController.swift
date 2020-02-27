@@ -60,6 +60,10 @@ class MainController {
         API.logout()
     }
     
+    static func addHistory (content: Content) {
+        MainController.user.historyContent.append(content)
+    }
+    
     /*
     static func DEPRECATED_fetchDefaultContents() -> [Content] {
         var items = [Content]()

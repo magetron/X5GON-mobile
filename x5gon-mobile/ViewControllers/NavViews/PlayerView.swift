@@ -118,7 +118,9 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         self.state = .fullScreen
         self.delegate?.didmaximize()
         self.animate()
-        setContent(content: notification.object as! Content)
+        let content = notification.object as! Content
+        setContent(content: content)
+        MainController.addHistory(content: content)
     }
     
     func onLikeTap() {
