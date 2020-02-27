@@ -1,5 +1,5 @@
 //
-//  AccountPlaylistCell.swift
+//  UserPlaylistCell.swift
 //  x5gon-mobile
 //
 //  Created by Patrick Wu on 15/02/2020.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class AccountPlaylistCell: UITableViewCell {
+class UserPlaylistCell: UITableViewCell {
     
     @IBOutlet weak var pic: UIImageView!
     @IBOutlet weak var title: UILabel!

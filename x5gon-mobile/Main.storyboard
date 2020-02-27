@@ -1035,10 +1035,10 @@
             </objects>
             <point key="canvasLocation" x="1891.304347826087" y="153.34821428571428"/>
         </scene>
-        <!--Account View Controller-->
+        <!--User View Controller-->
         <scene sceneID="PKl-E7-jlQ">
             <objects>
-                <viewController storyboardIdentifier="AccountViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fyM-ZC-4vu" customClass="AccountViewController" customModule="x5gon_mobile" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fyM-ZC-4vu" customClass="UserViewController" customModule="x5gon_mobile" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MQs-ls-4t6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1047,7 +1047,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Header" rowHeight="120" id="vS7-wy-332" customClass="AccountHeaderCell" customModule="x5gon_mobile" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Header" rowHeight="120" id="vS7-wy-332" customClass="UserHeaderCell" customModule="x5gon_mobile" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vS7-wy-332" id="a0r-zi-0da">
@@ -1093,7 +1093,7 @@
                                             <outlet property="profilePic" destination="I7A-L9-Y1k" id="kpV-pN-T5R"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Menu" rowHeight="50" id="bCN-Ow-c7A" customClass="AccountMenuCell" customModule="x5gon_mobile" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Menu" rowHeight="50" id="bCN-Ow-c7A" customClass="UserMenuCell" customModule="x5gon_mobile" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="148" width="414" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bCN-Ow-c7A" id="HEt-9S-vFS">
@@ -1139,7 +1139,7 @@
                                             <outlet property="menuTitles" destination="F4Y-nb-Vp7" id="pY4-f7-el2"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Playlists" rowHeight="70" id="vVk-8q-Ihm" customClass="AccountPlaylistCell" customModule="x5gon_mobile" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Playlists" rowHeight="70" id="vVk-8q-Ihm" customClass="UserPlaylistCell" customModule="x5gon_mobile" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="198" width="414" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vVk-8q-Ihm" id="dPi-i4-5iJ">

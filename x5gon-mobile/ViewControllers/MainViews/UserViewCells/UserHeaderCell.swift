@@ -1,5 +1,5 @@
 //
-//  AccountHeaderCell.swift
+//  UserHeaderCell.swift
 //  x5gon-mobile
 //
 //  Created by Patrick Wu on 15/02/2020.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class AccountHeaderCell: UITableViewCell {
+class UserHeaderCell: UITableViewCell {
     
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var profilePic: UIImageView!

@@ -38,13 +38,13 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         let homeVC = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController")
         let featuredVC = self.storyboard?.instantiateViewController(withIdentifier: "FeaturedViewController")
         let searchResultsVC = self.storyboard?.instantiateViewController(withIdentifier: "SearchResultsViewController")
-        let accountVC = self.storyboard?.instantiateViewController(withIdentifier: "AccountViewController")
+        let UserVC = self.storyboard?.instantiateViewController(withIdentifier: "UserViewController")
         MainController.homeViewController = (homeVC as! HomeViewController)
         MainController.featuredViewController = (featuredVC as! FeaturedViewController)
         MainController.searchResultsViewController = (searchResultsVC as! SearchResultsViewController)
-        MainController.accountViewController = (accountVC as! AccountViewController)
+        MainController.UserViewController = (UserVC as! UserViewController)
         
-        let viewControllers = [homeVC, featuredVC, searchResultsVC, accountVC]
+        let viewControllers = [homeVC, featuredVC, searchResultsVC, UserVC]
         for vc in viewControllers {
             self.addChild(vc!)
             vc!.didMove(toParent: self)

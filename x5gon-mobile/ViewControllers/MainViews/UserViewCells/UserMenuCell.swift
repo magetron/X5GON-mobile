@@ -1,5 +1,5 @@
 //
-//  AccountMenuCell.swift
+//  UserMenuCell.swift
 //  x5gon-mobile
 //
 //  Created by Patrick Wu on 15/02/2020.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class AccountMenuCell: UITableViewCell {
+class UserMenuCell: UITableViewCell {
     
     @IBOutlet weak var menuIcon: UIImageView!
     @IBOutlet weak var menuTitles: UILabel!

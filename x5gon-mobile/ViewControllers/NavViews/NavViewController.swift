@@ -16,7 +16,7 @@ class NavViewController: UINavigationController, PlayerViewControllerDelegate, S
     @IBOutlet var settingsView: SettingsView!
     @IBOutlet var loginView: LoginView!
     let titleLabel = UILabel()
-    let names = ["Home", "Featured", "Search Results", "Account"]
+    let names = ["Home", "Featured", "Search Results", "User"]
     let hiddenOrigin: CGPoint = {
         let y = UIScreen.main.bounds.height - (UIScreen.main.bounds.width * 9 / 32) - 10
         let x = -UIScreen.main.bounds.width

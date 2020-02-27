@@ -18,9 +18,9 @@
 		CD42D68F23F751D40048ADC5 /* TabBarCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD42D68E23F751D40048ADC5 /* TabBarCellCollectionViewCell.swift */; };
 		CD43130F23F9FA3400B5C620 /* X5GONAPIAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD43130E23F9FA3400B5C620 /* X5GONAPIAdapter.swift */; };
 		CD43131123F9FBFC00B5C620 /* X5LearnAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD43131023F9FBFC00B5C620 /* X5LearnAdapter.swift */; };
-		CD48FAA223F80253004415E7 /* AccountHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD48FAA123F80253004415E7 /* AccountHeaderCell.swift */; };
-		CD48FAA423F8026F004415E7 /* AccountMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD48FAA323F8026F004415E7 /* AccountMenuCell.swift */; };
-		CD48FAA623F8027E004415E7 /* AccountPlaylistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD48FAA523F8027E004415E7 /* AccountPlaylistCell.swift */; };
+		CD48FAA223F80253004415E7 /* UserHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD48FAA123F80253004415E7 /* UserHeaderCell.swift */; };
+		CD48FAA423F8026F004415E7 /* UserMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD48FAA323F8026F004415E7 /* UserMenuCell.swift */; };
+		CD48FAA623F8027E004415E7 /* UserPlaylistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD48FAA523F8027E004415E7 /* UserPlaylistCell.swift */; };
 		CD7CBA3D23E96E1E003BF035 /* notesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7CBA3C23E96E1E003BF035 /* notesCell.swift */; };
 		CDA5D0AA23F3736200AA6902 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA5D0A823F3736200AA6902 /* API.swift */; };
 		CDA5D0AB23F3736200AA6902 /* APIAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA5D0A923F3736200AA6902 /* APIAdapter.swift */; };
@@ -43,7 +43,7 @@
 		CDFD3C2F23CC7986000FCEF6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFD3C2D23CC7986000FCEF6 /* MainViewController.swift */; };
 		CDFD3C3123CC79F0000FCEF6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFD3C3023CC79F0000FCEF6 /* HomeViewController.swift */; };
 		CDFD3C3323CC7BEE000FCEF6 /* FeaturedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFD3C3223CC7BEE000FCEF6 /* FeaturedViewController.swift */; };
-		CDFD3C3923CC7C3F000FCEF6 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFD3C3823CC7C3F000FCEF6 /* AccountViewController.swift */; };
+		CDFD3C3923CC7C3F000FCEF6 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFD3C3823CC7C3F000FCEF6 /* UserViewController.swift */; };
 		CDFD3C3C23CC7C75000FCEF6 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFD3C3B23CC7C75000FCEF6 /* PlayerView.swift */; };
 		CDFD3C3E23CC7C8E000FCEF6 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFD3C3D23CC7C8E000FCEF6 /* TabBarView.swift */; };
 		CDFD3C4023CC7C9F000FCEF6 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFD3C3F23CC7C9F000FCEF6 /* SearchView.swift */; };
@@ -87,9 +87,9 @@
 		CD42D68E23F751D40048ADC5 /* TabBarCellCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabBarCellCollectionViewCell.swift; path = "x5gon-mobile/ViewControllers/MainViews/TabBarViewCells/TabBarCellCollectionViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		CD43130E23F9FA3400B5C620 /* X5GONAPIAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = X5GONAPIAdapter.swift; sourceTree = "<group>"; };
 		CD43131023F9FBFC00B5C620 /* X5LearnAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = X5LearnAdapter.swift; sourceTree = "<group>"; };
-		CD48FAA123F80253004415E7 /* AccountHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountHeaderCell.swift; sourceTree = "<group>"; };
-		CD48FAA323F8026F004415E7 /* AccountMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountMenuCell.swift; sourceTree = "<group>"; };
-		CD48FAA523F8027E004415E7 /* AccountPlaylistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountPlaylistCell.swift; sourceTree = "<group>"; };
+		CD48FAA123F80253004415E7 /* UserHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHeaderCell.swift; sourceTree = "<group>"; };
+		CD48FAA323F8026F004415E7 /* UserMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMenuCell.swift; sourceTree = "<group>"; };
+		CD48FAA523F8027E004415E7 /* UserPlaylistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPlaylistCell.swift; sourceTree = "<group>"; };
 		CD7CBA3C23E96E1E003BF035 /* notesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notesCell.swift; sourceTree = "<group>"; };
 		CDA5D0A823F3736200AA6902 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		CDA5D0A923F3736200AA6902 /* APIAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIAdapter.swift; sourceTree = "<group>"; };
@@ -117,7 +117,7 @@
 		CDFD3C2D23CC7986000FCEF6 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		CDFD3C3023CC79F0000FCEF6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		CDFD3C3223CC7BEE000FCEF6 /* FeaturedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedViewController.swift; sourceTree = "<group>"; };
-		CDFD3C3823CC7C3F000FCEF6 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		CDFD3C3823CC7C3F000FCEF6 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		CDFD3C3B23CC7C75000FCEF6 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		CDFD3C3D23CC7C8E000FCEF6 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		CDFD3C3F23CC7C9F000FCEF6 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
@@ -176,8 +176,8 @@
 			isa = PBXGroup;
 			children = (
 				CDFD3C2D23CC7986000FCEF6 /* MainViewController.swift */,
-				CDFD3C3823CC7C3F000FCEF6 /* AccountViewController.swift */,
-				CD48FAA023F80242004415E7 /* AccountViewCells */,
+				CDFD3C3823CC7C3F000FCEF6 /* UserViewController.swift */,
+				CD48FAA023F80242004415E7 /* UserViewCells */,
 				CDFD3C3023CC79F0000FCEF6 /* HomeViewController.swift */,
 				CDE92D8E23E5D389004BB8BF /* HomeViewCells */,
 				CDFD3C3223CC7BEE000FCEF6 /* FeaturedViewController.swift */,
@@ -207,14 +207,14 @@
 			path = APIAdapters;
 			sourceTree = "<group>";
 		};
-		CD48FAA023F80242004415E7 /* AccountViewCells */ = {
+		CD48FAA023F80242004415E7 /* UserViewCells */ = {
 			isa = PBXGroup;
 			children = (
-				CD48FAA123F80253004415E7 /* AccountHeaderCell.swift */,
-				CD48FAA323F8026F004415E7 /* AccountMenuCell.swift */,
-				CD48FAA523F8027E004415E7 /* AccountPlaylistCell.swift */,
+				CD48FAA123F80253004415E7 /* UserHeaderCell.swift */,
+				CD48FAA323F8026F004415E7 /* UserMenuCell.swift */,
+				CD48FAA523F8027E004415E7 /* UserPlaylistCell.swift */,
 			);
-			path = AccountViewCells;
+			path = UserViewCells;
 			sourceTree = "<group>";
 		};
 		CD7CBA3E23E99BAF003BF035 /* TabBarViewCells */ = {
@@ -555,8 +555,8 @@
 				CDDB99D92405943300B79460 /* WikiEntity.swift in Sources */,
 				CDFD3C2F23CC7986000FCEF6 /* MainViewController.swift in Sources */,
 				CDE92D9223E5D3CE004BB8BF /* headerCell.swift in Sources */,
-				CDFD3C3923CC7C3F000FCEF6 /* AccountViewController.swift in Sources */,
-				CD48FAA223F80253004415E7 /* AccountHeaderCell.swift in Sources */,
+				CDFD3C3923CC7C3F000FCEF6 /* UserViewController.swift in Sources */,
+				CD48FAA223F80253004415E7 /* UserHeaderCell.swift in Sources */,
 				CDA5D0AB23F3736200AA6902 /* APIAdapter.swift in Sources */,
 				CDFD3C4823CC7D15000FCEF6 /* User.swift in Sources */,
 				CDFD3C2E23CC7986000FCEF6 /* NavViewController.swift in Sources */,
@@ -572,14 +572,14 @@
 				CDFD3BEC23CC784C000FCEF6 /* AppDelegate.swift in Sources */,
 				CDDB99D5240593E900B79460 /* Wiki.swift in Sources */,
 				CDDDD6D623F0B4E5003C1EE5 /* LoginView.swift in Sources */,
-				CD48FAA623F8027E004415E7 /* AccountPlaylistCell.swift in Sources */,
+				CD48FAA623F8027E004415E7 /* UserPlaylistCell.swift in Sources */,
 				CDFD3C3123CC79F0000FCEF6 /* HomeViewController.swift in Sources */,
 				CDFD3C3C23CC7C75000FCEF6 /* PlayerView.swift in Sources */,
 				CDFD3C4223CC7CBD000FCEF6 /* SettingsView.swift in Sources */,
 				CD43130F23F9FA3400B5C620 /* X5GONAPIAdapter.swift in Sources */,
 				CD7CBA3D23E96E1E003BF035 /* notesCell.swift in Sources */,
 				CD32CBE023FD855D009EA273 /* SubscriptionsCell.swift in Sources */,
-				CD48FAA423F8026F004415E7 /* AccountMenuCell.swift in Sources */,
+				CD48FAA423F8026F004415E7 /* UserMenuCell.swift in Sources */,
 				CDFD3C5123CC869F000FCEF6 /* SearchResultsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
