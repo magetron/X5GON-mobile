@@ -25,8 +25,6 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var player: UIView!
     @IBOutlet weak var navigationView: playerNavigationView!
-    @IBOutlet weak var bookmarkButton: UIButton!
-    
     var content: Content!
     var delegate: PlayerViewControllerDelegate?
     var state = stateOfViewController.hidden
@@ -45,7 +43,7 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         NSLayoutConstraint.init(item: self, attribute: .bottom, relatedBy: .equal, toItem: self.navigationView, attribute: .bottom, multiplier: 1.0, constant: 0).isActive = true
         self.navigationView.isHidden = true
         
-        self.bookmarkButton.addTarget(self, action: #selector(bookmarkCurrentContent(_:)), for: .touchUpInside)
+        //self.bookmarkButton.addTarget(self, action: #selector(bookmarkCurrentContent(_:)), for: .touchUpInside)
         
         self.backgroundColor = UIColor.clear
         self.tableView.delegate = self
@@ -72,7 +70,7 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         }
     }
     
-    @objc func bookmarkCurrentContent(_ sender: UIButton) {
+    @IBAction func bookmarkCurrentContnet(_ sender: UIButton) {
         if (MainController.user.bookmarkedContent.contains(self.content)) {
             return
         } else {
@@ -117,10 +115,10 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
     }
     
     @objc func newPlayerView(_ notification: Notification) {
-        setContent(content: notification.object as! Content)
         self.state = .fullScreen
         self.delegate?.didmaximize()
         self.animate()
+        setContent(content: notification.object as! Content)
     }
     
     func onLikeTap() {
@@ -225,6 +223,7 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
     }
     
     func setContent (content: Content) {
+        self.content = content
         if let video = content as? Video {
             setVideo(video: video)
         } else if let pdf = content as? PDF {
@@ -237,9 +236,9 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
             refresher(updateContent: {() -> Void in content.fetchWikiChunkEnrichments() }, viewReload: { () -> Void in self.navigationView.setWiki(wiki: content.wiki); self.navigationView.tableView.reloadData() })
         }
         if (MainController.user.bookmarkedContent.contains(content)) {
-            self.bookmarkButton.setImage(UIImage.init(systemName: "bookmark.fill"), for: .normal)
+            //self.bookmarkButton.setImage(UIImage.init(systemName: "bookmark.fill"), for: .normal)
         } else {
-            self.bookmarkButton.setImage(UIImage.init(systemName: "bookmark"), for: .normal)
+            //self.bookmarkButton.setImage(UIImage.init(systemName: "bookmark"), for: .normal)
         }
         self.tableView.reloadData()
     }

@@ -252,6 +252,9 @@
                                                 <state key="normal" title="Bookmark" image="bookmark" catalog="system">
                                                     <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="bookmarkCurrentContnet:" destination="5gL-Aw-hkc" eventType="touchUpInside" id="d6w-W2-OF5"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -403,7 +406,6 @@
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="sAW-0h-Tib"/>
                     <connections>
-                        <outlet property="bookmarkButton" destination="XjH-h1-fHE" id="wzJ-jA-ffQ"/>
                         <outlet property="navigationView" destination="gGU-Ai-btD" id="qjb-3l-DMj"/>
                         <outlet property="player" destination="smd-ED-5eC" id="fom-5B-WmU"/>
                         <outlet property="tableView" destination="hai-Uu-zYx" id="qat-db-Zn4"/>
