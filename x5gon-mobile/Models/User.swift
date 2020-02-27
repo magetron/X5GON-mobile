@@ -16,6 +16,7 @@ class User {
     let profilePic: UIImage
     let backgroundImage: UIImage
     var playlists = [Playlist]()
+    var bookmarkedContent = Set<Content>()
 
     init(name: String, profilePic: UIImage, backgroundImage: UIImage, playlists: [Playlist]) {
         self.profilePic = profilePic
@@ -36,6 +37,10 @@ class User {
             user.playlists.append(playlist)
         }
         return user
+    }
+    
+    func bookmark (content: Content) {
+        bookmarkedContent.insert(content)
     }
     
 }

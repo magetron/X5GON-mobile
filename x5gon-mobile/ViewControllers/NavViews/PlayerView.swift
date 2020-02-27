@@ -69,6 +69,14 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         }
     }
     
+    @IBAction func bookmarkCurrentContent(_ sender: UIButton) {
+        if (MainController.user.bookmarkedContent.contains(self.content)) {
+            return
+        } else {
+            MainController.user.bookmark(content: self.content)
+            sender.setImage(UIImage.init(named: "bookmark.fill"), for: .normal)
+        }
+    }
     
     func animate()  {
         switch self.state {
