@@ -25,6 +25,7 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var player: UIView!
     @IBOutlet weak var navigationView: playerNavigationView!
+    @IBOutlet weak var bookmarkButton: UIButton!
     
     var content: Content!
     var delegate: PlayerViewControllerDelegate?
@@ -43,6 +44,8 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         NSLayoutConstraint.init(item: self, attribute: .right, relatedBy: .equal, toItem: self.navigationView, attribute: .right, multiplier: 1.0, constant: 0).isActive = true
         NSLayoutConstraint.init(item: self, attribute: .bottom, relatedBy: .equal, toItem: self.navigationView, attribute: .bottom, multiplier: 1.0, constant: 0).isActive = true
         self.navigationView.isHidden = true
+        
+        self.bookmarkButton.addTarget(self, action: #selector(bookmarkCurrentContent(_:)), for: .touchUpInside)
         
         self.backgroundColor = UIColor.clear
         self.tableView.delegate = self
@@ -69,12 +72,12 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         }
     }
     
-    @IBAction func bookmarkCurrentContent(_ sender: UIButton) {
+    @objc func bookmarkCurrentContent(_ sender: UIButton) {
         if (MainController.user.bookmarkedContent.contains(self.content)) {
             return
         } else {
             MainController.user.bookmark(content: self.content)
-            sender.setImage(UIImage.init(named: "bookmark.fill"), for: .normal)
+            sender.setImage(UIImage.init(systemName: "bookmark.fill"), for: .normal)
         }
     }
     
@@ -114,12 +117,7 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
     }
     
     @objc func newPlayerView(_ notification: Notification) {
-        if let video = notification.object as? Video {
-            setVideo(video: video)
-            self.videoPlayerViewController.player?.play()
-        } else if let pdf = notification.object as? PDF {
-            setPDF(pdf: pdf)
-        }
+        setContent(content: notification.object as! Content)
         self.state = .fullScreen
         self.delegate?.didmaximize()
         self.animate()
@@ -226,47 +224,50 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         self.customisation()
     }
     
+    func setContent (content: Content) {
+        if let video = content as? Video {
+            setVideo(video: video)
+        } else if let pdf = content as? PDF {
+            setPDF(pdf: pdf)
+        }
+        if content.suggestedContents.count == 0 {
+            refresher(updateContent: { () -> Void in content.fetchSuggestedContents() }, viewReload: { () -> Void in self.tableView.reloadData()})
+        }
+        if content.wiki.chunks.count == 0 {
+            refresher(updateContent: {() -> Void in content.fetchWikiChunkEnrichments() }, viewReload: { () -> Void in self.navigationView.setWiki(wiki: content.wiki); self.navigationView.tableView.reloadData() })
+        }
+        if (MainController.user.bookmarkedContent.contains(content)) {
+            self.bookmarkButton.setImage(UIImage.init(systemName: "bookmark.fill"), for: .normal)
+        } else {
+            self.bookmarkButton.setImage(UIImage.init(systemName: "bookmark"), for: .normal)
+        }
+        self.tableView.reloadData()
+    }
+    
     func setVideo(video : Video) {
-        self.content = video
-        let selfVideo = self.content as! Video
         self.player.clearSubViews()
         if self.videoPlayerViewController.player == nil {
             self.videoPlayerViewController.player = AVPlayer()
         }
         self.player.addSubview(videoPlayerViewController.view)
-        self.videoPlayerViewController.player?.replaceCurrentItem(with: AVPlayerItem.init(url: selfVideo.contentLink))
-        if selfVideo.suggestedContents.count == 0 {
-            refresher(updateContent: { () -> Void in selfVideo.fetchSuggestedContents() }, viewReload: { () -> Void in self.tableView.reloadData()})
-        }
-        if selfVideo.wiki.chunks.count == 0 {
-            refresher(updateContent: {() -> Void in selfVideo.fetchWikiChunkEnrichments() }, viewReload: { () -> Void in self.navigationView.setWiki(wiki: selfVideo.wiki); self.navigationView.tableView.reloadData() })
-        }
+        self.videoPlayerViewController.player?.replaceCurrentItem(with: AVPlayerItem.init(url: video.contentLink))
         if self.state != .hidden {
             self.videoPlayerViewController.player?.play()
         }
-        self.tableView.reloadData()
     }
 
     
     func setPDF(pdf : PDF) {
-        self.content = pdf
-        let selfPDF = self.content as! PDF
         self.player.clearSubViews()
         self.player.addSubview(pdfView)
         let returnButton = UIButton.init(frame: CGRect(x: 10, y: 0, width: 60, height: 35))
         returnButton.backgroundColor = UIColor.clear
         returnButton.setTitleColor(UIColor.systemBlue, for: UIControl.State.normal)
-        returnButton.setTitle("< Back", for: UIControl.State.normal)
+        returnButton.setTitle("Back", for: UIControl.State.normal)
+        returnButton.setImage(UIImage.init(systemName: "arrowtriangle.left"), for: .normal)
         returnButton.addTarget(nil, action: #selector(returnFromPlayerView), for: UIControl.Event.touchUpInside)
         self.player.addSubview(returnButton)
-        pdfView.document = PDFDocument.init(url: selfPDF.contentLink)
-        if selfPDF.suggestedContents.count == 0 {
-            refresher(updateContent: { () -> Void in selfPDF.fetchSuggestedContents() }, viewReload: { () -> Void in self.tableView.reloadData()})
-        }
-        if selfPDF.wiki.chunks.count == 0 {
-            refresher(updateContent: {() -> Void in selfPDF.fetchWikiChunkEnrichments() }, viewReload: { () -> Void in self.navigationView.setWiki(wiki: selfPDF.wiki); self.navigationView.tableView.reloadData() })
-        }
-        self.tableView.reloadData()
+        pdfView.document = PDFDocument.init(url: pdf.contentLink)
     }
     
     deinit {
