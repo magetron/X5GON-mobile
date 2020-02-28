@@ -541,20 +541,19 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="uPJ-N8-JX4">
-                                    <size key="itemSize" width="415" height="776"/>
+                                    <size key="itemSize" width="415" height="775"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="kda-z4-TRp">
-                                        <rect key="frame" x="0.0" y="21" width="415" height="776"/>
+                                        <rect key="frame" x="0.0" y="21.666666666666668" width="415" height="775"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Yyj-Op-a8j">
-                                            <rect key="frame" x="0.0" y="0.0" width="415" height="776"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="415" height="775"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="415" height="776"/>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -646,7 +645,7 @@
                     </connections>
                 </view>
             </objects>
-            <point key="canvasLocation" x="547.82608695652175" y="153.34821428571428"/>
+            <point key="canvasLocation" x="549" y="154"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="IoZ-Md-WPO">

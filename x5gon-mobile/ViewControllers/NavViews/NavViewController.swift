@@ -118,6 +118,7 @@ class NavViewController: UINavigationController, PlayerViewControllerDelegate, S
     @objc func showSearch()  {
         self.searchView.alpha = 0
         self.searchView.isHidden = false
+        self.view.bringSubviewToFront(searchView)
         UIView.animate(withDuration: 0.2, animations: {
             self.searchView.alpha = 1
         }) { _ in
