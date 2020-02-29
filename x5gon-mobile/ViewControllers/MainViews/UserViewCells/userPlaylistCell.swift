@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class UserPlaylistCell: UITableViewCell {
+class userPlaylistCell: UITableViewCell {
     
     @IBOutlet weak var pic: UIImageView!
     @IBOutlet weak var title: UILabel!

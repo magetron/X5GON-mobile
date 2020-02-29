@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class UserHeaderCell: UITableViewCell {
+class userHeaderCell: UITableViewCell {
     
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var profilePic: UIImageView!

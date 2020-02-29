@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class UserMenuCell: UITableViewCell {
+class userMenuCell: UITableViewCell {
     
     @IBOutlet weak var menuIcon: UIImageView!
     @IBOutlet weak var menuTitles: UILabel!

@@ -20,11 +20,14 @@ class UserHistoryView : UIView, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return historyContent.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "UserHistoryViewCell") as! userHistoryViewCell
+        let content = historyContent[indexPath.row]
+        cell.set(thumbnail: content.thumbnail, title: content.title, channel: content.channel.name)
+        return cell
     }
     
     override func awakeFromNib() {
