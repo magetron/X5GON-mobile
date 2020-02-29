@@ -62,7 +62,6 @@ class MainController {
     
     static func addHistory (content: Content) {
         MainController.user.historyContent.append(content)
-        MainController.UserViewController?.historyView.tableView.reloadData()
     }
     
     /*

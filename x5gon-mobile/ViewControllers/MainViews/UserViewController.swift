@@ -16,7 +16,7 @@ class UserViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     let menuTitles = ["History", "My Videos", "Notifications", "Watch Later"]
     let defaultItems = 5
-    var user = User.init(name: "Loading", profilePic: UIImage(), backgroundImage: UIImage(), playlists: [Playlist]())
+    var user = MainController.user
     var lastContentOffset: CGFloat = 0.0
     
     //MARK: Methods
@@ -37,7 +37,6 @@ class UserViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.tableView.scrollIndicatorInsets = UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 300
-        self.user = User.generateDefaultUser()
         self.tableView.reloadData()
     }
     
@@ -72,6 +71,8 @@ class UserViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func showHistory () {
+        self.historyView.historyContent = user.historyContent
+        self.historyView.tableView.reloadData()
         self.historyView.isHidden = false
         self.view.bringSubviewToFront(historyView)
     }
