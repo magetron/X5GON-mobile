@@ -17,6 +17,11 @@ class UserHistoryView : UIView, UITableViewDelegate, UITableViewDataSource {
     func customisation () {
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.tableView.contentInset = UIEdgeInsets(top: 50, left: 0, bottom: 30, right: 0)
+        self.tableView.scrollIndicatorInsets = UIEdgeInsets(top: 50, left: 0, bottom: 30, right: 0)
+        self.tableView.rowHeight = UITableView.automaticDimension
+        self.tableView.estimatedRowHeight = 100
+        self.tableView.rowHeight = 100
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
