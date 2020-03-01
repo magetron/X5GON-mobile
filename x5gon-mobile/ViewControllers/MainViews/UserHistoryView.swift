@@ -25,7 +25,13 @@ class UserHistoryView : UIView, UITableViewDelegate, UITableViewDataSource {
     }
     
     @IBAction func hideHistoryView(_ sender: Any) {
-        self.isHidden = true
+        UIView.animate(withDuration: 0.3, animations: {
+            self.transform = CGAffineTransform(translationX: self.bounds.width, y: 0)
+            self.layoutIfNeeded()
+        }) { (isSusccessful) in
+            self.isHidden = true
+            self.transform = .identity
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

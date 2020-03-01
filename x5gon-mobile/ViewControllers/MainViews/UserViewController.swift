@@ -74,7 +74,10 @@ class UserViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.historyView.historyContent = user.historyContent
         self.historyView.tableView.reloadData()
         self.historyView.isHidden = false
-        self.view.bringSubviewToFront(historyView)
+        self.historyView.center.x += self.historyView.bounds.width;
+        UIView.animate(withDuration: 0.3) {
+            self.historyView.center.x -= self.historyView.bounds.width
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
