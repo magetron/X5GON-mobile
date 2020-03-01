@@ -48,13 +48,14 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         for vc in viewControllers {
             self.addChild(vc!)
             vc!.didMove(toParent: self)
-            vc!.view.frame = CGRect.init(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height)
+            vc!.view.frame = CGRect.init(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height - 100)
             self.views.append(vc!.view)
         }
         self.collectionView.reloadData()
         
         //NotificationCenter setup
         NotificationCenter.default.addObserver(self, selector: #selector(self.scrollViews(notification:)), name: Notification.Name.init(rawValue: "didSelectMenu"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.hideBar(notification:)), name: NSNotification.Name("hide"), object: nil)
     }
     
     @objc func scrollViews(notification: Notification) {
@@ -64,6 +65,10 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         }
     }
     
+    @objc func hideBar(notification: NSNotification)  {
+        let state = notification.object as! Bool
+        self.navigationController?.setNavigationBarHidden(state, animated: true)
+    }
     
     //MARK: Delegates
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
