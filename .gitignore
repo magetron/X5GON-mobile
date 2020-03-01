@@ -3,5 +3,6 @@
 
 *.swp
 Pods
+build/
 Podfile.lock
 
