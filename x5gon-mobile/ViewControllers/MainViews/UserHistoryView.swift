@@ -17,11 +17,15 @@ class UserHistoryView : UIView, UITableViewDelegate, UITableViewDataSource {
     func customisation () {
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        self.tableView.contentInset = UIEdgeInsets(top: 50, left: 0, bottom: 30, right: 0)
-        self.tableView.scrollIndicatorInsets = UIEdgeInsets(top: 50, left: 0, bottom: 30, right: 0)
+        self.tableView.contentInset = UIEdgeInsets(top: 80, left: 0, bottom: 30, right: 0)
+        self.tableView.scrollIndicatorInsets = UIEdgeInsets(top: 80, left: 0, bottom: 30, right: 0)
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 100
         self.tableView.rowHeight = 100
+    }
+    
+    @IBAction func hideHistoryView(_ sender: Any) {
+        self.isHidden = true
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -33,6 +37,10 @@ class UserHistoryView : UIView, UITableViewDelegate, UITableViewDataSource {
         let content = historyContent[indexPath.row]
         cell.set(thumbnail: content.thumbnail, title: content.title, channel: content.channel.name)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        NotificationCenter.default.post(name: NSNotification.Name("open"), object: historyContent[indexPath.row])
     }
     
     override func awakeFromNib() {

@@ -1231,19 +1231,26 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q6u-hg-CDe">
-                                                <rect key="frame" x="128" y="11" width="271" height="25"/>
+                                                <rect key="frame" x="128" y="18" width="271" height="35"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="t3h-jk-LnM">
-                                                <rect key="frame" x="128" y="38" width="271" height="51"/>
+                                                <rect key="frame" x="128" y="45" width="271" height="37"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yIx-Sq-mmk">
+                                                <rect key="frame" x="0.0" y="98" width="414" height="1"/>
+                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1" id="LnW-7a-DXh"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                     </tableViewCellContentView>
                                     <connections>
@@ -1258,8 +1265,25 @@
                                 <outlet property="delegate" destination="aDq-q3-D8c" id="gJ6-N6-H44"/>
                             </connections>
                         </tableView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zzg-pO-3gX">
+                            <rect key="frame" x="8" y="0.0" width="60" height="26"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="60" id="6tb-cc-rdz"/>
+                            </constraints>
+                            <state key="normal" title="Back" image="arrowtriangle.left.fill" catalog="system">
+                                <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="hideHistoryView:" destination="Em0-hH-BkN" eventType="touchUpInside" id="GKU-Pq-9ji"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstItem="zzg-pO-3gX" firstAttribute="leading" secondItem="Em0-hH-BkN" secondAttribute="leadingMargin" constant="-12" id="9hj-8m-ieq"/>
+                        <constraint firstItem="zzg-pO-3gX" firstAttribute="top" secondItem="Em0-hH-BkN" secondAttribute="top" id="fZs-Ca-Pzw"/>
+                        <constraint firstItem="qC3-FG-hyy" firstAttribute="bottom" secondItem="zzg-pO-3gX" secondAttribute="bottom" constant="650" id="mPF-rv-Feg"/>
+                    </constraints>
                     <viewLayoutGuide key="safeArea" id="qC3-FG-hyy"/>
                     <connections>
                         <outlet property="tableView" destination="awJ-qi-lz3" id="Bd1-7u-Vyq"/>
@@ -1270,6 +1294,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrowtriangle.left.fill" catalog="system" width="64" height="56"/>
         <image name="bookmark" catalog="system" width="56" height="64"/>
         <image name="cancel" width="48" height="48"/>
         <image name="emptyTumbnail" width="375" height="211"/>
