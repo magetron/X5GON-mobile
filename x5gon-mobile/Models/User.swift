@@ -17,6 +17,7 @@ class User {
     let backgroundImage: UIImage
     var playlists = [Playlist]()
     var bookmarkedContent = Set<Content>()
+    var historyContent = [Content]()
 
     init(name: String, profilePic: UIImage, backgroundImage: UIImage, playlists: [Playlist]) {
         self.profilePic = profilePic
