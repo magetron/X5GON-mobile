@@ -9,7 +9,15 @@
 import Foundation
 import UIKit
 
-class Content {
+class Content: Hashable {
+    
+    static func == (lhs: Content, rhs: Content) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
     
     //MARK: Properties
     var thumbnail: UIImage

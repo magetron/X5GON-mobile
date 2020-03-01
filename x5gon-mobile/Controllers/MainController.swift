@@ -15,7 +15,7 @@ class MainController {
     static var navViewController:NavViewController?
     static var searchResultsViewController:SearchResultsViewController?
     static var featuredViewController:FeaturedViewController?
-    static var accountViewController:AccountViewController?
+    static var UserViewController:UserViewController?
  
     static var user = User.generateDefaultUser()
     
@@ -50,7 +50,7 @@ class MainController {
         logout()
         let csrfToken = API.fetchCSRFToken()
         API.authenticationToken = API.fetchLoginTokenWith(username: username, password: password, csrfToken: csrfToken)
-        refresher(updateContent: {() -> Void in MainController.accountViewController?.setUser(user: API.fetchUser())}, viewReload: {() -> Void in MainController.accountViewController?.tableView.reloadData()
+        refresher(updateContent: {() -> Void in MainController.UserViewController?.setUser(user: API.fetchUser())}, viewReload: {() -> Void in MainController.UserViewController?.tableView.reloadData()
         })
         return API.authenticationToken != ""
     }
@@ -58,6 +58,10 @@ class MainController {
     static func logout () {
         API.authenticationToken = ""
         API.logout()
+    }
+    
+    static func addHistory (content: Content) {
+        MainController.user.historyContent.append(content)
     }
     
     /*
