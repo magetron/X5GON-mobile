@@ -13,8 +13,6 @@
 		CD0175332403103A0081A9AC /* playerNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0175322403103A0081A9AC /* playerNavigationView.swift */; };
 		CD2D76F823F35D030031E3F1 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2D76F723F35D030031E3F1 /* Playlist.swift */; };
 		CD318CAB23E78AFA0091017B /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD318CAA23E78AFA0091017B /* Environment.swift */; };
-		CD32CBDE23FD84F6009EA273 /* SubscriptionsChannelViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD32CBDD23FD84F6009EA273 /* SubscriptionsChannelViewCell.swift */; };
-		CD32CBE023FD855D009EA273 /* SubscriptionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD32CBDF23FD855D009EA273 /* SubscriptionsCell.swift */; };
 		CD42D68F23F751D40048ADC5 /* TabBarCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD42D68E23F751D40048ADC5 /* TabBarCellCollectionViewCell.swift */; };
 		CD43130F23F9FA3400B5C620 /* X5GONAPIAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD43130E23F9FA3400B5C620 /* X5GONAPIAdapter.swift */; };
 		CD43131123F9FBFC00B5C620 /* X5LearnAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD43131023F9FBFC00B5C620 /* X5LearnAdapter.swift */; };
@@ -26,6 +24,8 @@
 		CDA5D0AA23F3736200AA6902 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA5D0A823F3736200AA6902 /* API.swift */; };
 		CDA5D0AB23F3736200AA6902 /* APIAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA5D0A923F3736200AA6902 /* APIAdapter.swift */; };
 		CDC6643323F45536009A08FF /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC6643223F45536009A08FF /* MainController.swift */; };
+		CDCC851B240C8B1B001DB380 /* SubscriptionsChannelViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCC8519240C8B1B001DB380 /* SubscriptionsChannelViewCell.swift */; };
+		CDCC851C240C8B1B001DB380 /* SubscriptionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCC851A240C8B1B001DB380 /* SubscriptionsCell.swift */; };
 		CDDB99D5240593E900B79460 /* Wiki.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDB99D4240593E900B79460 /* Wiki.swift */; };
 		CDDB99D72405941A00B79460 /* WikiChunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDB99D62405941A00B79460 /* WikiChunk.swift */; };
 		CDDB99D92405943300B79460 /* WikiEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDB99D82405943300B79460 /* WikiEntity.swift */; };
@@ -83,8 +83,6 @@
 		CD0175322403103A0081A9AC /* playerNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = playerNavigationView.swift; sourceTree = "<group>"; };
 		CD2D76F723F35D030031E3F1 /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
 		CD318CAA23E78AFA0091017B /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
-		CD32CBDD23FD84F6009EA273 /* SubscriptionsChannelViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionsChannelViewCell.swift; sourceTree = "<group>"; };
-		CD32CBDF23FD855D009EA273 /* SubscriptionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionsCell.swift; sourceTree = "<group>"; };
 		CD35243324006EB70041034E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD42D68E23F751D40048ADC5 /* TabBarCellCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabBarCellCollectionViewCell.swift; path = "x5gon-mobile/ViewControllers/MainViews/TabBarViewCells/TabBarCellCollectionViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		CD43130E23F9FA3400B5C620 /* X5GONAPIAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = X5GONAPIAdapter.swift; sourceTree = "<group>"; };
@@ -97,6 +95,8 @@
 		CDA5D0A823F3736200AA6902 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		CDA5D0A923F3736200AA6902 /* APIAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIAdapter.swift; sourceTree = "<group>"; };
 		CDC6643223F45536009A08FF /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
+		CDCC8519240C8B1B001DB380 /* SubscriptionsChannelViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionsChannelViewCell.swift; sourceTree = "<group>"; };
+		CDCC851A240C8B1B001DB380 /* SubscriptionsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionsCell.swift; sourceTree = "<group>"; };
 		CDDB99D4240593E900B79460 /* Wiki.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wiki.swift; sourceTree = "<group>"; };
 		CDDB99D62405941A00B79460 /* WikiChunk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiChunk.swift; sourceTree = "<group>"; };
 		CDDB99D82405943300B79460 /* WikiEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiEntity.swift; sourceTree = "<group>"; };
@@ -188,8 +188,6 @@
 				CDFD6CFA2409D353005C4D8F /* MainViewCells */,
 				CDFD3C3223CC7BEE000FCEF6 /* FeaturedViewController.swift */,
 				CDFD3C5023CC869F000FCEF6 /* SearchResultsViewController.swift */,
-				CD32CBDD23FD84F6009EA273 /* SubscriptionsChannelViewCell.swift */,
-				CD32CBDF23FD855D009EA273 /* SubscriptionsCell.swift */,
 				CDFD3C3D23CC7C8E000FCEF6 /* TabBarView.swift */,
 				CD7CBA3E23E99BAF003BF035 /* TabBarViewCells */,
 			);
@@ -378,6 +376,8 @@
 		CDFD6CFA2409D353005C4D8F /* MainViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				CDCC851A240C8B1B001DB380 /* SubscriptionsCell.swift */,
+				CDCC8519240C8B1B001DB380 /* SubscriptionsChannelViewCell.swift */,
 			);
 			path = MainViewCells;
 			sourceTree = "<group>";
@@ -555,7 +555,6 @@
 				CD318CAB23E78AFA0091017B /* Environment.swift in Sources */,
 				CDFD3C3E23CC7C8E000FCEF6 /* TabBarView.swift in Sources */,
 				CDA5D0AA23F3736200AA6902 /* API.swift in Sources */,
-				CD32CBDE23FD84F6009EA273 /* SubscriptionsChannelViewCell.swift in Sources */,
 				CDC6643323F45536009A08FF /* MainController.swift in Sources */,
 				CDFD3C4A23CC7D64000FCEF6 /* Video.swift in Sources */,
 				CDDB99D72405941A00B79460 /* WikiChunk.swift in Sources */,
@@ -578,6 +577,7 @@
 				CD43131123F9FBFC00B5C620 /* X5LearnAdapter.swift in Sources */,
 				CDE92D9023E5D396004BB8BF /* ContentCell.swift in Sources */,
 				CDFD3BEC23CC784C000FCEF6 /* AppDelegate.swift in Sources */,
+				CDCC851B240C8B1B001DB380 /* SubscriptionsChannelViewCell.swift in Sources */,
 				CDDB99D5240593E900B79460 /* Wiki.swift in Sources */,
 				CDDDD6D623F0B4E5003C1EE5 /* LoginView.swift in Sources */,
 				CD48FAA623F8027E004415E7 /* userPlaylistCell.swift in Sources */,
@@ -585,8 +585,8 @@
 				CDFD3C3C23CC7C75000FCEF6 /* PlayerView.swift in Sources */,
 				CDFD3C4223CC7CBD000FCEF6 /* SettingsView.swift in Sources */,
 				CD43130F23F9FA3400B5C620 /* X5GONAPIAdapter.swift in Sources */,
+				CDCC851C240C8B1B001DB380 /* SubscriptionsCell.swift in Sources */,
 				CD7CBA3D23E96E1E003BF035 /* notesCell.swift in Sources */,
-				CD32CBE023FD855D009EA273 /* SubscriptionsCell.swift in Sources */,
 				CD48FAA423F8026F004415E7 /* userMenuCell.swift in Sources */,
 				CDFD3C5123CC869F000FCEF6 /* SearchResultsViewController.swift in Sources */,
 			);
