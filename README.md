@@ -27,9 +27,9 @@ Click `Build then Run the current scheme` to run.
 
 `$ cd x5gon-mobile`
 
-`$ xcodebuild -workspace x5gon-mobile.xcworkspace -scheme x5gon-mobile build`
+`$ xcodebuild -workspace x5gon-mobile.xcworkspace -scheme x5gon-mobile OBJROOT=$(PWD)/build SYMROOT=$(PWD)/build Release -sdk iphonesimulator`
 
-`$ ios-sim launch --devicetypeid "iPhone-11-Pro-Max" "build/Release-iphonesimulator/x5gon-mobile.app"`
+`$ ios-sim launch --devicetypeid "iPhone-11-Pro-Max" build/Debug-iphonesimulator/x5gon-mobile.app`
 
 **Note**: It is possible to run iOS application with temporary signature on iPhone using CLI. However, given the complexity of steps, we do not recommend this deployment method at this stage.
 
