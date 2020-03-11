@@ -1,0 +1,6 @@
+language: swift
+osx_image: xcode11.3
+xcode_project: x5gon-mobile.xcodeproj
+xcode_scheme: x5gon-mobile
+xcode_destination: platform=iOS Simulator,OS=13.2,name=iPhone 11 Pro Max
+podfile: Podfile
