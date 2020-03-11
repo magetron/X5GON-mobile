@@ -1,6 +1,9 @@
 language: swift
 osx_image: xcode11.3
-xcode_project: x5gon-mobile.xcodeproj
-xcode_scheme: x5gon-mobile
-xcode_destination: platform=iOS Simulator,OS=13.3,name=iPhone 11 Pro Max
 podfile: Podfile
+
+install:
+    - pod install
+script:
+    - xcodebuild -workspace x5gon-mobile.xcworkspace -scheme x5gon-mobile -sdk iphonesimulator
+
