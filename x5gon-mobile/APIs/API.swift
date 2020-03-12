@@ -18,6 +18,17 @@ class API {
         request.addValue(authenticationToken, forHTTPHeaderField: "Authentication-Token")
     }
     
+    /**
+     Call this function for fetching urls which are returned from X5GON api into a list of our defined type of `Content`
+     
+     ### Usage Example: ###
+     ````
+     Api().fetchContents(urlString)
+     
+     ````
+     - Parameter urlString: The urls that can be used to locate the content online
+     */
+    
     private static func fetchContents (urlString: String) -> [Content] {
         var tmpItems = [Content]()
         let contentURL = URL(string:urlString .addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!
@@ -69,6 +80,17 @@ class API {
         return fetchContents(urlString: newAdapter.generateContentQueryURL(keyWord: keyWord, contentType: contentType))
     }
     
+    /**
+     Call this function for fetching urls which are returned from X5GON api into a list of our defined type of `Content`
+     
+     ### Usage Example: ###
+     ````
+     Api().fetchFeaturedContents () -> [Content]
+     
+     ````
+     - Parameter
+     */
+    
     static func fetchFeaturedContents () -> [Content] {
         return fetchContents(urlString: newAdapter.generateFeaturedContentURL())
     }
@@ -99,6 +121,8 @@ class API {
         }
         return csrfToken 
     }
+    
+    
     
     static func logout () {
         let semaphore = DispatchSemaphore(value: 0)
