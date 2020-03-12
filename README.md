@@ -27,7 +27,7 @@ Click `Build then Run the current scheme` to run.
 
 `$ cd x5gon-mobile`
 
-`$ xcodebuild -workspace x5gon-mobile.xcworkspace -scheme x5gon-mobile OBJROOT=$(PWD)/build SYMROOT=$(PWD)/build Release -sdk iphonesimulator`
+`$ xcodebuild -workspace x5gon-mobile.xcworkspace -scheme x5gon-mobile OBJROOT=$(PWD)/build SYMROOT=$(PWD)/build -sdk iphonesimulator`
 
 `$ ios-sim launch --devicetypeid "iPhone-11-Pro-Max" build/Debug-iphonesimulator/x5gon-mobile.app`
 
