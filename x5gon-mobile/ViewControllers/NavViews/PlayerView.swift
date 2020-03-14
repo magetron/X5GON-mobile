@@ -199,6 +199,27 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         pdfView.document = PDFDocument.init(url: pdf.contentLink)
     }
     
+    func setContent (content: Content) {
+        self.content = content
+        if let video = content as? Video {
+            setVideo(video: video)
+        } else if let pdf = content as? PDF {
+            setPDF(pdf: pdf)
+        }
+        if content.suggestedContents.count == 0 {
+            refresher(updateContent: { () -> Void in content.fetchSuggestedContents() }, viewReload: { () -> Void in self.tableView.reloadData()})
+        }
+        if content.wiki.chunks.count == 0 {
+            refresher(updateContent: {() -> Void in content.fetchWikiChunkEnrichments() }, viewReload: { () -> Void in self.navigationView.setWiki(wiki: content.wiki); self.navigationView.tableView.reloadData() })
+        }
+        if (MainController.user.bookmarkedContent.contains(content)) {
+            //self.bookmarkButton.setImage(UIImage.init(systemName: "bookmark.fill"), for: .normal)
+        } else {
+            //self.bookmarkButton.setImage(UIImage.init(systemName: "bookmark"), for: .normal)
+        }
+        self.tableView.reloadData()
+    }
+    
     //MARK: - Delegate
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let count = self.content?.suggestedContents.count {
@@ -248,27 +269,6 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
     override func awakeFromNib() {
         super.awakeFromNib()
         self.customisation()
-    }
-    
-    func setContent (content: Content) {
-        self.content = content
-        if let video = content as? Video {
-            setVideo(video: video)
-        } else if let pdf = content as? PDF {
-            setPDF(pdf: pdf)
-        }
-        if content.suggestedContents.count == 0 {
-            refresher(updateContent: { () -> Void in content.fetchSuggestedContents() }, viewReload: { () -> Void in self.tableView.reloadData()})
-        }
-        if content.wiki.chunks.count == 0 {
-            refresher(updateContent: {() -> Void in content.fetchWikiChunkEnrichments() }, viewReload: { () -> Void in self.navigationView.setWiki(wiki: content.wiki); self.navigationView.tableView.reloadData() })
-        }
-        if (MainController.user.bookmarkedContent.contains(content)) {
-            //self.bookmarkButton.setImage(UIImage.init(systemName: "bookmark.fill"), for: .normal)
-        } else {
-            //self.bookmarkButton.setImage(UIImage.init(systemName: "bookmark"), for: .normal)
-        }
-        self.tableView.reloadData()
     }
     
 

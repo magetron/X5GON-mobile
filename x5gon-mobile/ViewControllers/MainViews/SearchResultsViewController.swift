@@ -29,7 +29,7 @@ class SearchResultsViewController: UIViewController, UITableViewDelegate, UITabl
     
     //MARK: - Delegates
     /**
-     Tells the data source to return the number of rows in a given section of a table view.
+     Tells list of `Content`s to return the number of rows in a given section of a table view.
      
      - Parameters:
         - tableView: The table-view object requesting this information.
@@ -43,7 +43,7 @@ class SearchResultsViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     /**
-     Asks the list of `Centent` for a cell to insert in a particular location of the table view.
+     Asks the list of `Centent`s for a cell to insert in a particular location of the table view.
      
      - Parameters:
         - tableView: A table-view object requesting the cell.

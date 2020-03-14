@@ -12,11 +12,16 @@ import Foundation
 
 class LoginView: UIView {
     //MARK: - Properties
+    ///This is a `UITextField` which is used to input username
     @IBOutlet weak var usernameTextField: UITextField!
+    //This is a `UITextField` which is used to input password
     @IBOutlet weak var passwordTextField: UITextField!
+    ///This is a `UIButton` which is used to press for logiin
     @IBOutlet weak var loginButton: UIButton!
     
     //MARK: - Methods
+    
+    ///Customise the LoginView
     func customisation () {
         self.passwordTextField.isSecureTextEntry = true
         self.isUserInteractionEnabled = true
@@ -50,6 +55,7 @@ class LoginView: UIView {
     }
     
     //MARK: - View Lifecycle
+    /// Prepares the receiver for service after it has been loaded from an Interface Builder archive, or nib file. Load `customisation` function
     override func awakeFromNib () {
         super.awakeFromNib()
         self.customisation()

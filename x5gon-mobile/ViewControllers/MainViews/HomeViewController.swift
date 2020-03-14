@@ -35,7 +35,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     //MARK: - Delegates
     /**
-     Tells the data source to return the number of rows in a given section of a table view.
+     Tells the list of `Content`s to return the number of rows in a given section of a table view.
      
      - Parameters:
         - tableView: The table-view object requesting this information.

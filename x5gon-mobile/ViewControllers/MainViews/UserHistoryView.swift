@@ -48,7 +48,7 @@ class UserHistoryView : UIView, UITableViewDelegate, UITableViewDataSource {
     //MARK:- Delegate
     
     /**
-     Tells the data source to return the number of rows in a given section of a table view.
+     Tells the list of history `Content`s to return the number of rows in a given section of a table view.
      
      - Parameters:
         - tableView: The table-view object requesting this information.
@@ -62,7 +62,7 @@ class UserHistoryView : UIView, UITableViewDelegate, UITableViewDataSource {
     }
     
     /**
-     Asks the list of `Centent` for a cell to insert in a particular location of the table view.
+     Asks the list of `Centent`s for a cell to insert in a particular location of the table view.
      
      - Parameters:
         - tableView: A table-view object requesting the cell.

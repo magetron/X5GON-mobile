@@ -28,7 +28,7 @@ class SearchView: UIView, UITextFieldDelegate {
             self.isHidden = true
         }
     }
-    
+    // MARK: - Delegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         let text = textField.text ?? ""
         refresher(updateContent: {() -> Void in

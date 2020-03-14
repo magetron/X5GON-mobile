@@ -44,7 +44,7 @@ class TabBarView: UIView, UICollectionViewDelegateFlowLayout, UICollectionViewDa
     //MARK: - Delegates
     
     /**
-     Asks collectionView for the number of items in the specified section.
+     Asks `tabBarImages` for the number of items in the specified section.
      
      - Parameters:
         - collectionView: The collection view requesting this information.
@@ -58,7 +58,7 @@ class TabBarView: UIView, UICollectionViewDelegateFlowLayout, UICollectionViewDa
     }
     
     /**
-     Asks collectionView for the cell that corresponds to the specified item in the collection view.
+     Asks `tabBarImages` for the cell that corresponds to the specified item in the collection view.
      
      - Parameters:
         - collectionView: The collection view requesting this information.
@@ -109,7 +109,7 @@ class TabBarView: UIView, UICollectionViewDelegateFlowLayout, UICollectionViewDa
     
     //MARK: - View LifeCycle
     /**
-     Called after the controller's view is loaded into memory. Load  `customisation`
+     Called after the controller's view is loaded into memory. Load  `customisation` Method
      */
     override func awakeFromNib() {
         super.awakeFromNib()
