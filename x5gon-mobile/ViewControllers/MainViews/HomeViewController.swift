@@ -15,7 +15,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var tableView: UITableView!
     /// This is a variable to store list of `Contents`
     var contents = [Content]()
-    /// The offset of the last Content used to determine the scroll action
+    /// This is the offset of the last Content used to determine the scroll action
     var lastContentOffset: CGFloat = 0.0
     
     //MARK: - Methods

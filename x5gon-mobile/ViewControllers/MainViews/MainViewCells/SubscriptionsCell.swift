@@ -14,7 +14,7 @@ class SubscriptionsCell: UITableViewCell, UICollectionViewDataSource, UICollecti
     //MARK: - Properties
     ///This is a `collectionView` which is used to display the Subscrption View
     @IBOutlet weak var collectionView: UICollectionView!
-    //This variable is used to store a list of self-defined type `Channel`
+    ///This variable is used to store a list of self-defined type `Channel`
     var channels = [Channel]()
     
     //MARK: - Methods
