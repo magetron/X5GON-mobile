@@ -10,11 +10,14 @@ import Foundation
 import UIKit
 
 class userPlaylistCell: UITableViewCell {
-    
+    //UIImageView in storyboard
     @IBOutlet weak var pic: UIImageView!
+    //UILabel in storyboard
     @IBOutlet weak var title: UILabel!
+    //UILabel in storybaord
     @IBOutlet weak var numberOfVideos: UILabel!
     
+    //MARK: Lifecycle
     override func awakeFromNib() {
         self.pic.layer.cornerRadius = 5
         self.pic.clipsToBounds = true
