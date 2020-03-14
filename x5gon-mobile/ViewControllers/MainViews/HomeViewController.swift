@@ -15,7 +15,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     var contents = [Content]()
     var lastContentOffset: CGFloat = 0.0
     
-    //MARK: Methods
+    //MARK: - Methods
     func customisation() {
         self.tableView.contentInset = UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
         self.tableView.scrollIndicatorInsets = UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
@@ -26,7 +26,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     
-    //MARK: Delegates
+    //MARK: - Delegates
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.contents.count
     }
@@ -53,7 +53,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.lastContentOffset = scrollView.contentOffset.y;
     }
     
-    //MARK: -  ViewController Lifecylce
+    //MARK: - ViewController Lifecylce
     override func viewDidLoad() {
         super.viewDidLoad()
         self.customisation()

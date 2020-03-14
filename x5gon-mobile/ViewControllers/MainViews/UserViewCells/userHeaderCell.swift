@@ -10,14 +10,15 @@ import Foundation
 import UIKit
 
 class userHeaderCell: UITableViewCell {
-    // UILabel in storyboard
+    //MARK: -  Properties
+    /// UILabel in storyboard
     @IBOutlet weak var name: UILabel!
-    //UIImageView in storyboard
+    ///UIImageView in storyboard
     @IBOutlet weak var profilePic: UIImageView!
-    //UIImageView in storyboard
+    ///UIImageView in storyboard
     @IBOutlet weak var backgroundImage: UIImageView!
     
-    //MARK: LifeCycle
+    //MARK: - View LifeCycle
     
     ///Prepares the receiver for service after it has been loaded from an Interface Builder archive, or nib file.
     override func awakeFromNib() {

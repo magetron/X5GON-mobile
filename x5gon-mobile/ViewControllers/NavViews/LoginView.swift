@@ -11,10 +11,12 @@ import Foundation
 
 
 class LoginView: UIView {
+    //MARK: - Properties
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
-
+    
+    //MARK: - Methods
     func customisation () {
         self.passwordTextField.isSecureTextEntry = true
         self.isUserInteractionEnabled = true
@@ -47,6 +49,7 @@ class LoginView: UIView {
         }
     }
     
+    //MARK: - View Lifecycle
     override func awakeFromNib () {
         super.awakeFromNib()
         self.customisation()

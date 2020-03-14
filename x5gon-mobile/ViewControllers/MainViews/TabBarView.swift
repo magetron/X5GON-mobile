@@ -10,14 +10,14 @@ import UIKit
 
 class TabBarView: UIView, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate {
     
-    //MARK: Properties
+    //MARK: - Properties
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var whiteBar: UIView!
     @IBOutlet weak var whiteBarLeadingConstraint: NSLayoutConstraint!
     private let tabBarImages = ["home", "trending", "subscriptions", "User"]
     var selectedIndex = 0
     
-    //MARK: Methods
+    //MARK: - Methods
     func customisation() {
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
@@ -36,7 +36,7 @@ class TabBarView: UIView, UICollectionViewDelegateFlowLayout, UICollectionViewDa
         }
     }
     
-    //MARK: Delegates
+    //MARK: - Delegates
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.tabBarImages.count
     }
@@ -62,7 +62,7 @@ class TabBarView: UIView, UICollectionViewDelegateFlowLayout, UICollectionViewDa
         }
     }
     
-    //MARK: View LifeCycle
+    //MARK: - View LifeCycle
     override func awakeFromNib() {
         super.awakeFromNib()
         self.customisation()

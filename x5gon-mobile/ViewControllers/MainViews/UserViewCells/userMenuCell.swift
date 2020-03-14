@@ -10,9 +10,9 @@ import Foundation
 import UIKit
 
 class userMenuCell: UITableViewCell {
-    //UIImageView in storyboard
+    ///UIImageView in storyboard
     @IBOutlet weak var menuIcon: UIImageView!
-    //UILabel in storyboard
+    ///UILabel in storyboard
     @IBOutlet weak var menuTitles: UILabel!
     
 }

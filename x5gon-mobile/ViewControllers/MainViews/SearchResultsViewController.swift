@@ -15,7 +15,7 @@ class SearchResultsViewController: UIViewController, UITableViewDelegate, UITabl
     var contents = [Content]()
     var lastContentOffset: CGFloat = 0.0
     
-    //MARK: Methods
+    //MARK: - Methods
     func customisation() {
         self.tableView.contentInset = UIEdgeInsets(top: 50, left: 0, bottom: 30, right: 0)
         self.tableView.scrollIndicatorInsets = UIEdgeInsets(top: 50, left: 0, bottom: 30, right: 0)
@@ -23,7 +23,7 @@ class SearchResultsViewController: UIViewController, UITableViewDelegate, UITabl
         self.tableView.estimatedRowHeight = 300
     }
     
-    //MARK: Delegates
+    //MARK: - Delegates
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.contents.count
     }
@@ -38,7 +38,7 @@ class SearchResultsViewController: UIViewController, UITableViewDelegate, UITabl
         NotificationCenter.default.post(name: NSNotification.Name("open"), object: contents[indexPath.row])
     }
     
-    //MARK: -  ViewController Lifecylce
+    //MARK: -  ViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.customisation()

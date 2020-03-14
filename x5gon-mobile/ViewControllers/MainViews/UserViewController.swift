@@ -10,7 +10,7 @@ import UIKit
 
 class UserViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    //MARK: - Properties
+    //MARK: Properties
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet var historyView: UserHistoryView!
     
@@ -38,6 +38,20 @@ class UserViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 300
         self.tableView.reloadData()
+    }
+    
+    func showHistory () {
+        self.historyView.historyContent = user.historyContent
+        self.historyView.tableView.reloadData()
+        self.historyView.isHidden = false
+        self.historyView.center.x += self.historyView.bounds.width;
+        UIView.animate(withDuration: 0.3) {
+            self.historyView.center.x -= self.historyView.bounds.width
+        }
+    }
+    
+    func setUser (user: User) {
+        self.user = user
     }
     
     // MARK: Delegates
@@ -70,28 +84,17 @@ class UserViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
-    func showHistory () {
-        self.historyView.historyContent = user.historyContent
-        self.historyView.tableView.reloadData()
-        self.historyView.isHidden = false
-        self.historyView.center.x += self.historyView.bounds.width;
-        UIView.animate(withDuration: 0.3) {
-            self.historyView.center.x -= self.historyView.bounds.width
-        }
-    }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if (menuTitles[indexPath.row - 1] == "History") {
             showHistory()
         }
     }
 
-    func setUser (user: User) {
-        self.user = user
-    }
+
     
     
-    //MARK: -  ViewController Lifecylce
+    //MARK: ViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.customisation()

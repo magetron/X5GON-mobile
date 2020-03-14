@@ -11,10 +11,11 @@ import UIKit
 
 // Custom Classes
 class SubscriptionsCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout  {
-    
+    //MARK: - Properties
     @IBOutlet weak var collectionView: UICollectionView!
     var channels = [Channel]()
     
+    //MARK: - Methods
     func customisation() {
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
@@ -23,6 +24,7 @@ class SubscriptionsCell: UITableViewCell, UICollectionViewDataSource, UICollecti
         self.collectionView.reloadData()
     }
     
+    //MARK: - Delegates
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.channels.count
     }
@@ -37,6 +39,7 @@ class SubscriptionsCell: UITableViewCell, UICollectionViewDataSource, UICollecti
         return CGSize.init(width: 50, height: 50)
     }
     
+    //MARK: - View Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
         self.customisation()

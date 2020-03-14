@@ -10,13 +10,15 @@ import Foundation
 import UIKit
 
 class ContentCell: UITableViewCell {
-    
+    //MARK: - Properties
     @IBOutlet weak var videoThumbnail: UIImageView!
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var channelPic: UIImageView!
     @IBOutlet weak var videoTitle: UILabel!
     @IBOutlet weak var videoDescription: UILabel!
     
+    
+    //MARK: - Methods
     func customisation()  {
         self.channelPic.layer.cornerRadius = 24
         self.channelPic.clipsToBounds  = true
@@ -34,7 +36,7 @@ class ContentCell: UITableViewCell {
         self.videoTitle.text = video.title
         self.videoDescription.text = "\(video.channel.name)  • \(video.views)"
     }
-    
+    //MARK: - Delegate
     override func prepareForReuse() {
         super.prepareForReuse()
         self.videoThumbnail.image = UIImage.init(named: "emptyTumbnail")

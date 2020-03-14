@@ -10,12 +10,12 @@ import UIKit
 
 class MainViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-    //MARK: Properties
+    //MARK: - Properties
     @IBOutlet var tabBarView: TabBarView!
     @IBOutlet weak var collectionView: UICollectionView!
     var views = [UIView]()
     
-    //MARK: Methods
+    //MARK: - Methods
     func customisation()  {
         MainController.mainViewController = self
         
@@ -70,7 +70,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         self.navigationController?.setNavigationBarHidden(state, animated: true)
     }
     
-    //MARK: Delegates
+    //MARK: - Delegates
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.views.count
     }
@@ -90,7 +90,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         NotificationCenter.default.post(name: Notification.Name.init(rawValue: "scrollMenu"), object: nil, userInfo: ["length": scrollIndex])
     }
     
-    //MARK: ViewController lifecyle
+    //MARK: - ViewController lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.customisation()

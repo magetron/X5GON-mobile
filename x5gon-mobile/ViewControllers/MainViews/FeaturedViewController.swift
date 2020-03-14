@@ -15,7 +15,7 @@ class FeaturedViewController: UIViewController, UITableViewDelegate, UITableView
     var contents = [Content]()
     var lastContentOffset: CGFloat = 0.0
     
-    //MARK: Methods
+    //MARK: - Methods
     func customisation() {
         self.tableView.contentInset = UIEdgeInsets(top: 50, left: 0, bottom: 30, right: 0)
         self.tableView.scrollIndicatorInsets = UIEdgeInsets(top: 50, left: 0, bottom: 30, right: 0)
@@ -24,7 +24,7 @@ class FeaturedViewController: UIViewController, UITableViewDelegate, UITableView
         refresher(updateContent: {() -> Void in self.contents = MainController.fetchFeaturedContents()}, viewReload: {() -> Void in self.tableView.reloadData()})
     }
     
-    //MARK: Delegates
+    //MARK: - Delegates
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.contents.count
     }

@@ -21,7 +21,7 @@ import PDFKit
 
 class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate, PlayerViewHeaderCellDelegate {
 
-    //MARK: Properties
+    //MARK: -  Properties
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var player: UIView!
     @IBOutlet weak var navigationView: playerNavigationView!
@@ -33,7 +33,7 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
     let videoPlayerViewController = AVPlayerViewController()
 
     
-    //MARK: Methods
+    //MARK: - Methods
     func customisation() {
         self.addSubview(self.navigationView)
         self.navigationView.translatesAutoresizingMaskIntoConstraints = false
@@ -173,7 +173,33 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         }
     }
     
-    //MARK: Delegate & dataSource methods
+    func setVideo(video : Video) {
+        self.player.clearSubViews()
+        if self.videoPlayerViewController.player == nil {
+            self.videoPlayerViewController.player = AVPlayer()
+        }
+        self.player.addSubview(videoPlayerViewController.view)
+        self.videoPlayerViewController.player?.replaceCurrentItem(with: AVPlayerItem.init(url: video.contentLink))
+        if self.state != .hidden {
+            self.videoPlayerViewController.player?.play()
+        }
+    }
+
+    
+    func setPDF(pdf : PDF) {
+        self.player.clearSubViews()
+        self.player.addSubview(pdfView)
+        let returnButton = UIButton.init(frame: CGRect(x: 10, y: 0, width: 60, height: 35))
+        returnButton.backgroundColor = UIColor.clear
+        returnButton.setTitleColor(UIColor.systemBlue, for: UIControl.State.normal)
+        returnButton.setTitle("Back", for: UIControl.State.normal)
+        returnButton.setImage(UIImage.init(systemName: "arrowtriangle.left"), for: .normal)
+        returnButton.addTarget(nil, action: #selector(returnFromPlayerView), for: UIControl.Event.touchUpInside)
+        self.player.addSubview(returnButton)
+        pdfView.document = PDFDocument.init(url: pdf.contentLink)
+    }
+    
+    //MARK: - Delegate
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let count = self.content?.suggestedContents.count {
             return count + 2
@@ -218,7 +244,7 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         }
     }
     
-    //MARK: View lifecycle
+    //MARK: - View Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
         self.customisation()
@@ -245,32 +271,7 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         self.tableView.reloadData()
     }
     
-    func setVideo(video : Video) {
-        self.player.clearSubViews()
-        if self.videoPlayerViewController.player == nil {
-            self.videoPlayerViewController.player = AVPlayer()
-        }
-        self.player.addSubview(videoPlayerViewController.view)
-        self.videoPlayerViewController.player?.replaceCurrentItem(with: AVPlayerItem.init(url: video.contentLink))
-        if self.state != .hidden {
-            self.videoPlayerViewController.player?.play()
-        }
-    }
 
-    
-    func setPDF(pdf : PDF) {
-        self.player.clearSubViews()
-        self.player.addSubview(pdfView)
-        let returnButton = UIButton.init(frame: CGRect(x: 10, y: 0, width: 60, height: 35))
-        returnButton.backgroundColor = UIColor.clear
-        returnButton.setTitleColor(UIColor.systemBlue, for: UIControl.State.normal)
-        returnButton.setTitle("Back", for: UIControl.State.normal)
-        returnButton.setImage(UIImage.init(systemName: "arrowtriangle.left"), for: .normal)
-        returnButton.addTarget(nil, action: #selector(returnFromPlayerView), for: UIControl.Event.touchUpInside)
-        self.player.addSubview(returnButton)
-        pdfView.document = PDFDocument.init(url: pdf.contentLink)
-    }
-    
     deinit {
         NotificationCenter.default.removeObserver(self)
     }

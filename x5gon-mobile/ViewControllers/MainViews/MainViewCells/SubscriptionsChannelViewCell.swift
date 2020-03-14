@@ -10,8 +10,10 @@ import Foundation
 import UIKit
 
 class SubscriptionsCVCell: UICollectionViewCell {
+    //MARK: - Property
     @IBOutlet weak var channelPic: UIImageView!
     
+    //MARK: - View Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
         self.channelPic.layer.cornerRadius = 25

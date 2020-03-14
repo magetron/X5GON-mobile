@@ -15,7 +15,7 @@ protocol SettingsViewControllerDelegate {
 
 class SettingsView: UIView, UITableViewDelegate, UITableViewDataSource {
     
-    //MARK: Properties
+    //MARK: - Properties
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var backgroundView: UIButton!
     @IBOutlet weak var tableViewBottomConstraint: NSLayoutConstraint!
@@ -23,7 +23,7 @@ class SettingsView: UIView, UITableViewDelegate, UITableViewDataSource {
     let items = ["Settings", "Terms & privacy policy", "Send Feedback", "Help", "Login", "Cancel"]
     var showLogin: (() -> Void) = { () in return }
     
-    //MARK: Methods
+    //MARK: - Methods
     func customisation() {
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -42,7 +42,7 @@ class SettingsView: UIView, UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    //MARK: Delegates
+    //MARK: - Delegates
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.items.count
     }
@@ -61,7 +61,7 @@ class SettingsView: UIView, UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    //MARK: View LifeCycle
+    //MARK: - View LifeCycle
     override func awakeFromNib() {
         super.awakeFromNib()
         self.customisation()

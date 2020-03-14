@@ -9,12 +9,13 @@
 import UIKit
 
 class playerNavigationView: UIView, UITableViewDelegate, UITableViewDataSource {
-    
+    //MARK: - Properties
     @IBOutlet weak var backgroundView: UIButton!
     @IBOutlet weak var tableView: UITableView!
     var wiki: Wiki?
     var tableViewContent = [String]()
     
+    //MARK: - Methods
     func customisation () {
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -47,6 +48,8 @@ class playerNavigationView: UIView, UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    //MARK: - Delegates
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableViewContent.count
     }
@@ -60,6 +63,7 @@ class playerNavigationView: UIView, UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    //MARK: - View Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
         self.customisation()

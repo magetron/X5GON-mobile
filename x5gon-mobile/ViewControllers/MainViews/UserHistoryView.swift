@@ -10,9 +10,12 @@ import Foundation
 import UIKit
 
 class UserHistoryView : UIView, UITableViewDelegate, UITableViewDataSource {
+    //MARK: - Properties
     
     var historyContent = [Content]()
     @IBOutlet weak var tableView: UITableView!
+    
+    //MARK: - Methods
 
     func customisation () {
         self.tableView.delegate = self
@@ -34,6 +37,9 @@ class UserHistoryView : UIView, UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    
+    
+    //MARK:- Delegate
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return historyContent.count
     }
