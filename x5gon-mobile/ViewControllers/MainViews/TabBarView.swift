@@ -18,6 +18,7 @@ class TabBarView: UIView, UICollectionViewDelegateFlowLayout, UICollectionViewDa
     var selectedIndex = 0
     
     //MARK: - Methods
+    ///Customise View
     func customisation() {
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
@@ -25,7 +26,7 @@ class TabBarView: UIView, UICollectionViewDelegateFlowLayout, UICollectionViewDa
         NotificationCenter.default.addObserver(self, selector: #selector(self.animateMenu(notification:)), name: Notification.Name.init(rawValue: "scrollMenu"), object: nil)
     }
 
-    
+    /// Animate to show the Menu
     @objc func animateMenu(notification: Notification) {
         if let info = notification.userInfo {
             let userInfo = info as! [String: CGFloat]

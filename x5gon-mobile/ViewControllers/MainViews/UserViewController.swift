@@ -21,6 +21,7 @@ class UserViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     //MARK: Methods
 
+    /// Customise View
     func customisation() {
         guard let v = self.view else { return }
         
@@ -40,6 +41,7 @@ class UserViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.tableView.reloadData()
     }
     
+    ///Show History View
     func showHistory () {
         self.historyView.historyContent = user.historyContent
         self.historyView.tableView.reloadData()
@@ -50,6 +52,7 @@ class UserViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
+    /// Set User for view
     func setUser (user: User) {
         self.user = user
     }

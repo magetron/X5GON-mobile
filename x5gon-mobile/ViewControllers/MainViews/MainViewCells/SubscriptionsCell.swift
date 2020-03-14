@@ -16,6 +16,7 @@ class SubscriptionsCell: UITableViewCell, UICollectionViewDataSource, UICollecti
     var channels = [Channel]()
     
     //MARK: - Methods
+    ///Customise View
     func customisation() {
         self.collectionView.delegate = self
         self.collectionView.dataSource = self

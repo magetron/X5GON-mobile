@@ -17,6 +17,7 @@ class UserHistoryView : UIView, UITableViewDelegate, UITableViewDataSource {
     
     //MARK: - Methods
 
+    ///Customise View
     func customisation () {
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -27,6 +28,7 @@ class UserHistoryView : UIView, UITableViewDelegate, UITableViewDataSource {
         self.tableView.rowHeight = 100
     }
     
+    /// Hide historyView on the screen
     @IBAction func hideHistoryView(_ sender: Any) {
         UIView.animate(withDuration: 0.3, animations: {
             self.transform = CGAffineTransform(translationX: self.bounds.width, y: 0)

@@ -19,6 +19,7 @@ class ContentCell: UITableViewCell {
     
     
     //MARK: - Methods
+    /// Customise View
     func customisation()  {
         self.channelPic.layer.cornerRadius = 24
         self.channelPic.clipsToBounds  = true
@@ -27,6 +28,7 @@ class ContentCell: UITableViewCell {
         self.durationLabel.sizeToFit()
     }
     
+    /// Set each properties of content into corresponding part of cell in UITableView
     func set(video: Content)  {
         self.videoThumbnail.image = video.thumbnail
         self.durationLabel.text = " \(video.duration.secondsToFormattedString()) "

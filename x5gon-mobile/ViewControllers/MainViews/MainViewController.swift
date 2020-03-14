@@ -16,6 +16,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     var views = [UIView]()
     
     //MARK: - Methods
+    /// Customise View
     func customisation()  {
         MainController.mainViewController = self
         
@@ -57,7 +58,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         NotificationCenter.default.addObserver(self, selector: #selector(self.scrollViews(notification:)), name: Notification.Name.init(rawValue: "didSelectMenu"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.hideBar(notification:)), name: NSNotification.Name("hide"), object: nil)
     }
-    
+    /// Scroll the menu, this will be called when a notification is being sent with value **didSelectMenu**
     @objc func scrollViews(notification: Notification) {
         if let info = notification.userInfo {
             let userInfo = info as! [String: Int]
@@ -65,6 +66,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         }
     }
     
+    /// Hide the navigation bar,  this will be called when a notification is being sent with value **hide**
     @objc func hideBar(notification: NSNotification)  {
         let state = notification.object as! Bool
         self.navigationController?.setNavigationBarHidden(state, animated: true)

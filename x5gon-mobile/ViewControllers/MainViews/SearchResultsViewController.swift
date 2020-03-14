@@ -16,6 +16,7 @@ class SearchResultsViewController: UIViewController, UITableViewDelegate, UITabl
     var lastContentOffset: CGFloat = 0.0
     
     //MARK: - Methods
+    ///Customise View
     func customisation() {
         self.tableView.contentInset = UIEdgeInsets(top: 50, left: 0, bottom: 30, right: 0)
         self.tableView.scrollIndicatorInsets = UIEdgeInsets(top: 50, left: 0, bottom: 30, right: 0)
