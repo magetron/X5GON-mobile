@@ -81,13 +81,14 @@ class API {
     /**
      Fetching the content using given `keywords` and `contentType` and return a list of `Content`
      
+     - Parameters:
+        - keyWord: `String` Keyword that used for searching in the X5GON backend
+        - contentType: `String` Type of the content, current support format is `audio`,`video`,`text`(This will be converted into pdf)
+     
      ### Usage Example: ###
      ````
      API.fetchContents ("science", "pdf")
      ````
-     - Parameters:
-     - keyWord: `String` Keyword that used for searching in the X5GON backend
-     - contentType: `String` Type of the content, current support format is `audio`,`video`,`text`(This will be converted into pdf)
      */
     static func fetchContents (keyWord : String, contentType : String) -> [Content] {
         return fetchContents(urlString: newAdapter.generateContentQueryURL(keyWord: keyWord, contentType: contentType))

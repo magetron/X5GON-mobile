@@ -51,6 +51,7 @@ extension UIColor{
 }
 
 extension MutableCollection where Index == Int {
+    ///Implementation of Knuth Shuffle
     mutating func myShuffle() {
         if count < 2 { return }
         for i in startIndex ..< endIndex - 1 {
