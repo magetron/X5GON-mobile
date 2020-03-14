@@ -27,6 +27,7 @@ class User {
     }
     
     //MARK: Methods
+    ///This is used to generateDefaultUser for testing purpose
     static func generateDefaultUser () -> User {
         //Dummy Data
         let data = ["pl-swift": "Swift Tutorials", "pl-node": "NodeJS Tutorials", "pl-javascript": "JavaScript ES6 / ES2015 Tutorials", "pl-angular": "Angular 2 Tutorials", "pl-rest": "REST API Tutorials (Node, Express & Mongo)", "pl-react": "React development", "pl-mongo": "Mongo db"]

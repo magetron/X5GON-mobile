@@ -9,6 +9,15 @@
 import UIKit
 import AVFoundation
 
+/**
+ Refresh the content and reload the view
+ 
+ ### Usage Example: ###
+ ````
+  refresher(updateContent: {() -> Void in self.content.like() }, viewReload: { () -> Void in self.tableView.reloadData()})
+ 
+ ````
+ */
 func refresher (updateContent: @escaping () -> Void, viewReload: @escaping () -> Void) {
     DispatchQueue.global().async{
         updateContent()
@@ -19,6 +28,21 @@ func refresher (updateContent: @escaping () -> Void, viewReload: @escaping () ->
 }
 
 extension AVAsset {
+    /**
+    Generate Thumbnail for `Content`
+    
+    ### Usage Example: ###
+    ````
+     AVAsset(url: contentLink).generateThumbnail { [weak self] (image, duration) in
+         guard let image = image, let duration = duration else {
+             return
+         }
+         self?.thumbnail = image
+         self?.duration = duration
+     }
+    
+    ````
+    */
     func generateThumbnail(completion: @escaping (UIImage?, Int?) -> Void) {
         DispatchQueue.global().async {
             let imageGenerator = AVAssetImageGenerator(asset: self)
@@ -37,6 +61,15 @@ extension AVAsset {
 }
 
 extension UIView {
+    /**
+    Remove all `subViews` from `superView`
+    
+    ### Usage Example: ###
+    ````
+     self.UIView.clearSubViews()
+    
+    ````
+    */
     func clearSubViews () {
         self.subviews.forEach({ $0.removeFromSuperview() })
     }
@@ -44,6 +77,20 @@ extension UIView {
 
 
 extension UIColor{
+    /**
+     Covert rgb number into swift `UIColor`
+     - returns: UIColor
+     - Parameters:
+        - r: Red
+        - g:  Green
+        - b: Blue
+     
+     ### Usage Example: ###
+     ````
+     let color = rbg(233,232,101)
+     
+     ````
+     */
     class func rbg(r: CGFloat, g: CGFloat, b: CGFloat) -> UIColor {
         let color = UIColor.init(red: r/255, green: g/255, blue: b/255, alpha: 1)
         return color
@@ -104,14 +151,20 @@ extension Int {
 }
 
 enum stateOfViewController {
+    /// Minimise `playerView`
     case minimized
+    /// Full Screen Mode
     case fullScreen
+    /// Hide `playerView`
     case hidden
 }
 
 enum Direction {
+    /// Moving up
     case up
+    /// Moving left
     case left
+    /// No movement
     case none
 }
 
