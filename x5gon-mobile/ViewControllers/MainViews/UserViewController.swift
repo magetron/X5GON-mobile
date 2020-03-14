@@ -10,18 +10,27 @@ import UIKit
 
 class UserViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    //MARK: Properties
+    //MARK: - Properties
+    ///This is a `UITableView` that displays user information
     @IBOutlet weak var tableView: UITableView!
+    ///This is a self-defined view called `UserHistoryView`, which is based on `UIView`
     @IBOutlet var historyView: UserHistoryView!
-    
+    /// This is a list of menu titles that is displayed in `UITableView`
     let menuTitles = ["History", "My Videos", "Notifications", "Watch Later"]
+    /// Default number of items  = 5
     let defaultItems = 5
+    /// User information
     var user = MainController.user
+    /// The offset of the last Content used to determine the scroll action
     var lastContentOffset: CGFloat = 0.0
     
-    //MARK: Methods
+    //MARK: - Methods
 
-    /// Customise View
+    /**
+     ### Customise View ###
+     - Setup `HistoryView`
+     - Setup `TableView`
+     */
     func customisation() {
         guard let v = self.view else { return }
         
@@ -58,10 +67,30 @@ class UserViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     // MARK: Delegates
+    /**
+     Tells the data source to return the number of rows in a given section of a table view.
+     
+     - Parameters:
+        - tableView: The table-view object requesting this information.
+        - indexPath: An index number identifying a section in tableView.
+     - returns:
+     The number of rows in section.
+     
+     */
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.defaultItems + self.user.playlists.count
     }
     
+    /**
+     Asks the source for a cell to insert in a particular location of the table view.
+     
+     - Parameters:
+        - tableView: A table-view object requesting the cell.
+        - indexPath: An index path locating a row in tableView.
+     - returns:
+     An object inheriting from `UITableViewCel`l that the table view can use for the specified row. `UIKit` raises an assertion if you return nil.
+     
+     */
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
         case 0:
@@ -87,7 +116,13 @@ class UserViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
-
+    /**
+     Tells the delegate that the specified row is now selected.
+     
+     - Parameters:
+        - tableView: A table-view object informing the delegate about the new row selection.
+        - indexPath: An index path locating the new selected row in tableView.
+     */
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if (menuTitles[indexPath.row - 1] == "History") {
             showHistory()
@@ -97,7 +132,10 @@ class UserViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     
     
-    //MARK: ViewController Lifecycle
+    //MARK: - ViewController Lifecycle
+    /**
+     Called after the controller's view is loaded into memory. Load  `customisation`
+     */
     override func viewDidLoad() {
         super.viewDidLoad()
         self.customisation()
