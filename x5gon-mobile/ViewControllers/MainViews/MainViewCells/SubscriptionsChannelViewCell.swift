@@ -11,12 +11,17 @@ import UIKit
 
 class SubscriptionsCVCell: UICollectionViewCell {
     //MARK: - Property
+    /// This is a `UIImageView` which is used to display channel pictures
     @IBOutlet weak var channelPic: UIImageView!
-    
-    //MARK: - View Lifecycle
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    ///Customise Subscription Cell
+    func customisation() {
         self.channelPic.layer.cornerRadius = 25
         self.channelPic.clipsToBounds = true
+    }
+    //MARK: - View Lifecycle
+    /// /// Prepares the receiver for service after it has been loaded from an Interface Builder archive, or nib file. And load `customisation` Method
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        customisation()
     }
 }
