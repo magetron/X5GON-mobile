@@ -19,6 +19,7 @@ class userPlaylistCell: UITableViewCell {
     @IBOutlet weak var numberOfVideos: UILabel!
     
     //MARK: View Lifecycle
+    ///Prepares the receiver for service after it has been loaded from an Interface Builder archive, or nib file.
     override func awakeFromNib() {
         self.pic.layer.cornerRadius = 5
         self.pic.clipsToBounds = true
