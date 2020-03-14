@@ -10,17 +10,36 @@ import Foundation
 import UIKit
 
 class MainController {
+    /// MainViewController
     static var mainViewController:MainViewController?
+    /// HomeViewController
     static var homeViewController:HomeViewController?
+    /// NavViewController
     static var navViewController:NavViewController?
+    /// SearchResultsViewController
     static var searchResultsViewController:SearchResultsViewController?
+    ///FeaturedViewController
     static var featuredViewController:FeaturedViewController?
+    ///UserViewController
     static var UserViewController:UserViewController?
- 
+    /// User Placeholder
     static var user = User.generateDefaultUser()
-    
+    /// OperationQueue
     static var queue = OperationQueue()
     
+    
+    /**
+     Set top bar hide status
+     
+     - Parameters:
+       - hide:Type: **Bool**
+     
+     
+     ### Usage Example: ###
+     ````
+     MainController.setHideTopBar(true)
+     ````
+     */
     static func setHideTopBar(hide: Bool) {
         if (hide) {
             navViewController?.navigationBar.barTintColor = UIColor.black
@@ -42,10 +61,41 @@ class MainController {
         return API.fetchFeaturedContents()
     }
     
+    
+    /**
+     Search on X5GON database for given `Keywords` and `contentType`
+     
+     - Parameters:
+     - keyword: keyword to search
+     - contentType:  content Type
+     - returns:
+     list of Contents
+     
+     
+     ### Usage Example: ###
+     ````
+     MainController.search("science", "pdf")
+     ````
+     */
     static func search (keyword: String, contentType: String) -> [Content] {
         return API.fetchContents(keyWord: keyword, contentType: contentType)
     }
     
+    /**
+     Login using `username` and `passwords`
+     
+     - Parameters:
+       - username: Username  type:`String` read from UITextField
+       - password:  Passsword type `String` read from UITextField
+     - returns:
+     login status in **Bool** type
+     
+     
+     ### Usage Example: ###
+     ````
+     MainController.login(username,password,csrfToken)
+     ````
+     */
     static func login (username: String, password: String) -> Bool {
         logout()
         let csrfToken = API.fetchCSRFToken()
@@ -55,6 +105,7 @@ class MainController {
         return API.authenticationToken != ""
     }
     
+    /// logout
     static func logout () {
         API.authenticationToken = ""
         API.logout()
