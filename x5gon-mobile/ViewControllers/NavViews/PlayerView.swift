@@ -7,7 +7,9 @@
 //
 
 protocol PlayerViewControllerDelegate {
+    ///Did the `playerView` minimised
     func didMinimize()
+    // Did the `playerView` extended
     func didmaximize()
     func swipeToMinimize(translation: CGFloat, toState: stateOfViewController)
     func didEndedSwipe(toState: stateOfViewController)

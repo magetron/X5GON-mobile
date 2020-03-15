@@ -32,6 +32,15 @@ class NavViewController: UINavigationController, PlayerViewControllerDelegate, S
     let fullScreenOrigin = CGPoint.init(x: 0, y: 0)
 
     //MARK: - Methods
+    /**
+     ### Customise View ###
+     - Setup NavigationBarButtons
+     - Setup TitleLable
+     - Setup Login View
+     - Setup Search View
+     - Setup Setting View
+     - Setup Notification Centre
+     */
     func customisation() {
         MainController.navViewController = self
         

@@ -12,18 +12,26 @@ import UIKit
 
 
 class PDF : Content {
-    
+    /// Performe `PDF` initialization
     override init (title: String, id: Int, channelName: String, description: String, url: URL) {
         super.init(title: title, id: id, channelName: channelName, description: description, url: url)
         self.fetchContentInfo()
     }
     
+    /// Fetching content using **text(pdf)** as contentType
     override func fetchSuggestedContents () {
         let pdfs = API.fetchContents(keyWord: self.title, contentType: "text")
         super.suggestedContents = pdfs
     }
+    
+    /**
+     Fetching `Content` information
      
-    override func fetchContentInfo() {
+     ### Usage Example: ###
+     ````
+      self.fetchContentInfo()
+     ````
+     */    override func fetchContentInfo() {
         self.duration = 0
     }
     

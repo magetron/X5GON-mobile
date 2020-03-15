@@ -10,21 +10,32 @@ import Foundation
 import UIKit
 
 @objc protocol PlayerViewHeaderCellDelegate {
+    /// Function will be called when `like` button is tapped
     func onLikeTap()
+    ///Function will be called when `dislike` button is tapped
     func onDisLikeTap()
 }
 
 class headerCell: UITableViewCell {
-    
+    ///This is a `UILabel` used to display title.
     @IBOutlet weak var title: UILabel!
+    ///This is a `UILabel` used to display number of times this content being viewed.
     @IBOutlet weak var viewCount: UILabel!
+    ///This is a `UILabel` used to display number of time this content being liked.
     @IBOutlet weak var likes: UILabel!
+    ///This is a `UITextView`used to display the descrption of the content.
     @IBOutlet weak var descriptionTextView: UITextView!
+    ///This is a `UILabel` used to display number of times this content being disliked.
     @IBOutlet weak var disLikes: UILabel!
+    ///This is a `UILabel`used to display the channel title
     @IBOutlet weak var channelTitle: UILabel!
+    ///This is a `UIImageView` used to display the channel picture
     @IBOutlet weak var channelPic: UIImageView!
+    ///This is a `UILabel` used to display the channelSubsvriber's name.
     @IBOutlet weak var channelSubscribers: UILabel!
+    ///This is a `UIImageView` used to display the thumbUp Icon.
     @IBOutlet weak var thumbUp: UIImageView!
+    ///This is a `UIImageView` used to display the thumbDown Icon.
     @IBOutlet weak var thumbDown: UIImageView!
     var onLikeTapFunc = { () -> Void in return}
     var onDisLikeTapFunc = { () -> Void in return}
@@ -52,10 +63,6 @@ class headerCell: UITableViewCell {
         thumbUp.addGestureRecognizer(likeTap); thumbDown.addGestureRecognizer(disLikeTap)
     }
     
-    override func prepareForReuse() {
-        super.prepareForReuse()
-    }
-    
     @objc func onLikeTap () {
         onLikeTapFunc()
     }
@@ -64,5 +71,8 @@ class headerCell: UITableViewCell {
         onDisLikeTapFunc()
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+    }
     
 }

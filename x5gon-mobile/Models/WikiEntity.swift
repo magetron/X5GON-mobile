@@ -9,10 +9,14 @@
 import Foundation
 
 class WikiEntity {
+    /// Id for wiki entity
     let id: String
+    /// Title for wiki entity
     let title: String
+    /// url for wiki entity
     let url: URL
     
+    /// Performe `WikiEntity` initialization
     init (id: String, title: String, url: URL) {
         self.id = id
         self.title = title
