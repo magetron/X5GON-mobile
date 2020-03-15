@@ -10,14 +10,33 @@ import Foundation
 
 class X5GONAPIAdapter : APIAdapter {
 
+    ///Generate X5GON rootURL
     static func rootURL () -> String {
         return "https://platform.x5gon.org/"
     }
     
+    /// Add X5GON API version into URL
     static func APIVersion() -> String {
         return "api/v1/"
     }
     
+    /**
+     Generate X5GON search url with `keyword`
+     
+     - Parameters:
+     - keyWord: keywords
+     - contentType:  type of Content, currently support `pdf`, `audio`, `video`
+     
+     - returns:
+     X5GON Search url
+     
+     
+     ### Usage Example: ###
+     ````
+     X5GONAPIAdapter.generateContentQueryURL("Science","pdf")
+     ````
+
+     */
     static func generateContentQueryURL(keyWord: String, contentType: String) -> String {
         return rootURL() + APIVersion() + "recommend/oer_materials?text=" + keyWord + "&types=" + contentType
     }

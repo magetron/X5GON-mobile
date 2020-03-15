@@ -11,8 +11,11 @@ import UIKit
 
 class Channel {
     
+    ///This is a String which is used to store the name of `Channel`
     let name: String
+    ///This is a `UIImage` which is used to display the image of `Channel`
     let image: UIImage
+    ///Number of subscribers
     var subscribers = 0
     
     static func generateDefaultChannels () -> [Channel] {
@@ -27,6 +30,7 @@ class Channel {
         return channels
     }
     
+    /// Performe `Channel` initialization
     init(name: String, image: UIImage) {
         self.name = name
         self.image = image

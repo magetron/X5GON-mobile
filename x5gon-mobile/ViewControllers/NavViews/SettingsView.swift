@@ -15,7 +15,7 @@ protocol SettingsViewControllerDelegate {
 
 class SettingsView: UIView, UITableViewDelegate, UITableViewDataSource {
     
-    //MARK: Properties
+    //MARK: - Properties
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var backgroundView: UIButton!
     @IBOutlet weak var tableViewBottomConstraint: NSLayoutConstraint!
@@ -23,7 +23,7 @@ class SettingsView: UIView, UITableViewDelegate, UITableViewDataSource {
     let items = ["Settings", "Terms & privacy policy", "Send Feedback", "Help", "Login", "Cancel"]
     var showLogin: (() -> Void) = { () in return }
     
-    //MARK: Methods
+    //MARK: - Methods
     func customisation() {
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -42,17 +42,45 @@ class SettingsView: UIView, UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    //MARK: Delegates
+    //MARK: - Delegates
+    /**
+     Tells the items to return the number of rows in a given section of a table view.
+     
+     - Parameters:
+        - tableView: The table-view object requesting this information.
+        - indexPath: An index number identifying a section in tableView.
+     - returns:
+     The number of rows in section.
+     
+     */
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.items.count
     }
     
+    /**
+     Asks the list of `Centent` for a cell to insert in a particular location of the table view.
+     
+     - Parameters:
+        - tableView: A table-view object requesting the cell.
+        - indexPath: An index path locating a row in tableView.
+     - returns:
+     An object inheriting from `UITableViewCel`l that the table view can use for the specified row. `UIKit` raises an assertion if you return nil.
+     
+     */
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         cell.textLabel?.text = self.items[indexPath.row]
         cell.imageView?.image = UIImage.init(named: self.items[indexPath.row])
         return cell
     }
+    
+    /**
+     Tells the delegate that the specified row is now selected. 
+     
+     - Parameters:
+        - tableView: A table-view object informing the delegate about the new row selection.
+        - indexPath: An index path locating the new selected row in tableView.
+     */
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.hideSettingsView(self)
@@ -61,7 +89,10 @@ class SettingsView: UIView, UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    //MARK: View LifeCycle
+    //MARK: - View LifeCycle
+    /**
+     Called after the controller's view is loaded into memory. Load  `customisation`
+     */
     override func awakeFromNib() {
         super.awakeFromNib()
         self.customisation()

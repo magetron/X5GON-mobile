@@ -7,7 +7,9 @@
 //
 
 protocol PlayerViewControllerDelegate {
+    ///Did the `playerView` minimised
     func didMinimize()
+    // Did the `playerView` extended
     func didmaximize()
     func swipeToMinimize(translation: CGFloat, toState: stateOfViewController)
     func didEndedSwipe(toState: stateOfViewController)
@@ -21,7 +23,7 @@ import PDFKit
 
 class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate, PlayerViewHeaderCellDelegate {
 
-    //MARK: Properties
+    //MARK: -  Properties
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var player: UIView!
     @IBOutlet weak var navigationView: playerNavigationView!
@@ -33,7 +35,7 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
     let videoPlayerViewController = AVPlayerViewController()
 
     
-    //MARK: Methods
+    //MARK: - Methods
     func customisation() {
         self.addSubview(self.navigationView)
         self.navigationView.translatesAutoresizingMaskIntoConstraints = false
@@ -173,7 +175,54 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         }
     }
     
-    //MARK: Delegate & dataSource methods
+    func setVideo(video : Video) {
+        self.player.clearSubViews()
+        if self.videoPlayerViewController.player == nil {
+            self.videoPlayerViewController.player = AVPlayer()
+        }
+        self.player.addSubview(videoPlayerViewController.view)
+        self.videoPlayerViewController.player?.replaceCurrentItem(with: AVPlayerItem.init(url: video.contentLink))
+        if self.state != .hidden {
+            self.videoPlayerViewController.player?.play()
+        }
+    }
+
+    
+    func setPDF(pdf : PDF) {
+        self.player.clearSubViews()
+        self.player.addSubview(pdfView)
+        let returnButton = UIButton.init(frame: CGRect(x: 10, y: 0, width: 60, height: 35))
+        returnButton.backgroundColor = UIColor.clear
+        returnButton.setTitleColor(UIColor.systemBlue, for: UIControl.State.normal)
+        returnButton.setTitle("Back", for: UIControl.State.normal)
+        returnButton.setImage(UIImage.init(systemName: "arrowtriangle.left"), for: .normal)
+        returnButton.addTarget(nil, action: #selector(returnFromPlayerView), for: UIControl.Event.touchUpInside)
+        self.player.addSubview(returnButton)
+        pdfView.document = PDFDocument.init(url: pdf.contentLink)
+    }
+    
+    func setContent (content: Content) {
+        self.content = content
+        if let video = content as? Video {
+            setVideo(video: video)
+        } else if let pdf = content as? PDF {
+            setPDF(pdf: pdf)
+        }
+        if content.suggestedContents.count == 0 {
+            refresher(updateContent: { () -> Void in content.fetchSuggestedContents() }, viewReload: { () -> Void in self.tableView.reloadData()})
+        }
+        if content.wiki.chunks.count == 0 {
+            refresher(updateContent: {() -> Void in content.fetchWikiChunkEnrichments() }, viewReload: { () -> Void in self.navigationView.setWiki(wiki: content.wiki); self.navigationView.tableView.reloadData() })
+        }
+        if (MainController.user.bookmarkedContent.contains(content)) {
+            //self.bookmarkButton.setImage(UIImage.init(systemName: "bookmark.fill"), for: .normal)
+        } else {
+            //self.bookmarkButton.setImage(UIImage.init(systemName: "bookmark"), for: .normal)
+        }
+        self.tableView.reloadData()
+    }
+    
+    //MARK: - Delegate
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let count = self.content?.suggestedContents.count {
             return count + 2
@@ -218,59 +267,13 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         }
     }
     
-    //MARK: View lifecycle
+    //MARK: - View Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
         self.customisation()
     }
     
-    func setContent (content: Content) {
-        self.content = content
-        if let video = content as? Video {
-            setVideo(video: video)
-        } else if let pdf = content as? PDF {
-            setPDF(pdf: pdf)
-        }
-        if content.suggestedContents.count == 0 {
-            refresher(updateContent: { () -> Void in content.fetchSuggestedContents() }, viewReload: { () -> Void in self.tableView.reloadData()})
-        }
-        if content.wiki.chunks.count == 0 {
-            refresher(updateContent: {() -> Void in content.fetchWikiChunkEnrichments() }, viewReload: { () -> Void in self.navigationView.setWiki(wiki: content.wiki); self.navigationView.tableView.reloadData() })
-        }
-        if (MainController.user.bookmarkedContent.contains(content)) {
-            //self.bookmarkButton.setImage(UIImage.init(systemName: "bookmark.fill"), for: .normal)
-        } else {
-            //self.bookmarkButton.setImage(UIImage.init(systemName: "bookmark"), for: .normal)
-        }
-        self.tableView.reloadData()
-    }
-    
-    func setVideo(video : Video) {
-        self.player.clearSubViews()
-        if self.videoPlayerViewController.player == nil {
-            self.videoPlayerViewController.player = AVPlayer()
-        }
-        self.player.addSubview(videoPlayerViewController.view)
-        self.videoPlayerViewController.player?.replaceCurrentItem(with: AVPlayerItem.init(url: video.contentLink))
-        if self.state != .hidden {
-            self.videoPlayerViewController.player?.play()
-        }
-    }
 
-    
-    func setPDF(pdf : PDF) {
-        self.player.clearSubViews()
-        self.player.addSubview(pdfView)
-        let returnButton = UIButton.init(frame: CGRect(x: 10, y: 0, width: 60, height: 35))
-        returnButton.backgroundColor = UIColor.clear
-        returnButton.setTitleColor(UIColor.systemBlue, for: UIControl.State.normal)
-        returnButton.setTitle("Back", for: UIControl.State.normal)
-        returnButton.setImage(UIImage.init(systemName: "arrowtriangle.left"), for: .normal)
-        returnButton.addTarget(nil, action: #selector(returnFromPlayerView), for: UIControl.Event.touchUpInside)
-        self.player.addSubview(returnButton)
-        pdfView.document = PDFDocument.init(url: pdf.contentLink)
-    }
-    
     deinit {
         NotificationCenter.default.removeObserver(self)
     }

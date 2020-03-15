@@ -10,12 +10,22 @@ import UIKit
 
 class MainViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-    //MARK: Properties
+    //MARK: - Properties
+    /// This is a `UIView` that is placed on the TabBar
     @IBOutlet var tabBarView: TabBarView!
+    /// This is a `UICollectionView` that is used to save an ordered collection of `viewControllers` and present them using customizable layouts
     @IBOutlet weak var collectionView: UICollectionView!
+    /// This is a variable to save a list of `UIView`s
     var views = [UIView]()
     
-    //MARK: Methods
+    //MARK: - Methods
+    /**
+     ### Customise View ###
+     - Setup CollectionView
+     - Setup TabbarView
+     - Init ViewControllers
+     - Setup Notification Centre
+     */
     func customisation()  {
         MainController.mainViewController = self
         
@@ -57,7 +67,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         NotificationCenter.default.addObserver(self, selector: #selector(self.scrollViews(notification:)), name: Notification.Name.init(rawValue: "didSelectMenu"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.hideBar(notification:)), name: NSNotification.Name("hide"), object: nil)
     }
-    
+    /// Scroll the menu, this will be called when a notification is being sent with value **didSelectMenu**
     @objc func scrollViews(notification: Notification) {
         if let info = notification.userInfo {
             let userInfo = info as! [String: Int]
@@ -65,37 +75,80 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         }
     }
     
+    /// Hide the navigation bar,  this will be called when a notification is being sent with value **hide**
     @objc func hideBar(notification: NSNotification)  {
         let state = notification.object as! Bool
         self.navigationController?.setNavigationBarHidden(state, animated: true)
     }
     
-    //MARK: Delegates
+    //MARK: - Delegates
+    /**
+     Asks collectionView for the number of items in the specified section.
+     
+     - Parameters:
+        - collectionView: The collection view requesting this information.
+        - section: An index number identifying a section in collectionView. This index value is 0-based.
+     - returns:
+     The number of rows in section.
+     
+     */
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.views.count
     }
     
+    /**
+     Asks collectionView for the cell that corresponds to the specified item in the collection view.
+     
+     - Parameters:
+        - collectionView: The collection view requesting this information.
+        - indexPath: The index path that specifies the location of the item.
+     - returns:
+     A configured cell object. You must not return nil from this method.
+     
+     */
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
         cell.contentView.addSubview(self.views[indexPath.row])
         return cell
     }
     
+    
+    /**
+     Asks the delegate for the size of the specified item’s cell.
+     
+     - Parameters:
+        - collectionView: The collection view object displaying the flow layout.
+        - indexPath: The index path of the item
+        - collectionViewLayout:The layout object requesting the
+     - returns:
+     The width and height of the specified item. Both values must be greater than 0.
+     
+     */
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize.init(width: self.collectionView.bounds.width, height: (self.collectionView.bounds.height + 22))
     }
     
+    /**
+     Tells the delegate when the user scrolls the content view within the receiver.
+     
+     - Parameters:
+        - scorllView: The scroll-view object in which the scrolling occurred.
+     */
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let scrollIndex = scrollView.contentOffset.x / self.view.bounds.width
         NotificationCenter.default.post(name: Notification.Name.init(rawValue: "scrollMenu"), object: nil, userInfo: ["length": scrollIndex])
     }
     
-    //MARK: ViewController lifecyle
+    //MARK: - ViewController lifecycle
+    /**
+     Called after the controller's view is loaded into memory. Load  `customisation`
+     */
     override func viewDidLoad() {
         super.viewDidLoad()
         self.customisation()
     }
     
+    /// Deinitialization Function
     deinit {
         NotificationCenter.default.removeObserver(self)
         MainController.queue.cancelAllOperations()

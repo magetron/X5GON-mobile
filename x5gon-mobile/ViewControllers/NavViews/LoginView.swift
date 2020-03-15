@@ -11,10 +11,17 @@ import Foundation
 
 
 class LoginView: UIView {
+    //MARK: - Properties
+    ///This is a `UITextField` which is used to input username
     @IBOutlet weak var usernameTextField: UITextField!
+    //This is a `UITextField` which is used to input password
     @IBOutlet weak var passwordTextField: UITextField!
+    ///This is a `UIButton` which is used to press for logiin
     @IBOutlet weak var loginButton: UIButton!
-
+    
+    //MARK: - Methods
+    
+    ///Customise the LoginView
     func customisation () {
         self.passwordTextField.isSecureTextEntry = true
         self.isUserInteractionEnabled = true
@@ -23,6 +30,7 @@ class LoginView: UIView {
         self.addGestureRecognizer(swipeToExit)
     }
     
+    /// Perform when the login Button is pressed
     @IBAction func loginButtonPressed(_ sender: Any) {
         guard let username = self.usernameTextField.text else {
             return
@@ -35,7 +43,7 @@ class LoginView: UIView {
             self.hideLoginView()
         }
     }
-    
+    /// This function will hide `LoginView` when it is being called
     @objc func hideLoginView() {
         UIView.animate(withDuration: 0.6, animations: {
             self.transform = CGAffineTransform.init(translationX: 0, y: self.bounds.height - 90)
@@ -47,6 +55,8 @@ class LoginView: UIView {
         }
     }
     
+    //MARK: - View Lifecycle
+    /// Prepares the receiver for service after it has been loaded from an Interface Builder archive, or nib file. Load `customisation` function
     override func awakeFromNib () {
         super.awakeFromNib()
         self.customisation()

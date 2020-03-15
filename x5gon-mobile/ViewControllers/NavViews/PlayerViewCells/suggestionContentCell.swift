@@ -10,17 +10,19 @@ import Foundation
 import UIKit
 
 class suggestionContentCell: UITableViewCell {
-    
+    //MARK: - Properties
     @IBOutlet weak var thumbnail: UIImageView!
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var name: UILabel!
     
+    //MARK: - Method
     func set(content: Content)  {
         self.thumbnail.image = content.thumbnail
         self.title.text = content.title
         self.name.text = content.channel.name
     }
     
+    //MARK: - View Lifecycle
     override func prepareForReuse() {
         super.prepareForReuse()
         self.thumbnail.image = UIImage.init(named: "Video Placeholder")

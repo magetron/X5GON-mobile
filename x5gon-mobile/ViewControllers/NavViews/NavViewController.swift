@@ -10,7 +10,7 @@ import UIKit
 
 class NavViewController: UINavigationController, PlayerViewControllerDelegate, SettingsViewControllerDelegate {
 
-    //MARK: Properties
+    //MARK: - Properties
     @IBOutlet var playerView: PlayerView!
     @IBOutlet var searchView: SearchView!
     @IBOutlet var settingsView: SettingsView!
@@ -31,7 +31,16 @@ class NavViewController: UINavigationController, PlayerViewControllerDelegate, S
     }()
     let fullScreenOrigin = CGPoint.init(x: 0, y: 0)
 
-    //Methods
+    //MARK: - Methods
+    /**
+     ### Customise View ###
+     - Setup NavigationBarButtons
+     - Setup TitleLable
+     - Setup Login View
+     - Setup Search View
+     - Setup Setting View
+     - Setup Notification Centre
+     */
     func customisation() {
         MainController.navViewController = self
         
@@ -180,7 +189,17 @@ class NavViewController: UINavigationController, PlayerViewControllerDelegate, S
         return coordinate
     }
     
-    //MARK: Delegate methods
+    func setPreferStatusBarHidden(_ preferHidden: Bool) {
+        self.isHidden = preferHidden
+    }
+    
+    var isHidden = true {
+        didSet {
+            self.setNeedsStatusBarAppearanceUpdate()
+        }
+    }
+    
+    //MARK: Delegate
     func didMinimize() {
         self.animatePlayView(toState: .minimized)
     }
@@ -203,22 +222,13 @@ class NavViewController: UINavigationController, PlayerViewControllerDelegate, S
             self.playerView.frame.origin = self.positionDuringSwipe(scaleFactor: translation)
         }
     }
-    
-    func setPreferStatusBarHidden(_ preferHidden: Bool) {
-        self.isHidden = preferHidden
-    }
-    
-    var isHidden = true {
-        didSet {
-            self.setNeedsStatusBarAppearanceUpdate()
-        }
-    }
+
     
     override var prefersStatusBarHidden: Bool {
         return isHidden
     }
     
-    //MARK: ViewController lifecycle
+    //MARK: - ViewController lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.customisation()

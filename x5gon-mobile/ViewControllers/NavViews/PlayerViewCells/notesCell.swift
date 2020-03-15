@@ -10,8 +10,11 @@ import UIKit
 
 class notesCell: UITableViewCell, UITextViewDelegate {
     
+    
+    //MARK: - Properties
     @IBOutlet weak var textView: UITextView!
     
+    //MARK: - Methods
     func customisation () {
         textView.isScrollEnabled = true
         textView.text = "Write Your Note Here"
@@ -19,7 +22,8 @@ class notesCell: UITableViewCell, UITextViewDelegate {
         textView.returnKeyType = .done
         textView.delegate = self
     }
-
+    
+    //MARK: - Delegates
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.text == "Write Your Note Here"{
             textView.text = ""
@@ -49,6 +53,7 @@ class notesCell: UITableViewCell, UITextViewDelegate {
         MainController.navViewController?.playerView.tableView.reloadData()
     }
     
+    //MARK: - View Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
         customisation()

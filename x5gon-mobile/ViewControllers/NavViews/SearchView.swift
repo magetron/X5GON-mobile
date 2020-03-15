@@ -10,11 +10,11 @@ import UIKit
 
 class SearchView: UIView, UITextFieldDelegate {
     
-    //MARK: Properties
+    //MARK: - Properties
     @IBOutlet weak var inputField: UITextField!
     var suggestions = [String]()
     
-    //MARK: Methods
+    //MARK: - Methods
     func customisation() {
         self.inputField.delegate = self
     }
@@ -28,7 +28,7 @@ class SearchView: UIView, UITextFieldDelegate {
             self.isHidden = true
         }
     }
-    
+    // MARK: - Delegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         let text = textField.text ?? ""
         refresher(updateContent: {() -> Void in
@@ -40,7 +40,7 @@ class SearchView: UIView, UITextFieldDelegate {
         return true
     }
     
-    //MARK: View LifeCycle
+    //MARK: - View LifeCycle
     override func awakeFromNib() {
         super.awakeFromNib()
         self.customisation()
