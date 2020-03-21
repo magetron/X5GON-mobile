@@ -1,3 +1,5 @@
+#/bin/sh
+
 /bin/rm -rf static
 
 mkdir static
