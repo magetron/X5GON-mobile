@@ -16,9 +16,9 @@ class UserViewController: UIViewController, UITableViewDelegate, UITableViewData
     ///This is a self-defined view called `UserHistoryView`, which is based on `UIView`
     @IBOutlet var historyView: UserHistoryView!
     /// This is a list of menu titles that is displayed in `UITableView`
-    let menuTitles = ["History", "My Videos", "Notifications", "Watch Later"]
-    /// Default number of items  = 5
-    let defaultItems = 5
+    let menuTitles = ["History", "My Videos", "Notifications", "Watch Later", "Logout"]
+    /// Default number of items = 6, including user title
+    let defaultItems = 6
     /// User information
     var user = MainController.user
     /// The offset of the last Content used to determine the scroll action
@@ -99,12 +99,12 @@ class UserViewController: UIViewController, UITableViewDelegate, UITableViewData
             cell.profilePic.image = self.user.profilePic
             cell.backgroundImage.image = self.user.backgroundImage
             return cell
-        case 1...4:
+        case 1...self.defaultItems - 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "UserMenuCell", for: indexPath) as! userMenuCell
             cell.menuTitles.text = self.menuTitles[indexPath.row - 1]
             cell.menuIcon.image = UIImage.init(named: self.menuTitles[indexPath.row - 1])
            return cell
-        case 5...(self.defaultItems + self.user.playlists.count):
+        case self.defaultItems...(self.defaultItems + self.user.playlists.count):
             let cell = tableView.dequeueReusableCell(withIdentifier: "UserPlaylistsCell", for: indexPath) as! userPlaylistCell
             cell.pic.image = self.user.playlists[indexPath.row - 5].pic
             cell.title.text = self.user.playlists[indexPath.row - 5].title
