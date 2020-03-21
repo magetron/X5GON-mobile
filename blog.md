@@ -32,17 +32,19 @@ Last but not least, another important technical challenge we faced was that the 
 
 ![technologies at glance](./images/technologies.png)
 
+Figure 2. An overview of technologies used in this project.
+
 We tackled challenges above using advanced technology provided by `Apple`, the open-source community and algorithms written by ourselves. 
 
 ![comparison of app](./images/comparison.png)
 
-Figure 2. A comparison between traditional learning app and our approach.
+Figure 3. A comparison between traditional learning app and our approach.
 
 From a design perspective, we took the information-feed approach rather than listing all courses available for the users find. As on most other platforms, users would have to search for what they want to learn, we actively push these information to the screen for users to choose from, similar to video sites but unlike a learning platform. Our design also utilises an innovative way of enabling users to read bullet-points, or browse external supportive contents. Users can scroll to a sidebar whilst not stopping the video and start from there, whilst the video is playing as a floating window at the bottom of the screen. This design received great feedback from our clients and users at our testing stage.
 
 ![fast fetching optimisation](./images/performance.gif) 
 
-Figure 3. A demonstration of our app's performance on videos.
+Figure 4. A demonstration of our app's performance on videos.
 
 With regards to the performance of the application, we utilised extensive caching and predicting techniques to minimise the lag and increase the responsiveness. First of all, the choice of using `Swift` to develop a native `iOS` application provides us a faster foundation compared to hybrid frameworks like `React Native`. More so, our aggressive pre-loading daemon utilised a `HashMap` storing technique and constantly fetches first 20-seconds of content whenever user finds the thumbnail on display. Although we did make a trade-off of having more background tasks, which is negligible, app users now receives a notably faster application and smoother learning experience.
 
