@@ -14,11 +14,13 @@ Online Education is no stranger to us students nowadays, as we have been utilisi
 
 The main focus of X5GON development team is creating a solution that will help users/students find what they need not just in OER repositories, but across all open educational resources on the web.This solution will adapt to the user’s needs and learn how to make ongoing customized recommendations and suggestions through a truly interactive and impactful learning experience.
 
-![website version of X5Learn](./images/desktop.png)
+![website version of X5Learn](./images/desktop.png) Figure 1. A demonstration of X5Learn's website version.
 
 Our goal, as a student team, is to develop a mobile application that utilises the X5Learn platform and provide an authentic and mobile-friendly user experience. With this mobile application, the X5Learn system would be able to attract more customers from the mobile platform, and enable users to access their customised X5Learn learning contents at all times.
 
 ## What are the technical challenges?
+
+![comparison of app](./images/comparison.png) Figure 2. A comparison between traditional learning app and our approach.
 
 The key challenge above all is to differentiate our application from other proprietary learning platforms. We constantly ask ourselves how to make the application more accessible and easy to navigate around for users. Given the fact there are many established applications out there, our team considered trying them out ourselves and conduct double-blind experiments on UI, app responsiveness and content relevancy experiments. We have learnt a lot in the process and greatly influenced our design of X5GON-Bobile afterwards.
 
