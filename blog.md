@@ -20,8 +20,6 @@ Our goal, as a student team, is to develop a mobile application that utilises th
 
 ## What are the technical challenges?
 
-![comparison of app](./images/comparison.png) Figure 2. A comparison between traditional learning app and our approach.
-
 The key challenge above all is to differentiate our application from other proprietary learning platforms. We constantly ask ourselves how to make the application more accessible and easy to navigate around for users. Given the fact there are many established applications out there, our team considered trying them out ourselves and conduct double-blind experiments on UI, app responsiveness and content relevancy experiments. We have learnt a lot in the process and greatly influenced our design of X5GON-Bobile afterwards.
 
 Whilst we are testing out multiple applications under the `eduroam` network environment, there was one significant issue that emerged out of the dark. Some apps, under mediocre network environment, suffered from constant loss of network connection and extremely slow loading speed. Also, given the fact that the X5Learn ususally takes 10 to 15 seconds to process videos and generate analytic reports, these together makes the app increasingly laggy and unusable at all under such circumstances. This issue of performance we noticed at early stage influenced our application design and development process thereafter, and is proven to be a great differentiating factor for our application.
@@ -30,7 +28,11 @@ Last but not least, another important technical challenge we faced was that the 
 
 ## How did we solve them?
 
+![comparison of app](./images/comparison.png) Figure 2. A comparison between traditional learning app and our approach.
+
 From a design perspective, we took the information-feed approach rather than listing all courses available for the users find. As on most other platforms, users would have to search for what they want to learn, we actively push these information to the screen for users to choose from, similar to video sites but unlike a learning platform. Our design also utilises an innovative way of enabling users to read bullet-points, or browse external supportive contents. Users can scroll to a sidebar whilst not stopping the video and start from there, whilst the video is playing as a floating window at the bottom of the screen. This design received great feedback from our clients and users at our testing stage.
+
+![fast fetching optimisation](./images/fast-caching.png) Figure 3. A demonstration of our caching technique.
 
 With regards to the performance of the application, we utilised extensive caching and predicting techniques to minimise the lag and increase the responsiveness. First of all, the choice of using `Swift` to develop a native `iOS` application provides us a faster foundation compared to hybrid frameworks like `React Native`. More so, our aggressive pre-loading daemon utilised a `HashMap` storing technique and constantly fetches first 20-seconds of content whenever user finds the thumbnail on display. Although we did make a trade-off of having more background tasks, which is negligible, app users now receives a notably faster application and smoother learning experience.
 
