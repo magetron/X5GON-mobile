@@ -106,9 +106,9 @@ class UserViewController: UIViewController, UITableViewDelegate, UITableViewData
            return cell
         case self.defaultItems...(self.defaultItems + self.user.playlists.count):
             let cell = tableView.dequeueReusableCell(withIdentifier: "UserPlaylistsCell", for: indexPath) as! userPlaylistCell
-            cell.pic.image = self.user.playlists[indexPath.row - 5].pic
-            cell.title.text = self.user.playlists[indexPath.row - 5].title
-            cell.numberOfVideos.text = "\(self.user.playlists[indexPath.row - 5].numberOfVideos) videos"
+            cell.pic.image = self.user.playlists[indexPath.row - self.defaultItems].pic
+            cell.title.text = self.user.playlists[indexPath.row - self.defaultItems].title
+            cell.numberOfVideos.text = "\(self.user.playlists[indexPath.row - self.defaultItems].numberOfVideos) videos"
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "UserMenuCell", for: indexPath) as! userMenuCell
@@ -124,8 +124,16 @@ class UserViewController: UIViewController, UITableViewDelegate, UITableViewData
         - indexPath: An index path locating the new selected row in tableView.
      */
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if (menuTitles[indexPath.row - 1] == "History") {
-            showHistory()
+        if (indexPath.row == 0) {
+            return
+        } else if (indexPath.row < self.defaultItems) {
+            if (menuTitles[indexPath.row - 1] == "History") {
+                showHistory()
+            } else if (menuTitles[indexPath.row - 1] == "Logout") {
+                MainController.logout();
+                user = MainController.user
+                self.tableView.reloadData()
+            }
         }
     }
 

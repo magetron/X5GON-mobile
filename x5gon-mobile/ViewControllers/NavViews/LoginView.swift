@@ -32,6 +32,7 @@ class LoginView: UIView {
     
     /// Perform when the login Button is pressed
     @IBAction func loginButtonPressed(_ sender: Any) {
+        self.endEditing(true)
         guard let username = self.usernameTextField.text else {
             return
         }
