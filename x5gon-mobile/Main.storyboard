@@ -1214,9 +1214,14 @@
                     <rect key="frame" x="0.0" y="0.0" width="415" height="710"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="awJ-qi-lz3">
-                            <rect key="frame" x="0.0" y="0.0" width="415" height="710"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="56t-Mr-mBL">
+                            <rect key="frame" x="0.0" y="52" width="415" height="44"/>
+                            <items>
+                                <navigationItem id="P6e-IA-wi1"/>
+                            </items>
+                        </navigationBar>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="awJ-qi-lz3">
+                            <rect key="frame" x="0.0" y="96" width="415" height="666"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <prototypes>
                                 <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="UserHistoryViewCell" rowHeight="100" id="phY-WL-9Ub" customClass="userHistoryViewCell" customModule="x5gon_mobile" customModuleProvider="target">
@@ -1227,13 +1232,13 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FCd-bq-MCn">
-                                                <rect key="frame" x="16" y="11" width="100" height="78"/>
+                                                <rect key="frame" x="20" y="11" width="100" height="78"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="100" id="gaP-pl-LxJ"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q6u-hg-CDe">
-                                                <rect key="frame" x="128" y="18" width="271" height="35"/>
+                                                <rect key="frame" x="132" y="18" width="267" height="35"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -1246,7 +1251,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yIx-Sq-mmk">
-                                                <rect key="frame" x="-4" y="97" width="8" height="1"/>
+                                                <rect key="frame" x="0.0" y="97" width="415" height="1"/>
                                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="LnW-7a-DXh"/>
@@ -1278,27 +1283,40 @@
                                 <outlet property="delegate" destination="aDq-q3-D8c" id="gJ6-N6-H44"/>
                             </connections>
                         </tableView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zzg-pO-3gX">
-                            <rect key="frame" x="14" y="-14" width="60" height="26"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UcH-Gq-lys">
+                            <rect key="frame" x="0.0" y="67" width="74" height="58"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="60" id="6tb-cc-rdz"/>
+                                <constraint firstAttribute="height" constant="58" id="ADP-x4-3l2"/>
+                                <constraint firstAttribute="width" constant="74" id="GAB-ut-tPL"/>
                             </constraints>
-                            <state key="normal" title="Back" image="arrowtriangle.left.fill" catalog="system">
+                            <state key="normal" title="Back" image="chevron.left" catalog="system">
                                 <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
-                                <action selector="hideHistoryView:" destination="Em0-hH-BkN" eventType="touchUpInside" id="GKU-Pq-9ji"/>
+                                <action selector="hideHistoryView:" destination="Em0-hH-BkN" eventType="touchUpInside" id="2tL-Cn-kzf"/>
                             </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <constraints>
-                        <constraint firstItem="zzg-pO-3gX" firstAttribute="leading" secondItem="Em0-hH-BkN" secondAttribute="leadingMargin" constant="-6" id="9hj-8m-ieq"/>
-                        <constraint firstItem="zzg-pO-3gX" firstAttribute="top" secondItem="Em0-hH-BkN" secondAttribute="top" constant="-14" id="fZs-Ca-Pzw"/>
-                        <constraint firstItem="qC3-FG-hyy" firstAttribute="bottom" secondItem="zzg-pO-3gX" secondAttribute="bottom" constant="664" id="mPF-rv-Feg"/>
+                        <constraint firstItem="awJ-qi-lz3" firstAttribute="top" secondItem="56t-Mr-mBL" secondAttribute="bottom" id="2Dr-G2-Em7"/>
+                        <constraint firstItem="56t-Mr-mBL" firstAttribute="leading" secondItem="awJ-qi-lz3" secondAttribute="leading" id="CdC-iT-15X"/>
+                        <constraint firstItem="awJ-qi-lz3" firstAttribute="top" secondItem="56t-Mr-mBL" secondAttribute="bottom" id="HMH-VQ-A3i"/>
+                        <constraint firstItem="awJ-qi-lz3" firstAttribute="leading" secondItem="qC3-FG-hyy" secondAttribute="leading" id="K9y-fw-XVB"/>
+                        <constraint firstItem="awJ-qi-lz3" firstAttribute="top" secondItem="qC3-FG-hyy" secondAttribute="top" constant="52" id="KZu-F6-Crf"/>
+                        <constraint firstItem="UcH-Gq-lys" firstAttribute="leading" secondItem="qC3-FG-hyy" secondAttribute="leading" id="SPM-rF-dbA"/>
+                        <constraint firstAttribute="trailing" secondItem="56t-Mr-mBL" secondAttribute="trailing" symbolic="YES" id="T9R-Lt-Qs3"/>
+                        <constraint firstItem="56t-Mr-mBL" firstAttribute="trailing" secondItem="awJ-qi-lz3" secondAttribute="trailing" id="bnz-vZ-Iua"/>
+                        <constraint firstAttribute="bottom" secondItem="awJ-qi-lz3" secondAttribute="bottom" constant="-52" id="iZf-Id-VC3"/>
+                        <constraint firstItem="UcH-Gq-lys" firstAttribute="centerY" secondItem="56t-Mr-mBL" secondAttribute="centerY" constant="22" id="opX-VV-cOj"/>
+                        <constraint firstItem="56t-Mr-mBL" firstAttribute="centerX" secondItem="Em0-hH-BkN" secondAttribute="centerX" id="wUM-wY-gnn"/>
+                        <constraint firstItem="56t-Mr-mBL" firstAttribute="top" secondItem="Em0-hH-BkN" secondAttribute="top" constant="52" id="ydu-oS-Xh8"/>
+                        <constraint firstItem="56t-Mr-mBL" firstAttribute="leading" secondItem="Em0-hH-BkN" secondAttribute="leading" symbolic="YES" id="zqu-HP-sFb"/>
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="qC3-FG-hyy"/>
                     <connections>
+                        <outlet property="backButton" destination="UcH-Gq-lys" id="CAs-fJ-17P"/>
+                        <outlet property="navBar" destination="56t-Mr-mBL" id="Msd-dP-9Wt"/>
                         <outlet property="tableView" destination="awJ-qi-lz3" id="Bd1-7u-Vyq"/>
                     </connections>
                 </view>
@@ -1307,9 +1325,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrowtriangle.left.fill" catalog="system" width="64" height="56"/>
         <image name="bookmark" catalog="system" width="56" height="64"/>
         <image name="cancel" width="48" height="48"/>
+        <image name="chevron.left" catalog="system" width="48" height="64"/>
         <image name="emptyTumbnail" width="375" height="211"/>
         <image name="logo" width="341.33334350585938" height="341.33334350585938"/>
         <image name="sidebar.right" catalog="system" width="64" height="46"/>
