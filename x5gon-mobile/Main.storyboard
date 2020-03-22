@@ -1217,7 +1217,7 @@
                         <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="56t-Mr-mBL">
                             <rect key="frame" x="0.0" y="52" width="415" height="44"/>
                             <items>
-                                <navigationItem title="Title" id="P6e-IA-wi1"/>
+                                <navigationItem id="P6e-IA-wi1"/>
                             </items>
                         </navigationBar>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="awJ-qi-lz3">
