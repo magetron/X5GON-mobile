@@ -9,30 +9,39 @@
 import Foundation
 import UIKit
 
-class UserHistoryView : UIView, UITableViewDelegate, UITableViewDataSource {
+class UserHistoryView : UIView, UITableViewDelegate, UITableViewDataSource, UINavigationBarDelegate {
     //MARK: - Properties
     // This is a list of `Content`s which is used to store history contents
     var historyContent = [Content]()
+    
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var navBar: UINavigationBar!
     //This is a `UITableView` which is used to display `Content`s as cells.
     @IBOutlet weak var tableView: UITableView!
     
+    
     //MARK: - Methods
-
+    
     /**
      ### Customise View ###
      - Setup TableView
      */
     func customisation () {
+        self.addSubview(navBar)
+        self.addSubview(backButton)
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        self.tableView.contentInset = UIEdgeInsets(top: 80, left: 0, bottom: 30, right: 0)
-        self.tableView.scrollIndicatorInsets = UIEdgeInsets(top: 80, left: 0, bottom: 30, right: 0)
+        self.tableView.contentInset = UIEdgeInsets(top: 30, left: 0, bottom: 30, right: 0)
+        self.tableView.scrollIndicatorInsets = UIEdgeInsets(top: 30, left: 0, bottom: 30, right: 0)
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 100
         self.tableView.rowHeight = 100
+        self.addSubview(tableView)
+        
+        self.bringSubviewToFront(navBar)
+        self.bringSubviewToFront(backButton)
     }
     
-    /// Hide historyView on the screen
     @IBAction func hideHistoryView(_ sender: Any) {
         UIView.animate(withDuration: 0.3, animations: {
             self.transform = CGAffineTransform(translationX: self.bounds.width, y: 0)
@@ -88,6 +97,7 @@ class UserHistoryView : UIView, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         NotificationCenter.default.post(name: NSNotification.Name("open"), object: historyContent[indexPath.row])
     }
+    
     
     //MARK: - View LifeCycle
     /**
