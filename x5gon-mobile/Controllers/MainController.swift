@@ -109,6 +109,7 @@ class MainController {
     static func logout () {
         API.authenticationToken = ""
         API.logout()
+        user = User.generateDefaultUser()
     }
     
     static func addHistory (content: Content) {
