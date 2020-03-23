@@ -64,7 +64,12 @@ class testUserModel: XCTestCase {
         let checkImage = UIImage.init(named: "pl-node")!
         XCTAssertEqual(backgroudImage, checkImage)
     }
-    
+    func testBookMark(){
+        let content = Content.init(title: "Content One", id: 0, channelName: "123", description: "123321", url: URL.init(string: "www.123.com")!)
+        user.bookmark(content: content)
+        let bool = user.bookmarkedContent.contains(content)
+        XCTAssertEqual(bool, true)
+    }
 
     func testPerformanceExample() {
         // This is an example of a performance test case.
