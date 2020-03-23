@@ -110,7 +110,9 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
     
 
     @objc func resumePlayerView() {
-        self.videoPlayerViewController.player?.play()
+        if let _ = self.content as? Video {
+            self.videoPlayerViewController.player?.play()
+        }
         self.state = .fullScreen
         self.delegate?.didmaximize()
         self.animate()
@@ -191,12 +193,14 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
     func setPDF(pdf : PDF) {
         self.player.clearSubViews()
         self.player.addSubview(pdfView)
-        let returnButton = UIButton.init(frame: CGRect(x: 10, y: 0, width: 60, height: 35))
+        let returnButton = UIButton.init(frame: CGRect(x: 5, y: 16, width: 60, height: 35))
+        let navBar = UINavigationBar.init(frame: CGRect(x: 0, y: 0, width: self.player.bounds.width, height: 54))
         returnButton.backgroundColor = UIColor.clear
         returnButton.setTitleColor(UIColor.systemBlue, for: UIControl.State.normal)
         returnButton.setTitle("Back", for: UIControl.State.normal)
-        returnButton.setImage(UIImage.init(systemName: "arrowtriangle.left"), for: .normal)
+        returnButton.setImage(UIImage.init(systemName: "chevron.left"), for: .normal)
         returnButton.addTarget(nil, action: #selector(returnFromPlayerView), for: UIControl.Event.touchUpInside)
+        self.player.addSubview(navBar)
         self.player.addSubview(returnButton)
         pdfView.document = PDFDocument.init(url: pdf.contentLink)
     }
