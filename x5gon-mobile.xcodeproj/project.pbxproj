@@ -61,6 +61,7 @@
 		DCA928DD2429655100A40E85 /* testContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928DC2429655100A40E85 /* testContentModel.swift */; };
 		DCA928DF242970C700A40E85 /* testPdfModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928DE242970C700A40E85 /* testPdfModel.swift */; };
 		DCA928E12429720900A40E85 /* testWikiEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928E02429720900A40E85 /* testWikiEntity.swift */; };
+		DCA928E3242973FB00A40E85 /* testChannelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928E2242973FB00A40E85 /* testChannelModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,6 +145,7 @@
 		DCA928DC2429655100A40E85 /* testContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testContentModel.swift; sourceTree = "<group>"; };
 		DCA928DE242970C700A40E85 /* testPdfModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testPdfModel.swift; sourceTree = "<group>"; };
 		DCA928E02429720900A40E85 /* testWikiEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testWikiEntity.swift; sourceTree = "<group>"; };
+		DCA928E2242973FB00A40E85 /* testChannelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testChannelModel.swift; sourceTree = "<group>"; };
 		EE69974D670D2716EDF8A4EF /* libPods-x5gon-mobileTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-x5gon-mobileTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -327,6 +329,7 @@
 				DCA928DC2429655100A40E85 /* testContentModel.swift */,
 				DCA928DE242970C700A40E85 /* testPdfModel.swift */,
 				DCA928E02429720900A40E85 /* testWikiEntity.swift */,
+				DCA928E2242973FB00A40E85 /* testChannelModel.swift */,
 			);
 			path = "x5gon-mobileTests";
 			sourceTree = "<group>";
@@ -642,6 +645,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCA928E3242973FB00A40E85 /* testChannelModel.swift in Sources */,
 				DCA928E12429720900A40E85 /* testWikiEntity.swift in Sources */,
 				DCA928DB24295DB800A40E85 /* testVideoModel.swift in Sources */,
 				DCA928DD2429655100A40E85 /* testContentModel.swift in Sources */,
