@@ -1,5 +1,5 @@
 //
-//  testVideoModel.swift
+//  testContentModel.swift
 //  x5gon-mobileTests
 //
 //  Created by Felix Hu on 23/03/2020.
@@ -8,8 +8,8 @@
 
 import XCTest
 @testable import x5gon_mobile
-class testVideoModel: XCTestCase {
-    let video = Video.init(title: "Test video", id: 111, channelName: "Test Channel", description: "This is our test video", url: URL.init(string: "www.testvideo.com")!)
+class testContentModel: XCTestCase {
+    let content = Content.init(title: "Test Content", id: 111, channelName: "Test Channel", description: "This is our test Content", url: URL.init(string: "www.testContent.com")!)
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -18,64 +18,65 @@ class testVideoModel: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
-    func testVideoTitle(){
-        let title = video.title
-        XCTAssertEqual(title, "Test video")
+    
+    func testContentTitle(){
+        let title = content.title
+        XCTAssertEqual(title, "Test Content")
     }
     
-    func testVideoID(){
-        let id = video.id
+    func testContentID(){
+        let id = content.id
         XCTAssertEqual(id, 111)
     }
     
-    func testVideoChannel(){
-        let channel = video.channel.name
+    func testContentChannel(){
+        let channel = content.channel.name
         XCTAssertEqual(channel, "Test Channel")
     }
     
-    func testVideoURL(){
-        let url = video.contentLink
-        let testUrl = URL.init(string: "www.testvideo.com")!
+    func testContentURL(){
+        let url = content.contentLink
+        let testUrl = URL.init(string: "www.testContent.com")!
         XCTAssertEqual(url, testUrl)
     }
     
-    func testVideoDescription(){
-        let description = video.description
-        XCTAssertEqual(description, "This is our test video")
+    func testContentDescription(){
+        let description = content.description
+        XCTAssertEqual(description, "This is our test Content")
     }
     
-    func testVideoDuration(){
-        let duration = video.duration
+    func testContentDuration(){
+        let duration = content.duration
         XCTAssertEqual(duration, 0)
     }
     
-    func testVideoViews(){
-        let view = video.views
+    func testContentViews(){
+        let view = content.views
         let bool = view < 1000000
         XCTAssertTrue(bool)
     }
     
-    func testVideoThumbnail(){
+    func testContentThumbnail(){
         let thumbnailCheck = UIImage.init(named: "Video Placeholder")!
-        XCTAssertEqual(video.thumbnail, thumbnailCheck)
+        XCTAssertEqual(content.thumbnail, thumbnailCheck)
     }
 
-    func testLikeVideo() {
+    func testLikeContent() {
         let int = Int.random(in: 2..<10)
         for _ in 1...int{
-            video.like()
+            content.like()
         }
-        XCTAssertEqual(video.likes, int)
+        XCTAssertEqual(content.likes, int)
     }
     
-    func testDisLikeVideo() {
+    func testDisLikeContent() {
         let int = Int.random(in: 2..<10)
         for _ in 1...int{
-            video.dislike()
+            content.dislike()
         }
-        XCTAssertEqual(video.disLikes, int)
+        XCTAssertEqual(content.disLikes, int)
     }
+    
 
     func testPerformanceExample() {
         // This is an example of a performance test case.
