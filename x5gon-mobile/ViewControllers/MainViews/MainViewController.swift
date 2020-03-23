@@ -48,13 +48,13 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         let homeVC = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController")
         let featuredVC = self.storyboard?.instantiateViewController(withIdentifier: "FeaturedViewController")
         let searchResultsVC = self.storyboard?.instantiateViewController(withIdentifier: "SearchResultsViewController")
-        let UserVC = self.storyboard?.instantiateViewController(withIdentifier: "UserViewController")
+        let userVC = self.storyboard?.instantiateViewController(withIdentifier: "UserViewController")
         MainController.homeViewController = (homeVC as! HomeViewController)
         MainController.featuredViewController = (featuredVC as! FeaturedViewController)
         MainController.searchResultsViewController = (searchResultsVC as! SearchResultsViewController)
-        MainController.UserViewController = (UserVC as! UserViewController)
+        MainController.UserViewController = (userVC as! UserViewController)
         
-        let viewControllers = [homeVC, featuredVC, searchResultsVC, UserVC]
+        let viewControllers = [homeVC, featuredVC, searchResultsVC, userVC]
         for vc in viewControllers {
             self.addChild(vc!)
             vc!.didMove(toParent: self)
@@ -108,6 +108,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
      */
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
+        cell.contentView.frame = collectionView.frame
         cell.contentView.addSubview(self.views[indexPath.row])
         return cell
     }
