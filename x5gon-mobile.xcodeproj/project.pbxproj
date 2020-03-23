@@ -59,6 +59,7 @@
 		DCA928D92429565000A40E85 /* testUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928D82429565000A40E85 /* testUserModel.swift */; };
 		DCA928DB24295DB800A40E85 /* testVideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928DA24295DB800A40E85 /* testVideoModel.swift */; };
 		DCA928DD2429655100A40E85 /* testContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928DC2429655100A40E85 /* testContentModel.swift */; };
+		DCA928DF242970C700A40E85 /* testPdfModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928DE242970C700A40E85 /* testPdfModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,6 +141,7 @@
 		DCA928D82429565000A40E85 /* testUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testUserModel.swift; sourceTree = "<group>"; };
 		DCA928DA24295DB800A40E85 /* testVideoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testVideoModel.swift; sourceTree = "<group>"; };
 		DCA928DC2429655100A40E85 /* testContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testContentModel.swift; sourceTree = "<group>"; };
+		DCA928DE242970C700A40E85 /* testPdfModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testPdfModel.swift; sourceTree = "<group>"; };
 		EE69974D670D2716EDF8A4EF /* libPods-x5gon-mobileTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-x5gon-mobileTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -321,6 +323,7 @@
 				DCA928D82429565000A40E85 /* testUserModel.swift */,
 				DCA928DA24295DB800A40E85 /* testVideoModel.swift */,
 				DCA928DC2429655100A40E85 /* testContentModel.swift */,
+				DCA928DE242970C700A40E85 /* testPdfModel.swift */,
 			);
 			path = "x5gon-mobileTests";
 			sourceTree = "<group>";
@@ -639,6 +642,7 @@
 				DCA928DB24295DB800A40E85 /* testVideoModel.swift in Sources */,
 				DCA928DD2429655100A40E85 /* testContentModel.swift in Sources */,
 				DCA928D92429565000A40E85 /* testUserModel.swift in Sources */,
+				DCA928DF242970C700A40E85 /* testPdfModel.swift in Sources */,
 				CDFD3C0323CC7854000FCEF6 /* x5gon_mobileTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

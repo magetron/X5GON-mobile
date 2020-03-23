@@ -62,7 +62,7 @@ class testContentModel: XCTestCase {
     }
 
     func testLikeContent() {
-        let int = Int.random(in: 2..<10)
+        let int = Int.random(in: 2..<20)
         for _ in 1...int{
             content.like()
         }
@@ -70,7 +70,7 @@ class testContentModel: XCTestCase {
     }
     
     func testDisLikeContent() {
-        let int = Int.random(in: 2..<10)
+        let int = Int.random(in: 2..<20)
         for _ in 1...int{
             content.dislike()
         }
