@@ -10,22 +10,33 @@ import UIKit
 
 class notesCell: UITableViewCell, UITextViewDelegate {
     
+    let defaultString = "Write Your Note Here"
     
     //MARK: - Properties
     @IBOutlet weak var textView: UITextView!
+    var contentId = 0
     
     //MARK: - Methods
     func customisation () {
         textView.isScrollEnabled = true
-        textView.text = "Write Your Note Here"
+        textView.text = ""
         textView.textColor = UIColor.lightGray
         textView.returnKeyType = .done
         textView.delegate = self
     }
     
+    func set (text: String, id: Int) {
+        textView.text = text
+        if (text == "") {
+            textView.text = "Write Your Note Here"
+            textView.textColor = UIColor.lightGray
+        }
+        contentId = id
+    }
+    
     //MARK: - Delegates
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.text == "Write Your Note Here"{
+        if textView.text == defaultString {
             textView.text = ""
             textView.textColor = UIColor.black
         }
@@ -50,6 +61,7 @@ class notesCell: UITableViewCell, UITextViewDelegate {
                 constraint.constant = self.textView.contentSize.height
             }
         }
+        MainController.createNotes(id: contentId, text: textView.text)
         MainController.navViewController?.playerView.tableView.reloadData()
     }
     

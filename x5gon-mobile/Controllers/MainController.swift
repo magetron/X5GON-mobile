@@ -123,7 +123,7 @@ class MainController {
         return API.getNotes(id: id)
     }
     
-    static func setNotes (id: Int, text: String) {
+    static func createNotes (id: Int, text: String) {
         return API.createNotes(id: id, text: text)
     }
     
