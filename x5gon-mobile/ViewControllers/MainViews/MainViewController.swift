@@ -18,6 +18,8 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     /// This is a variable to save a list of `UIView`s
     var views = [UIView]()
     
+    var viewControllers = [UIViewController?]()
+    
     //MARK: - Methods
     /**
      ### Customise View ###
@@ -54,7 +56,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         MainController.searchResultsViewController = (searchResultsVC as! SearchResultsViewController)
         MainController.UserViewController = (userVC as! UserViewController)
         
-        let viewControllers = [homeVC, featuredVC, searchResultsVC, userVC]
+        viewControllers = [homeVC, featuredVC, searchResultsVC, userVC]
         for vc in viewControllers {
             self.addChild(vc!)
             vc!.didMove(toParent: self)

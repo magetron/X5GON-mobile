@@ -372,16 +372,6 @@
                                                     <action selector="showNavigation:" destination="5gL-Aw-hkc" eventType="touchUpInside" id="VYx-2x-ba9"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XjH-h1-fHE">
-                                                <rect key="frame" x="291" y="46" width="100" height="22"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Bookmark" image="bookmark" catalog="system">
-                                                    <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="bookmarkCurrentContnet:" destination="5gL-Aw-hkc" eventType="touchUpInside" id="d6w-W2-OF5"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="BW9-Ht-IWc" firstAttribute="top" secondItem="0ca-mZ-3VK" secondAttribute="bottom" constant="14" id="1cN-AT-BNh"/>
@@ -1148,7 +1138,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="45I-4B-uid">
-                                                    <rect key="frame" x="66" y="15" width="340" height="21"/>
+                                                    <rect key="frame" x="98" y="15" width="308" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="I4G-74-9JG"/>
                                                     </constraints>
@@ -1157,14 +1147,14 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="O4K-0v-FlO">
-                                                    <rect key="frame" x="16" y="15" width="40" height="40"/>
+                                                    <rect key="frame" x="16" y="15" width="68" height="40"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="40" id="3Hs-rc-tNw"/>
+                                                        <constraint firstAttribute="width" constant="68" id="3Hs-rc-tNw"/>
                                                         <constraint firstAttribute="height" constant="40" id="9Ak-Kr-o7B"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ytg-c6-4Fv">
-                                                    <rect key="frame" x="66" y="40.666666666666664" width="31" height="14.333333333333336"/>
+                                                    <rect key="frame" x="98" y="40" width="31" height="15"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -1174,15 +1164,15 @@
                                                 <constraint firstAttribute="bottom" secondItem="O4K-0v-FlO" secondAttribute="bottom" constant="15" id="5sA-5v-Eh9"/>
                                                 <constraint firstItem="Ytg-c6-4Fv" firstAttribute="bottom" secondItem="O4K-0v-FlO" secondAttribute="bottom" id="Esy-mX-aV3"/>
                                                 <constraint firstItem="O4K-0v-FlO" firstAttribute="leading" secondItem="dPi-i4-5iJ" secondAttribute="leading" constant="16" id="Ipt-T4-htU"/>
-                                                <constraint firstItem="45I-4B-uid" firstAttribute="leading" secondItem="O4K-0v-FlO" secondAttribute="trailing" constant="10" id="cwz-SM-25l"/>
-                                                <constraint firstItem="Ytg-c6-4Fv" firstAttribute="leading" secondItem="O4K-0v-FlO" secondAttribute="trailing" constant="10" id="db4-hs-NvO"/>
+                                                <constraint firstItem="45I-4B-uid" firstAttribute="leading" secondItem="O4K-0v-FlO" secondAttribute="trailing" constant="14" id="cwz-SM-25l"/>
+                                                <constraint firstItem="Ytg-c6-4Fv" firstAttribute="leading" secondItem="O4K-0v-FlO" secondAttribute="trailing" constant="14" id="db4-hs-NvO"/>
                                                 <constraint firstItem="45I-4B-uid" firstAttribute="top" secondItem="O4K-0v-FlO" secondAttribute="top" id="ecD-jp-i5e"/>
                                                 <constraint firstItem="O4K-0v-FlO" firstAttribute="top" secondItem="dPi-i4-5iJ" secondAttribute="top" constant="15" id="oDF-6V-5Bc"/>
                                                 <constraint firstAttribute="trailing" secondItem="45I-4B-uid" secondAttribute="trailing" constant="8" id="zCy-tV-hCf"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="numberOfVideos" destination="Ytg-c6-4Fv" id="1xj-ji-fT7"/>
+                                            <outlet property="channel" destination="Ytg-c6-4Fv" id="i4o-up-3H6"/>
                                             <outlet property="pic" destination="O4K-0v-FlO" id="kjA-2t-It5"/>
                                             <outlet property="title" destination="45I-4B-uid" id="qFf-OE-J2b"/>
                                         </connections>
@@ -1321,11 +1311,10 @@
                     </connections>
                 </view>
             </objects>
-            <point key="canvasLocation" x="3280.8000000000002" y="152.47376311844079"/>
+            <point key="canvasLocation" x="3279.7101449275365" y="152.00892857142856"/>
         </scene>
     </scenes>
     <resources>
-        <image name="bookmark" catalog="system" width="56" height="64"/>
         <image name="cancel" width="48" height="48"/>
         <image name="chevron.left" catalog="system" width="48" height="64"/>
         <image name="emptyTumbnail" width="375" height="211"/>

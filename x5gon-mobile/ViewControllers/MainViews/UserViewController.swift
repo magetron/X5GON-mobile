@@ -78,7 +78,7 @@ class UserViewController: UIViewController, UITableViewDelegate, UITableViewData
      
      */
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.defaultItems + self.user.playlists.count
+        return self.defaultItems + self.user.bookmarkedContent.count
     }
     
     /**
@@ -104,11 +104,11 @@ class UserViewController: UIViewController, UITableViewDelegate, UITableViewData
             cell.menuTitles.text = self.menuTitles[indexPath.row - 1]
             cell.menuIcon.image = UIImage.init(named: self.menuTitles[indexPath.row - 1])
            return cell
-        case self.defaultItems...(self.defaultItems + self.user.playlists.count):
+        case self.defaultItems...(self.defaultItems + self.user.bookmarkedContent.count):
             let cell = tableView.dequeueReusableCell(withIdentifier: "UserPlaylistsCell", for: indexPath) as! userPlaylistCell
-            cell.pic.image = self.user.playlists[indexPath.row - self.defaultItems].pic
-            cell.title.text = self.user.playlists[indexPath.row - self.defaultItems].title
-            cell.numberOfVideos.text = "\(self.user.playlists[indexPath.row - self.defaultItems].numberOfVideos) videos"
+            cell.pic.image = self.user.bookmarkedContent[self.user.bookmarkedContent.index(self.user.bookmarkedContent.startIndex, offsetBy: indexPath.row - self.defaultItems)].thumbnail
+            cell.title.text = self.user.bookmarkedContent[self.user.bookmarkedContent.index(self.user.bookmarkedContent.startIndex, offsetBy: indexPath.row - self.defaultItems)].title
+            cell.channel.text = self.user.bookmarkedContent[self.user.bookmarkedContent.index(self.user.bookmarkedContent.startIndex, offsetBy: indexPath.row - self.defaultItems)].channel.name
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "UserMenuCell", for: indexPath) as! userMenuCell
