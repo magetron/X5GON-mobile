@@ -65,6 +65,7 @@
 		DCA928E52429785A00A40E85 /* testPlaylistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928E42429785A00A40E85 /* testPlaylistModel.swift */; };
 		DCA928EB24298C6400A40E85 /* testAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928EA24298C6400A40E85 /* testAPI.swift */; };
 		DCA928ED242993F200A40E85 /* testX5GONApiAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928EC242993F200A40E85 /* testX5GONApiAdapter.swift */; };
+		DCA928EF2429986300A40E85 /* testX5LearnAPIAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928EE2429986300A40E85 /* testX5LearnAPIAdapter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -152,6 +153,7 @@
 		DCA928E42429785A00A40E85 /* testPlaylistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testPlaylistModel.swift; sourceTree = "<group>"; };
 		DCA928EA24298C6400A40E85 /* testAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testAPI.swift; sourceTree = "<group>"; };
 		DCA928EC242993F200A40E85 /* testX5GONApiAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testX5GONApiAdapter.swift; sourceTree = "<group>"; };
+		DCA928EE2429986300A40E85 /* testX5LearnAPIAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testX5LearnAPIAdapter.swift; sourceTree = "<group>"; };
 		EE69974D670D2716EDF8A4EF /* libPods-x5gon-mobileTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-x5gon-mobileTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -339,6 +341,7 @@
 				DCA928E42429785A00A40E85 /* testPlaylistModel.swift */,
 				DCA928EA24298C6400A40E85 /* testAPI.swift */,
 				DCA928EC242993F200A40E85 /* testX5GONApiAdapter.swift */,
+				DCA928EE2429986300A40E85 /* testX5LearnAPIAdapter.swift */,
 			);
 			path = "x5gon-mobileTests";
 			sourceTree = "<group>";
@@ -656,6 +659,7 @@
 			files = (
 				DCA928E3242973FB00A40E85 /* testChannelModel.swift in Sources */,
 				DCA928E12429720900A40E85 /* testWikiEntity.swift in Sources */,
+				DCA928EF2429986300A40E85 /* testX5LearnAPIAdapter.swift in Sources */,
 				DCA928DB24295DB800A40E85 /* testVideoModel.swift in Sources */,
 				DCA928DD2429655100A40E85 /* testContentModel.swift in Sources */,
 				DCA928ED242993F200A40E85 /* testX5GONApiAdapter.swift in Sources */,

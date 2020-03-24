@@ -28,7 +28,7 @@ class testX5GONApiAdapter: XCTestCase {
         XCTAssertEqual(url, "api/v1/")
     }
     
-    func testGenerateContentQuery(){
+    func testGenerateContentQueryURL(){
         let url = X5GONAPIAdapter.generateContentQueryURL(keyWord: "abc", contentType: "pdf")
         XCTAssertEqual(url, X5GONAPIAdapter.rootURL() + X5GONAPIAdapter.APIVersion() + "recommend/oer_materials?text=" + "abc" + "&types=" + "pdf")
     }
