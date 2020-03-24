@@ -63,6 +63,8 @@
 		DCA928E12429720900A40E85 /* testWikiEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928E02429720900A40E85 /* testWikiEntity.swift */; };
 		DCA928E3242973FB00A40E85 /* testChannelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928E2242973FB00A40E85 /* testChannelModel.swift */; };
 		DCA928E52429785A00A40E85 /* testPlaylistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928E42429785A00A40E85 /* testPlaylistModel.swift */; };
+		DCA928EB24298C6400A40E85 /* testAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928EA24298C6400A40E85 /* testAPI.swift */; };
+		DCA928ED242993F200A40E85 /* testX5GONApiAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928EC242993F200A40E85 /* testX5GONApiAdapter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -148,6 +150,8 @@
 		DCA928E02429720900A40E85 /* testWikiEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testWikiEntity.swift; sourceTree = "<group>"; };
 		DCA928E2242973FB00A40E85 /* testChannelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testChannelModel.swift; sourceTree = "<group>"; };
 		DCA928E42429785A00A40E85 /* testPlaylistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testPlaylistModel.swift; sourceTree = "<group>"; };
+		DCA928EA24298C6400A40E85 /* testAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testAPI.swift; sourceTree = "<group>"; };
+		DCA928EC242993F200A40E85 /* testX5GONApiAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testX5GONApiAdapter.swift; sourceTree = "<group>"; };
 		EE69974D670D2716EDF8A4EF /* libPods-x5gon-mobileTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-x5gon-mobileTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -333,6 +337,8 @@
 				DCA928E02429720900A40E85 /* testWikiEntity.swift */,
 				DCA928E2242973FB00A40E85 /* testChannelModel.swift */,
 				DCA928E42429785A00A40E85 /* testPlaylistModel.swift */,
+				DCA928EA24298C6400A40E85 /* testAPI.swift */,
+				DCA928EC242993F200A40E85 /* testX5GONApiAdapter.swift */,
 			);
 			path = "x5gon-mobileTests";
 			sourceTree = "<group>";
@@ -652,7 +658,9 @@
 				DCA928E12429720900A40E85 /* testWikiEntity.swift in Sources */,
 				DCA928DB24295DB800A40E85 /* testVideoModel.swift in Sources */,
 				DCA928DD2429655100A40E85 /* testContentModel.swift in Sources */,
+				DCA928ED242993F200A40E85 /* testX5GONApiAdapter.swift in Sources */,
 				DCA928D92429565000A40E85 /* testUserModel.swift in Sources */,
+				DCA928EB24298C6400A40E85 /* testAPI.swift in Sources */,
 				DCA928E52429785A00A40E85 /* testPlaylistModel.swift in Sources */,
 				DCA928DF242970C700A40E85 /* testPdfModel.swift in Sources */,
 				CDFD3C0323CC7854000FCEF6 /* x5gon_mobileTests.swift in Sources */,
