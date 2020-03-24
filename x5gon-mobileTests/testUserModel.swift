@@ -48,12 +48,12 @@ class testUserModel: XCTestCase {
         XCTAssertEqual(name, "Felix Hu")
     }
     
-    func testGeneratedUserPlaylist() {
-        let playListGenerated = generateUser.playlists
-        XCTAssertEqual(playListGenerated.count, 0)
+    func testGeneratedUserBookmark() {
+        let bookmarked = generateUser.bookmarkedContent
+        XCTAssertEqual(bookmarked.count, 0)
     }
     
-    func testGeneratedUserProfilePic(){
+    func testGeneratedUserProfilePic() {
         let profilPic = generateUser.profilePic
         let checkPic = UIImage.init(named: "pl-angular")!
         XCTAssertEqual(profilPic, checkPic)
