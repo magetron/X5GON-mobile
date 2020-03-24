@@ -30,4 +30,9 @@ protocol APIAdapter {
     
     /// Gnerate Featured `Content` URL
     static func generateFeaturedContentURL () -> String
+    
+    static func generateNotesURL() -> String
+    
+    static func generateNotesURL(id: Int) -> String
+    
 }

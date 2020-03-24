@@ -56,7 +56,15 @@ class X5GONAPIAdapter : APIAdapter {
     static func generateFeaturedContentURL() -> String {
         fatalError("error: X5GON does not provide featured contents URL")
     }
-
+    
+    static func generateNotesURL() -> String {
+        fatalError("error: X5GON does not provide notes URL")
+    }
+    
+    static func generateNotesURL(id: Int) -> String {
+        fatalError("error: X5GON does not provide notes URL")
+    }
+    
     
 }
 
