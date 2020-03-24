@@ -119,6 +119,15 @@ class MainController {
         MainController.user.historyContent.append(content)
     }
     
+    static func getNotes (id: Int) -> String {
+        return API.getNotes(id: id)
+    }
+    
+    static func createNotes (id: Int, text: String) {
+        return API.createNotes(id: id, text: text)
+    }
+    
+    
     /*
     static func DEPRECATED_fetchDefaultContents() -> [Content] {
         var items = [Content]()

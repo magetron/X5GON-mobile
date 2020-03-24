@@ -11,7 +11,7 @@ import XCTest
 class testUserModel: XCTestCase {
     let user = User.generateDefaultUser()
     
-    let generateUser = User.init(name: "Felix Hu", profilePic: UIImage.init(named: "pl-angular")!, backgroundImage: UIImage.init(named: "pl-node")!, playlists: [])
+    let generateUser = User.init(name: "Felix Hu", profilePic: UIImage.init(named: "pl-angular")!, backgroundImage: UIImage.init(named: "pl-node")!)
     
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -26,9 +26,9 @@ class testUserModel: XCTestCase {
         XCTAssertEqual(name, "Patrick Wu")
     }
     
-    func testDefaultUserPlaylist() {
-        let playListGenerated = user.playlists
-        XCTAssertEqual(playListGenerated.count, 7)
+    func testDefaultUserBookmark() {
+        let playListGenerated = user.bookmarkedContent
+        XCTAssertEqual(playListGenerated.count, 0)
     }
     
     func testDefaultUserProfilePic(){

@@ -234,6 +234,7 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "Notes", for: indexPath) as! notesCell
+            cell.set(text: MainController.getNotes(id: self.content.id), id: self.content.id)
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! suggestionContentCell

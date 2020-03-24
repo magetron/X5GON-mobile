@@ -252,10 +252,13 @@ class API {
      */
     static func fetchUser () -> User {
         var tmpUser:User?
-        let contentURLString = newAdapter.generateUserSessionQueryURL()
-        let contentURL = URL(string: contentURLString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!
+        let userURLString = newAdapter.generateUserSessionQueryURL()
+        let userURL = URL(string: userURLString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!
+        var request = URLRequest(url: userURL)
+        request.httpMethod = "GET"
+        applyAuthToken(request: &request)
         let semaphore = DispatchSemaphore(value: 0)
-        let dataTask = URLSession.shared.dataTask(with: contentURL) { data, response, error in
+        let dataTask = URLSession.shared.dataTask(with: request) { data, response, error in
             defer { semaphore.signal() }
             guard let httpResponse = response as? HTTPURLResponse, let receivedData = data
                 else {
@@ -289,6 +292,68 @@ class API {
          semaphore.wait()
          return tmpUser ?? User.generateDefaultUser()
     }
+    
+    
+    static func createNotes (id: Int, text: String) {
+        var request = URLRequest(url: URL(string: newAdapter.generateNotesURL())!)
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = "POST"
+        let parameters: [String: Any] = [
+            "oer_id": id,
+            "text": text
+        ]
+        do {
+            request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
+        } catch let error {
+            print("error: \(error.localizedDescription)")
+        }
+        applyAuthToken(request: &request)
+    
+        let semaphore = DispatchSemaphore(value: 0)
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            defer { semaphore.signal() }
+            guard let httpResponse = response as? HTTPURLResponse, let _ = data
+                else {
+                    print("error: not a valid http response")
+                    return
+                }
+            if (httpResponse.statusCode != 200) {
+                print("error: http response \(httpResponse.statusCode) not successful")
+            }
+        }
+        task.resume()
+        semaphore.wait()
+    }
+    
+    static func getNotes (id: Int) -> String {
+        let notesURLString = newAdapter.generateNotesURL(id: id)
+        let notesURL = URL(string: notesURLString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!
+        var request = URLRequest(url: notesURL)
+        request.httpMethod = "GET"
+        applyAuthToken(request: &request)
+        let semaphore = DispatchSemaphore(value: 0)
+        let dataTask = URLSession.shared.dataTask(with: notesURL) { data, response, error in
+            defer { semaphore.signal() }
+            guard let httpResponse = response as? HTTPURLResponse, let receivedData = data
+                else {
+                    print("error: not a valid http response")
+                    return
+                }
+            if (httpResponse.statusCode != 200) {
+                print("error: http response \(httpResponse.statusCode) not successful")
+            } else {
+                let jsonObject = try? JSONSerialization.jsonObject(with: receivedData, options: [])
+                guard let _ = jsonObject as? [String: Any] else {
+                    print("error: invalid format")
+                    return
+                }
+             }
+         }
+         dataTask.resume()
+         semaphore.wait()
+         return ""
+    }
+    
     
     /**
      Fetching content
@@ -429,4 +494,7 @@ class API {
         semaphore.wait()
         return tmpWiki ?? Wiki.init(chunks: [])
     }
+    
+    
+    
 }
