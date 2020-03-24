@@ -37,10 +37,16 @@ class headerCell: UITableViewCell {
     @IBOutlet weak var thumbUp: UIImageView!
     ///This is a `UIImageView` used to display the thumbDown Icon.
     @IBOutlet weak var thumbDown: UIImageView!
+    
+    var bookmarkButton: UIButton!
+    var content: Content!
+
     var onLikeTapFunc = { () -> Void in return}
     var onDisLikeTapFunc = { () -> Void in return}
     
     func set(content: Content!, onLikeTapFunc: @escaping () -> Void, onDisLikeTapFunc: @escaping () -> Void) {
+        self.content = content
+        
         title.text = content!.title
         viewCount.text = "\(content!.views) views"
         descriptionTextView.text = (content.description == "") ? "No description available" : content.description
@@ -61,6 +67,18 @@ class headerCell: UITableViewCell {
         let disLikeTap = UITapGestureRecognizer(target: self, action: #selector(self.onDisLikeTap))
         thumbUp.isUserInteractionEnabled = true; thumbDown.isUserInteractionEnabled = true
         thumbUp.addGestureRecognizer(likeTap); thumbDown.addGestureRecognizer(disLikeTap)
+        
+        self.bookmarkButton = UIButton(frame: CGRect(x:300, y:50, width:100, height:22))
+        self.bookmarkButton.setTitleColor(UIColor.systemBlue, for: .normal)
+        self.bookmarkButton.setTitle("Bookmark", for: .normal)
+        if (MainController.user.bookmarkedContent.contains(self.content)) { self.bookmarkButton.setImage(UIImage.init(systemName: "bookmark.fill"), for: .normal)
+        } else {
+            self.bookmarkButton.setImage(UIImage.init(systemName: "bookmark"), for: .normal)
+        }
+        let bookmarkTap = UITapGestureRecognizer(target: self, action: #selector(self.bookmarkCurrentContent))
+        self.bookmarkButton.isUserInteractionEnabled = true
+        self.bookmarkButton.addGestureRecognizer(bookmarkTap)
+        self.addSubview(bookmarkButton)
     }
     
     @objc func onLikeTap () {
@@ -71,8 +89,21 @@ class headerCell: UITableViewCell {
         onDisLikeTapFunc()
     }
     
+    @objc func bookmarkCurrentContent() {
+        if (MainController.user.bookmarkedContent.contains(self.content)) {
+            MainController.user.unbookmark(content: self.content)
+            self.bookmarkButton.setImage(UIImage.init(systemName: "bookmark"), for: .normal)
+        } else {
+            MainController.user.bookmark(content: self.content)
+            self.bookmarkButton.setImage(UIImage.init(systemName: "bookmark.fill"), for: .normal)
+        }
+        MainController.userViewController?.tableView.reloadData()
+        MainController.navViewController?.playerView.tableView.reloadData()
+    }
+    
     override func prepareForReuse() {
         super.prepareForReuse()
+        self.bookmarkButton.setImage(UIImage.init(systemName: "bookmark"), for: .normal)
     }
     
 }

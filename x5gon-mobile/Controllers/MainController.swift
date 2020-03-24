@@ -21,7 +21,7 @@ class MainController {
     ///FeaturedViewController
     static var featuredViewController:FeaturedViewController?
     ///UserViewController
-    static var UserViewController:UserViewController?
+    static var userViewController:UserViewController?
     /// User Placeholder
     static var user = User.generateDefaultUser()
     /// OperationQueue
@@ -102,8 +102,8 @@ class MainController {
         API.authenticationToken = API.fetchLoginTokenWith(username: username, password: password, csrfToken: csrfToken)
         refresher(updateContent: {() -> Void in
             self.user = API.fetchUser()
-            MainController.UserViewController?.setUser(user: self.user)
-        }, viewReload: {() -> Void in MainController.UserViewController?.tableView.reloadData()
+            MainController.userViewController?.setUser(user: self.user)
+        }, viewReload: {() -> Void in MainController.userViewController?.tableView.reloadData()
         })
         return API.authenticationToken != ""
     }

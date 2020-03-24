@@ -27,7 +27,6 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var player: UIView!
     @IBOutlet weak var navigationView: playerNavigationView!
-    var bookmarkButton: UIButton!
     var content: Content!
     var delegate: PlayerViewControllerDelegate?
     var state = stateOfViewController.hidden
@@ -45,13 +44,6 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         NSLayoutConstraint.init(item: self, attribute: .right, relatedBy: .equal, toItem: self.navigationView, attribute: .right, multiplier: 1.0, constant: 0).isActive = true
         NSLayoutConstraint.init(item: self, attribute: .bottom, relatedBy: .equal, toItem: self.navigationView, attribute: .bottom, multiplier: 1.0, constant: 0).isActive = true
         self.navigationView.isHidden = true
-        
-        self.bookmarkButton = UIButton(frame: CGRect(x:300, y:355, width:100, height:22))
-        self.bookmarkButton.setTitleColor(UIColor.systemBlue, for: .normal)
-        self.bookmarkButton.setTitle("Bookmark", for: .normal)
-        self.bookmarkButton.setImage(UIImage.init(systemName: "bookmark"), for: .normal)
-        self.bookmarkButton.addTarget(nil, action: #selector(bookmarkCurrentContnet(_:)), for: UIControl.Event.touchUpInside)
-        self.addSubview(self.bookmarkButton)
         
         
         self.backgroundColor = UIColor.clear
@@ -72,24 +64,13 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         NotificationCenter.default.addObserver(self, selector: #selector(self.newPlayerView), name: NSNotification.Name("open"), object: nil)
     }
     
-    func showNavigation(_ sender: Any) {
+    @IBAction func showNavigation(_ sender: Any) {
         self.navigationView.isHidden = false
         self.navigationView.tableView.center.x += self.navigationView.bounds.width;
         UIView.animate(withDuration: 0.6) {
             self.navigationView.backgroundView.alpha = 0.5
             self.navigationView.tableView.center.x -= self.navigationView.bounds.width
         }
-    }
-    
-    @objc func bookmarkCurrentContnet(_ sender: UIButton) {
-        if (MainController.user.bookmarkedContent.contains(self.content)) {
-            MainController.user.unbookmark(content: self.content)
-            sender.setImage(UIImage.init(systemName: "bookmark"), for: .normal)
-        } else {
-            MainController.user.bookmark(content: self.content)
-            sender.setImage(UIImage.init(systemName: "bookmark.fill"), for: .normal)
-        }
-        MainController.UserViewController?.tableView.reloadData()
     }
     
     func animate()  {
@@ -229,9 +210,10 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         if content.wiki.chunks.count == 0 {
             refresher(updateContent: {() -> Void in content.fetchWikiChunkEnrichments() }, viewReload: { () -> Void in self.navigationView.setWiki(wiki: content.wiki); self.navigationView.tableView.reloadData() })
         }
-        if ((self.content != nil) && MainController.user.bookmarkedContent.contains(self.content)) { self.bookmarkButton.setImage(UIImage.init(systemName: "bookmark.fill"), for: .normal)
+        if (MainController.user.bookmarkedContent.contains(content)) {
+            //self.bookmarkButton.setImage(UIImage.init(systemName: "bookmark.fill"), for: .normal)
         } else {
-            self.bookmarkButton.setImage(UIImage.init(systemName: "bookmark"), for: .normal)
+            //self.bookmarkButton.setImage(UIImage.init(systemName: "bookmark"), for: .normal)
         }
         self.tableView.reloadData()
     }

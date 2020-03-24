@@ -54,7 +54,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         MainController.homeViewController = (homeVC as! HomeViewController)
         MainController.featuredViewController = (featuredVC as! FeaturedViewController)
         MainController.searchResultsViewController = (searchResultsVC as! SearchResultsViewController)
-        MainController.UserViewController = (userVC as! UserViewController)
+        MainController.userViewController = (userVC as! UserViewController)
         
         viewControllers = [homeVC, featuredVC, searchResultsVC, userVC]
         for vc in viewControllers {
