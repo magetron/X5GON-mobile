@@ -6,31 +6,65 @@
 
 ### Prerequisites
 
-* `Git`
-* `Xcode 11.3.1(macOS 15 Catilina+)`
-* `iPhone running iOS 13.2+ or an iOS Simulator`
-* `Homebrew (CLI-only)`
+* Git
+* Xcode 11.3.1(macOS 15 Catalina+)
+* iPhone running iOS 13.2+ or an iOS Simulator
+* Cocoapods
+* Homebrew (CLI-only)
+* ios-sim (CLI-only)
 
 ### Installation
 
-`$ git clone https://github.com/magetron/x5gon-mobile.git`
+```zsh
+$ git clone https://github.com/magetron/x5gon-mobile.git
+$ pod install 
+$ brew install ios-sim (cli-only)
+```
 
-#### To use GUI:
+#### To Use Xcode GUI:
 
-Double click to open `x5gon-mobile.xcodeproj` and select build target on top left corner.
+**Build and Run**
 
-Click `Build then Run the current scheme` to run.
+Double click to open `x5gon-mobile.xcworkspace` and select build target on top left corner.
 
-#### To use CLI:
+Click the `Run` Button to build and run.
 
-`$ brew install ios-sim`
+![RUN-GUI](./images/gui-run.png)
 
-`$ cd x5gon-mobile`
+**Build**
 
-`$ xcodebuild -workspace x5gon-mobile.xcworkspace -scheme x5gon-mobile OBJROOT=$(PWD)/build SYMROOT=$(PWD)/build -sdk iphonesimulator`
+Click the `Build` Button for build only.
 
-`$ ios-sim launch --devicetypeid "iPhone-11-Pro-Max" build/Debug-iphonesimulator/x5gon-mobile.app`
-
-**Note**: It is possible to run iOS application with temporary signature on iPhone using CLI. However, given the complexity of steps, we do not recommend this deployment method at this stage.
+![BUILD-GUI](./images/gui-build.png)
 
 
+#### To use CLI
+
+**Build First**
+
+```zsh
+$ source ./scripts/build.sh
+```
+
+**Then Run**
+
+```zsh
+$ source ./scripts/run.sh
+```
+
+**Note**: It is possible to run iOS application with temporary signature on an actual iPhone using CLI. However, given the complexity of steps, we do not recommend this deployment method at this stage.
+
+### Documentation
+
+**Build Docs**
+
+```zsh
+$ source ./scripts/build-docs.sh
+```
+
+Static Documentation will be generated at `./docs`. Simply double click `./docs/index.html` to open with a browser or use `open ./docs/index.html` on `macOS`.
+
+
+## Showcase
+
+![header-iPhone](./images/header-iphone.png)
