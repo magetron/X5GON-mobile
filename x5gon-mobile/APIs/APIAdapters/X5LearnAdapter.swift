@@ -9,7 +9,7 @@
 import Foundation
 
 class X5LearnAPIAdapter : APIAdapter {
-    /// Generate X5Learn Root url **http://x5learn.org/**
+    /// Generate X5Learn Root url **http://x5learn.org\/**
     static func rootURL () -> String {
         return "http://x5learn.org/"
     }

@@ -8,5 +8,5 @@ install:
     - gem install jazzy
 
 script:
-    - xcodebuild -workspace x5gon-mobile.xcworkspace -scheme x5gon-mobile  OBJROOT=$(PWD)/build SYMROOT=$(PWD)/build -sdk iphonesimulator 
-    - source ./build-docs.sh
+    - source ./scripts/build.sh
+    - source ./scripts/build-docs.sh

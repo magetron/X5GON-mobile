@@ -56,6 +56,16 @@
 		CDFD3C5123CC869F000FCEF6 /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFD3C5023CC869F000FCEF6 /* SearchResultsViewController.swift */; };
 		CDFD3C5523CC8AB0000FCEF6 /* LaunchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDFD3C5423CC8AB0000FCEF6 /* LaunchView.xib */; };
 		CDFD6CF92409D237005C4D8F /* userHistoryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFD6CF82409D237005C4D8F /* userHistoryViewCell.swift */; };
+		DCA928D92429565000A40E85 /* testUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928D82429565000A40E85 /* testUserModel.swift */; };
+		DCA928DB24295DB800A40E85 /* testVideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928DA24295DB800A40E85 /* testVideoModel.swift */; };
+		DCA928DD2429655100A40E85 /* testContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928DC2429655100A40E85 /* testContentModel.swift */; };
+		DCA928DF242970C700A40E85 /* testPdfModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928DE242970C700A40E85 /* testPdfModel.swift */; };
+		DCA928E12429720900A40E85 /* testWikiEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928E02429720900A40E85 /* testWikiEntity.swift */; };
+		DCA928E3242973FB00A40E85 /* testChannelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928E2242973FB00A40E85 /* testChannelModel.swift */; };
+		DCA928E52429785A00A40E85 /* testPlaylistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928E42429785A00A40E85 /* testPlaylistModel.swift */; };
+		DCA928EB24298C6400A40E85 /* testAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928EA24298C6400A40E85 /* testAPI.swift */; };
+		DCA928ED242993F200A40E85 /* testX5GONApiAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928EC242993F200A40E85 /* testX5GONApiAdapter.swift */; };
+		DCA928EF2429986300A40E85 /* testX5LearnAPIAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928EE2429986300A40E85 /* testX5LearnAPIAdapter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,6 +144,16 @@
 		CDFD3C5023CC869F000FCEF6 /* SearchResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
 		CDFD3C5423CC8AB0000FCEF6 /* LaunchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchView.xib; sourceTree = "<group>"; };
 		CDFD6CF82409D237005C4D8F /* userHistoryViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userHistoryViewCell.swift; sourceTree = "<group>"; };
+		DCA928D82429565000A40E85 /* testUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testUserModel.swift; sourceTree = "<group>"; };
+		DCA928DA24295DB800A40E85 /* testVideoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testVideoModel.swift; sourceTree = "<group>"; };
+		DCA928DC2429655100A40E85 /* testContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testContentModel.swift; sourceTree = "<group>"; };
+		DCA928DE242970C700A40E85 /* testPdfModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testPdfModel.swift; sourceTree = "<group>"; };
+		DCA928E02429720900A40E85 /* testWikiEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testWikiEntity.swift; sourceTree = "<group>"; };
+		DCA928E2242973FB00A40E85 /* testChannelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testChannelModel.swift; sourceTree = "<group>"; };
+		DCA928E42429785A00A40E85 /* testPlaylistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testPlaylistModel.swift; sourceTree = "<group>"; };
+		DCA928EA24298C6400A40E85 /* testAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testAPI.swift; sourceTree = "<group>"; };
+		DCA928EC242993F200A40E85 /* testX5GONApiAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testX5GONApiAdapter.swift; sourceTree = "<group>"; };
+		DCA928EE2429986300A40E85 /* testX5LearnAPIAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testX5LearnAPIAdapter.swift; sourceTree = "<group>"; };
 		EE69974D670D2716EDF8A4EF /* libPods-x5gon-mobileTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-x5gon-mobileTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -312,6 +332,16 @@
 			children = (
 				CDFD3C0223CC7854000FCEF6 /* x5gon_mobileTests.swift */,
 				CDFD3C0423CC7854000FCEF6 /* Info.plist */,
+				DCA928D82429565000A40E85 /* testUserModel.swift */,
+				DCA928DA24295DB800A40E85 /* testVideoModel.swift */,
+				DCA928DC2429655100A40E85 /* testContentModel.swift */,
+				DCA928DE242970C700A40E85 /* testPdfModel.swift */,
+				DCA928E02429720900A40E85 /* testWikiEntity.swift */,
+				DCA928E2242973FB00A40E85 /* testChannelModel.swift */,
+				DCA928E42429785A00A40E85 /* testPlaylistModel.swift */,
+				DCA928EA24298C6400A40E85 /* testAPI.swift */,
+				DCA928EC242993F200A40E85 /* testX5GONApiAdapter.swift */,
+				DCA928EE2429986300A40E85 /* testX5LearnAPIAdapter.swift */,
 			);
 			path = "x5gon-mobileTests";
 			sourceTree = "<group>";
@@ -627,6 +657,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCA928E3242973FB00A40E85 /* testChannelModel.swift in Sources */,
+				DCA928E12429720900A40E85 /* testWikiEntity.swift in Sources */,
+				DCA928EF2429986300A40E85 /* testX5LearnAPIAdapter.swift in Sources */,
+				DCA928DB24295DB800A40E85 /* testVideoModel.swift in Sources */,
+				DCA928DD2429655100A40E85 /* testContentModel.swift in Sources */,
+				DCA928ED242993F200A40E85 /* testX5GONApiAdapter.swift in Sources */,
+				DCA928D92429565000A40E85 /* testUserModel.swift in Sources */,
+				DCA928EB24298C6400A40E85 /* testAPI.swift in Sources */,
+				DCA928E52429785A00A40E85 /* testPlaylistModel.swift in Sources */,
+				DCA928DF242970C700A40E85 /* testPdfModel.swift in Sources */,
 				CDFD3C0323CC7854000FCEF6 /* x5gon_mobileTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
