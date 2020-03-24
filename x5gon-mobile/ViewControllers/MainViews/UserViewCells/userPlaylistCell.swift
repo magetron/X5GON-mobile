@@ -16,12 +16,17 @@ class userPlaylistCell: UITableViewCell {
     ///UILabel in storyboard
     @IBOutlet weak var title: UILabel!
     ///UILabel in storybaord
-    @IBOutlet weak var numberOfVideos: UILabel!
+    @IBOutlet weak var channel: UILabel!
+    
+    func customisation () {
+        self.pic.layer.cornerRadius = 5
+        self.pic.clipsToBounds = true
+    }
     
     //MARK: View Lifecycle
     ///Prepares the receiver for service after it has been loaded from an Interface Builder archive, or nib file.
     override func awakeFromNib() {
-        self.pic.layer.cornerRadius = 5
-        self.pic.clipsToBounds = true
+        super.awakeFromNib()
+        customisation()
     }
 }

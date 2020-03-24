@@ -282,7 +282,7 @@ class API {
                     print("error: invalid format")
                     return
                 }
-                tmpUser = User.init(name: firstName + " " + lastName + " " + email, profilePic: UIImage.init(named: "profilePic")!, backgroundImage: UIImage.init(named: "banner")!, playlists: [])
+                tmpUser = User.init(name: firstName + " " + lastName + " " + email, profilePic: UIImage.init(named: "profilePic")!, backgroundImage: UIImage.init(named: "banner")!)
              }
          }
          dataTask.resume()

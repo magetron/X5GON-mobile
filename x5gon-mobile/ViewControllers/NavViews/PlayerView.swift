@@ -45,7 +45,6 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         NSLayoutConstraint.init(item: self, attribute: .bottom, relatedBy: .equal, toItem: self.navigationView, attribute: .bottom, multiplier: 1.0, constant: 0).isActive = true
         self.navigationView.isHidden = true
         
-        //self.bookmarkButton.addTarget(self, action: #selector(bookmarkCurrentContent(_:)), for: .touchUpInside)
         
         self.backgroundColor = UIColor.clear
         self.tableView.delegate = self
@@ -60,6 +59,8 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         videoPlayerViewController.showsPlaybackControls = true
         pdfView.frame = self.player.frame
         pdfView.displayMode = PDFDisplayMode.singlePage
+        
+        
         NotificationCenter.default.addObserver(self, selector: #selector(self.newPlayerView), name: NSNotification.Name("open"), object: nil)
     }
     
@@ -69,15 +70,6 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         UIView.animate(withDuration: 0.6) {
             self.navigationView.backgroundView.alpha = 0.5
             self.navigationView.tableView.center.x -= self.navigationView.bounds.width
-        }
-    }
-    
-    @IBAction func bookmarkCurrentContnet(_ sender: UIButton) {
-        if (MainController.user.bookmarkedContent.contains(self.content)) {
-            return
-        } else {
-            MainController.user.bookmark(content: self.content)
-            sender.setImage(UIImage.init(systemName: "bookmark.fill"), for: .normal)
         }
     }
     
