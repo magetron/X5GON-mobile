@@ -127,6 +127,10 @@ class MainController {
         return API.createNotes(id: id, text: text)
     }
     
+    static func reportContent (id: Int, reason: String) {
+        return API.TBD_report(id: id, reason: reason)
+    }
+    
     
     /*
     static func DEPRECATED_fetchDefaultContents() -> [Content] {

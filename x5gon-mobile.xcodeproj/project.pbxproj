@@ -211,7 +211,6 @@
 				CD70063024093A1C00FB6135 /* UserHistoryView.swift */,
 				CD48FAA023F80242004415E7 /* UserViewCells */,
 				CDFD3C3023CC79F0000FCEF6 /* HomeViewController.swift */,
-				CDE92D8F23E5D396004BB8BF /* ContentCell.swift */,
 				CDFD6CFA2409D353005C4D8F /* MainViewCells */,
 				CDFD3C3223CC7BEE000FCEF6 /* FeaturedViewController.swift */,
 				CDFD3C5023CC869F000FCEF6 /* SearchResultsViewController.swift */,
@@ -413,6 +412,7 @@
 		CDFD6CFA2409D353005C4D8F /* MainViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				CDE92D8F23E5D396004BB8BF /* ContentCell.swift */,
 				CDCC851A240C8B1B001DB380 /* SubscriptionsCell.swift */,
 				CDCC8519240C8B1B001DB380 /* SubscriptionsChannelViewCell.swift */,
 			);

@@ -495,6 +495,9 @@ class API {
         return tmpWiki ?? Wiki.init(chunks: [])
     }
     
+    static func TBD_report (id: Int, reason: String) {
+        return
+    }
     
     
 }
