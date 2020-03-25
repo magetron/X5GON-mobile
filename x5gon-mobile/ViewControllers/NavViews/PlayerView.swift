@@ -33,6 +33,8 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
     var direction = Direction.none
     var pdfView = PDFView()
     let videoPlayerViewController = AVPlayerViewController()
+    var contentLiked = false
+    var contentDisliked = false
 
     
     //MARK: - Methods
@@ -120,13 +122,19 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
     }
     
     func onLikeTap() {
-        refresher(updateContent: {
-            () -> Void in self.content.like() }, viewReload: { () -> Void in self.tableView.reloadData()})
+        if (!contentLiked) {
+            refresher(updateContent: {
+                () -> Void in self.content.like() }, viewReload: { () -> Void in self.tableView.reloadData()})
+            contentLiked = true
+        }
     }
     
     func onDisLikeTap() {
-        refresher(updateContent: {
-            () -> Void in self.content.dislike() }, viewReload: { () -> Void in self.tableView.reloadData()})
+        if (!contentDisliked) {
+            refresher(updateContent: {
+                () -> Void in self.content.dislike() }, viewReload: { () -> Void in self.tableView.reloadData()})
+            contentDisliked = true
+        }
     }
     
     
@@ -199,6 +207,8 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
     
     func setContent (content: Content) {
         self.content = content
+        contentLiked = false
+        contentDisliked = false
         if let video = content as? Video {
             setVideo(video: video)
         } else if let pdf = content as? PDF {
