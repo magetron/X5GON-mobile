@@ -1,6 +1,4 @@
-# X5GON-mobile
-
-[![Build Status](https://travis-ci.com/magetron/X5GON-mobile.svg?token=1egyyzxUBmAzQpnmo8g4&branch=master)](https://travis-ci.com/magetron/X5GON-mobile)
+# X5GON-mobile [![Build Status](https://travis-ci.com/magetron/X5GON-mobile.svg?token=1egyyzxUBmAzQpnmo8g4&branch=master)](https://travis-ci.com/magetron/X5GON-mobile) ![Version](https://img.shields.io/badge/v-0.2-blue) ![Swift Version](https://img.shields.io/badge/Swift-5-red) 
 
 ![onefetch](./images/onefetch.png)
 
