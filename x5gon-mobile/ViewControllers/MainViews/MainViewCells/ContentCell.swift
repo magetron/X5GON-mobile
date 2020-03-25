@@ -22,6 +22,8 @@ class ContentCell: UITableViewCell {
     /// This is a `UILabel` which is used to display the video description.
     @IBOutlet weak var videoDescription: UILabel!
     
+    var contentId = 0
+    
     
     //MARK: - Methods
     /// Customise View
@@ -31,18 +33,32 @@ class ContentCell: UITableViewCell {
         self.durationLabel.layer.borderWidth = 0.5
         self.durationLabel.layer.borderColor = UIColor.white.cgColor
         self.durationLabel.sizeToFit()
+        
+        self.isUserInteractionEnabled = true
+        let longPressGestureRecogniser = UILongPressGestureRecognizer(target: self, action: #selector(self.reportContent))
+        self.addGestureRecognizer(longPressGestureRecogniser)
+        
     }
     
     /// Set each properties of content into corresponding part of cell in UITableView
-    func set(video: Content)  {
-        self.videoThumbnail.image = video.thumbnail
-        self.durationLabel.text = " \(video.duration.secondsToFormattedString()) "
+    func set(content: Content)  {
+        self.videoThumbnail.image = content.thumbnail
+        self.durationLabel.text = " \(content.duration.secondsToFormattedString()) "
         self.durationLabel.layer.borderColor = UIColor.lightGray.cgColor
         self.durationLabel.layer.borderWidth = 1.0
-        self.channelPic.image = video.channel.image
-        self.videoTitle.text = video.title
-        self.videoDescription.text = "\(video.channel.name)  • \(video.views)"
+        self.channelPic.image = content.channel.image
+        self.videoTitle.text = content.title
+        self.videoDescription.text = "\(content.channel.name)  • \(content.views)"
+        self.contentId = content.id
     }
+    
+    @objc func reportContent() {
+        let alert = UIAlertController(title: "Do you want to report this content as inappropriate?", message: "", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { action in MainController.reportContent(id: self.contentId, reason: "")}))
+        alert.addAction(UIAlertAction(title: "No", style: .cancel))
+        MainController.navViewController!.present(alert, animated: true, completion: nil)
+    }
+    
     //MARK: - Delegate
     /// Prepares a reusable cell for reuse by the table view's delegate.
     override func prepareForReuse() {

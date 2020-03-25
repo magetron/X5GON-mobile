@@ -60,7 +60,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
      */
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ContentCell") as! ContentCell
-        cell.set(video: self.contents[indexPath.row])
+        cell.set(content: self.contents[indexPath.row])
         return cell
     }
     
