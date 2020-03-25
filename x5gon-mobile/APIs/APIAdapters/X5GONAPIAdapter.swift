@@ -65,6 +65,10 @@ class X5GONAPIAdapter : APIAdapter {
         fatalError("error: X5GON does not provide notes URL")
     }
     
+    static func TBD_generateReportURL(id: Int) -> String {
+        fatalError("error: X5GON does not provide content report URL")
+    }
+    
     
 }
 

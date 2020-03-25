@@ -9,6 +9,7 @@
 import Foundation
 
 class X5LearnAPIAdapter : APIAdapter {
+    
     /// Generate X5Learn Root url **http://x5learn.org\/**
     static func rootURL () -> String {
         return "http://x5learn.org/"
@@ -72,6 +73,10 @@ class X5LearnAPIAdapter : APIAdapter {
     
     static func generateNotesURL(id: Int) -> String {
         return rootURL() + APIVersion() + "note/\(id)"
+    }
+    
+    static func TBD_generateReportURL(id: Int) -> String {
+        return rootURL() + APIVersion() + "report/\(id)"
     }
     
 }

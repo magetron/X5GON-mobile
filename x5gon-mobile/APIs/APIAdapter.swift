@@ -35,6 +35,6 @@ protocol APIAdapter {
     
     static func generateNotesURL(id: Int) -> String
     
-    static func generateReportURL(id: Int) -> String
+    static func TBD_generateReportURL(id: Int) -> String
     
 }
