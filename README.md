@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.com/magetron/X5GON-mobile.svg?token=1egyyzxUBmAzQpnmo8g4&branch=master)](https://travis-ci.com/magetron/X5GON-mobile)
 
+![onefetch](./images/onefetch.png)
+
 ## Deployment Manual
 
 ### Prerequisites
