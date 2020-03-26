@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Website Title -->
-    <title>Implementation - Team 4 - X5GON Project Website</title>
+    <title>Design & Implementation - Team 4 - X5GON Project Website</title>
 
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
@@ -39,7 +39,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h1>Implementation</h1>
+                    <h1>Design & Implementation</h1>
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
         </div> <!-- end of container -->
@@ -53,7 +53,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumbs">
-                        <a href="index.html">Intro</a><i class="fa fa-angle-double-right"></i><span>Implementation</span>
+                        <a href="index.html">Intro</a><i class="fa fa-angle-double-right"></i><span>Design & Implementation</span>
                     </div> <!-- end of breadcrumbs -->
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
@@ -165,15 +165,13 @@
         </div>
     </div>
 
-    <div id="uml-diagram" class="ex-basic-2">
+    <div id="uml-diagram" class="ex-basic-3">
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 offset-lg-1">
                     <div class="text-container">
                         <h3>UML Class Diagram</h3>
-                        <p>
-                            Click on the diagram below to get a clearer view of the general software design of the application.
-                        </p>
+                        <p>Click on the diagram below to get a clearer view of the general software design of the application.</p>
                         <a href="images/uml-class-diagram.svg"><img class="img-fluid-svg" src="images/uml-class-diagram.svg"  alt="alternative"/></a>
                     </div>
                 </div>
@@ -181,7 +179,7 @@
         </div>
     </div>
 
-    <div id="design-patterns" class="ex-basic-3">
+    <div id="design-patterns" class="ex-basic-2">
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 offset-lg-1">
@@ -201,27 +199,28 @@
         </div>
     </div>
 
-    <div id="data-storage" class="ex-basic-2">
+    <div id="data-storage" class="ex-basic-3">
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 offset-lg-1">
                     <div class="text-container">
                         <h3>Data Storage and Entity Relations</h3>
-                        <p>We are currently storing cached <code>VideoModel</code> and <code>UserModel</code> in the local caching folder as <code>.mp4</code> and <code>.json</code> files. </p>
-                        <p>In the future, we are looking to optimise data storage with the <code>CoreData</code> storage provided by Cocoa Touch Applications (Apple Developer, 2020). We also aim to provide an Entity Relationship Diagram at a later stage of the project.</p>
+                        <p>As a typical client side application, we are only storing limited amount of data as <code>cache</code> on the client side. Videos, audios and PDF contents are stored and retrieved with <code>CoreData</code> module of <code>iOS</code> application (Apple Developer, 2020).</p>
+                        <p>See below, an local entity diagram, on relations of cache data stored.</p>
+                        <a href="images/entity-diagram.svg"><img class="img-fluid-svg" src="images/entity-diagram.svg"  alt="alternative"/></a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div id="sequence-diagram" class="ex-basic-3">
+    <div id="sequence-diagram" class="ex-basic-2">
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 offset-lg-1">
                     <div class="text-container">
                         <h3>Sequence Diagram</h3>
-                        <p> We provide a sequence diagram to clearly illustrate what functionalities are being supported at this stage. </p>
+                        <p> We provide a sequence diagram to clearly illustrate how a typical user would be able to interact with our application. </p>
                         <p> Click on the diagram below to get a clearer view. </p>
                         <a href="images/sequence-diagram.svg"><img class="img-fluid-svg" src="images/sequence-diagram.svg"  alt="alternative"/></a>
                     </div>
