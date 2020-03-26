@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Website Title -->
-    <title>Prototype Stage 1 - Team 4 - X5GON Project Website</title>
+    <title>Implementation - Team 4 - X5GON Project Website</title>
 
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
@@ -39,7 +39,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h1>Prototype Stage 1</h1>
+                    <h1>Implementation</h1>
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
         </div> <!-- end of container -->
@@ -53,7 +53,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumbs">
-                        <a href="index.html">Introduction</a><i class="fa fa-angle-double-right"></i><span>Prototype Stage 1</span>
+                        <a href="index.html">Intro</a><i class="fa fa-angle-double-right"></i><span>Implementation</span>
                     </div> <!-- end of breadcrumbs -->
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
@@ -67,7 +67,7 @@
                 <div class="col-lg-10 offset-lg-1">
                     <div class="text-container">
                         <h3>Main Technologies</h3>
-                        <p> After we finished our research, we have used <code>Swift</code> as our main language and <code>Xcode</code> and its toolchains as our IDE in our Prototype Stage 1 Project.</p>
+                        <p>As shown in our research, we have used <code>Swift</code> as our main language and <code>Xcode</code> and its toolchains as our IDE in our project.</p>
                         <br>
                         <div class="row">
                             <div class="col-lg-6">
@@ -83,17 +83,82 @@
         </div>
     </div>
 
-    <div id="architecture" class="ex-basic-3">
+    <div id="dependencies" class="ex-basic-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="text-container">
+                        <h3>Dependencies & Tools</h3>
+                        <p>In the meantime, we also imported some dependencies in our project to help us build, test and validate our project.</p>
+                        <br>
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <img class="img-fluid" src="images/swiftsoup.png" alt="alternative">
+                            </div>
+                            <div class="col-lg-7">
+                                <div class="text-container">
+                                    <h4>SwiftSoup</h4>
+                                    <p>SwiftSoup is a pure <code>Swift</code> library, cross-platform (macOS, iOS, tvOS, watchOS and Linux!), for working with real-world HTML. It provides a very convenient API for extracting and manipulating data, using the best of DOM, CSS, and jQuery-like methods.</p>
+                                    <p>We are embedding SwiftSoup as a core part of the project to parse HTML sent from the <code>X5Learn</code>
+                                        backend. It empowers us to understand the API changes and adapt to it quickly.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-7">
+                                <div class="text-container">
+                                    <h4>Jazzy</h4>
+                                    <p>Instead of building documentation ourselves, we deployed jazzy, which hooks into <code>Clang</code> and <code>SourceKit</code> to use the AST representation of the code and actual code comments for generating documentation. </p>
+                                    <p>Moreover, with the touch of Jazzy templates, the documentation matches the look and feel of Apple’s official reference documentation.</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-5">
+                                <img class="img-fluid" src="images/jazzy.png" alt="alternative">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <img class="img-fluid" src="images/xctest.png" alt="alternative">
+                            </div>
+                            <div class="col-lg-7">
+                                <div class="text-container">
+                                    <h4>XCTest</h4>
+                                    <p>Since <code>Xcode 5</code>, <code>XCTest</code> framework was introduced to perform unit test and UI Tests for <code>Xcode</code> projects.</p>
+                                    <p> Our team took advantage of the built-in fast framework and wrote all of our test logic including unit tests, integration tests and performance tests on this framework, and archived <code>70%</code>+ coverage. This enables us to deliver our product with confidence to our clients.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-7">
+                                <div class="text-container">
+                                    <h4>Travis CI</h4>
+                                    <p>Travis CI is a hosted continuous integration service used to build and test software projects. </p>
+                                    <p>In this project, we followed better <code>CI/CD</code> practices and pipelined our application's building and testing without human intervention. Travis CI consistently delivers build results and enables us to merge Pull Requests with reliable backup.</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-5">
+                                <img class="img-fluid" src="images/travis-ci.png" alt="alternative">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="architecture" class="ex-basic-2">
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 offset-lg-1">
                     <div class="text-container">
                         <h3>System Architecture</h3>
                         <p> This page introduces the design of the mobile application. Generally speaking, this architecture adopts the classic Model-View-Controller (MVC) pattern (Reenskaug and Coplien, 2009). </p>
-                        <p> Models include <code>UserModel</code>, <code>ChannelModel</code> and <code>VideoModel</code>, each holding information and buffered data from X5GON Backend.
-                            User interactions are captured through <code>Observers</code> in various <code>ViewControllers</code> inherited from <code>MainViewController</code>.
-                            With the main logic implemented in these <code>Controllers</code>, they dispatch view changes to relevant <code>Views</code> or <code>ViewCells</code>, and make modifications to data in <code>Models</code> accordingly.
-                            Then, we use a daemon thread to keep track of changes and update them with the X5GON backend when suitable. </p>
+                        <img class="img-fluid" src="images/system-arch.png"  alt="alternative"/>
+                        <p> Models include <code>UserModel</code>, <code>ChannelModel</code> , <code>VideoModel</code>, <code>WikiModel</code> and many others,
+                            each holding information and buffered data from X5GON Backend.</p>
+                        <p> Data updates are made from <code>ViewControllers</code> to <code>Views</code>.
+                        <p> User interactions are captured through <code>GestureRecognisers</code> and <code>Actions</code> in various <code>ViewControllers</code> and then delegate to the <code>MainController</code>.
+                        <p> With the main logic implemented in the <code>MainController</code>, it dispatch changes to relevant <code>Models</code>, which will then be reflected in <code>Views</code> eventually.
+                        <p> Meanwhile, daemon <code>Refresher</code> workers keep track of the <code>Model</code> changes and update them with the X5Learn backend when suitable. </p>
                     </div>
                 </div>
             </div>
@@ -359,6 +424,7 @@
                 <ul class="list-unstyled li-space-lg indent">
                     <li class="media"> <div class="media-body">Apple (2009). Apple Technical Brief on Grand Central Dispatch" (PDF). Archived from the original on September 20, 2009. Retrieved September 12, 2009.</div></li><br>
                     <li class="media"> <div class="media-body">Apple (2020). Core Data | Apple Developer Documentation. [online] Available at: https://developer.apple.com/documentation/coredata [Accessed 22 Jan. 2020].</div></li><br>
+                    <li class="meida"> <div class="media-body">Chatbi, Nabil (2020). SwiftSoup, a Swift HTML Parser. [online] Available at: https://github.com/scinfu/SwiftSoup [Accessed 25 Mar. 2020].</div></li>
                     <li class="media"> <div class="media-body">Duell, Michael (July 1997). "Non-Software Examples of Design Patterns". Object Magazine. 7 (5): 54. ISSN 1055-3614.</div></li><br>
                     <li class="media"> <div class="media-body">Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides (1994). Design Patterns: Elements of Reusable Object-Oriented Software. Addison Wesley. pp. 97ff. ISBN 0-201-63361-2.</div></li><br>
                     <li class="media"> <div class="media-body">Freeman, Eric; Freeman, Elisabeth; Sierra, Kathy; Bates, Bert (2004). "Head First Design Patterns" (paperback). O'Reilly Media: 244. ISBN 978-0-596-00712-6. OCLC 809772256. Retrieved 2013-04-30.</div></li><br>
