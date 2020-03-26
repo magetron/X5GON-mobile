@@ -66,6 +66,7 @@ class X5LearnAPIAdapter : APIAdapter {
         return rootURL() + APIVersion() + "wikichunk_enrichments"
     }
     
+    
     ///Generate X5Learn Notes URL
     static func generateNotesURL() -> String {
         return rootURL() + APIVersion() + "note"
@@ -73,6 +74,10 @@ class X5LearnAPIAdapter : APIAdapter {
     
     static func generateNotesURL(id: Int) -> String {
         return rootURL() + APIVersion() + "note/\(id)"
+    }
+    
+    static func TBD_generateBookmarkURL(id: Int, bookmark: Bool) -> String {
+        return rootURL() + APIVersion() + "bookmark/\(id)" 
     }
     
     static func TBD_generateReportURL(id: Int) -> String {

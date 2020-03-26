@@ -8,7 +8,7 @@
 
 import Foundation
 
-class X5GONAPIAdapter : APIAdapter {
+class X5GONAPIAdapter : APIAdapter {    
 
     ///Generate X5GON rootURL
     static func rootURL () -> String {
@@ -63,6 +63,10 @@ class X5GONAPIAdapter : APIAdapter {
     
     static func generateNotesURL(id: Int) -> String {
         fatalError("error: X5GON does not provide notes URL")
+    }
+    
+    static func TBD_generateBookmarkURL(id: Int, bookmark: Bool) -> String {
+        fatalError("error: X5GON does not provide content bookmark URL")
     }
     
     static func TBD_generateReportURL(id: Int) -> String {

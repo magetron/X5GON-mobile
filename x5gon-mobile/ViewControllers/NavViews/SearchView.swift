@@ -31,10 +31,10 @@ class SearchView: UIView, UITextFieldDelegate {
     // MARK: - Delegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         let text = textField.text ?? ""
-        refresher(updateContent: {() -> Void in
+        refresherWithLoadingHUD(updateContent: {() -> Void in
             let result = MainController.search(keyword: text, contentType: "any")
             MainController.searchResultsViewController?.contents = result
-        }, viewReload: {() -> Void in MainController.searchResultsViewController?.tableView.reloadData(); })
+        }, viewReload: {() -> Void in MainController.searchResultsViewController?.tableView.reloadData(); }, view: (MainController.searchResultsViewController?.tableView)!)
         NotificationCenter.default.post(name: Notification.Name.init(rawValue: "didSelectMenu"), object: nil, userInfo: ["index": 2])
         self.hideSearchView(self)
         return true

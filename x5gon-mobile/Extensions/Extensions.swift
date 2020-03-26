@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import JGProgressHUD
 
 /**
  Refresh the content and reload the view
@@ -25,6 +26,16 @@ func refresher (updateContent: @escaping () -> Void, viewReload: @escaping () ->
             viewReload()
         }
     }
+}
+
+func refresherWithLoadingHUD (updateContent: @escaping () -> Void, viewReload: @escaping () -> Void, view : UIView) {
+    let hud = JGProgressHUD(style: .dark)
+    hud.textLabel.text = "Loading"
+    hud.show(in: view)
+    refresher(updateContent: updateContent, viewReload: {
+        viewReload()
+        hud.dismiss()
+    })
 }
 
 extension AVAsset {

@@ -100,11 +100,11 @@ class MainController {
         logout()
         let csrfToken = API.fetchCSRFToken()
         API.authenticationToken = API.fetchLoginTokenWith(username: username, password: password, csrfToken: csrfToken)
-        refresher(updateContent: {() -> Void in
+        refresherWithLoadingHUD(updateContent: {() -> Void in
             self.user = API.fetchUser()
             MainController.userViewController?.setUser(user: self.user)
         }, viewReload: {() -> Void in MainController.userViewController?.tableView.reloadData()
-        })
+        }, view: (MainController.mainViewController?.view)!)
         return API.authenticationToken != ""
     }
     

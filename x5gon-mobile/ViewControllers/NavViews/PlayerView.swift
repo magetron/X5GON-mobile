@@ -123,16 +123,16 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
     
     func onLikeTap() {
         if (!contentLiked) {
-            refresher(updateContent: {
-                () -> Void in self.content.like() }, viewReload: { () -> Void in self.tableView.reloadData()})
+            refresherWithLoadingHUD(updateContent: {
+                () -> Void in self.content.like() }, viewReload: { () -> Void in self.tableView.reloadData()}, view: self.tableView)
             contentLiked = true
         }
     }
     
     func onDisLikeTap() {
         if (!contentDisliked) {
-            refresher(updateContent: {
-                () -> Void in self.content.dislike() }, viewReload: { () -> Void in self.tableView.reloadData()})
+            refresherWithLoadingHUD(updateContent: {
+                () -> Void in self.content.dislike() }, viewReload: { () -> Void in self.tableView.reloadData()}, view: self.tableView)
             contentDisliked = true
         }
     }
@@ -215,10 +215,10 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
             setPDF(pdf: pdf)
         }
         if content.suggestedContents.count == 0 {
-            refresher(updateContent: { () -> Void in content.fetchSuggestedContents() }, viewReload: { () -> Void in self.tableView.reloadData()})
+            refresherWithLoadingHUD(updateContent: { () -> Void in content.fetchSuggestedContents() }, viewReload: { () -> Void in self.tableView.reloadData()}, view: self.tableView)
         }
         if content.wiki.chunks.count == 0 {
-            refresher(updateContent: {() -> Void in content.fetchWikiChunkEnrichments() }, viewReload: { () -> Void in self.navigationView.setWiki(wiki: content.wiki); self.navigationView.tableView.reloadData() })
+            refresherWithLoadingHUD(updateContent: {() -> Void in content.fetchWikiChunkEnrichments() }, viewReload: { () -> Void in self.navigationView.setWiki(wiki: content.wiki); self.navigationView.tableView.reloadData() }, view: self.tableView)
         }
         if (MainController.user.bookmarkedContent.contains(content)) {
             //self.bookmarkButton.setImage(UIImage.init(systemName: "bookmark.fill"), for: .normal)
