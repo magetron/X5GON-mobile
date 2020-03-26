@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		099078A5DDC288D3AB120013 /* libPods-x5gon-mobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 855071D7BC1DED7D2BB41C4F /* libPods-x5gon-mobile.a */; };
-		A89C6B54FDFF9816A88AF130 /* libPods-x5gon-mobileTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE69974D670D2716EDF8A4EF /* libPods-x5gon-mobileTests.a */; };
+		6BE4E742CB667436FF6D688A /* Pods_x5gon_mobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4D9C9C2CC2D9BFBC3203AA4 /* Pods_x5gon_mobile.framework */; };
+		93542E9EF6AB3BA1C91E4325 /* Pods_x5gon_mobileTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16AD6F3E9C5C4FAADA11804F /* Pods_x5gon_mobileTests.framework */; };
 		CD00457923E4E76A009CA522 /* PDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00457823E4E76A009CA522 /* PDF.swift */; };
 		CD00457B23E4E7AD009CA522 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00457A23E4E7AD009CA522 /* Content.swift */; };
 		CD0175332403103A0081A9AC /* playerNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0175322403103A0081A9AC /* playerNavigationView.swift */; };
@@ -87,9 +87,10 @@
 
 /* Begin PBXFileReference section */
 		01FEECE77A4C8C131A415A86 /* Pods-x5gon-mobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-x5gon-mobile.debug.xcconfig"; path = "Target Support Files/Pods-x5gon-mobile/Pods-x5gon-mobile.debug.xcconfig"; sourceTree = "<group>"; };
-		855071D7BC1DED7D2BB41C4F /* libPods-x5gon-mobile.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-x5gon-mobile.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		16AD6F3E9C5C4FAADA11804F /* Pods_x5gon_mobileTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_x5gon_mobileTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		891E09ECB864124D84DBEF15 /* Pods-x5gon-mobileTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-x5gon-mobileTests.debug.xcconfig"; path = "Target Support Files/Pods-x5gon-mobileTests/Pods-x5gon-mobileTests.debug.xcconfig"; sourceTree = "<group>"; };
 		99BCE8FA627D1E8B4FCB577C /* Pods-x5gon-mobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-x5gon-mobile.release.xcconfig"; path = "Target Support Files/Pods-x5gon-mobile/Pods-x5gon-mobile.release.xcconfig"; sourceTree = "<group>"; };
+		C4D9C9C2CC2D9BFBC3203AA4 /* Pods_x5gon_mobile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_x5gon_mobile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C50182675ACCFEE026BA5645 /* Pods-x5gon-mobileTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-x5gon-mobileTests.release.xcconfig"; path = "Target Support Files/Pods-x5gon-mobileTests/Pods-x5gon-mobileTests.release.xcconfig"; sourceTree = "<group>"; };
 		CD00457823E4E76A009CA522 /* PDF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDF.swift; sourceTree = "<group>"; };
 		CD00457A23E4E7AD009CA522 /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
@@ -154,7 +155,6 @@
 		DCA928EA24298C6400A40E85 /* testAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testAPI.swift; sourceTree = "<group>"; };
 		DCA928EC242993F200A40E85 /* testX5GONApiAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testX5GONApiAdapter.swift; sourceTree = "<group>"; };
 		DCA928EE2429986300A40E85 /* testX5LearnAPIAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testX5LearnAPIAdapter.swift; sourceTree = "<group>"; };
-		EE69974D670D2716EDF8A4EF /* libPods-x5gon-mobileTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-x5gon-mobileTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,7 +162,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				099078A5DDC288D3AB120013 /* libPods-x5gon-mobile.a in Frameworks */,
+				6BE4E742CB667436FF6D688A /* Pods_x5gon_mobile.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,7 +170,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A89C6B54FDFF9816A88AF130 /* libPods-x5gon-mobileTests.a in Frameworks */,
+				93542E9EF6AB3BA1C91E4325 /* Pods_x5gon_mobileTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,8 +422,8 @@
 		F730808DC8A26C57249C203E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				855071D7BC1DED7D2BB41C4F /* libPods-x5gon-mobile.a */,
-				EE69974D670D2716EDF8A4EF /* libPods-x5gon-mobileTests.a */,
+				C4D9C9C2CC2D9BFBC3203AA4 /* Pods_x5gon_mobile.framework */,
+				16AD6F3E9C5C4FAADA11804F /* Pods_x5gon_mobileTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -439,6 +439,7 @@
 				CDFD3BE423CC784C000FCEF6 /* Sources */,
 				CDFD3BE523CC784C000FCEF6 /* Frameworks */,
 				CDFD3BE623CC784C000FCEF6 /* Resources */,
+				C80D310A755DD5D9B18A1F82 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -600,6 +601,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C80D310A755DD5D9B18A1F82 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-x5gon-mobile/Pods-x5gon-mobile-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-x5gon-mobile/Pods-x5gon-mobile-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-x5gon-mobile/Pods-x5gon-mobile-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

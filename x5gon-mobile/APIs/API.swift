@@ -355,6 +355,16 @@ class API {
     }
     
     
+    static func updateBookmark (id: Int, bookmark: Bool) {
+        let bookmarkURLString = newAdapter.TBD_generateBookmarkURL(id: id, bookmark: bookmark)
+        let bookmarkURL = URL(string: bookmarkURLString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!
+        var request = URLRequest(url: bookmarkURL)
+        request.httpMethod = "GET"
+        applyAuthToken(request: &request)
+        return
+    }
+    
+    
     /**
      Fetching content
      

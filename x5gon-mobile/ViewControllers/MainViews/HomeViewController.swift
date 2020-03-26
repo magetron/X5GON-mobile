@@ -28,8 +28,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.tableView.scrollIndicatorInsets = UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 300
-        refresher(updateContent: {() -> Void in self.contents =
-            MainController.fetchDefaultContents()}, viewReload: {() -> Void in self.tableView.reloadData()})
+        refresherWithLoadingHUD(updateContent: {() -> Void in self.contents =
+            MainController.fetchDefaultContents()}, viewReload: {() -> Void in self.tableView.reloadData()}, view: self.tableView)
     }
     
     

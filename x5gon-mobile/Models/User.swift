@@ -52,10 +52,12 @@ class User {
      */
     func bookmark (content: Content) {
         bookmarkedContent.insert(content)
+        API.updateBookmark(id: content.id, bookmark: true)
     }
     
     func unbookmark (content: Content) {
         bookmarkedContent.remove(content)
+        API.updateBookmark(id: content.id, bookmark: false)
     }
     
 }

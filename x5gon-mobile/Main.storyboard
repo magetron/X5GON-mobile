@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IXR-Mk-kYq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IXR-Mk-kYq">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -668,12 +668,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="320"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emptyTumbnail" translatesAutoresizingMaskIntoConstraints="NO" id="n8D-9J-EVg">
-                                                    <rect key="frame" x="16" y="16" width="382" height="215"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="n8D-9J-EVg" secondAttribute="height" multiplier="16:9" id="lTf-ab-coT"/>
-                                                    </constraints>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BHf-jp-iPf">
                                                     <rect key="frame" x="72" y="247" width="326" height="25"/>
                                                     <constraints>
@@ -717,13 +711,19 @@
                                                         <constraint firstAttribute="width" constant="48" id="ooV-0E-sRf"/>
                                                     </constraints>
                                                 </imageView>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emptyTumbnail" translatesAutoresizingMaskIntoConstraints="NO" id="n8D-9J-EVg">
+                                                    <rect key="frame" x="16" y="15" width="382" height="215"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="n8D-9J-EVg" secondAttribute="height" multiplier="16:9" id="lTf-ab-coT"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="n8D-9J-EVg" firstAttribute="bottom" secondItem="RjB-Yq-QlX" secondAttribute="bottom" constant="5" id="1bx-BP-a0L"/>
+                                                <constraint firstItem="n8D-9J-EVg" firstAttribute="bottom" secondItem="RjB-Yq-QlX" secondAttribute="bottom" constant="4" id="1bx-BP-a0L"/>
                                                 <constraint firstItem="CPB-cS-8Tm" firstAttribute="leading" secondItem="b10-9C-i8T" secondAttribute="leading" constant="16" id="6fm-Ex-9B5"/>
                                                 <constraint firstItem="6De-7g-Q1p" firstAttribute="top" secondItem="BHf-jp-iPf" secondAttribute="bottom" constant="8" id="7iG-Yi-X40"/>
                                                 <constraint firstItem="n8D-9J-EVg" firstAttribute="trailing" secondItem="RjB-Yq-QlX" secondAttribute="trailing" constant="5" id="8ES-Ov-qHJ"/>
-                                                <constraint firstItem="n8D-9J-EVg" firstAttribute="top" secondItem="b10-9C-i8T" secondAttribute="top" constant="16" id="E3X-HR-l2v"/>
+                                                <constraint firstItem="n8D-9J-EVg" firstAttribute="top" secondItem="b10-9C-i8T" secondAttribute="top" constant="15" id="E3X-HR-l2v"/>
                                                 <constraint firstItem="BHf-jp-iPf" firstAttribute="top" secondItem="CPB-cS-8Tm" secondAttribute="top" id="EFW-gp-Wf7"/>
                                                 <constraint firstAttribute="trailing" secondItem="BHf-jp-iPf" secondAttribute="trailing" constant="16" id="EH6-c0-hxK"/>
                                                 <constraint firstAttribute="bottom" secondItem="2qt-tk-Hbb" secondAttribute="bottom" id="Gib-Ij-NLr"/>
@@ -739,7 +739,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="6De-7g-Q1p" secondAttribute="trailing" constant="16" id="mB0-3m-frP"/>
                                                 <constraint firstItem="n8D-9J-EVg" firstAttribute="leading" secondItem="b10-9C-i8T" secondAttribute="leading" constant="16" id="tne-35-opp"/>
                                                 <constraint firstItem="yqo-VV-6UJ" firstAttribute="width" secondItem="RjB-Yq-QlX" secondAttribute="width" id="unQ-vq-cfS"/>
-                                                <constraint firstItem="CPB-cS-8Tm" firstAttribute="top" secondItem="n8D-9J-EVg" secondAttribute="bottom" constant="16" id="vCv-6W-Et5"/>
+                                                <constraint firstItem="CPB-cS-8Tm" firstAttribute="top" secondItem="n8D-9J-EVg" secondAttribute="bottom" constant="17" id="vCv-6W-Et5"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -1316,10 +1316,10 @@
     </scenes>
     <resources>
         <image name="cancel" width="48" height="48"/>
-        <image name="chevron.left" catalog="system" width="48" height="64"/>
+        <image name="chevron.left" catalog="system" width="96" height="128"/>
         <image name="emptyTumbnail" width="375" height="211"/>
         <image name="logo" width="341.33334350585938" height="341.33334350585938"/>
-        <image name="sidebar.right" catalog="system" width="64" height="46"/>
+        <image name="sidebar.right" catalog="system" width="128" height="93"/>
         <image name="thumbDown" width="25" height="25"/>
         <image name="thumbUp" width="25" height="25"/>
     </resources>

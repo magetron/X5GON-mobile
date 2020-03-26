@@ -89,7 +89,8 @@ class TabBarView: UIView, UICollectionViewDelegateFlowLayout, UICollectionViewDa
      
      */
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize.init(width: collectionView.bounds.width / 4, height: collectionView.bounds.height)
+        //return CGSize.init(width: collectionView.bounds.width / 4, height: collectionView.bounds.height)
+        return CGSize.init(width: UIScreen.main.bounds.width / 4, height: self.frame.height)
     }
     
     /**

@@ -30,10 +30,12 @@ protocol APIAdapter {
     
     /// Gnerate Featured `Content` URL
     static func generateFeaturedContentURL () -> String
-    
+        
     static func generateNotesURL() -> String
     
     static func generateNotesURL(id: Int) -> String
+    
+    static func TBD_generateBookmarkURL(id: Int, bookmark: Bool) -> String
     
     static func TBD_generateReportURL(id: Int) -> String
     
