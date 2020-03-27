@@ -29,6 +29,15 @@ class MainController {
     
     static var queue = OperationQueue()
     
+    class Queue {
+        static func cancelOperations () {
+            MainController.queue.isSuspended = true
+            MainController.queue.cancelAllOperations()
+            MainController.queue = OperationQueue()
+        }
+        
+    }
+    
     
     /**
      Set top bar hide status
@@ -132,12 +141,6 @@ class MainController {
     static func reportContent (id: Int, reason: String) {
         return API.TBD_report(id: id, reason: reason)
     }
-    
-    static func cancelOperations () {
-        MainController.queue.isSuspended = true
-        MainController.queue.cancelAllOperations()
-    }
-    
     /*
     static func DEPRECATED_fetchDefaultContents() -> [Content] {
         var items = [Content]()

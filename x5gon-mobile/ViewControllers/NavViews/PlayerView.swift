@@ -114,6 +114,10 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
     }
     
     @objc func newPlayerView(_ notification: Notification) {
+        MainController.Queue.cancelOperations() // for performance concerns
+        if (MainController.DEBUG) {
+            print(MainController.queue.operationCount)
+        }
         let content = notification.object as! Content
         if (content == self.content) {
             return resumePlayerView()
@@ -193,9 +197,11 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
             video.avPlayerItem = AVPlayerItem.init(url: video.contentLink)
             self.videoPlayerViewController.player?.replaceCurrentItem(with: video.avPlayerItem)
         }
+        /*
         if self.state != .hidden {
             self.videoPlayerViewController.player?.play()
-        }
+        }*/
+        self.videoPlayerViewController.player?.pause()
     }
 
     
@@ -215,7 +221,6 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
     }
     
     func setContent (content: Content) {
-        MainController.cancelOperations() // for performance concerns
         self.content = content
         contentLiked = false
         contentDisliked = false
@@ -225,11 +230,14 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
             setPDF(pdf: pdf)
         }
         if !content.enriching && content.suggestedContents.count == 0 {
-            refresherWithLoadingHUD(updateContent: { () -> Void in content.fetchSuggestedContents() }, viewReload: { () -> Void in
+            refresherWithLoadingHUD(updateContent: { () -> Void in
+                content.fetchSuggestedContents()
+            }, viewReload: { () -> Void in
                 if (self.content == content) {
                     self.tableView.reloadData()
+                    self.videoPlayerViewController.player?.play()
                 }
-            }, view: self.tableView, cancellable: true)
+            }, view: self, cancellable: true)
         }
         if !content.enriching && content.wiki.chunks.count == 0 {
             refresherWithLoadingHUD(updateContent: {() -> Void in content.fetchWikiChunkEnrichments() }, viewReload: { () -> Void in
