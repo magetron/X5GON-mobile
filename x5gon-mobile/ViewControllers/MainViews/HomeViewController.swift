@@ -29,7 +29,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 300
         refresherWithLoadingHUD(updateContent: {() -> Void in self.contents =
-            MainController.fetchDefaultContents()}, viewReload: {() -> Void in self.tableView.reloadData()}, view: self.tableView, cancellable: false)
+            MainController.fetchDefaultContents()}, viewReload: {() -> Void in self.tableView.reloadData()}, view: self.tableView)
     }
     
     
@@ -75,7 +75,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         NotificationCenter.default.post(name: NSNotification.Name("open"), object: contents[indexPath.row])
     }
     
-    /*
     /**
      Tells the delegate when the user scrolls the content view within the receiver. Send the **hide** notification
      
@@ -99,7 +98,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
      */
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         self.lastContentOffset = scrollView.contentOffset.y;
-    }*/
+    }
     
     //MARK: - ViewController Lifecylce
     ///Called after the controller's view is loaded into memory. Load `customisation` method

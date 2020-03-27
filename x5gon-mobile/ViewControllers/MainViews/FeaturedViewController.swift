@@ -25,7 +25,7 @@ class FeaturedViewController: UIViewController, UITableViewDelegate, UITableView
         self.tableView.scrollIndicatorInsets = UIEdgeInsets(top: 50, left: 0, bottom: 30, right: 0)
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 300
-        refresherWithLoadingHUD(updateContent: {() -> Void in self.contents = MainController.fetchFeaturedContents()}, viewReload: {() -> Void in self.tableView.reloadData()}, view: self.tableView, cancellable: false)
+        refresherWithLoadingHUD(updateContent: {() -> Void in self.contents = MainController.fetchFeaturedContents()}, viewReload: {() -> Void in self.tableView.reloadData()}, view: self.tableView)
     }
     
     //MARK: - Delegates
@@ -72,34 +72,6 @@ class FeaturedViewController: UIViewController, UITableViewDelegate, UITableView
         NotificationCenter.default.post(name: NSNotification.Name("open"), object: contents[indexPath.row])
     }
     
-    /*
-    
-    /**
-     Tells the delegate when the user scrolls the content view within the receiver. Send the **hide** notification
-     
-     - Parameters:
-        - scorllView: The scroll-view object in which the scrolling occurred.
-     */
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if (self.lastContentOffset > scrollView.contentOffset.y) {
-            NotificationCenter.default.post(name: NSNotification.Name("hide"), object: false)
-        } else if(self.lastContentOffset < scrollView.contentOffset.y){
-            NotificationCenter.default.post(name: NSNotification.Name("hide"), object: true)
-        }
-    }
-
-    /**
-     Tells the delegate when dragging ended in the scroll view.  Update the last Content Offset
-     
-     - Parameters:
-        - scrollView: The scrollVview object that finished scrolling the content view.
-        - decelerate: The value is true if the scrolling movement will continue, but decelerate, after a touch-up gesture during a dragging operation. If the value is false, scrolling stops immediately upon touch-up.
-     */
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        self.lastContentOffset = scrollView.contentOffset.y;
-    }
-    */
- 
     //MARK: -  ViewController Lifecylce
     ///Called after the controller's view is loaded into memory. Load `customisation` method
     override func viewDidLoad() {

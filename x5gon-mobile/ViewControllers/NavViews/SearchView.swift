@@ -34,7 +34,7 @@ class SearchView: UIView, UITextFieldDelegate {
         refresherWithLoadingHUD(updateContent: {() -> Void in
             let result = MainController.search(keyword: text, contentType: "any")
             MainController.searchResultsViewController?.contents = result
-        }, viewReload: {() -> Void in MainController.searchResultsViewController?.tableView.reloadData(); }, view: (MainController.searchResultsViewController?.tableView)!, cancellable: true)
+        }, viewReload: {() -> Void in MainController.searchResultsViewController?.tableView.reloadData(); }, view: (MainController.searchResultsViewController?.tableView)!)
         NotificationCenter.default.post(name: Notification.Name.init(rawValue: "didSelectMenu"), object: nil, userInfo: ["index": 2])
         self.hideSearchView(self)
         return true
