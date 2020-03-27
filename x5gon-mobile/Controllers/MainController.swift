@@ -24,8 +24,8 @@ class MainController {
     static var userViewController:UserViewController?
     /// User Placeholder
     static var user = User.generateDefaultUser()
-    /// OperationQueue
-    static var queue = OperationQueue()
+    
+    static var DEBUG = true
     
     
     /**
