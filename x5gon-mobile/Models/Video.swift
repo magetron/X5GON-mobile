@@ -18,8 +18,12 @@ class Video : Content {
     }
     /// Fetching content using **video** as contentType
     override func fetchSuggestedContents () {
-        let videos = API.fetchContents(keyWord: self.title, contentType: "video")
-        super.suggestedContents = videos
+        if (!enriching) {
+            super.enriching = true
+            let videos = API.fetchContents(keyWord: self.title, contentType: "video")
+            super.suggestedContents = videos
+            super.enriching = false
+        }
     }
     
     /**

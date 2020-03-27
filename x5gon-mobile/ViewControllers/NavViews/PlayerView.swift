@@ -113,10 +113,13 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
     }
     
     @objc func newPlayerView(_ notification: Notification) {
+        let content = notification.object as! Content
+        if (content == self.content) {
+            return resumePlayerView()
+        }
         self.state = .fullScreen
         self.delegate?.didmaximize()
         self.animate()
-        let content = notification.object as! Content
         setContent(content: content)
         MainController.addHistory(content: content)
     }
@@ -218,12 +221,7 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
             refresherWithLoadingHUD(updateContent: { () -> Void in content.fetchSuggestedContents() }, viewReload: { () -> Void in self.tableView.reloadData()}, view: self.tableView)
         }
         if content.wiki.chunks.count == 0 {
-            refresherWithLoadingHUD(updateContent: {() -> Void in content.fetchWikiChunkEnrichments() }, viewReload: { () -> Void in self.navigationView.setWiki(wiki: content.wiki); self.navigationView.tableView.reloadData() }, view: self.tableView)
-        }
-        if (MainController.user.bookmarkedContent.contains(content)) {
-            //self.bookmarkButton.setImage(UIImage.init(systemName: "bookmark.fill"), for: .normal)
-        } else {
-            //self.bookmarkButton.setImage(UIImage.init(systemName: "bookmark"), for: .normal)
+            refresherWithLoadingHUD(updateContent: {() -> Void in content.fetchWikiChunkEnrichments() }, viewReload: { () -> Void in self.navigationView.setWiki(wiki: content.wiki); self.navigationView.tableView.reloadData() }, view: self.navigationView.tableView)
         }
         self.tableView.reloadData()
     }

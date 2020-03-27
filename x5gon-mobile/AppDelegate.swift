@@ -9,7 +9,7 @@
 import UIKit
 
 @UIApplicationMain
-  class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
     /// This is a `UIWindow` The backdrop for your app’s user interface and the object that dispatches events to your views.
     var window: UIWindow?
