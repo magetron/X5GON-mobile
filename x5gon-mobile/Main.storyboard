@@ -431,7 +431,7 @@
                                                 <rect key="frame" x="20" y="11" width="375" height="68.333333333333329"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="68" identifier="textViewHC" id="pv4-jI-UOE"/>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="68" identifier="textViewHC" id="pv4-jI-UOE"/>
                                                 </constraints>
                                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -457,12 +457,14 @@
                                         <rect key="frame" x="0.0" y="0.0" width="415" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jxl-IM-Jjz">
-                                                <rect key="frame" x="10" y="18" width="124" height="64.666666666666671"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="jxl-IM-Jjz">
+                                                <rect key="frame" x="10" y="18" width="124" height="70"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="70" id="2N5-Nw-vnr"/>
                                                     <constraint firstAttribute="width" constant="124" id="Oc4-zD-SnB"/>
                                                 </constraints>
+                                                <viewLayoutGuide key="safeArea" id="LvS-fJ-Orv"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Content name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MBT-7F-5qc">
                                                 <rect key="frame" x="156" y="9.9999999999999982" width="239" height="20.333333333333329"/>
@@ -480,8 +482,6 @@
                                         <constraints>
                                             <constraint firstAttribute="trailingMargin" secondItem="MBT-7F-5qc" secondAttribute="trailing" id="Jph-cd-dS3"/>
                                             <constraint firstItem="k1n-01-Njl" firstAttribute="top" secondItem="MBT-7F-5qc" secondAttribute="bottom" constant="8" id="MFk-Bm-ODc"/>
-                                            <constraint firstItem="jxl-IM-Jjz" firstAttribute="top" secondItem="7sY-8H-dnu" secondAttribute="topMargin" constant="7" id="N6e-Qf-pBk"/>
-                                            <constraint firstAttribute="bottomMargin" secondItem="jxl-IM-Jjz" secondAttribute="bottom" constant="6.5" id="PZP-Jn-mfM"/>
                                             <constraint firstItem="MBT-7F-5qc" firstAttribute="leading" secondItem="jxl-IM-Jjz" secondAttribute="trailing" constant="22" id="Whp-22-JSh"/>
                                             <constraint firstItem="k1n-01-Njl" firstAttribute="leading" secondItem="jxl-IM-Jjz" secondAttribute="trailing" constant="22" id="b1r-eE-KMh"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="k1n-01-Njl" secondAttribute="trailing" id="xKU-MK-TyB"/>

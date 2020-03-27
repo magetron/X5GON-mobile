@@ -20,7 +20,7 @@ import JGProgressHUD
  ````
  */
 func refresher (updateContent: @escaping () -> Void, viewReload: @escaping () -> Void) {
-    DispatchQueue.global().async{
+    DispatchQueue.global(qos: .background).async{
         updateContent()
         DispatchQueue.main.async{
             viewReload()
@@ -28,14 +28,30 @@ func refresher (updateContent: @escaping () -> Void, viewReload: @escaping () ->
     }
 }
 
-func refresherWithLoadingHUD (updateContent: @escaping () -> Void, viewReload: @escaping () -> Void, view : UIView) {
+func cancellableRefresher (updateContent: @escaping () -> Void, viewReload: @escaping () -> Void) {
+    MainController.queue.addOperation {
+        updateContent()
+        DispatchQueue.main.async{
+            viewReload()
+        }
+    }
+}
+
+func refresherWithLoadingHUD (updateContent: @escaping () -> Void, viewReload: @escaping () -> Void, view : UIView, cancellable: Bool) {
     let hud = JGProgressHUD(style: .dark)
     hud.textLabel.text = "Loading"
     hud.show(in: view)
-    refresher(updateContent: updateContent, viewReload: {
-        viewReload()
-        hud.dismiss()
-    })
+    if cancellable {
+        cancellableRefresher(updateContent: updateContent, viewReload: {
+            viewReload()
+            hud.dismiss()
+        })
+    } else {
+        refresher(updateContent: updateContent, viewReload: {
+            viewReload()
+            hud.dismiss()
+        })
+    }
 }
 
 extension AVAsset {
@@ -54,17 +70,18 @@ extension AVAsset {
     
     ````
     */
-    func generateThumbnail(completion: @escaping (UIImage?, Int?) -> Void) {
+    func generateInformation(completion: @escaping (UIImage?, Int?, AVPlayerItem?) -> Void) {
         DispatchQueue.global().async {
             let imageGenerator = AVAssetImageGenerator(asset: self)
+            let playerItem = AVPlayerItem(asset: self)
             let time = CMTime(seconds: 60.0, preferredTimescale: 600)
             let times = [NSValue(time: time)]
             let duration = Int(self.duration.seconds)
             imageGenerator.generateCGImagesAsynchronously(forTimes: times, completionHandler: { _, image, _, _, _ in
                 if let image = image {
-                    completion(UIImage(cgImage: image), duration)
+                    completion(UIImage(cgImage: image), duration, playerItem)
                 } else {
-                    completion(nil, nil)
+                    completion(nil, nil, nil)
                 }
             })
         }

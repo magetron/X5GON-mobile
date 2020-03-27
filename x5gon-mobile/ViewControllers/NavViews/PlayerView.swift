@@ -20,6 +20,7 @@ import UIKit
 import AVFoundation
 import AVKit
 import PDFKit
+import JGProgressHUD
 
 class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate, PlayerViewHeaderCellDelegate {
 
@@ -113,10 +114,13 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
     }
     
     @objc func newPlayerView(_ notification: Notification) {
+        let content = notification.object as! Content
+        if (content == self.content) {
+            return resumePlayerView()
+        }
         self.state = .fullScreen
         self.delegate?.didmaximize()
         self.animate()
-        let content = notification.object as! Content
         setContent(content: content)
         MainController.addHistory(content: content)
     }
@@ -124,7 +128,7 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
     func onLikeTap() {
         if (!contentLiked) {
             refresherWithLoadingHUD(updateContent: {
-                () -> Void in self.content.like() }, viewReload: { () -> Void in self.tableView.reloadData()}, view: self.tableView)
+                () -> Void in self.content.like() }, viewReload: { () -> Void in self.tableView.reloadData()}, view: self.tableView, cancellable: false)
             contentLiked = true
         }
     }
@@ -132,7 +136,7 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
     func onDisLikeTap() {
         if (!contentDisliked) {
             refresherWithLoadingHUD(updateContent: {
-                () -> Void in self.content.dislike() }, viewReload: { () -> Void in self.tableView.reloadData()}, view: self.tableView)
+                () -> Void in self.content.dislike() }, viewReload: { () -> Void in self.tableView.reloadData()}, view: self.tableView, cancellable: false)
             contentDisliked = true
         }
     }
@@ -183,7 +187,12 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
             self.videoPlayerViewController.player = AVPlayer()
         }
         self.player.addSubview(videoPlayerViewController.view)
-        self.videoPlayerViewController.player?.replaceCurrentItem(with: AVPlayerItem.init(url: video.contentLink))
+        if (video.avPlayerItem != nil) {
+            self.videoPlayerViewController.player?.replaceCurrentItem(with: video.avPlayerItem)
+        } else {
+            video.avPlayerItem = AVPlayerItem.init(url: video.contentLink)
+            self.videoPlayerViewController.player?.replaceCurrentItem(with: video.avPlayerItem)
+        }
         if self.state != .hidden {
             self.videoPlayerViewController.player?.play()
         }
@@ -206,6 +215,7 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
     }
     
     func setContent (content: Content) {
+        MainController.cancelOperations() // for performance concerns
         self.content = content
         contentLiked = false
         contentDisliked = false
@@ -214,16 +224,20 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         } else if let pdf = content as? PDF {
             setPDF(pdf: pdf)
         }
-        if content.suggestedContents.count == 0 {
-            refresherWithLoadingHUD(updateContent: { () -> Void in content.fetchSuggestedContents() }, viewReload: { () -> Void in self.tableView.reloadData()}, view: self.tableView)
+        if !content.enriching && content.suggestedContents.count == 0 {
+            refresherWithLoadingHUD(updateContent: { () -> Void in content.fetchSuggestedContents() }, viewReload: { () -> Void in
+                if (self.content == content) {
+                    self.tableView.reloadData()
+                }
+            }, view: self.tableView, cancellable: true)
         }
-        if content.wiki.chunks.count == 0 {
-            refresherWithLoadingHUD(updateContent: {() -> Void in content.fetchWikiChunkEnrichments() }, viewReload: { () -> Void in self.navigationView.setWiki(wiki: content.wiki); self.navigationView.tableView.reloadData() }, view: self.tableView)
-        }
-        if (MainController.user.bookmarkedContent.contains(content)) {
-            //self.bookmarkButton.setImage(UIImage.init(systemName: "bookmark.fill"), for: .normal)
-        } else {
-            //self.bookmarkButton.setImage(UIImage.init(systemName: "bookmark"), for: .normal)
+        if !content.enriching && content.wiki.chunks.count == 0 {
+            refresherWithLoadingHUD(updateContent: {() -> Void in content.fetchWikiChunkEnrichments() }, viewReload: { () -> Void in
+                if (self.content == content) {
+                    self.navigationView.setWiki(wiki: content.wiki)
+                    self.navigationView.tableView.reloadData()
+                }
+            }, view: self.navigationView.tableView, cancellable: true)
         }
         self.tableView.reloadData()
     }
@@ -262,7 +276,13 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
+        switch indexPath.row {
+        case 0...1:
+            return UITableView.automaticDimension
+        default:
+            return 110
+        }
+
     }
     
     @objc func returnFromPlayerView () {
