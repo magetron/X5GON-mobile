@@ -29,7 +29,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 300
         refresherWithLoadingHUD(updateContent: {() -> Void in self.contents =
-            MainController.fetchDefaultContents()}, viewReload: {() -> Void in self.tableView.reloadData()}, view: self.tableView)
+            MainController.fetchDefaultContents()}, viewReload: {() -> Void in self.tableView.reloadData()}, view: self.tableView, cancellable: false)
     }
     
     

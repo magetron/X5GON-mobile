@@ -28,14 +28,30 @@ func refresher (updateContent: @escaping () -> Void, viewReload: @escaping () ->
     }
 }
 
-func refresherWithLoadingHUD (updateContent: @escaping () -> Void, viewReload: @escaping () -> Void, view : UIView) {
+func cancellableRefresher (updateContent: @escaping () -> Void, viewReload: @escaping () -> Void) {
+    MainController.queue.addOperation {
+        updateContent()
+        DispatchQueue.main.async{
+            viewReload()
+        }
+    }
+}
+
+func refresherWithLoadingHUD (updateContent: @escaping () -> Void, viewReload: @escaping () -> Void, view : UIView, cancellable: Bool) {
     let hud = JGProgressHUD(style: .dark)
     hud.textLabel.text = "Loading"
     hud.show(in: view)
-    refresher(updateContent: updateContent, viewReload: {
-        //viewReload()
-        hud.dismiss()
-    })
+    if cancellable {
+        cancellableRefresher(updateContent: updateContent, viewReload: {
+            viewReload()
+            hud.dismiss()
+        })
+    } else {
+        refresher(updateContent: updateContent, viewReload: {
+            viewReload()
+            hud.dismiss()
+        })
+    }
 }
 
 extension AVAsset {

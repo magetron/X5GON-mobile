@@ -27,6 +27,8 @@ class MainController {
     
     static var DEBUG = true
     
+    static var queue = OperationQueue()
+    
     
     /**
      Set top bar hide status
@@ -104,7 +106,7 @@ class MainController {
             self.user = API.fetchUser()
             MainController.userViewController?.setUser(user: self.user)
         }, viewReload: {() -> Void in MainController.userViewController?.tableView.reloadData()
-        }, view: (MainController.mainViewController?.view)!)
+        }, view: (MainController.mainViewController?.view)!, cancellable: false)
         return API.authenticationToken != ""
     }
     
@@ -131,6 +133,10 @@ class MainController {
         return API.TBD_report(id: id, reason: reason)
     }
     
+    static func cancelOperations () {
+        MainController.queue.isSuspended = true
+        MainController.queue.cancelAllOperations()
+    }
     
     /*
     static func DEPRECATED_fetchDefaultContents() -> [Content] {
@@ -142,5 +148,11 @@ class MainController {
         items.append(contentsOf: API.DEPRECATED_fetchContents(keyWord: "science"))
         return items
     }*/
+    
+    deinit {
+        MainController.queue.isSuspended = true
+        MainController.queue.cancelAllOperations()
+        MainController.queue.waitUntilAllOperationsAreFinished()
+    }
     
 }

@@ -20,6 +20,7 @@ import UIKit
 import AVFoundation
 import AVKit
 import PDFKit
+import JGProgressHUD
 
 class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate, PlayerViewHeaderCellDelegate {
 
@@ -127,7 +128,7 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
     func onLikeTap() {
         if (!contentLiked) {
             refresherWithLoadingHUD(updateContent: {
-                () -> Void in self.content.like() }, viewReload: { () -> Void in self.tableView.reloadData()}, view: self.tableView)
+                () -> Void in self.content.like() }, viewReload: { () -> Void in self.tableView.reloadData()}, view: self.tableView, cancellable: false)
             contentLiked = true
         }
     }
@@ -135,7 +136,7 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
     func onDisLikeTap() {
         if (!contentDisliked) {
             refresherWithLoadingHUD(updateContent: {
-                () -> Void in self.content.dislike() }, viewReload: { () -> Void in self.tableView.reloadData()}, view: self.tableView)
+                () -> Void in self.content.dislike() }, viewReload: { () -> Void in self.tableView.reloadData()}, view: self.tableView, cancellable: false)
             contentDisliked = true
         }
     }
@@ -186,11 +187,15 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
             self.videoPlayerViewController.player = AVPlayer()
         }
         self.player.addSubview(videoPlayerViewController.view)
-        refresherWithLoadingHUD(updateContent: {        self.videoPlayerViewController.player?.replaceCurrentItem(with: video.avPlayerItem)
-            if self.state != .hidden {
-                self.videoPlayerViewController.player?.play()
-            }
-        }, viewReload: {}, view: self.player)
+        if (video.avPlayerItem != nil) {
+            self.videoPlayerViewController.player?.replaceCurrentItem(with: video.avPlayerItem)
+        } else {
+            video.avPlayerItem = AVPlayerItem.init(url: video.contentLink)
+            self.videoPlayerViewController.player?.replaceCurrentItem(with: video.avPlayerItem)
+        }
+        if self.state != .hidden {
+            self.videoPlayerViewController.player?.play()
+        }
     }
 
     
@@ -210,9 +215,7 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
     }
     
     func setContent (content: Content) {
-        if let _ = self.content as? Video {
-            self.videoPlayerViewController.player?.pause()
-        }
+        MainController.cancelOperations() // for performance concerns
         self.content = content
         contentLiked = false
         contentDisliked = false
@@ -226,7 +229,7 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
                 if (self.content == content) {
                     self.tableView.reloadData()
                 }
-            }, view: self.tableView)
+            }, view: self.tableView, cancellable: true)
         }
         if !content.enriching && content.wiki.chunks.count == 0 {
             refresherWithLoadingHUD(updateContent: {() -> Void in content.fetchWikiChunkEnrichments() }, viewReload: { () -> Void in
@@ -234,7 +237,7 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
                     self.navigationView.setWiki(wiki: content.wiki)
                     self.navigationView.tableView.reloadData()
                 }
-            }, view: self.navigationView.tableView)
+            }, view: self.navigationView.tableView, cancellable: true)
         }
         self.tableView.reloadData()
     }
