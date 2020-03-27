@@ -186,7 +186,7 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
             self.videoPlayerViewController.player = AVPlayer()
         }
         self.player.addSubview(videoPlayerViewController.view)
-        refresherWithLoadingHUD(updateContent: {        self.videoPlayerViewController.player?.replaceCurrentItem(with: AVPlayerItem.init(url: video.contentLink))
+        refresherWithLoadingHUD(updateContent: {        self.videoPlayerViewController.player?.replaceCurrentItem(with: video.avPlayerItem)
             if self.state != .hidden {
                 self.videoPlayerViewController.player?.play()
             }
@@ -231,7 +231,10 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         if !content.enriching && content.wiki.chunks.count == 0 {
             refresherWithLoadingHUD(updateContent: {() -> Void in content.fetchWikiChunkEnrichments() }, viewReload: { () -> Void in
                 if (self.content == content) {
-                    self.navigationView.setWiki(wiki: content.wiki); self.navigationView.tableView.reloadData() }}, view: self.navigationView.tableView)
+                    self.navigationView.setWiki(wiki: content.wiki)
+                    self.navigationView.tableView.reloadData()
+                }
+            }, view: self.navigationView.tableView)
         }
         self.tableView.reloadData()
     }

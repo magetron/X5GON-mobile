@@ -11,6 +11,9 @@ import AVFoundation
 import UIKit
 
 class Video : Content {
+    
+    var avPlayerItem : AVPlayerItem?
+    
     /// Performe `Video` initialization
     override init (title: String, id: Int, channelName: String, description: String, url: URL) {
         super.init(title: title, id: id, channelName: channelName, description: description, url: url)
@@ -35,12 +38,13 @@ class Video : Content {
      ````
      */
     override func fetchContentInfo() {
-        AVAsset(url: contentLink).generateThumbnail { [weak self] (image, duration) in
-            guard let image = image, let duration = duration else {
+        AVAsset(url: contentLink).generateInformation { [weak self] (image, duration, playerItem) in
+            guard let image = image, let duration = duration, let playerItem = playerItem else {
                 return
             }
             self?.thumbnail = image
             self?.duration = duration
+            self?.avPlayerItem = playerItem
         }
     }
     
