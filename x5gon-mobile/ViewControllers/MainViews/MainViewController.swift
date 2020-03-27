@@ -154,7 +154,5 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     /// Deinitialization Function
     deinit {
         NotificationCenter.default.removeObserver(self)
-        MainController.queue.cancelAllOperations()
-        MainController.queue.waitUntilAllOperationsAreFinished()
     }
 }

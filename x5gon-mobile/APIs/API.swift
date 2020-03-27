@@ -34,6 +34,9 @@ class API {
      */
     
     private static func fetchContents (urlString: String) -> [Content] {
+        if MainController.DEBUG {
+            print("API: fetching content... \(urlString)")
+        }
         var tmpItems = [Content]()
         let contentURL = URL(string:urlString .addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!
         var request = URLRequest(url: contentURL)
@@ -45,6 +48,9 @@ class API {
         }
         dataTask.resume()
         semaphore.wait()
+        if MainController.DEBUG {
+            print("API: done \(urlString)")
+        }
         return tmpItems
     }
     

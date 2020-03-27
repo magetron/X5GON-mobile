@@ -24,8 +24,19 @@ class MainController {
     static var userViewController:UserViewController?
     /// User Placeholder
     static var user = User.generateDefaultUser()
-    /// OperationQueue
+    
+    static var DEBUG = true
+    
     static var queue = OperationQueue()
+    
+    class Queue {
+        static func cancelOperations () {
+            MainController.queue.isSuspended = true
+            MainController.queue.cancelAllOperations()
+            MainController.queue = OperationQueue()
+        }
+        
+    }
     
     
     /**
@@ -104,7 +115,7 @@ class MainController {
             self.user = API.fetchUser()
             MainController.userViewController?.setUser(user: self.user)
         }, viewReload: {() -> Void in MainController.userViewController?.tableView.reloadData()
-        }, view: (MainController.mainViewController?.view)!)
+        }, view: (MainController.mainViewController?.view)!, cancellable: false)
         return API.authenticationToken != ""
     }
     
@@ -130,8 +141,6 @@ class MainController {
     static func reportContent (id: Int, reason: String) {
         return API.TBD_report(id: id, reason: reason)
     }
-    
-    
     /*
     static func DEPRECATED_fetchDefaultContents() -> [Content] {
         var items = [Content]()
@@ -142,5 +151,11 @@ class MainController {
         items.append(contentsOf: API.DEPRECATED_fetchContents(keyWord: "science"))
         return items
     }*/
+    
+    deinit {
+        MainController.queue.isSuspended = true
+        MainController.queue.cancelAllOperations()
+        MainController.queue.waitUntilAllOperationsAreFinished()
+    }
     
 }
