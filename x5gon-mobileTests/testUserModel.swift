@@ -71,6 +71,14 @@ class testUserModel: XCTestCase {
         let bool = user.bookmarkedContent.contains(content)
         XCTAssertEqual(bool, true)
     }
+    
+    func testUnBookMark(){
+        let content = Content.init(title: "Content One", id: 0, channelName: "123", description: "123321", url: URL.init(string: "www.123.com")!)
+        user.bookmark(content: content)
+        user.unbookmark(content: content)
+        let bool = user.bookmarkedContent.contains(content)
+        XCTAssertEqual(bool, false)
+    }
 
     func testPerformanceExample() {
         // This is an example of a performance test case.
