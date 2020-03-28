@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -66,6 +66,7 @@
 		DCA928EB24298C6400A40E85 /* testAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928EA24298C6400A40E85 /* testAPI.swift */; };
 		DCA928ED242993F200A40E85 /* testX5GONApiAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928EC242993F200A40E85 /* testX5GONApiAdapter.swift */; };
 		DCA928EF2429986300A40E85 /* testX5LearnAPIAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928EE2429986300A40E85 /* testX5LearnAPIAdapter.swift */; };
+		DCA928F524300F1700A40E85 /* testHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928F224300D8F00A40E85 /* testHomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -155,6 +156,7 @@
 		DCA928EA24298C6400A40E85 /* testAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testAPI.swift; sourceTree = "<group>"; };
 		DCA928EC242993F200A40E85 /* testX5GONApiAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testX5GONApiAdapter.swift; sourceTree = "<group>"; };
 		DCA928EE2429986300A40E85 /* testX5LearnAPIAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testX5LearnAPIAdapter.swift; sourceTree = "<group>"; };
+		DCA928F224300D8F00A40E85 /* testHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testHomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -349,6 +351,7 @@
 			isa = PBXGroup;
 			children = (
 				CDFD3C0D23CC7854000FCEF6 /* x5gon_mobileUITests.swift */,
+				DCA928F224300D8F00A40E85 /* testHomeViewController.swift */,
 				CDFD3C0F23CC7854000FCEF6 /* Info.plist */,
 			);
 			path = "x5gon-mobileUITests";
@@ -694,6 +697,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDFD3C0E23CC7854000FCEF6 /* x5gon_mobileUITests.swift in Sources */,
+				DCA928F524300F1700A40E85 /* testHomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

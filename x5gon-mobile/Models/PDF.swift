@@ -31,7 +31,8 @@ class PDF : Content {
      ````
       self.fetchContentInfo()
      ````
-     */    override func fetchContentInfo() {
+     */
+    override func fetchContentInfo() {
         self.duration = 0
     }
     
