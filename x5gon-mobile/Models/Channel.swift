@@ -22,7 +22,7 @@ class Channel {
         var channels = [Channel]()
         for i in 0...18 {
             let name = ""
-            let image = UIImage.init(named: "channel\(i)")
+            let image = UIImage.init(named: "logo")
             let channel = Channel.init(name: name, image: image!)
             channels.append(channel)
         }
