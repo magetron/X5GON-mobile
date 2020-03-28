@@ -29,15 +29,27 @@ class MainController {
     
     static var queue = OperationQueue()
     
+    static var cancellableDataTask = [URLSessionDataTask]()
+    
+    static var cancellableSempahore = [DispatchSemaphore]()
+    
     class Queue {
         static func cancelOperations () {
-            MainController.queue.isSuspended = true
+            for dataTask in MainController.cancellableDataTask {
+                dataTask.cancel()
+            }
+            for semaphore in MainController.cancellableSempahore {
+                semaphore.signal()
+            }
+            MainController.cancellableDataTask.removeAll()
+            MainController.cancellableSempahore.removeAll()
+            
             MainController.queue.cancelAllOperations()
+            MainController.queue.isSuspended = true
             MainController.queue = OperationQueue()
         }
         
     }
-    
     
     /**
      Set top bar hide status
@@ -64,12 +76,23 @@ class MainController {
     }      
     
     static func fetchDefaultContents () -> [Content] {
-        let contents = API.fetchContents(keyWord: "science", contentType: "any")
-        return contents
+        return MainController.fetchContents(keyWord: "science", contentType: "any", cancellable: false)
     }
     
     static func fetchFeaturedContents () -> [Content] {
-        return API.fetchFeaturedContents()
+        return API.fetchFeaturedContents(fetchSwitch: {_, _ in })
+    }
+    
+    static func fetchContents (keyWord : String, contentType : String, cancellable: Bool) -> [Content] {
+        if cancellable {
+            return API.fetchContents(keyWord: keyWord, contentType: contentType, fetchSwitch: {
+                task, semaphore in
+                cancellableDataTask.append(task)
+                cancellableSempahore.append(semaphore)
+            })
+        } else {
+            return API.fetchContents(keyWord: keyWord, contentType: contentType, fetchSwitch: {_,_ in })
+        }
     }
     
     
@@ -89,7 +112,7 @@ class MainController {
      ````
      */
     static func search (keyword: String, contentType: String) -> [Content] {
-        return API.fetchContents(keyWord: keyword, contentType: contentType)
+        return MainController.fetchContents(keyWord: keyword, contentType: contentType, cancellable: true)
     }
     
     /**

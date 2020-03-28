@@ -20,7 +20,7 @@ class PDF : Content {
     
     /// Fetching content using **text(pdf)** as contentType
     override func fetchSuggestedContents () {
-        let pdfs = API.fetchContents(keyWord: self.title, contentType: "text")
+        let pdfs = MainController.fetchContents(keyWord: self.title, contentType: "text", cancellable: true)
         super.suggestedContents = pdfs
     }
     
