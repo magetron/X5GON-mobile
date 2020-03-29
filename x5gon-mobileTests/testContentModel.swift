@@ -77,6 +77,34 @@ class testContentModel: XCTestCase {
         XCTAssertEqual(content.disLikes, int)
     }
     
+    func testFetchContentInfo(){
+        expectFatalError(expectedMessage: "error: directly calling content generateContentInfo()") {
+            self.content.fetchContentInfo()
+        }
+    }
+    
+    func testfetchSuggestedContents(){
+        expectFatalError(expectedMessage: "error: directly calling content fetchSuggestedContents()") {
+            self.content.fetchSuggestedContents()
+        }
+    }
+    
+    func testSelfDefinedEqual(){
+        let contentTest = Content.init(title: "Test Content", id: 113, channelName: "Test Channel", description: "This is our test Content", url: URL.init(string: "www.testContent.com")!)
+        let result = content == contentTest
+        XCTAssertFalse(result)
+    }
+    
+    func testHash(){
+        var hasher = Hasher()
+        content.hash(into: &hasher)
+        XCTAssertEqual(content.id, 111)
+    }
+    
+    func testFetchWikiChunkEnrichments(){
+        let wiki = content.fetchWikiChunkEnrichments()
+        XCTAssertNotNil(wiki)
+    }
 
     func testPerformanceExample() {
         // This is an example of a performance test case.

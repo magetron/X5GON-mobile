@@ -79,7 +79,7 @@ class testVideoModel: XCTestCase {
     
     func testFetchSuggestionContent(){
         let videos = video.fetchSuggestedContents()
-        XCTAssertTrue(true)
+        XCTAssertNotNil(videos)
     }
 
     func testPerformanceExample() {
