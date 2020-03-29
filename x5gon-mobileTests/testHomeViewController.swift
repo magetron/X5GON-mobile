@@ -40,6 +40,11 @@ class testHomeViewController: XCTestCase {
         let cell  = homeViewController?.tableView(homeViewController!.tableView, cellForRowAt: IndexPath(row: 0, section: 0))as? ContentCell
         XCTAssertNotNil(cell)
     }
+    
+    func testRefresh(){
+        let check: ()? = homeViewController?.refresh(sender: "refresh")
+        XCTAssertNotNil(check)
+    }
 
     func testPerformanceExample() {
         // This is an example of a performance test case.
