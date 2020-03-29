@@ -72,7 +72,7 @@ class NavViewController: UINavigationController, PlayerViewControllerDelegate, S
         NSLayoutConstraint.init(item: searchButton, attribute: .right, relatedBy: .equal, toItem: settingsButton, attribute: .left, multiplier: 1.0, constant: -10).isActive = true
         
         //TitleLabel setup
-        self.titleLabel.font = UIFont.systemFont(ofSize: 18)
+        self.titleLabel.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
         self.titleLabel.textColor =  UIColor.white
         self.titleLabel.text = self.names[0]
         self.navigationBar.addSubview(self.titleLabel)
@@ -148,7 +148,7 @@ class NavViewController: UINavigationController, PlayerViewControllerDelegate, S
     func showLogin () {
         self.loginView.isHidden = false
         self.loginView.viewBottomConstraint.constant = 0
-        UIView.animate(withDuration: 0.6) {
+        UIView.animate(withDuration: 0.3) {
             self.loginView.backgroundView.alpha = 0.5
             self.loginView.layoutIfNeeded()
         }
