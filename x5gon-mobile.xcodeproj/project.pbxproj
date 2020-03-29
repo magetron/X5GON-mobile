@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		22D068989D668E516B2AF790 /* libPods-x5gon-mobileUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 35BE4E9CEE9F10ACA0D8280D /* libPods-x5gon-mobileUITests.a */; };
 		378CEC871E58E840C584DD30 /* Pods_x5gon_mobileTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32941AEF8A7BC9382031BA0B /* Pods_x5gon_mobileTests.framework */; };
 		6BE4E742CB667436FF6D688A /* Pods_x5gon_mobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4D9C9C2CC2D9BFBC3203AA4 /* Pods_x5gon_mobile.framework */; };
 		CD00457923E4E76A009CA522 /* PDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00457823E4E76A009CA522 /* PDF.swift */; };
@@ -73,6 +72,7 @@
 		DCA928FE2430C2F300A40E85 /* testHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928F224300D8F00A40E85 /* testHomeViewController.swift */; };
 		DCFB42512430CCE9004A7082 /* testHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFB42502430CCE9004A7082 /* testHomeViewController.swift */; };
 		DCFB42542430CF36004A7082 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDFD3C1B23CC78B4000FCEF6 /* Main.storyboard */; };
+		F44A108D41ABF396669AF916 /* Pods_x5gon_mobileUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE0E02C90BF917AB2DFB3E91 /* Pods_x5gon_mobileUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,7 +96,6 @@
 		01FEECE77A4C8C131A415A86 /* Pods-x5gon-mobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-x5gon-mobile.debug.xcconfig"; path = "Target Support Files/Pods-x5gon-mobile/Pods-x5gon-mobile.debug.xcconfig"; sourceTree = "<group>"; };
 		1692D03BBC1AFC8C42793D3D /* Pods-x5gon-mobileUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-x5gon-mobileUITests.debug.xcconfig"; path = "Target Support Files/Pods-x5gon-mobileUITests/Pods-x5gon-mobileUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		32941AEF8A7BC9382031BA0B /* Pods_x5gon_mobileTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_x5gon_mobileTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		35BE4E9CEE9F10ACA0D8280D /* libPods-x5gon-mobileUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-x5gon-mobileUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		891E09ECB864124D84DBEF15 /* Pods-x5gon-mobileTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-x5gon-mobileTests.debug.xcconfig"; path = "Target Support Files/Pods-x5gon-mobileTests/Pods-x5gon-mobileTests.debug.xcconfig"; sourceTree = "<group>"; };
 		99BCE8FA627D1E8B4FCB577C /* Pods-x5gon-mobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-x5gon-mobile.release.xcconfig"; path = "Target Support Files/Pods-x5gon-mobile/Pods-x5gon-mobile.release.xcconfig"; sourceTree = "<group>"; };
 		C4D9C9C2CC2D9BFBC3203AA4 /* Pods_x5gon_mobile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_x5gon_mobile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -172,6 +171,7 @@
 		DCFB42502430CCE9004A7082 /* testHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testHomeViewController.swift; sourceTree = "<group>"; };
 		EF47F4A65E710420A17F132D /* Pods-x5gon-mobile-x5gon-mobileTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-x5gon-mobile-x5gon-mobileTests.release.xcconfig"; path = "Target Support Files/Pods-x5gon-mobile-x5gon-mobileTests/Pods-x5gon-mobile-x5gon-mobileTests.release.xcconfig"; sourceTree = "<group>"; };
 		FD579A368EFC8BF538B6735A /* Pods-x5gon-mobileUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-x5gon-mobileUITests.release.xcconfig"; path = "Target Support Files/Pods-x5gon-mobileUITests/Pods-x5gon-mobileUITests.release.xcconfig"; sourceTree = "<group>"; };
+		FE0E02C90BF917AB2DFB3E91 /* Pods_x5gon_mobileUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_x5gon_mobileUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,7 +195,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22D068989D668E516B2AF790 /* libPods-x5gon-mobileUITests.a in Frameworks */,
+				F44A108D41ABF396669AF916 /* Pods_x5gon_mobileUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,8 +450,8 @@
 			isa = PBXGroup;
 			children = (
 				C4D9C9C2CC2D9BFBC3203AA4 /* Pods_x5gon_mobile.framework */,
-				35BE4E9CEE9F10ACA0D8280D /* libPods-x5gon-mobileUITests.a */,
 				32941AEF8A7BC9382031BA0B /* Pods_x5gon_mobileTests.framework */,
+				FE0E02C90BF917AB2DFB3E91 /* Pods_x5gon_mobileUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -505,6 +505,7 @@
 				CDFD3C0523CC7854000FCEF6 /* Sources */,
 				CDFD3C0623CC7854000FCEF6 /* Frameworks */,
 				CDFD3C0723CC7854000FCEF6 /* Resources */,
+				0F439F2B2BA24B3276BBF350 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -609,6 +610,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0F439F2B2BA24B3276BBF350 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-x5gon-mobileUITests/Pods-x5gon-mobileUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-x5gon-mobileUITests/Pods-x5gon-mobileUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-x5gon-mobileUITests/Pods-x5gon-mobileUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		47CD416D7F276FAD279E6D5C /* [CP] Check Pods Manifest.lock */ = {
