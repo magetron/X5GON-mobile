@@ -15,7 +15,7 @@ import JGProgressHUD
  
  ### Usage Example: ###
  ````
-  refresher(updateContent: {() -> Void in self.content.like() }, viewReload: { () -> Void in self.tableView.reloadData()})
+  refresher(updateContent: {() -> Void in self.content.like() }, viewReload: { () -> Void in self.tableView.reloadDataWithAnimation()})
  
  ````
  */
@@ -29,11 +29,17 @@ func refresher (updateContent: @escaping () -> Void, viewReload: @escaping () ->
 }
 
 func cancellableRefresher (updateContent: @escaping () -> Void, viewReload: @escaping () -> Void) {
-    MainController.queue.addOperation {
+    MainController.Queue.addOperation {
         updateContent()
         DispatchQueue.main.async{
             viewReload()
         }
+    }
+}
+
+extension UITableView {
+    func reloadDataWithAnimation() {
+        UIView.transition(with: self, duration: 0.6, options: .transitionCrossDissolve, animations: {self.reloadData()}, completion: nil)
     }
 }
 

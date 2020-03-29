@@ -28,6 +28,8 @@ class LoginView: UIView {
         let swipeToExit = UISwipeGestureRecognizer(target: self, action: #selector(self.hideLoginView))
         swipeToExit.direction = .down
         self.addGestureRecognizer(swipeToExit)
+        self.usernameTextField.text = "username"
+        self.passwordTextField.text = "password"
     }
     
     /// Perform when the login Button is pressed
@@ -46,6 +48,7 @@ class LoginView: UIView {
     }
     /// This function will hide `LoginView` when it is being called
     @objc func hideLoginView() {
+        self.endEditing(true)
         UIView.animate(withDuration: 0.6, animations: {
             self.transform = CGAffineTransform.init(translationX: 0, y: self.bounds.height - 90)
             self.layoutIfNeeded()

@@ -47,13 +47,13 @@ class UserViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.tableView.scrollIndicatorInsets = UIEdgeInsets(top: 50, left: 0, bottom: 30, right: 0)
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 300
-        self.tableView.reloadData()
+        self.tableView.reloadDataWithAnimation()
     }
     
     ///Show History View
     func showHistory () {
         self.historyView.historyContent = user.historyContent
-        self.historyView.tableView.reloadData()
+        self.historyView.tableView.reloadDataWithAnimation()
         self.historyView.isHidden = false
         self.historyView.center.x += self.historyView.bounds.width;
         UIView.animate(withDuration: 0.3) {
@@ -136,7 +136,7 @@ class UserViewController: UIViewController, UITableViewDelegate, UITableViewData
             } else if (menuTitles[indexPath.row - 1] == "Logout") {
                 MainController.logout();
                 user = MainController.user
-                self.tableView.reloadData()
+                self.tableView.reloadDataWithAnimation()
             }
         } else {
             NotificationCenter.default.post(name: NSNotification.Name("open"), object: self.user.bookmarkedContent[self.user.bookmarkedContent.index(self.user.bookmarkedContent.startIndex, offsetBy: indexPath.row - self.defaultItems)])

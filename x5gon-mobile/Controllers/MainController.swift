@@ -27,17 +27,31 @@ class MainController {
     
     static var DEBUG = true
     
-    static var queue = OperationQueue()
     
     class Queue {
+        private static var queue = OperationQueue()
+        private static var cancellableTasks = [(URLSessionDataTask, DispatchSemaphore)]()
+        
+        static let cancellableFetchSwitch = { (dataTask: URLSessionDataTask, sempahore: DispatchSemaphore) -> Void in
+            Queue.cancellableTasks.append((dataTask, sempahore))
+            return
+        }
+        static let uncancellableFetchSwitch = { (dataTask: URLSessionDataTask, sempahore: DispatchSemaphore) -> Void in return }
+        
+        static func addOperation (completion: @escaping () -> Void) {
+            queue.addOperation(completion)
+        }
+        
         static func cancelOperations () {
-            MainController.queue.isSuspended = true
-            MainController.queue.cancelAllOperations()
-            MainController.queue = OperationQueue()
+            for (dataTask, semaphore) in cancellableTasks {
+                dataTask.cancel()
+                semaphore.signal()
+            }
+            cancellableTasks.removeAll()
+            queue.cancelAllOperations()
         }
         
     }
-    
     
     /**
      Set top bar hide status
@@ -63,13 +77,20 @@ class MainController {
         }
     }      
     
-    static func fetchDefaultContents () -> [Content] {
-        let contents = API.fetchContents(keyWord: "science", contentType: "any")
-        return contents
+    static func fetchDefaultContents (cancellable: Bool) -> [Content] {
+        return MainController.fetchContents(keyWord: "science", contentType: "any", cancellable: cancellable)
     }
     
-    static func fetchFeaturedContents () -> [Content] {
-        return API.fetchFeaturedContents()
+    static func fetchFeaturedContents (cancellable: Bool) -> [Content] {
+        return cancellable ? API.fetchFeaturedContents(fetchSwitch: Queue.cancellableFetchSwitch) : API.fetchFeaturedContents(fetchSwitch: Queue.uncancellableFetchSwitch)
+    }
+    
+    static func fetchContents (keyWord : String, contentType : String, cancellable: Bool) -> [Content] {
+        if cancellable {
+            return API.fetchContents(keyWord: keyWord, contentType: contentType, fetchSwitch: Queue.cancellableFetchSwitch)
+        } else {
+            return API.fetchContents(keyWord: keyWord, contentType: contentType, fetchSwitch: Queue.uncancellableFetchSwitch)
+        }
     }
     
     
@@ -88,8 +109,9 @@ class MainController {
      MainController.search("science", "pdf")
      ````
      */
-    static func search (keyword: String, contentType: String) -> [Content] {
-        return API.fetchContents(keyWord: keyword, contentType: contentType)
+    
+    static func search (keyword: String, contentType: String, cancellable: Bool) -> [Content] {
+        return MainController.fetchContents(keyWord: keyword, contentType: contentType, cancellable: cancellable)
     }
     
     /**
@@ -114,7 +136,7 @@ class MainController {
         refresherWithLoadingHUD(updateContent: {() -> Void in
             self.user = API.fetchUser()
             MainController.userViewController?.setUser(user: self.user)
-        }, viewReload: {() -> Void in MainController.userViewController?.tableView.reloadData()
+        }, viewReload: {() -> Void in MainController.userViewController?.tableView.reloadDataWithAnimation()
         }, view: (MainController.mainViewController?.view)!, cancellable: false)
         return API.authenticationToken != ""
     }
@@ -153,9 +175,7 @@ class MainController {
     }*/
     
     deinit {
-        MainController.queue.isSuspended = true
-        MainController.queue.cancelAllOperations()
-        MainController.queue.waitUntilAllOperationsAreFinished()
+        MainController.Queue.cancelOperations()
     }
     
 }

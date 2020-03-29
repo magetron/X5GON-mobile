@@ -97,8 +97,8 @@ class headerCell: UITableViewCell {
             MainController.user.bookmark(content: self.content)
             self.bookmarkButton.setImage(UIImage.init(systemName: "bookmark.fill"), for: .normal)
         }
-        MainController.userViewController?.tableView.reloadData()
-        MainController.navViewController?.playerView.tableView.reloadData()
+        MainController.userViewController?.tableView.reloadDataWithAnimation()
+        MainController.navViewController?.playerView.tableView.reloadDataWithAnimation()
     }
     
     override func prepareForReuse() {

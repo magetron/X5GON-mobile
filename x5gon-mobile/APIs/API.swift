@@ -33,7 +33,7 @@ class API {
      list of `Content`
      */
     
-    private static func fetchContents (urlString: String) -> [Content] {
+    private static func fetchContents (urlString: String, fetchSwitch: @escaping (URLSessionDataTask, DispatchSemaphore) -> Void) -> [Content] {
         if MainController.DEBUG {
             print("API: fetching content... \(urlString)")
         }
@@ -46,6 +46,7 @@ class API {
             defer { semaphore.signal() }
             tmpItems = parseContents(response: response, data: data)
         }
+        fetchSwitch(dataTask, semaphore)
         dataTask.resume()
         semaphore.wait()
         if MainController.DEBUG {
@@ -100,8 +101,8 @@ class API {
      API.fetchContents ("science", "pdf")
      ````
      */
-    static func fetchContents (keyWord : String, contentType : String) -> [Content] {
-        return fetchContents(urlString: newAdapter.generateContentQueryURL(keyWord: keyWord, contentType: contentType))
+    static func fetchContents (keyWord : String, contentType : String, fetchSwitch: @escaping (URLSessionDataTask, DispatchSemaphore) -> Void) -> [Content] {
+        return fetchContents(urlString: newAdapter.generateContentQueryURL(keyWord: keyWord, contentType: contentType), fetchSwitch: fetchSwitch)
     }
     
     /**
@@ -116,8 +117,8 @@ class API {
      ````
      */
     
-    static func fetchFeaturedContents () -> [Content] {
-        return fetchContents(urlString: newAdapter.generateFeaturedContentURL())
+    static func fetchFeaturedContents (fetchSwitch: @escaping (URLSessionDataTask, DispatchSemaphore) -> Void) -> [Content] {
+        return fetchContents(urlString: newAdapter.generateFeaturedContentURL(), fetchSwitch: fetchSwitch)
     }
     
     
@@ -301,6 +302,7 @@ class API {
     
     
     static func createNotes (id: Int, text: String) {
+        /*
         var request = URLRequest(url: URL(string: newAdapter.generateNotesURL())!)
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"
@@ -328,10 +330,11 @@ class API {
             }
         }
         task.resume()
-        semaphore.wait()
+        semaphore.wait()*/
     }
     
     static func getNotes (id: Int) -> String {
+        /*
         let notesURLString = newAdapter.generateNotesURL(id: id)
         let notesURL = URL(string: notesURLString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!
         var request = URLRequest(url: notesURL)
@@ -356,7 +359,7 @@ class API {
              }
          }
          dataTask.resume()
-         semaphore.wait()
+         semaphore.wait()*/
          return ""
     }
     

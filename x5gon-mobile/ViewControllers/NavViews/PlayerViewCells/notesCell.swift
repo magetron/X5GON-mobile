@@ -62,7 +62,7 @@ class notesCell: UITableViewCell, UITextViewDelegate {
             }
         }
         MainController.createNotes(id: contentId, text: textView.text)
-        MainController.navViewController?.playerView.tableView.reloadData()
+        MainController.navViewController?.playerView.tableView.reloadDataWithAnimation()
     }
     
     //MARK: - View Lifecycle
