@@ -58,12 +58,6 @@ class testHomeViewController: XCTestCase {
         XCTAssertNotNil(check)
     }
     
-    func testSubscriptionCell(){
-        let cell  = homeViewController?.tableView(homeViewController!.tableView, cellForRowAt: IndexPath(row: 0, section: 0))as? SubscriptionsCell
-        let check: ()? = cell?.prepareForReuse()
-        XCTAssertNil(check)
-
-    }
     
 
     func testPerformanceExample() {
