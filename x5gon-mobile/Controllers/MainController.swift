@@ -30,12 +30,10 @@ class MainController {
     
     class Queue {
         private static var queue = OperationQueue()
-        private static var cancellableDataTask = [URLSessionDataTask]()
-        private static var cancellableSempahore = [DispatchSemaphore]()
+        private static var cancellableTasks = [(URLSessionDataTask, DispatchSemaphore)]()
         
         static let cancellableFetchSwitch = { (dataTask: URLSessionDataTask, sempahore: DispatchSemaphore) -> Void in
-            Queue.cancellableDataTask.append(dataTask)
-            Queue.cancellableSempahore.append(sempahore)
+            Queue.cancellableTasks.append((dataTask, sempahore))
             return
         }
         static let uncancellableFetchSwitch = { (dataTask: URLSessionDataTask, sempahore: DispatchSemaphore) -> Void in return }
@@ -45,14 +43,11 @@ class MainController {
         }
         
         static func cancelOperations () {
-            for dataTask in cancellableDataTask {
+            for (dataTask, semaphore) in cancellableTasks {
                 dataTask.cancel()
-            }
-            for semaphore in cancellableSempahore {
                 semaphore.signal()
             }
-            cancellableDataTask.removeAll()
-            cancellableSempahore.removeAll()
+            cancellableTasks.removeAll()
             queue.cancelAllOperations()
         }
         
@@ -114,6 +109,7 @@ class MainController {
      MainController.search("science", "pdf")
      ````
      */
+    
     static func search (keyword: String, contentType: String, cancellable: Bool) -> [Content] {
         return MainController.fetchContents(keyWord: keyword, contentType: contentType, cancellable: cancellable)
     }
@@ -140,7 +136,7 @@ class MainController {
         refresherWithLoadingHUD(updateContent: {() -> Void in
             self.user = API.fetchUser()
             MainController.userViewController?.setUser(user: self.user)
-        }, viewReload: {() -> Void in MainController.userViewController?.tableView.reloadData()
+        }, viewReload: {() -> Void in MainController.userViewController?.tableView.reloadDataWithAnimation()
         }, view: (MainController.mainViewController?.view)!, cancellable: false)
         return API.authenticationToken != ""
     }
