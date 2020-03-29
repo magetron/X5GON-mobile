@@ -18,6 +18,8 @@ class FeaturedViewController: UIViewController, UITableViewDelegate, UITableView
     /// This is the offset of the last Content used to determine the scroll action
     var lastContentOffset: CGFloat = 0.0
     
+    var refreshControl = UIRefreshControl()
+    
     //MARK: - Methods
     ///Customise `TableView`
     func customisation() {
@@ -25,7 +27,16 @@ class FeaturedViewController: UIViewController, UITableViewDelegate, UITableView
         self.tableView.scrollIndicatorInsets = UIEdgeInsets(top: 50, left: 0, bottom: 30, right: 0)
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 300
-        refresherWithLoadingHUD(updateContent: {() -> Void in self.contents = MainController.fetchFeaturedContents()}, viewReload: {() -> Void in self.tableView.reloadData()}, view: self.tableView, cancellable: false)
+        
+        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        self.refreshControl.addTarget(self, action:#selector(refresh), for: UIControl.Event.valueChanged)
+        self.tableView.addSubview(refreshControl)
+        refresherWithLoadingHUD(updateContent: {() -> Void in self.contents = MainController.fetchFeaturedContents(cancellable: false)}, viewReload: {() -> Void in self.tableView.reloadDataWithAnimation()}, view: self.tableView, cancellable: false)
+    }
+    
+    @objc func refresh (sender:Any) {
+        self.tableView.reloadDataWithAnimation()
+        refreshControl.endRefreshing()
     }
     
     //MARK: - Delegates
@@ -59,8 +70,6 @@ class FeaturedViewController: UIViewController, UITableViewDelegate, UITableView
         cell.set(content: self.contents[indexPath.row])
         return cell
     }
-
-
     /**
      Tells the delegate that the specified row is now selected. And send **open**  notification
      
@@ -70,8 +79,9 @@ class FeaturedViewController: UIViewController, UITableViewDelegate, UITableView
      */
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         NotificationCenter.default.post(name: NSNotification.Name("open"), object: contents[indexPath.row])
+        tableView.deselectRow(at: indexPath, animated: true)
     }
-    
+        
     /*
     
     /**

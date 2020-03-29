@@ -44,9 +44,7 @@ class Content: Hashable {
     var suggestedContents = [Content]()
     /// Initialization of wiki
     var wiki = Wiki.init(chunks: [])
-    
-    var enriching = false
-            
+                
     //MARK: Inits
     /// Performe `Content` initialization
     init(title: String, id: Int, channelName: String, description: String, url: URL) {
@@ -85,9 +83,18 @@ class Content: Hashable {
     func like () {
         self.likes += 1;
     }
+    
+    func unlike () {
+        self.likes -= 1;
+    }
+    
     /// Increase number of dislikes
     func dislike () {
         self.disLikes += 1;
+    }
+    
+    func undislike () {
+        self.disLikes -= 1;
     }
     
 }

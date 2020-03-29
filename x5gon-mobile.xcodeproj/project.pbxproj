@@ -229,11 +229,11 @@
 			isa = PBXGroup;
 			children = (
 				CDFD3C2D23CC7986000FCEF6 /* MainViewController.swift */,
+				CDFD6CFA2409D353005C4D8F /* MainViewCells */,
 				CDFD3C3823CC7C3F000FCEF6 /* UserViewController.swift */,
 				CD70063024093A1C00FB6135 /* UserHistoryView.swift */,
 				CD48FAA023F80242004415E7 /* UserViewCells */,
 				CDFD3C3023CC79F0000FCEF6 /* HomeViewController.swift */,
-				CDFD6CFA2409D353005C4D8F /* MainViewCells */,
 				CDFD3C3223CC7BEE000FCEF6 /* FeaturedViewController.swift */,
 				CDFD3C5023CC869F000FCEF6 /* SearchResultsViewController.swift */,
 				CDFD3C3D23CC7C8E000FCEF6 /* TabBarView.swift */,

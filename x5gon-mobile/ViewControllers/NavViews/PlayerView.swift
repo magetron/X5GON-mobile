@@ -54,6 +54,9 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         self.tableView.dataSource = self
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 90
+        
+        self.player.layer.shadowOpacity = 1
+        self.player.layer.shadowOffset = .zero
         self.player.layer.anchorPoint.applying(CGAffineTransform.init(translationX: -0.5, y: -0.5))
         self.tableView.tableFooterView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 0, height: 0))
         self.player.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(self.resumePlayerView)))
@@ -114,14 +117,11 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
     }
     
     @objc func newPlayerView(_ notification: Notification) {
-        MainController.Queue.cancelOperations() // for performance concerns
-        if (MainController.DEBUG) {
-            print(MainController.queue.operationCount)
-        }
         let content = notification.object as! Content
         if (content == self.content) {
             return resumePlayerView()
         }
+        MainController.Queue.cancelOperations() // for performance concerns
         self.state = .fullScreen
         self.delegate?.didmaximize()
         self.animate()
@@ -129,19 +129,27 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         MainController.addHistory(content: content)
     }
     
-    func onLikeTap() {
+    func onLikeTap(completion: @escaping () -> Void) {
         if (!contentLiked) {
             refresherWithLoadingHUD(updateContent: {
-                () -> Void in self.content.like() }, viewReload: { () -> Void in self.tableView.reloadData()}, view: self.tableView, cancellable: false)
+                () -> Void in self.content.like() }, viewReload: { () -> Void in completion(); self.tableView.reloadDataWithAnimation()}, view: self.tableView, cancellable: false)
             contentLiked = true
+        } else {
+            refresherWithLoadingHUD(updateContent: {
+                () -> Void in self.content.unlike() }, viewReload: { () -> Void in completion(); self.tableView.reloadDataWithAnimation()}, view: self.tableView, cancellable: false)
+            contentLiked = false
         }
     }
     
-    func onDisLikeTap() {
+    func onDisLikeTap(completion: @escaping () -> Void) {
         if (!contentDisliked) {
             refresherWithLoadingHUD(updateContent: {
-                () -> Void in self.content.dislike() }, viewReload: { () -> Void in self.tableView.reloadData()}, view: self.tableView, cancellable: false)
+                () -> Void in self.content.dislike() }, viewReload: { () -> Void in completion(); self.tableView.reloadDataWithAnimation()}, view: self.tableView, cancellable: false)
             contentDisliked = true
+        } else {
+            refresherWithLoadingHUD(updateContent: {
+                () -> Void in self.content.undislike() }, viewReload: { () -> Void in completion(); self.tableView.reloadDataWithAnimation()}, view: self.tableView, cancellable: false)
+            contentDisliked = false
         }
     }
     
@@ -197,11 +205,10 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
             video.avPlayerItem = AVPlayerItem.init(url: video.contentLink)
             self.videoPlayerViewController.player?.replaceCurrentItem(with: video.avPlayerItem)
         }
-        /*
         if self.state != .hidden {
             self.videoPlayerViewController.player?.play()
-        }*/
-        self.videoPlayerViewController.player?.pause()
+        }
+        //self.videoPlayerViewController.player?.pause()
     }
 
     
@@ -229,25 +236,24 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         } else if let pdf = content as? PDF {
             setPDF(pdf: pdf)
         }
-        if !content.enriching && content.suggestedContents.count == 0 {
+        if content.suggestedContents.count == 0 {
             refresherWithLoadingHUD(updateContent: { () -> Void in
                 content.fetchSuggestedContents()
             }, viewReload: { () -> Void in
                 if (self.content == content) {
-                    self.tableView.reloadData()
-                    self.videoPlayerViewController.player?.play()
+                    self.tableView.reloadDataWithAnimation()
                 }
-            }, view: self, cancellable: true)
+            }, view: self.tableView, cancellable: true)
         }
-        if !content.enriching && content.wiki.chunks.count == 0 {
+        if content.wiki.chunks.count == 0 {
             refresherWithLoadingHUD(updateContent: {() -> Void in content.fetchWikiChunkEnrichments() }, viewReload: { () -> Void in
-                if (self.content == content) {
+                if (self.content.hashValue == content.hashValue) {
                     self.navigationView.setWiki(wiki: content.wiki)
-                    self.navigationView.tableView.reloadData()
+                    self.navigationView.tableView.reloadDataWithAnimation()
                 }
             }, view: self.navigationView.tableView, cancellable: true)
         }
-        self.tableView.reloadData()
+        self.tableView.reloadDataWithAnimation()
     }
     
     //MARK: - Delegate

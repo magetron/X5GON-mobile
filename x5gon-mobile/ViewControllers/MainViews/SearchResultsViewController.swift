@@ -67,8 +67,9 @@ class SearchResultsViewController: UIViewController, UITableViewDelegate, UITabl
      */
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         NotificationCenter.default.post(name: NSNotification.Name("open"), object: contents[indexPath.row])
+        tableView.deselectRow(at: indexPath, animated: true)
     }
-    
+
     /*
     /**
      Tells the delegate when the user scrolls the content view within the receiver. Send the **hide** notification

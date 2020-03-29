@@ -15,7 +15,7 @@ import JGProgressHUD
  
  ### Usage Example: ###
  ````
-  refresher(updateContent: {() -> Void in self.content.like() }, viewReload: { () -> Void in self.tableView.reloadData()})
+  refresher(updateContent: {() -> Void in self.content.like() }, viewReload: { () -> Void in self.tableView.reloadDataWithAnimation()})
  
  ````
  */
@@ -29,7 +29,7 @@ func refresher (updateContent: @escaping () -> Void, viewReload: @escaping () ->
 }
 
 func cancellableRefresher (updateContent: @escaping () -> Void, viewReload: @escaping () -> Void) {
-    MainController.queue.addOperation {
+    MainController.Queue.addOperation {
         updateContent()
         DispatchQueue.main.async{
             viewReload()
@@ -51,6 +51,28 @@ func refresherWithLoadingHUD (updateContent: @escaping () -> Void, viewReload: @
             viewReload()
             hud.dismiss()
         })
+    }
+}
+
+extension UITableView {
+    func reloadDataWithAnimation() {
+        UIView.transition(with: self, duration: 0.6, options: .transitionCrossDissolve, animations: {self.reloadData()}, completion: nil)
+    }
+}
+
+extension UIView {
+    func roundCorners(_ corners:UIRectCorner, radius: CGFloat) {
+        let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        let mask = CAShapeLayer()
+        mask.path = path.cgPath
+        self.layer.mask = mask
+    }
+    
+    func ripple(){
+        let ripple = CATransition()
+        ripple.type = .init(rawValue: "rippleEffect")
+        ripple.duration = 0.5
+        self.layer.add(ripple, forKey: nil)
     }
 }
 
