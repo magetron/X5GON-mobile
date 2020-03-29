@@ -29,9 +29,13 @@ class testHomeViewController: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() {
+    func testTableView() {
         let tv = homeViewController?.tableView
         XCTAssertNotNil(tv)
+    }
+    
+    func testTableViewCount(){
+        let cell  = homeViewController?.tableView
     }
 
     func testPerformanceExample() {

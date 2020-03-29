@@ -20,25 +20,6 @@ class testHomeViewController: XCTestCase {
     }
     
     func testHomeViewController(){
-        
-        let app = XCUIApplication()
-        let element2 = app.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element
-        let collectionViewsQuery = element2.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.collectionViews
-        collectionViewsQuery.children(matching: .cell).element(boundBy: 1).children(matching: .other).element.tap()
-        
-        let element = collectionViewsQuery.children(matching: .cell).element(boundBy: 2).children(matching: .other).element
-        element.tap()
-        element.swipeRight()
-        collectionViewsQuery.children(matching: .cell).element(boundBy: 3).children(matching: .other).element.tap()
-        collectionViewsQuery.children(matching: .cell).element(boundBy: 0).children(matching: .other).element.tap()
-        
-        let appNavigationBar = app.navigationBars["App"]
-        appNavigationBar.buttons["navSettings"].tap()
-        element2.children(matching: .other).element(boundBy: 1).children(matching: .button).element.tap()
-        appNavigationBar.buttons["navSearch"].tap()
-        app.buttons["cancel"].tap()
-        appNavigationBar.staticTexts["Home"].tap()
-                
     }
 
 
