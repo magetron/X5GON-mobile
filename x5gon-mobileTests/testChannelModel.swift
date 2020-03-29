@@ -34,6 +34,11 @@ class testChannelModel: XCTestCase {
         let testImage = UIImage.init(named: "pl-node")
         XCTAssertNotEqual(image, testImage)
     }
+    
+    func testGenerateDefaultChannel(){
+        self.channelSet = Channel.generateDefaultChannels()
+        XCTAssertEqual(channelSet.count, 19)
+    }
 
     func testPerformanceExample() {
         // This is an example of a performance test case.
