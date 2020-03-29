@@ -53,10 +53,12 @@ class ContentCell: UITableViewCell {
     }
     
     @objc func reportContent() {
+        let generator = UIImpactFeedbackGenerator(style: .medium)
+        generator.impactOccurred()
         let alert = UIAlertController(title: "Do you want to report this content as inappropriate?", message: "", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { action in MainController.reportContent(id: self.contentId, reason: "")}))
         alert.addAction(UIAlertAction(title: "No", style: .cancel))
-        MainController.navViewController!.present(alert, animated: true, completion: nil)
+        MainController.homeViewController!.present(alert, animated: true, completion: nil)
     }
     
     //MARK: - Delegate

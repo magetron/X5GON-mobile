@@ -67,6 +67,13 @@ extension UIView {
         mask.path = path.cgPath
         self.layer.mask = mask
     }
+    
+    func ripple(){
+        let ripple = CATransition()
+        ripple.type = .init(rawValue: "rippleEffect")
+        ripple.duration = 0.5
+        self.layer.add(ripple, forKey: nil)
+    }
 }
 
 extension AVAsset {
