@@ -64,6 +64,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         return cell
     }
     
+    
     /**
      Tells the delegate that the specified row is now selected. And send **open**  notification
      

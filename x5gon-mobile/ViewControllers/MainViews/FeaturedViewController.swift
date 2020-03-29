@@ -59,8 +59,6 @@ class FeaturedViewController: UIViewController, UITableViewDelegate, UITableView
         cell.set(content: self.contents[indexPath.row])
         return cell
     }
-
-
     /**
      Tells the delegate that the specified row is now selected. And send **open**  notification
      

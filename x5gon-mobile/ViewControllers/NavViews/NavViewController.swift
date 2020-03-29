@@ -15,6 +15,7 @@ class NavViewController: UINavigationController, PlayerViewControllerDelegate, S
     @IBOutlet var searchView: SearchView!
     @IBOutlet var settingsView: SettingsView!
     @IBOutlet var loginView: LoginView!
+    
     let titleLabel = UILabel()
     let names = ["Home", "Featured", "Search Results", "User"]
     let hiddenOrigin: CGPoint = {
@@ -146,9 +147,9 @@ class NavViewController: UINavigationController, PlayerViewControllerDelegate, S
     
     func showLogin () {
         self.loginView.isHidden = false
-        self.loginView.center.y += self.loginView.bounds.height
+        self.loginView.viewBottomConstraint.constant = 0
         UIView.animate(withDuration: 0.6) {
-            self.loginView.center.y -= self.loginView.bounds.height - 90
+            self.loginView.backgroundView.alpha = 0.5
             self.loginView.layoutIfNeeded()
         }
     }
