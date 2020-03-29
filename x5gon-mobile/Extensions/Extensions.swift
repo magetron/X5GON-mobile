@@ -29,7 +29,7 @@ func refresher (updateContent: @escaping () -> Void, viewReload: @escaping () ->
 }
 
 func cancellableRefresher (updateContent: @escaping () -> Void, viewReload: @escaping () -> Void) {
-    MainController.queue.addOperation {
+    MainController.Queue.addOperation {
         updateContent()
         DispatchQueue.main.async{
             viewReload()

@@ -21,12 +21,8 @@ class Video : Content {
     }
     /// Fetching content using **video** as contentType
     override func fetchSuggestedContents () {
-        if (!enriching) {
-            super.enriching = true
-            let videos = MainController.fetchContents(keyWord: self.title, contentType: "video", cancellable: true)
-            super.suggestedContents = videos
-            super.enriching = false
-        }
+        let videos = MainController.fetchContents(keyWord: self.title, contentType: "video", cancellable: true)
+        super.suggestedContents = videos
     }
     
     /**

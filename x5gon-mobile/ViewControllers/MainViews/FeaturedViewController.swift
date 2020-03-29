@@ -25,7 +25,7 @@ class FeaturedViewController: UIViewController, UITableViewDelegate, UITableView
         self.tableView.scrollIndicatorInsets = UIEdgeInsets(top: 50, left: 0, bottom: 30, right: 0)
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 300
-        refresherWithLoadingHUD(updateContent: {() -> Void in self.contents = MainController.fetchFeaturedContents()}, viewReload: {() -> Void in self.tableView.reloadData()}, view: self.tableView, cancellable: false)
+        refresherWithLoadingHUD(updateContent: {() -> Void in self.contents = MainController.fetchFeaturedContents(cancellable: false)}, viewReload: {() -> Void in self.tableView.reloadData()}, view: self.tableView, cancellable: false)
     }
     
     //MARK: - Delegates

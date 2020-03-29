@@ -44,9 +44,7 @@ class Content: Hashable {
     var suggestedContents = [Content]()
     /// Initialization of wiki
     var wiki = Wiki.init(chunks: [])
-    
-    var enriching = false
-            
+                
     //MARK: Inits
     /// Performe `Content` initialization
     init(title: String, id: Int, channelName: String, description: String, url: URL) {

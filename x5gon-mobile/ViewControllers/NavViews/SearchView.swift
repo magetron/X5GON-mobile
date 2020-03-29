@@ -32,7 +32,7 @@ class SearchView: UIView, UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         let text = textField.text ?? ""
         refresherWithLoadingHUD(updateContent: {() -> Void in
-            let result = MainController.search(keyword: text, contentType: "any")
+            let result = MainController.search(keyword: text, contentType: "any", cancellable: true)
             MainController.searchResultsViewController?.contents = result
         }, viewReload: {() -> Void in MainController.searchResultsViewController?.tableView.reloadData(); }, view: (MainController.searchResultsViewController?.tableView)!, cancellable: true)
         NotificationCenter.default.post(name: Notification.Name.init(rawValue: "didSelectMenu"), object: nil, userInfo: ["index": 2])

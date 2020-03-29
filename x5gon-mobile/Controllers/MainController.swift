@@ -27,26 +27,33 @@ class MainController {
     
     static var DEBUG = true
     
-    static var queue = OperationQueue()
-    
-    static var cancellableDataTask = [URLSessionDataTask]()
-    
-    static var cancellableSempahore = [DispatchSemaphore]()
     
     class Queue {
+        private static var queue = OperationQueue()
+        private static var cancellableDataTask = [URLSessionDataTask]()
+        private static var cancellableSempahore = [DispatchSemaphore]()
+        
+        static let cancellableFetchSwitch = { (dataTask: URLSessionDataTask, sempahore: DispatchSemaphore) -> Void in
+            Queue.cancellableDataTask.append(dataTask)
+            Queue.cancellableSempahore.append(sempahore)
+            return
+        }
+        static let uncancellableFetchSwitch = { (dataTask: URLSessionDataTask, sempahore: DispatchSemaphore) -> Void in return }
+        
+        static func addOperation (completion: @escaping () -> Void) {
+            queue.addOperation(completion)
+        }
+        
         static func cancelOperations () {
-            for dataTask in MainController.cancellableDataTask {
+            for dataTask in cancellableDataTask {
                 dataTask.cancel()
             }
-            for semaphore in MainController.cancellableSempahore {
+            for semaphore in cancellableSempahore {
                 semaphore.signal()
             }
-            MainController.cancellableDataTask.removeAll()
-            MainController.cancellableSempahore.removeAll()
-            
-            MainController.queue.cancelAllOperations()
-            MainController.queue.isSuspended = true
-            MainController.queue = OperationQueue()
+            cancellableDataTask.removeAll()
+            cancellableSempahore.removeAll()
+            queue.cancelAllOperations()
         }
         
     }
@@ -75,23 +82,19 @@ class MainController {
         }
     }      
     
-    static func fetchDefaultContents () -> [Content] {
-        return MainController.fetchContents(keyWord: "science", contentType: "any", cancellable: false)
+    static func fetchDefaultContents (cancellable: Bool) -> [Content] {
+        return MainController.fetchContents(keyWord: "science", contentType: "any", cancellable: cancellable)
     }
     
-    static func fetchFeaturedContents () -> [Content] {
-        return API.fetchFeaturedContents(fetchSwitch: {_, _ in })
+    static func fetchFeaturedContents (cancellable: Bool) -> [Content] {
+        return cancellable ? API.fetchFeaturedContents(fetchSwitch: Queue.cancellableFetchSwitch) : API.fetchFeaturedContents(fetchSwitch: Queue.uncancellableFetchSwitch)
     }
     
     static func fetchContents (keyWord : String, contentType : String, cancellable: Bool) -> [Content] {
         if cancellable {
-            return API.fetchContents(keyWord: keyWord, contentType: contentType, fetchSwitch: {
-                task, semaphore in
-                cancellableDataTask.append(task)
-                cancellableSempahore.append(semaphore)
-            })
+            return API.fetchContents(keyWord: keyWord, contentType: contentType, fetchSwitch: Queue.cancellableFetchSwitch)
         } else {
-            return API.fetchContents(keyWord: keyWord, contentType: contentType, fetchSwitch: {_,_ in })
+            return API.fetchContents(keyWord: keyWord, contentType: contentType, fetchSwitch: Queue.uncancellableFetchSwitch)
         }
     }
     
@@ -111,8 +114,8 @@ class MainController {
      MainController.search("science", "pdf")
      ````
      */
-    static func search (keyword: String, contentType: String) -> [Content] {
-        return MainController.fetchContents(keyWord: keyword, contentType: contentType, cancellable: true)
+    static func search (keyword: String, contentType: String, cancellable: Bool) -> [Content] {
+        return MainController.fetchContents(keyWord: keyword, contentType: contentType, cancellable: cancellable)
     }
     
     /**
@@ -176,9 +179,7 @@ class MainController {
     }*/
     
     deinit {
-        MainController.queue.isSuspended = true
-        MainController.queue.cancelAllOperations()
-        MainController.queue.waitUntilAllOperationsAreFinished()
+        MainController.Queue.cancelOperations()
     }
     
 }
