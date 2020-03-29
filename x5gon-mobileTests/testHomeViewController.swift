@@ -23,6 +23,8 @@ class testHomeViewController: XCTestCase {
 
     override func setUp() {
         homeViewController = makeHomeViewController()
+        let content1 = Content.init(title: "1231", id: 0, channelName: "Test", description: "Nil", url: URL.init(string: "www.TEST.com")!)
+        homeViewController?.contents.append(content1)
     }
 
     override func tearDown() {
@@ -35,7 +37,8 @@ class testHomeViewController: XCTestCase {
     }
     
     func testTableViewCount(){
-        let cell  = homeViewController?.tableView
+        let cell  = homeViewController?.tableView(homeViewController!.tableView, cellForRowAt: IndexPath(row: 0, section: 0))as? ContentCell
+        XCTAssertNotNil(cell)
     }
 
     func testPerformanceExample() {

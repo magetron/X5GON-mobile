@@ -17,20 +17,47 @@ class testUserViewController: XCTestCase {
         return uvc
     }
     
-    var UserViewController:UserViewController?
+    var userViewController:UserViewController?
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        userViewController = makeUserViewController()
     }
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testUserViewControllerTable() throws {
-        let tv = UserViewController?.tableView
+    func testUserViewControllerTable() {
+        let tv = userViewController?.tableView
         XCTAssertNotNil(tv)
         
+    }
+    
+    func testUserViewControllerTalbleViewHasDelegates(){
+        let delegate = userViewController?.tableView.delegate
+        XCTAssertNotNil(delegate)
+    }
+    
+    func testUserHeaderCell(){
+        let cell = userViewController?.tableView(userViewController!.tableView, cellForRowAt: IndexPath(row: 0, section: 0))as? userHeaderCell
+        XCTAssertNotNil(cell)
+    }
+    
+    func testUserMenuCell(){
+        let cell = userViewController?.tableView(userViewController!.tableView, cellForRowAt: IndexPath(row: 1, section: 0))as? userMenuCell
+        XCTAssertNotNil(cell)
+    }
+    
+    func testUserPlayListCell(){
+        let cell = userViewController?.tableView(userViewController!.tableView, cellForRowAt: IndexPath(row: 0, section: 1))as? userPlaylistCell
+        XCTAssertNil(cell)
+        
+    }
+    
+    
+    func testDidSelect(){
+        let check: ()? = userViewController?.tableView(userViewController!.tableView, didSelectRowAt: IndexPath(row: 0, section: 0))
+        XCTAssertNotNil(check)
     }
 
     func testPerformanceExample() throws {
