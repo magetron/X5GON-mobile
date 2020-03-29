@@ -78,7 +78,7 @@ class testVideoModel: XCTestCase {
     }
     
     func testFetchSuggestionContent(){
-        let videos = video.fetchSuggestedContents()
+        let videos: () = video.fetchSuggestedContents()
         XCTAssertNotNil(videos)
     }
 

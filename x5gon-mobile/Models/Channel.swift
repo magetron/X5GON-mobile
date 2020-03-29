@@ -20,7 +20,7 @@ class Channel {
     
     static func generateDefaultChannels () -> [Channel] {
         var channels = [Channel]()
-        for i in 0...18 {
+        for _ in 0...18 {
             let name = ""
             let image = UIImage.init(named: "logo")
             let channel = Channel.init(name: name, image: image!)

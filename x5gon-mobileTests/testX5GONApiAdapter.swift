@@ -35,49 +35,49 @@ class testX5GONApiAdapter: XCTestCase {
     
     func testGenerateUserSessionQueryURL(){
         expectFatalError(expectedMessage: "error: X5GON does not provide a user-session URL") {
-            X5GONAPIAdapter.generateUserSessionQueryURL()
+            let _ = X5GONAPIAdapter.generateUserSessionQueryURL()
         }
     }
     
     func testGenerateLoginQueryURL(){
         expectFatalError(expectedMessage: "error: X5GON does not provide a login URL") {
-            X5GONAPIAdapter.generateLoginQueryURL()
+            let _ = X5GONAPIAdapter.generateLoginQueryURL()
         }
     }
     
     func testGererateLogoutQueryURL(){
         expectFatalError(expectedMessage: "error: X5GON does not provide a logout URL") {
-            X5GONAPIAdapter.gererateLogoutQueryURL()
+            let _ = X5GONAPIAdapter.gererateLogoutQueryURL()
         }
     }
     
     func testGererateFeaturedContentURL(){
         expectFatalError(expectedMessage: "error: X5GON does not provide featured contents URL") {
-            X5GONAPIAdapter.generateFeaturedContentURL()
+            let _ = X5GONAPIAdapter.generateFeaturedContentURL()
         }
     }
     
     func testGererateNotesURLOne(){
         expectFatalError(expectedMessage: "error: X5GON does not provide notes URL") {
-            X5GONAPIAdapter.generateNotesURL(id: 123)
+            let _ = X5GONAPIAdapter.generateNotesURL(id: 123)
         }
     }
     
     func testGererateNotesURLTwo(){
         expectFatalError(expectedMessage: "error: X5GON does not provide notes URL") {
-            X5GONAPIAdapter.generateNotesURL()
+            let _ = X5GONAPIAdapter.generateNotesURL()
         }
     }
     
     func testTBD_generateBookmarkURL(){
         expectFatalError(expectedMessage: "error: X5GON does not provide content bookmark URL") {
-            X5GONAPIAdapter.TBD_generateBookmarkURL(id: 123, bookmark: true)
+            let _ = X5GONAPIAdapter.TBD_generateBookmarkURL(id: 123, bookmark: true)
         }
     }
     
     func testTBD_generateReportURL(){
         expectFatalError(expectedMessage: "error: X5GON does not provide content report URL") {
-            X5GONAPIAdapter.TBD_generateReportURL(id: 123)
+            let _ = X5GONAPIAdapter.TBD_generateReportURL(id: 123)
         }
     }
 

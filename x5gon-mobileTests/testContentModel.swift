@@ -102,7 +102,7 @@ class testContentModel: XCTestCase {
     }
     
     func testFetchWikiChunkEnrichments(){
-        let wiki = content.fetchWikiChunkEnrichments()
+        let wiki: () = content.fetchWikiChunkEnrichments()
         XCTAssertNotNil(wiki)
     }
 
