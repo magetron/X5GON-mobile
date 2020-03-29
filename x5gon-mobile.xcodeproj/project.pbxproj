@@ -25,8 +25,6 @@
 		CDA5D0AA23F3736200AA6902 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA5D0A823F3736200AA6902 /* API.swift */; };
 		CDA5D0AB23F3736200AA6902 /* APIAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA5D0A923F3736200AA6902 /* APIAdapter.swift */; };
 		CDC6643323F45536009A08FF /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC6643223F45536009A08FF /* MainController.swift */; };
-		CDCC851B240C8B1B001DB380 /* SubscriptionsChannelViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCC8519240C8B1B001DB380 /* SubscriptionsChannelViewCell.swift */; };
-		CDCC851C240C8B1B001DB380 /* SubscriptionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCC851A240C8B1B001DB380 /* SubscriptionsCell.swift */; };
 		CDDB99D5240593E900B79460 /* Wiki.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDB99D4240593E900B79460 /* Wiki.swift */; };
 		CDDB99D72405941A00B79460 /* WikiChunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDB99D62405941A00B79460 /* WikiChunk.swift */; };
 		CDDB99D92405943300B79460 /* WikiEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDB99D82405943300B79460 /* WikiEntity.swift */; };
@@ -59,6 +57,7 @@
 		DC271104243141280066EE97 /* testUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC271103243141280066EE97 /* testUserViewController.swift */; };
 		DC271106243142DA0066EE97 /* testFeaturedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC271105243142DA0066EE97 /* testFeaturedViewController.swift */; };
 		DC271108243154E30066EE97 /* testSubscriptionCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC271107243154E30066EE97 /* testSubscriptionCVCell.swift */; };
+		DC27110A243157B00066EE97 /* testLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC271109243157B00066EE97 /* testLoginView.swift */; };
 		DCA928D92429565000A40E85 /* testUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928D82429565000A40E85 /* testUserModel.swift */; };
 		DCA928DB24295DB800A40E85 /* testVideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928DA24295DB800A40E85 /* testVideoModel.swift */; };
 		DCA928DD2429655100A40E85 /* testContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928DC2429655100A40E85 /* testContentModel.swift */; };
@@ -120,8 +119,6 @@
 		CDA5D0A823F3736200AA6902 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		CDA5D0A923F3736200AA6902 /* APIAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIAdapter.swift; sourceTree = "<group>"; };
 		CDC6643223F45536009A08FF /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
-		CDCC8519240C8B1B001DB380 /* SubscriptionsChannelViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionsChannelViewCell.swift; sourceTree = "<group>"; };
-		CDCC851A240C8B1B001DB380 /* SubscriptionsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionsCell.swift; sourceTree = "<group>"; };
 		CDDB99D4240593E900B79460 /* Wiki.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wiki.swift; sourceTree = "<group>"; };
 		CDDB99D62405941A00B79460 /* WikiChunk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiChunk.swift; sourceTree = "<group>"; };
 		CDDB99D82405943300B79460 /* WikiEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiEntity.swift; sourceTree = "<group>"; };
@@ -160,6 +157,7 @@
 		DC271103243141280066EE97 /* testUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testUserViewController.swift; sourceTree = "<group>"; };
 		DC271105243142DA0066EE97 /* testFeaturedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testFeaturedViewController.swift; sourceTree = "<group>"; };
 		DC271107243154E30066EE97 /* testSubscriptionCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testSubscriptionCVCell.swift; sourceTree = "<group>"; };
+		DC271109243157B00066EE97 /* testLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testLoginView.swift; sourceTree = "<group>"; };
 		DCA928D82429565000A40E85 /* testUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testUserModel.swift; sourceTree = "<group>"; };
 		DCA928DA24295DB800A40E85 /* testVideoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testVideoModel.swift; sourceTree = "<group>"; };
 		DCA928DC2429655100A40E85 /* testContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testContentModel.swift; sourceTree = "<group>"; };
@@ -375,6 +373,7 @@
 				DCFB42502430CCE9004A7082 /* testHomeViewController.swift */,
 				DC271105243142DA0066EE97 /* testFeaturedViewController.swift */,
 				DC271107243154E30066EE97 /* testSubscriptionCVCell.swift */,
+				DC271109243157B00066EE97 /* testLoginView.swift */,
 			);
 			path = "x5gon-mobileTests";
 			sourceTree = "<group>";
@@ -449,8 +448,6 @@
 			isa = PBXGroup;
 			children = (
 				CDE92D8F23E5D396004BB8BF /* ContentCell.swift */,
-				CDCC851A240C8B1B001DB380 /* SubscriptionsCell.swift */,
-				CDCC8519240C8B1B001DB380 /* SubscriptionsChannelViewCell.swift */,
 			);
 			path = MainViewCells;
 			sourceTree = "<group>";
@@ -736,7 +733,6 @@
 				CD43131123F9FBFC00B5C620 /* X5LearnAdapter.swift in Sources */,
 				CDE92D9023E5D396004BB8BF /* ContentCell.swift in Sources */,
 				CDFD3BEC23CC784C000FCEF6 /* AppDelegate.swift in Sources */,
-				CDCC851B240C8B1B001DB380 /* SubscriptionsChannelViewCell.swift in Sources */,
 				CDDB99D5240593E900B79460 /* Wiki.swift in Sources */,
 				CDDDD6D623F0B4E5003C1EE5 /* LoginView.swift in Sources */,
 				CD48FAA623F8027E004415E7 /* userPlaylistCell.swift in Sources */,
@@ -744,7 +740,6 @@
 				CDFD3C3C23CC7C75000FCEF6 /* PlayerView.swift in Sources */,
 				CDFD3C4223CC7CBD000FCEF6 /* SettingsView.swift in Sources */,
 				CD43130F23F9FA3400B5C620 /* X5GONAPIAdapter.swift in Sources */,
-				CDCC851C240C8B1B001DB380 /* SubscriptionsCell.swift in Sources */,
 				CD7CBA3D23E96E1E003BF035 /* notesCell.swift in Sources */,
 				CD48FAA423F8026F004415E7 /* userMenuCell.swift in Sources */,
 				CDFD3C5123CC869F000FCEF6 /* SearchResultsViewController.swift in Sources */,
@@ -767,6 +762,7 @@
 				DCA928DD2429655100A40E85 /* testContentModel.swift in Sources */,
 				DCA928ED242993F200A40E85 /* testX5GONApiAdapter.swift in Sources */,
 				DCA928D92429565000A40E85 /* testUserModel.swift in Sources */,
+				DC27110A243157B00066EE97 /* testLoginView.swift in Sources */,
 				DCA928EB24298C6400A40E85 /* testAPI.swift in Sources */,
 				DCA928E52429785A00A40E85 /* testPlaylistModel.swift in Sources */,
 				DCA928DF242970C700A40E85 /* testPdfModel.swift in Sources */,
