@@ -45,6 +45,18 @@ class testHomeViewController: XCTestCase {
         let check: ()? = homeViewController?.refresh(sender: "refresh")
         XCTAssertNotNil(check)
     }
+    
+    func testReportContent(){
+        let cell  = homeViewController?.tableView(homeViewController!.tableView, cellForRowAt: IndexPath(row: 0, section: 0))as? ContentCell
+        let check: ()? = cell?.reportContent()
+        XCTAssertNotNil(check)
+    }
+    
+    func testReuseFunc(){
+        let cell  = homeViewController?.tableView(homeViewController!.tableView, cellForRowAt: IndexPath(row: 0, section: 0))as? ContentCell
+        let check:()? = cell?.prepareForReuse()
+        XCTAssertNotNil(check)
+    }
 
     func testPerformanceExample() {
         // This is an example of a performance test case.
