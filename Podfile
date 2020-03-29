@@ -1,11 +1,22 @@
 platform :ios, '13.3'
-use_frameworks!
 
 target 'x5gon-mobile' do
+	use_frameworks!
 	pod 'SwiftSoup'
 	pod 'JGProgressHUD'
-
-	target 'x5gon-mobileTests' do
-		inherit! :search_paths
-	end
 end
+
+target 'x5gon-mobileTests' do
+	use_frameworks!
+	pod 'SwiftSoup'
+	pod 'JGProgressHUD'
+end
+
+target 'x5gon-mobileUITests' do
+	use_frameworks!
+	pod 'SwiftSoup'
+	pod 'JGProgressHUD'
+end
+
+
+
