@@ -59,6 +59,47 @@ class testUserViewController: XCTestCase {
         let check: ()? = userViewController?.tableView(userViewController!.tableView, didSelectRowAt: IndexPath(row: 0, section: 0))
         XCTAssertNotNil(check)
     }
+    
+    func testUserHitoryView(){
+        let check: ()? = userViewController?.showHistory()
+        XCTAssertNotNil(check)
+    }
+    
+    func testSetUser(){
+        let generateUser = User.init(name: "Felix Hu", profilePic: UIImage.init(named: "pl-angular")!, backgroundImage: UIImage.init(named: "pl-node")!)
+        userViewController?.setUser(user: generateUser)
+        let name = userViewController?.user.name
+        XCTAssertEqual(name, "Felix Hu")
+        
+    }
+    
+    func testUserHistoryViewCycle(){
+        let hsv = userViewController?.historyView
+        hsv?.awakeFromNib()
+        XCTAssertNotNil(hsv)
+        
+    }
+    
+    func testUserHistoryViewTable(){
+        let hsv = userViewController?.historyView
+        let tv = hsv?.tableView
+        XCTAssertNotNil(tv)
+        
+    }
+    
+    func testUserHistoryViewCell(){
+        let content1 = Content.init(title: "1231", id: 0, channelName: "Test", description: "Nil", url: URL.init(string: "www.TEST.com")!)
+        let hsv = userViewController?.historyView
+        hsv?.historyContent.append(content1)
+        let cell  = hsv?.tableView((hsv?.tableView)!, cellForRowAt: IndexPath(row: 0, section: 0))
+        XCTAssertNotNil(cell)
+    }
+    
+    func testUserHistoryViewHide(){
+        let check: ()? = userViewController?.historyView.hideHistoryView("hide")
+        XCTAssertNotNil(check)
+        
+    }
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
