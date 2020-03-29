@@ -32,6 +32,11 @@ class testX5GONApiAdapter: XCTestCase {
         let url = X5GONAPIAdapter.generateContentQueryURL(keyWord: "abc", contentType: "pdf")
         XCTAssertEqual(url, X5GONAPIAdapter.rootURL() + X5GONAPIAdapter.APIVersion() + "recommend/oer_materials?text=" + "abc" + "&types=" + "pdf")
     }
+    func testGenerateUserSessionQueryURL(){
+        expectFatalError(expectedMessage: "error: X5GON does not provide a user-session URL") {
+            X5GONAPIAdapter.generateUserSessionQueryURL()
+        }
+    }
 
     func testPerformanceExample() {
         // This is an example of a performance test case.
