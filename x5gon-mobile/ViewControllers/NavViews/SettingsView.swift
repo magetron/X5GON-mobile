@@ -29,6 +29,7 @@ class SettingsView: UIView, UITableViewDelegate, UITableViewDataSource {
         self.tableView.dataSource = self
         self.backgroundView.alpha = 0
         self.tableViewBottomConstraint.constant = -self.tableView.bounds.height
+        self.tableView.roundCorners([.topLeft, .topRight], radius: 20)
         self.layoutIfNeeded()
     }
     

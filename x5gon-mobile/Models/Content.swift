@@ -83,9 +83,18 @@ class Content: Hashable {
     func like () {
         self.likes += 1;
     }
+    
+    func unlike () {
+        self.likes -= 1;
+    }
+    
     /// Increase number of dislikes
     func dislike () {
         self.disLikes += 1;
+    }
+    
+    func undislike () {
+        self.disLikes -= 1;
     }
     
 }

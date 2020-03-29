@@ -54,6 +54,9 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         self.tableView.dataSource = self
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 90
+        
+        self.player.layer.shadowOpacity = 1
+        self.player.layer.shadowOffset = .zero
         self.player.layer.anchorPoint.applying(CGAffineTransform.init(translationX: -0.5, y: -0.5))
         self.tableView.tableFooterView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 0, height: 0))
         self.player.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(self.resumePlayerView)))
@@ -126,19 +129,27 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         MainController.addHistory(content: content)
     }
     
-    func onLikeTap() {
+    func onLikeTap(completion: @escaping () -> Void) {
         if (!contentLiked) {
             refresherWithLoadingHUD(updateContent: {
-                () -> Void in self.content.like() }, viewReload: { () -> Void in self.tableView.reloadDataWithAnimation()}, view: self.tableView, cancellable: false)
+                () -> Void in self.content.like() }, viewReload: { () -> Void in completion(); self.tableView.reloadDataWithAnimation()}, view: self.tableView, cancellable: false)
             contentLiked = true
+        } else {
+            refresherWithLoadingHUD(updateContent: {
+                () -> Void in self.content.unlike() }, viewReload: { () -> Void in completion(); self.tableView.reloadDataWithAnimation()}, view: self.tableView, cancellable: false)
+            contentLiked = false
         }
     }
     
-    func onDisLikeTap() {
+    func onDisLikeTap(completion: @escaping () -> Void) {
         if (!contentDisliked) {
             refresherWithLoadingHUD(updateContent: {
-                () -> Void in self.content.dislike() }, viewReload: { () -> Void in self.tableView.reloadDataWithAnimation()}, view: self.tableView, cancellable: false)
+                () -> Void in self.content.dislike() }, viewReload: { () -> Void in completion(); self.tableView.reloadDataWithAnimation()}, view: self.tableView, cancellable: false)
             contentDisliked = true
+        } else {
+            refresherWithLoadingHUD(updateContent: {
+                () -> Void in self.content.undislike() }, viewReload: { () -> Void in completion(); self.tableView.reloadDataWithAnimation()}, view: self.tableView, cancellable: false)
+            contentDisliked = false
         }
     }
     

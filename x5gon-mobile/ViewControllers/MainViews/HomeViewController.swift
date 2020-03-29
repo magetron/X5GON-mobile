@@ -18,6 +18,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     /// This is the offset of the last Content used to determine the scroll action
     var lastContentOffset: CGFloat = 0.0
     
+    var refreshControl = UIRefreshControl()
+    
     //MARK: - Methods
         /**
      ### Customise View ###
@@ -28,8 +30,18 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.tableView.scrollIndicatorInsets = UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 300
+            
+        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        self.refreshControl.addTarget(self, action:#selector(refresh), for: UIControl.Event.valueChanged)
+        self.tableView.addSubview(refreshControl)
         refresherWithLoadingHUD(updateContent: {() -> Void in self.contents =
             MainController.fetchDefaultContents(cancellable: false)}, viewReload: {() -> Void in self.tableView.reloadDataWithAnimation()}, view: self.tableView, cancellable: false)
+    }
+    
+    @objc func refresh (sender:Any) {
+        refresherWithLoadingHUD(updateContent: {() -> Void in self.contents =
+            MainController.fetchDefaultContents(cancellable: false)}, viewReload: {() -> Void in self.tableView.reloadDataWithAnimation()}, view: self.tableView, cancellable: false)
+        refreshControl.endRefreshing()
     }
     
     
@@ -64,6 +76,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         return cell
     }
     
+    
     /**
      Tells the delegate that the specified row is now selected. And send **open**  notification
      
@@ -73,7 +86,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
      */
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         NotificationCenter.default.post(name: NSNotification.Name("open"), object: contents[indexPath.row])
+        tableView.deselectRow(at: indexPath, animated: true)
     }
+
     
     /*
     /**
