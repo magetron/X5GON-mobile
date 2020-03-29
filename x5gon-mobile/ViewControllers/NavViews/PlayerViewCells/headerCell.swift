@@ -11,9 +11,9 @@ import UIKit
 
 @objc protocol PlayerViewHeaderCellDelegate {
     /// Function will be called when `like` button is tapped
-    func onLikeTap()
+    func onLikeTap(completion: @escaping () -> Void)
     ///Function will be called when `dislike` button is tapped
-    func onDisLikeTap()
+    func onDisLikeTap(completion: @escaping () -> Void)
 }
 
 class headerCell: UITableViewCell {
@@ -41,10 +41,10 @@ class headerCell: UITableViewCell {
     var bookmarkButton: UIButton!
     var content: Content!
 
-    var onLikeTapFunc = { () -> Void in return}
-    var onDisLikeTapFunc = { () -> Void in return}
+    var onLikeTapFunc = { (completion: @escaping () -> Void) -> Void in return}
+    var onDisLikeTapFunc = { (completion: @escaping () -> Void) -> Void in return}
     
-    func set(content: Content!, onLikeTapFunc: @escaping () -> Void, onDisLikeTapFunc: @escaping () -> Void) {
+    func set(content: Content!, onLikeTapFunc: @escaping (@escaping () -> Void) -> Void, onDisLikeTapFunc: @escaping (@escaping () -> Void) -> Void) {
         self.content = content
         
         title.text = content!.title
@@ -82,11 +82,27 @@ class headerCell: UITableViewCell {
     }
     
     @objc func onLikeTap () {
-        onLikeTapFunc()
+        if (!(MainController.navViewController?.playerView.contentLiked)!) {
+            onLikeTapFunc {
+                self.thumbUp.image = UIImage.init(systemName: "hand.thumbsup.fill")
+            }
+        } else {
+            onLikeTapFunc {
+                self.thumbUp.image = UIImage.init(systemName: "hand.thumbsup")
+            }
+        }
     }
     
     @objc func onDisLikeTap () {
-        onDisLikeTapFunc()
+        if (!(MainController.navViewController?.playerView.contentDisliked)!) {
+            onDisLikeTapFunc {
+                self.thumbDown.image = UIImage.init(systemName: "hand.thumbsdown.fill")
+            }
+        } else {
+            onDisLikeTapFunc {
+                self.thumbDown.image = UIImage.init(systemName: "hand.thumbsdown")
+            }
+        }
     }
     
     @objc func bookmarkCurrentContent() {

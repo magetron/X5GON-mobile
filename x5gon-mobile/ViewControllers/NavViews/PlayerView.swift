@@ -129,19 +129,27 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         MainController.addHistory(content: content)
     }
     
-    func onLikeTap() {
+    func onLikeTap(completion: @escaping () -> Void) {
         if (!contentLiked) {
             refresherWithLoadingHUD(updateContent: {
-                () -> Void in self.content.like() }, viewReload: { () -> Void in self.tableView.reloadDataWithAnimation()}, view: self.tableView, cancellable: false)
+                () -> Void in self.content.like() }, viewReload: { () -> Void in completion(); self.tableView.reloadDataWithAnimation()}, view: self.tableView, cancellable: false)
             contentLiked = true
+        } else {
+            refresherWithLoadingHUD(updateContent: {
+                () -> Void in self.content.unlike() }, viewReload: { () -> Void in completion(); self.tableView.reloadDataWithAnimation()}, view: self.tableView, cancellable: false)
+            contentLiked = false
         }
     }
     
-    func onDisLikeTap() {
+    func onDisLikeTap(completion: @escaping () -> Void) {
         if (!contentDisliked) {
             refresherWithLoadingHUD(updateContent: {
-                () -> Void in self.content.dislike() }, viewReload: { () -> Void in self.tableView.reloadDataWithAnimation()}, view: self.tableView, cancellable: false)
+                () -> Void in self.content.dislike() }, viewReload: { () -> Void in completion(); self.tableView.reloadDataWithAnimation()}, view: self.tableView, cancellable: false)
             contentDisliked = true
+        } else {
+            refresherWithLoadingHUD(updateContent: {
+                () -> Void in self.content.undislike() }, viewReload: { () -> Void in completion(); self.tableView.reloadDataWithAnimation()}, view: self.tableView, cancellable: false)
+            contentDisliked = false
         }
     }
     

@@ -348,8 +348,8 @@
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="thumbUp" translatesAutoresizingMaskIntoConstraints="NO" id="016-Rn-zZs">
-                                                <rect key="frame" x="20" y="71" width="25" height="25"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hand.thumbsup" catalog="system" highlightedImage="hand.thumbsup.fill" translatesAutoresizingMaskIntoConstraints="NO" id="016-Rn-zZs">
+                                                <rect key="frame" x="20" y="70" width="25" height="25.666666666666671"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="25" id="FND-Mz-bdk"/>
                                                     <constraint firstAttribute="height" constant="25" id="vwM-UD-0Uv"/>
@@ -367,8 +367,8 @@
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="thumbDown" translatesAutoresizingMaskIntoConstraints="NO" id="FM6-uO-2GO">
-                                                <rect key="frame" x="78.333333333333329" y="71" width="25" height="25"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hand.thumbsdown" catalog="system" highlightedImage="hand.thumbsdown.fill" translatesAutoresizingMaskIntoConstraints="NO" id="FM6-uO-2GO">
+                                                <rect key="frame" x="78.333333333333329" y="72.333333333333329" width="25" height="25.666666666666671"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="25" id="4db-MB-hPb"/>
                                                     <constraint firstAttribute="height" constant="25" id="wEC-W7-IG6"/>
@@ -1386,12 +1386,14 @@
         <image name="cancel" width="48" height="48"/>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
         <image name="emptyTumbnail" width="375" height="211"/>
+        <image name="hand.thumbsdown" catalog="system" width="128" height="128"/>
+        <image name="hand.thumbsdown.fill" catalog="system" width="128" height="124"/>
+        <image name="hand.thumbsup" catalog="system" width="128" height="128"/>
+        <image name="hand.thumbsup.fill" catalog="system" width="128" height="124"/>
         <image name="lock.fill" catalog="system" width="128" height="128"/>
         <image name="logo" width="341.33334350585938" height="341.33334350585938"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="sidebar.right" catalog="system" width="128" height="93"/>
         <image name="square.fill" catalog="system" width="128" height="114"/>
-        <image name="thumbDown" width="25" height="25"/>
-        <image name="thumbUp" width="25" height="25"/>
     </resources>
 </document>
