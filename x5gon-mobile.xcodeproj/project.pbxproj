@@ -67,6 +67,7 @@
 		DCA928ED242993F200A40E85 /* testX5GONApiAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928EC242993F200A40E85 /* testX5GONApiAdapter.swift */; };
 		DCA928EF2429986300A40E85 /* testX5LearnAPIAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928EE2429986300A40E85 /* testX5LearnAPIAdapter.swift */; };
 		DCA928F524300F1700A40E85 /* testHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928F224300D8F00A40E85 /* testHomeViewController.swift */; };
+		DCA928F724301D3A00A40E85 /* FatalErrorUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928F624301D3A00A40E85 /* FatalErrorUtil.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -157,6 +158,7 @@
 		DCA928EC242993F200A40E85 /* testX5GONApiAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testX5GONApiAdapter.swift; sourceTree = "<group>"; };
 		DCA928EE2429986300A40E85 /* testX5LearnAPIAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testX5LearnAPIAdapter.swift; sourceTree = "<group>"; };
 		DCA928F224300D8F00A40E85 /* testHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testHomeViewController.swift; sourceTree = "<group>"; };
+		DCA928F624301D3A00A40E85 /* FatalErrorUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FatalErrorUtil.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -383,6 +385,7 @@
 			isa = PBXGroup;
 			children = (
 				CDFD3C4423CC7CEA000FCEF6 /* Extensions.swift */,
+				DCA928F624301D3A00A40E85 /* FatalErrorUtil.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -639,6 +642,7 @@
 				CDA5D0AA23F3736200AA6902 /* API.swift in Sources */,
 				CDC6643323F45536009A08FF /* MainController.swift in Sources */,
 				CDFD3C4A23CC7D64000FCEF6 /* Video.swift in Sources */,
+				DCA928F724301D3A00A40E85 /* FatalErrorUtil.swift in Sources */,
 				CDDB99D72405941A00B79460 /* WikiChunk.swift in Sources */,
 				CDDB99D92405943300B79460 /* WikiEntity.swift in Sources */,
 				CDFD3C2F23CC7986000FCEF6 /* MainViewController.swift in Sources */,
