@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IXR-Mk-kYq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IXR-Mk-kYq">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -276,6 +276,9 @@
                         </tableView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <accessibility key="accessibilityConfiguration">
+                        <bool key="isElement" value="YES"/>
+                    </accessibility>
                     <constraints>
                         <constraint firstItem="qVB-u1-cdk" firstAttribute="bottom" secondItem="w0P-EG-wrT" secondAttribute="bottom" id="0hg-UB-9i2"/>
                         <constraint firstItem="qVB-u1-cdk" firstAttribute="leading" secondItem="wk1-Vy-hb4" secondAttribute="leading" constant="175" id="1L3-cU-LiT"/>
@@ -535,6 +538,9 @@
                         </view>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <accessibility key="accessibilityConfiguration">
+                        <bool key="isElement" value="YES"/>
+                    </accessibility>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="hai-Uu-zYx" secondAttribute="trailing" id="1MG-iQ-gBo"/>
                         <constraint firstItem="smd-ED-5eC" firstAttribute="width" secondItem="smd-ED-5eC" secondAttribute="height" multiplier="16:10" id="Di0-QR-gRL"/>
@@ -826,6 +832,9 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <accessibility key="accessibilityConfiguration">
+                            <bool key="isElement" value="YES"/>
+                        </accessibility>
                         <constraints>
                             <constraint firstItem="D6L-sQ-vdX" firstAttribute="leading" secondItem="jOB-3w-jXg" secondAttribute="leading" id="47s-ab-Hkz"/>
                             <constraint firstItem="D6L-sQ-vdX" firstAttribute="top" secondItem="jOB-3w-jXg" secondAttribute="top" id="FWl-nH-QGj"/>
@@ -1384,7 +1393,7 @@
     </scenes>
     <resources>
         <image name="cancel" width="48" height="48"/>
-        <image name="chevron.left" catalog="system" width="96" height="128"/>
+        <image name="chevron.left" catalog="system" width="48" height="64"/>
         <image name="emptyTumbnail" width="375" height="211"/>
         <image name="hand.thumbsdown" catalog="system" width="128" height="128"/>
         <image name="hand.thumbsdown.fill" catalog="system" width="128" height="124"/>
