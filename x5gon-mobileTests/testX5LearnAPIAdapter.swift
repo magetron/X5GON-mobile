@@ -57,6 +57,28 @@ class testX5LearnAPIAdapter: XCTestCase {
         let url = X5LearnAPIAdapter.generateWikiChunkEnrichmentsURL()
         XCTAssertEqual(url, "http://x5learn.org/" + "api/v1/" + "wikichunk_enrichments")
     }
+    
+    func testGenerateNotesURLOne(){
+        let url = X5LearnAPIAdapter.generateNotesURL()
+        XCTAssertEqual(url, "http://x5learn.org/" + "api/v1/" + "note")
+    }
+    
+    func testGenerateNotesURLTwo(){
+        let url = X5LearnAPIAdapter.generateNotesURL(id: 123)
+        XCTAssertEqual(url, "http://x5learn.org/" + "api/v1/" + "note/\(123)")
+    }
+    
+    func testTBD_generateBookmarkURL(){
+        let url = X5LearnAPIAdapter.TBD_generateBookmarkURL(id: 123, bookmark: true)
+        XCTAssertEqual(url, "http://x5learn.org/" + "api/v1/" + "bookmark/\(123)")
+    }
+    
+    func testTBD_generateReportURL(){
+        let url = X5LearnAPIAdapter.TBD_generateReportURL(id: 123)
+        XCTAssertEqual(url, "http://x5learn.org/" + "api/v1/" + "report/\(123)")
+    }
+    
+    
 
 
 

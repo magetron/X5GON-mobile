@@ -23,5 +23,6 @@ class SubscriptionsCVCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         customisation()
+        channelPic.accessibilityIdentifier = "Image--ChannelPic"
     }
 }

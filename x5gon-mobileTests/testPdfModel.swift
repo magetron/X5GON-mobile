@@ -76,6 +76,16 @@ class testPdfModel: XCTestCase {
            }
            XCTAssertEqual(pdf.disLikes, int)
        }
+    func testPdfFetchContentInfo(){
+        let int = pdf.duration
+        XCTAssertEqual(int, 0)
+    }
+    
+    func testPdfFetchSuggestionContents(){
+        let pdfs: () = pdf.fetchSuggestedContents()
+        XCTAssertNotNil(pdfs)
+
+    }
 
     func testPerformanceExample() {
         // This is an example of a performance test case.

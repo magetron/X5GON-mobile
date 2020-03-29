@@ -76,6 +76,11 @@ class testVideoModel: XCTestCase {
         }
         XCTAssertEqual(video.disLikes, int)
     }
+    
+    func testFetchSuggestionContent(){
+        let videos: () = video.fetchSuggestedContents()
+        XCTAssertNotNil(videos)
+    }
 
     func testPerformanceExample() {
         // This is an example of a performance test case.
