@@ -48,6 +48,32 @@
                BlueprintName = "x5gon-mobileTests"
                ReferencedContainer = "container:x5gon-mobile.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "testX5GONApiAdapter/testGenerateLoginQueryURL()">
+               </Test>
+               <Test
+                  Identifier = "testX5GONApiAdapter/testGenerateUserSessionQueryURL()">
+               </Test>
+               <Test
+                  Identifier = "testX5GONApiAdapter/testGererateFeaturedContentURL()">
+               </Test>
+               <Test
+                  Identifier = "testX5GONApiAdapter/testGererateLogoutQueryURL()">
+               </Test>
+               <Test
+                  Identifier = "testX5GONApiAdapter/testGererateNotesURLOne()">
+               </Test>
+               <Test
+                  Identifier = "testX5GONApiAdapter/testGererateNotesURLTwo()">
+               </Test>
+               <Test
+                  Identifier = "testX5GONApiAdapter/testTBD_generateBookmarkURL()">
+               </Test>
+               <Test
+                  Identifier = "testX5GONApiAdapter/testTBD_generateReportURL()">
+               </Test>
+            </SkippedTests>
          </TestableReference>
          <TestableReference
             skipped = "NO">
