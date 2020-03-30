@@ -92,6 +92,10 @@ class testNavViewController: XCTestCase {
         XCTAssertTrue(true)
     }
     
+    func testRipple(){
+        XCTAssertNotNil(nvc?.playerView.ripple())
+    }
+    
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
         self.measure {
