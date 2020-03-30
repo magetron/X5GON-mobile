@@ -84,6 +84,7 @@ class SettingsView: UIView, UITableViewDelegate, UITableViewDataSource {
      */
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         self.hideSettingsView(self)
         if (self.items[indexPath.row] == "Login") {
             self.delegate?.showLogin()

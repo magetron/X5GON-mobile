@@ -287,6 +287,7 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         } else {
             NotificationCenter.default.post(name: NSNotification.Name("open"), object: self.content.suggestedContents[indexPath.row - 2])
         }
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -296,7 +297,6 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         default:
             return 110
         }
-
     }
     
     @objc func returnFromPlayerView () {
