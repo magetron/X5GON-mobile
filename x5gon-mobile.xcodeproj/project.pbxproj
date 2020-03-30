@@ -81,6 +81,7 @@
 		DCA928F92430200900A40E85 /* ExtensionXCTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928F82430200900A40E85 /* ExtensionXCTest.swift */; };
 		DCA928FB2430306A00A40E85 /* testWikiChunkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928FA2430306A00A40E85 /* testWikiChunkModel.swift */; };
 		DCA928FE2430C2F300A40E85 /* testContentViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928F224300D8F00A40E85 /* testContentViews.swift */; };
+		DCDE15FF2432A1B300D6D43D /* testPlayerNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDE15FE2432A1B300D6D43D /* testPlayerNavigationView.swift */; };
 		DCFB42542430CF36004A7082 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDFD3C1B23CC78B4000FCEF6 /* Main.storyboard */; };
 		F44A108D41ABF396669AF916 /* Pods_x5gon_mobileUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE0E02C90BF917AB2DFB3E91 /* Pods_x5gon_mobileUITests.framework */; };
 /* End PBXBuildFile section */
@@ -189,6 +190,7 @@
 		DCA928F624301D3A00A40E85 /* FatalErrorUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FatalErrorUtil.swift; sourceTree = "<group>"; };
 		DCA928F82430200900A40E85 /* ExtensionXCTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionXCTest.swift; sourceTree = "<group>"; };
 		DCA928FA2430306A00A40E85 /* testWikiChunkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testWikiChunkModel.swift; sourceTree = "<group>"; };
+		DCDE15FE2432A1B300D6D43D /* testPlayerNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testPlayerNavigationView.swift; sourceTree = "<group>"; };
 		EF47F4A65E710420A17F132D /* Pods-x5gon-mobile-x5gon-mobileTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-x5gon-mobile-x5gon-mobileTests.release.xcconfig"; path = "Target Support Files/Pods-x5gon-mobile-x5gon-mobileTests/Pods-x5gon-mobile-x5gon-mobileTests.release.xcconfig"; sourceTree = "<group>"; };
 		FD579A368EFC8BF538B6735A /* Pods-x5gon-mobileUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-x5gon-mobileUITests.release.xcconfig"; path = "Target Support Files/Pods-x5gon-mobileUITests/Pods-x5gon-mobileUITests.release.xcconfig"; sourceTree = "<group>"; };
 		FE0E02C90BF917AB2DFB3E91 /* Pods_x5gon_mobileUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_x5gon_mobileUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -399,6 +401,7 @@
 				DC271103243141280066EE97 /* testUserViewController.swift */,
 				DC271105243142DA0066EE97 /* testFeaturedViewController.swift */,
 				DC271117243163A90066EE97 /* testSearchResultViewController.swift */,
+				DCDE15FE2432A1B300D6D43D /* testPlayerNavigationView.swift */,
 				DC27111924316BA40066EE97 /* testNavViewController.swift */,
 			);
 			path = "x5gon-mobileTests";
@@ -788,6 +791,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCA928E3242973FB00A40E85 /* testChannelModel.swift in Sources */,
+				DCDE15FF2432A1B300D6D43D /* testPlayerNavigationView.swift in Sources */,
 				DC271104243141280066EE97 /* testUserViewController.swift in Sources */,
 				DCA928F92430200900A40E85 /* ExtensionXCTest.swift in Sources */,
 				DCA928E12429720900A40E85 /* testWikiEntity.swift in Sources */,
