@@ -77,6 +77,11 @@ class testNavViewController: XCTestCase {
         XCTAssertNotNil(nvc?.playerView.animate())
     }
     
+    func testSearchView(){
+        let check = nvc?.searchView.textFieldShouldReturn((nvc?.searchView.inputField)!)
+        XCTAssertNotNil(check)
+    }
+    
     func testPlayerView(){
         nvc?.playerView.showNavigation("true")
         nvc?.playerView.changeValues(scaleFactor: 0.0)
