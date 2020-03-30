@@ -68,8 +68,25 @@ class testNavViewController: XCTestCase {
         nvc?.loginView.loginButtonPressed("true")
         nvc?.loginView.loginButtonPressed("false")
         nvc?.loginView.keyboardWillHide(notification: NSNotification.init(name: NSNotification.Name("hide"), object: true))
+        nvc?.loginView.keyboardWillShow(notification: NSNotification.init(name: NSNotification.Name("show"), object: true))
+        nvc?.loginView.hideLoginView("hide")
         XCTAssertTrue(true)
     }
+    
+    func testDefaultPlayerView(){
+        XCTAssertNotNil(nvc?.playerView.animate())
+    }
+    
+    func testPlayerView(){
+        nvc?.playerView.showNavigation("true")
+        nvc?.playerView.changeValues(scaleFactor: 0.0)
+        nvc?.playerView.state = .minimized
+        nvc?.playerView.animate()
+        nvc?.playerView.state = .fullScreen
+        nvc?.playerView.animate()
+        XCTAssertTrue(true)
+    }
+    
 
 
     func testPerformanceExample() throws {
