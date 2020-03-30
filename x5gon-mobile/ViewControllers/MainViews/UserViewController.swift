@@ -141,6 +141,7 @@ class UserViewController: UIViewController, UITableViewDelegate, UITableViewData
         } else {
             NotificationCenter.default.post(name: NSNotification.Name("open"), object: self.user.bookmarkedContent[self.user.bookmarkedContent.index(self.user.bookmarkedContent.startIndex, offsetBy: indexPath.row - self.defaultItems)])
         }
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 
 

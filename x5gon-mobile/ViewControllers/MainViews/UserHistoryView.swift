@@ -96,6 +96,7 @@ class UserHistoryView : UIView, UITableViewDelegate, UITableViewDataSource, UINa
      */
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         NotificationCenter.default.post(name: NSNotification.Name("open"), object: historyContent[indexPath.row])
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     

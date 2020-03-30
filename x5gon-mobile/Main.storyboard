@@ -53,7 +53,7 @@
                                 <constraint firstAttribute="height" constant="288" id="HO6-qI-68z"/>
                             </constraints>
                             <prototypes>
-                                <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="Ozv-fh-afT" rowHeight="48" style="IBUITableViewCellStyleDefault" id="TDh-WQ-2bb">
+                                <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="Ozv-fh-afT" rowHeight="48" style="IBUITableViewCellStyleDefault" id="TDh-WQ-2bb">
                                     <rect key="frame" x="0.0" y="28" width="415" height="48"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TDh-WQ-2bb" id="N99-Rj-pee">
@@ -303,7 +303,7 @@
                             <rect key="frame" x="0.0" y="259.33333333333326" width="415" height="450.66666666666674"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <prototypes>
-                                <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Header" rowHeight="250" id="5hc-ET-uzg" customClass="headerCell" customModule="x5gon_mobile" customModuleProvider="target">
+                                <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Header" rowHeight="250" id="5hc-ET-uzg" customClass="headerCell" customModule="x5gon_mobile" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="28" width="415" height="250"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5hc-ET-uzg" id="5VB-wW-c7d">
@@ -1215,7 +1215,7 @@
                                             <outlet property="profilePic" destination="I7A-L9-Y1k" id="kpV-pN-T5R"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="UserMenuCell" rowHeight="50" id="bCN-Ow-c7A" customClass="userMenuCell" customModule="x5gon_mobile" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="UserMenuCell" rowHeight="50" id="bCN-Ow-c7A" customClass="userMenuCell" customModule="x5gon_mobile" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="148" width="414" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bCN-Ow-c7A" id="HEt-9S-vFS">
@@ -1261,7 +1261,7 @@
                                             <outlet property="menuTitles" destination="F4Y-nb-Vp7" id="pY4-f7-el2"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="UserPlaylistsCell" rowHeight="70" id="vVk-8q-Ihm" customClass="userPlaylistCell" customModule="x5gon_mobile" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="UserPlaylistsCell" rowHeight="70" id="vVk-8q-Ihm" customClass="userPlaylistCell" customModule="x5gon_mobile" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="198" width="414" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vVk-8q-Ihm" id="dPi-i4-5iJ">
@@ -1345,7 +1345,7 @@
                             <rect key="frame" x="0.0" y="96" width="415" height="666"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <prototypes>
-                                <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="UserHistoryViewCell" rowHeight="100" id="phY-WL-9Ub" customClass="userHistoryViewCell" customModule="x5gon_mobile" customModuleProvider="target">
+                                <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="UserHistoryViewCell" rowHeight="100" id="phY-WL-9Ub" customClass="userHistoryViewCell" customModule="x5gon_mobile" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="28" width="415" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="phY-WL-9Ub" id="7NT-4K-2vP">
@@ -1446,7 +1446,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="cancel" width="48" height="48"/>
+        <image name="cancel" width="24" height="24"/>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
         <image name="emptyTumbnail" width="375" height="211"/>
         <image name="hand.thumbsdown" catalog="system" width="128" height="128"/>
