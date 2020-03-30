@@ -41,7 +41,6 @@ class testContentViews: XCTestCase {
         XCUIApplication().images["hand.thumbsdown"].forceTapElement(); sleep(1)
         XCUIApplication().images["hand.thumbsdown.fill"].forceTapElement(); sleep(1)
         XCUIApplication().buttons["Sidebar"].tap(); sleep(1)
-        print(XCUIApplication.debugDescription())
     }
     
 }
