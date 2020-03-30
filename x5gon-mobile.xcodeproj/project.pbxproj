@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		22D068989D668E516B2AF790 /* libPods-x5gon-mobileUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 35BE4E9CEE9F10ACA0D8280D /* libPods-x5gon-mobileUITests.a */; };
 		378CEC871E58E840C584DD30 /* Pods_x5gon_mobileTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32941AEF8A7BC9382031BA0B /* Pods_x5gon_mobileTests.framework */; };
 		6BE4E742CB667436FF6D688A /* Pods_x5gon_mobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4D9C9C2CC2D9BFBC3203AA4 /* Pods_x5gon_mobile.framework */; };
 		CD00457923E4E76A009CA522 /* PDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD00457823E4E76A009CA522 /* PDF.swift */; };
@@ -26,8 +25,9 @@
 		CDA5D0AA23F3736200AA6902 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA5D0A823F3736200AA6902 /* API.swift */; };
 		CDA5D0AB23F3736200AA6902 /* APIAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA5D0A923F3736200AA6902 /* APIAdapter.swift */; };
 		CDC6643323F45536009A08FF /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC6643223F45536009A08FF /* MainController.swift */; };
-		CDCC851B240C8B1B001DB380 /* SubscriptionsChannelViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCC8519240C8B1B001DB380 /* SubscriptionsChannelViewCell.swift */; };
-		CDCC851C240C8B1B001DB380 /* SubscriptionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCC851A240C8B1B001DB380 /* SubscriptionsCell.swift */; };
+		CDC8A9A12431801B0096DBD6 /* ExtensionFatalErrorUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928F624301D3A00A40E85 /* ExtensionFatalErrorUtil.swift */; };
+		CDC8A9A32431D23B0096DBD6 /* testViewNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC8A9A22431D23B0096DBD6 /* testViewNavigation.swift */; };
+		CDC8A9A52431EDFF0096DBD6 /* ExtensionUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC8A9A42431EDFF0096DBD6 /* ExtensionUIView.swift */; };
 		CDDB99D5240593E900B79460 /* Wiki.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDB99D4240593E900B79460 /* Wiki.swift */; };
 		CDDB99D72405941A00B79460 /* WikiChunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDB99D62405941A00B79460 /* WikiChunk.swift */; };
 		CDDB99D92405943300B79460 /* WikiEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDB99D82405943300B79460 /* WikiEntity.swift */; };
@@ -57,6 +57,14 @@
 		CDFD3C5123CC869F000FCEF6 /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFD3C5023CC869F000FCEF6 /* SearchResultsViewController.swift */; };
 		CDFD3C5523CC8AB0000FCEF6 /* LaunchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDFD3C5423CC8AB0000FCEF6 /* LaunchView.xib */; };
 		CDFD6CF92409D237005C4D8F /* userHistoryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFD6CF82409D237005C4D8F /* userHistoryViewCell.swift */; };
+		DC271104243141280066EE97 /* testUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC271103243141280066EE97 /* testUserViewController.swift */; };
+		DC271106243142DA0066EE97 /* testFeaturedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC271105243142DA0066EE97 /* testFeaturedViewController.swift */; };
+		DC2711142431631F0066EE97 /* SubscriptionsChannelViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2711132431631F0066EE97 /* SubscriptionsChannelViewCell.swift */; };
+		DC2711162431633C0066EE97 /* SubscriptionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2711152431633C0066EE97 /* SubscriptionsCell.swift */; };
+		DC271118243163A90066EE97 /* testSearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC271117243163A90066EE97 /* testSearchResultViewController.swift */; };
+		DC27111A24316BA40066EE97 /* testNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27111924316BA40066EE97 /* testNavViewController.swift */; };
+		DC27111C24316C470066EE97 /* testHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27111B24316C470066EE97 /* testHomeViewController.swift */; };
+		DC27111E24316CAE0066EE97 /* testMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27111D24316CAE0066EE97 /* testMainViewController.swift */; };
 		DCA928D92429565000A40E85 /* testUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928D82429565000A40E85 /* testUserModel.swift */; };
 		DCA928DB24295DB800A40E85 /* testVideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928DA24295DB800A40E85 /* testVideoModel.swift */; };
 		DCA928DD2429655100A40E85 /* testContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928DC2429655100A40E85 /* testContentModel.swift */; };
@@ -67,12 +75,11 @@
 		DCA928EB24298C6400A40E85 /* testAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928EA24298C6400A40E85 /* testAPI.swift */; };
 		DCA928ED242993F200A40E85 /* testX5GONApiAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928EC242993F200A40E85 /* testX5GONApiAdapter.swift */; };
 		DCA928EF2429986300A40E85 /* testX5LearnAPIAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928EE2429986300A40E85 /* testX5LearnAPIAdapter.swift */; };
-		DCA928F724301D3A00A40E85 /* FatalErrorUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928F624301D3A00A40E85 /* FatalErrorUtil.swift */; };
 		DCA928F92430200900A40E85 /* ExtensionXCTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928F82430200900A40E85 /* ExtensionXCTest.swift */; };
 		DCA928FB2430306A00A40E85 /* testWikiChunkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928FA2430306A00A40E85 /* testWikiChunkModel.swift */; };
-		DCA928FE2430C2F300A40E85 /* testHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928F224300D8F00A40E85 /* testHomeViewController.swift */; };
-		DCFB42512430CCE9004A7082 /* testHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFB42502430CCE9004A7082 /* testHomeViewController.swift */; };
+		DCA928FE2430C2F300A40E85 /* testContentViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928F224300D8F00A40E85 /* testContentViews.swift */; };
 		DCFB42542430CF36004A7082 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDFD3C1B23CC78B4000FCEF6 /* Main.storyboard */; };
+		F44A108D41ABF396669AF916 /* Pods_x5gon_mobileUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE0E02C90BF917AB2DFB3E91 /* Pods_x5gon_mobileUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,7 +103,6 @@
 		01FEECE77A4C8C131A415A86 /* Pods-x5gon-mobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-x5gon-mobile.debug.xcconfig"; path = "Target Support Files/Pods-x5gon-mobile/Pods-x5gon-mobile.debug.xcconfig"; sourceTree = "<group>"; };
 		1692D03BBC1AFC8C42793D3D /* Pods-x5gon-mobileUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-x5gon-mobileUITests.debug.xcconfig"; path = "Target Support Files/Pods-x5gon-mobileUITests/Pods-x5gon-mobileUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		32941AEF8A7BC9382031BA0B /* Pods_x5gon_mobileTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_x5gon_mobileTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		35BE4E9CEE9F10ACA0D8280D /* libPods-x5gon-mobileUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-x5gon-mobileUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		891E09ECB864124D84DBEF15 /* Pods-x5gon-mobileTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-x5gon-mobileTests.debug.xcconfig"; path = "Target Support Files/Pods-x5gon-mobileTests/Pods-x5gon-mobileTests.debug.xcconfig"; sourceTree = "<group>"; };
 		99BCE8FA627D1E8B4FCB577C /* Pods-x5gon-mobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-x5gon-mobile.release.xcconfig"; path = "Target Support Files/Pods-x5gon-mobile/Pods-x5gon-mobile.release.xcconfig"; sourceTree = "<group>"; };
 		C4D9C9C2CC2D9BFBC3203AA4 /* Pods_x5gon_mobile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_x5gon_mobile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,8 +124,8 @@
 		CDA5D0A823F3736200AA6902 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		CDA5D0A923F3736200AA6902 /* APIAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIAdapter.swift; sourceTree = "<group>"; };
 		CDC6643223F45536009A08FF /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
-		CDCC8519240C8B1B001DB380 /* SubscriptionsChannelViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionsChannelViewCell.swift; sourceTree = "<group>"; };
-		CDCC851A240C8B1B001DB380 /* SubscriptionsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionsCell.swift; sourceTree = "<group>"; };
+		CDC8A9A22431D23B0096DBD6 /* testViewNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testViewNavigation.swift; sourceTree = "<group>"; };
+		CDC8A9A42431EDFF0096DBD6 /* ExtensionUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIView.swift; sourceTree = "<group>"; };
 		CDDB99D4240593E900B79460 /* Wiki.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wiki.swift; sourceTree = "<group>"; };
 		CDDB99D62405941A00B79460 /* WikiChunk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiChunk.swift; sourceTree = "<group>"; };
 		CDDB99D82405943300B79460 /* WikiEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiEntity.swift; sourceTree = "<group>"; };
@@ -155,6 +161,14 @@
 		CDFD3C5423CC8AB0000FCEF6 /* LaunchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchView.xib; sourceTree = "<group>"; };
 		CDFD6CF82409D237005C4D8F /* userHistoryViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userHistoryViewCell.swift; sourceTree = "<group>"; };
 		D8C74675FEAF515AF688F52D /* Pods-x5gon-mobile-x5gon-mobileTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-x5gon-mobile-x5gon-mobileTests.debug.xcconfig"; path = "Target Support Files/Pods-x5gon-mobile-x5gon-mobileTests/Pods-x5gon-mobile-x5gon-mobileTests.debug.xcconfig"; sourceTree = "<group>"; };
+		DC271103243141280066EE97 /* testUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testUserViewController.swift; sourceTree = "<group>"; };
+		DC271105243142DA0066EE97 /* testFeaturedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testFeaturedViewController.swift; sourceTree = "<group>"; };
+		DC2711132431631F0066EE97 /* SubscriptionsChannelViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionsChannelViewCell.swift; sourceTree = "<group>"; };
+		DC2711152431633C0066EE97 /* SubscriptionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionsCell.swift; sourceTree = "<group>"; };
+		DC271117243163A90066EE97 /* testSearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testSearchResultViewController.swift; sourceTree = "<group>"; };
+		DC27111924316BA40066EE97 /* testNavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testNavViewController.swift; sourceTree = "<group>"; };
+		DC27111B24316C470066EE97 /* testHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testHomeViewController.swift; sourceTree = "<group>"; };
+		DC27111D24316CAE0066EE97 /* testMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testMainViewController.swift; sourceTree = "<group>"; };
 		DCA928D82429565000A40E85 /* testUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testUserModel.swift; sourceTree = "<group>"; };
 		DCA928DA24295DB800A40E85 /* testVideoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testVideoModel.swift; sourceTree = "<group>"; };
 		DCA928DC2429655100A40E85 /* testContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testContentModel.swift; sourceTree = "<group>"; };
@@ -165,13 +179,13 @@
 		DCA928EA24298C6400A40E85 /* testAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testAPI.swift; sourceTree = "<group>"; };
 		DCA928EC242993F200A40E85 /* testX5GONApiAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testX5GONApiAdapter.swift; sourceTree = "<group>"; };
 		DCA928EE2429986300A40E85 /* testX5LearnAPIAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testX5LearnAPIAdapter.swift; sourceTree = "<group>"; };
-		DCA928F224300D8F00A40E85 /* testHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testHomeViewController.swift; sourceTree = "<group>"; };
-		DCA928F624301D3A00A40E85 /* FatalErrorUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FatalErrorUtil.swift; sourceTree = "<group>"; };
+		DCA928F224300D8F00A40E85 /* testContentViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testContentViews.swift; sourceTree = "<group>"; };
+		DCA928F624301D3A00A40E85 /* ExtensionFatalErrorUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionFatalErrorUtil.swift; sourceTree = "<group>"; };
 		DCA928F82430200900A40E85 /* ExtensionXCTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionXCTest.swift; sourceTree = "<group>"; };
 		DCA928FA2430306A00A40E85 /* testWikiChunkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testWikiChunkModel.swift; sourceTree = "<group>"; };
-		DCFB42502430CCE9004A7082 /* testHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testHomeViewController.swift; sourceTree = "<group>"; };
 		EF47F4A65E710420A17F132D /* Pods-x5gon-mobile-x5gon-mobileTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-x5gon-mobile-x5gon-mobileTests.release.xcconfig"; path = "Target Support Files/Pods-x5gon-mobile-x5gon-mobileTests/Pods-x5gon-mobile-x5gon-mobileTests.release.xcconfig"; sourceTree = "<group>"; };
 		FD579A368EFC8BF538B6735A /* Pods-x5gon-mobileUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-x5gon-mobileUITests.release.xcconfig"; path = "Target Support Files/Pods-x5gon-mobileUITests/Pods-x5gon-mobileUITests.release.xcconfig"; sourceTree = "<group>"; };
+		FE0E02C90BF917AB2DFB3E91 /* Pods_x5gon_mobileUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_x5gon_mobileUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,7 +209,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22D068989D668E516B2AF790 /* libPods-x5gon-mobileUITests.a in Frameworks */,
+				F44A108D41ABF396669AF916 /* Pods_x5gon_mobileUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +303,15 @@
 			path = APIs;
 			sourceTree = "<group>";
 		};
+		CDC8A9A024317F5C0096DBD6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DCA928F82430200900A40E85 /* ExtensionXCTest.swift */,
+				CDC8A9A42431EDFF0096DBD6 /* ExtensionUIView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		CDE92D9323E5D3DC004BB8BF /* PlayerViewCells */ = {
 			isa = PBXGroup;
 			children = (
@@ -351,8 +374,8 @@
 		CDFD3C0123CC7854000FCEF6 /* x5gon-mobileTests */ = {
 			isa = PBXGroup;
 			children = (
+				CDC8A9A024317F5C0096DBD6 /* Extensions */,
 				CDFD3C0423CC7854000FCEF6 /* Info.plist */,
-				DCA928F82430200900A40E85 /* ExtensionXCTest.swift */,
 				CDFD3C0223CC7854000FCEF6 /* x5gon_mobileTests.swift */,
 				DCA928D82429565000A40E85 /* testUserModel.swift */,
 				DCA928DA24295DB800A40E85 /* testVideoModel.swift */,
@@ -365,7 +388,12 @@
 				DCA928EC242993F200A40E85 /* testX5GONApiAdapter.swift */,
 				DCA928EE2429986300A40E85 /* testX5LearnAPIAdapter.swift */,
 				DCA928FA2430306A00A40E85 /* testWikiChunkModel.swift */,
-				DCFB42502430CCE9004A7082 /* testHomeViewController.swift */,
+				DC27111D24316CAE0066EE97 /* testMainViewController.swift */,
+				DC27111B24316C470066EE97 /* testHomeViewController.swift */,
+				DC271103243141280066EE97 /* testUserViewController.swift */,
+				DC271105243142DA0066EE97 /* testFeaturedViewController.swift */,
+				DC271117243163A90066EE97 /* testSearchResultViewController.swift */,
+				DC27111924316BA40066EE97 /* testNavViewController.swift */,
 			);
 			path = "x5gon-mobileTests";
 			sourceTree = "<group>";
@@ -373,9 +401,10 @@
 		CDFD3C0C23CC7854000FCEF6 /* x5gon-mobileUITests */ = {
 			isa = PBXGroup;
 			children = (
-				DCA928F224300D8F00A40E85 /* testHomeViewController.swift */,
+				DCA928F224300D8F00A40E85 /* testContentViews.swift */,
 				CDFD3C0D23CC7854000FCEF6 /* x5gon_mobileUITests.swift */,
 				CDFD3C0F23CC7854000FCEF6 /* Info.plist */,
+				CDC8A9A22431D23B0096DBD6 /* testViewNavigation.swift */,
 			);
 			path = "x5gon-mobileUITests";
 			sourceTree = "<group>";
@@ -406,7 +435,7 @@
 			isa = PBXGroup;
 			children = (
 				CDFD3C4423CC7CEA000FCEF6 /* Extensions.swift */,
-				DCA928F624301D3A00A40E85 /* FatalErrorUtil.swift */,
+				DCA928F624301D3A00A40E85 /* ExtensionFatalErrorUtil.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -440,8 +469,8 @@
 			isa = PBXGroup;
 			children = (
 				CDE92D8F23E5D396004BB8BF /* ContentCell.swift */,
-				CDCC851A240C8B1B001DB380 /* SubscriptionsCell.swift */,
-				CDCC8519240C8B1B001DB380 /* SubscriptionsChannelViewCell.swift */,
+				DC2711132431631F0066EE97 /* SubscriptionsChannelViewCell.swift */,
+				DC2711152431633C0066EE97 /* SubscriptionsCell.swift */,
 			);
 			path = MainViewCells;
 			sourceTree = "<group>";
@@ -450,8 +479,8 @@
 			isa = PBXGroup;
 			children = (
 				C4D9C9C2CC2D9BFBC3203AA4 /* Pods_x5gon_mobile.framework */,
-				35BE4E9CEE9F10ACA0D8280D /* libPods-x5gon-mobileUITests.a */,
 				32941AEF8A7BC9382031BA0B /* Pods_x5gon_mobileTests.framework */,
+				FE0E02C90BF917AB2DFB3E91 /* Pods_x5gon_mobileUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -505,6 +534,7 @@
 				CDFD3C0523CC7854000FCEF6 /* Sources */,
 				CDFD3C0623CC7854000FCEF6 /* Frameworks */,
 				CDFD3C0723CC7854000FCEF6 /* Resources */,
+				0F439F2B2BA24B3276BBF350 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -611,6 +641,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		0F439F2B2BA24B3276BBF350 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-x5gon-mobileUITests/Pods-x5gon-mobileUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-x5gon-mobileUITests/Pods-x5gon-mobileUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-x5gon-mobileUITests/Pods-x5gon-mobileUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		47CD416D7F276FAD279E6D5C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -688,11 +735,11 @@
 				CDA5D0AA23F3736200AA6902 /* API.swift in Sources */,
 				CDC6643323F45536009A08FF /* MainController.swift in Sources */,
 				CDFD3C4A23CC7D64000FCEF6 /* Video.swift in Sources */,
-				DCA928F724301D3A00A40E85 /* FatalErrorUtil.swift in Sources */,
 				CDDB99D72405941A00B79460 /* WikiChunk.swift in Sources */,
 				CDDB99D92405943300B79460 /* WikiEntity.swift in Sources */,
 				CDFD3C2F23CC7986000FCEF6 /* MainViewController.swift in Sources */,
 				CDE92D9223E5D3CE004BB8BF /* headerCell.swift in Sources */,
+				CDC8A9A12431801B0096DBD6 /* ExtensionFatalErrorUtil.swift in Sources */,
 				CDFD3C3923CC7C3F000FCEF6 /* UserViewController.swift in Sources */,
 				CD48FAA223F80253004415E7 /* userHeaderCell.swift in Sources */,
 				CDA5D0AB23F3736200AA6902 /* APIAdapter.swift in Sources */,
@@ -704,20 +751,20 @@
 				CDE92D9723E5D49D004BB8BF /* Channel.swift in Sources */,
 				CDFD6CF92409D237005C4D8F /* userHistoryViewCell.swift in Sources */,
 				CDFD3C4523CC7CEA000FCEF6 /* Extensions.swift in Sources */,
+				DC2711142431631F0066EE97 /* SubscriptionsChannelViewCell.swift in Sources */,
 				CD00457923E4E76A009CA522 /* PDF.swift in Sources */,
 				CD2D76F823F35D030031E3F1 /* Playlist.swift in Sources */,
 				CD43131123F9FBFC00B5C620 /* X5LearnAdapter.swift in Sources */,
 				CDE92D9023E5D396004BB8BF /* ContentCell.swift in Sources */,
 				CDFD3BEC23CC784C000FCEF6 /* AppDelegate.swift in Sources */,
-				CDCC851B240C8B1B001DB380 /* SubscriptionsChannelViewCell.swift in Sources */,
 				CDDB99D5240593E900B79460 /* Wiki.swift in Sources */,
+				DC2711162431633C0066EE97 /* SubscriptionsCell.swift in Sources */,
 				CDDDD6D623F0B4E5003C1EE5 /* LoginView.swift in Sources */,
 				CD48FAA623F8027E004415E7 /* userPlaylistCell.swift in Sources */,
 				CDFD3C3123CC79F0000FCEF6 /* HomeViewController.swift in Sources */,
 				CDFD3C3C23CC7C75000FCEF6 /* PlayerView.swift in Sources */,
 				CDFD3C4223CC7CBD000FCEF6 /* SettingsView.swift in Sources */,
 				CD43130F23F9FA3400B5C620 /* X5GONAPIAdapter.swift in Sources */,
-				CDCC851C240C8B1B001DB380 /* SubscriptionsCell.swift in Sources */,
 				CD7CBA3D23E96E1E003BF035 /* notesCell.swift in Sources */,
 				CD48FAA423F8026F004415E7 /* userMenuCell.swift in Sources */,
 				CDFD3C5123CC869F000FCEF6 /* SearchResultsViewController.swift in Sources */,
@@ -729,18 +776,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCA928E3242973FB00A40E85 /* testChannelModel.swift in Sources */,
+				DC271104243141280066EE97 /* testUserViewController.swift in Sources */,
 				DCA928F92430200900A40E85 /* ExtensionXCTest.swift in Sources */,
 				DCA928E12429720900A40E85 /* testWikiEntity.swift in Sources */,
+				DC271106243142DA0066EE97 /* testFeaturedViewController.swift in Sources */,
 				DCA928EF2429986300A40E85 /* testX5LearnAPIAdapter.swift in Sources */,
 				DCA928FB2430306A00A40E85 /* testWikiChunkModel.swift in Sources */,
+				DC271118243163A90066EE97 /* testSearchResultViewController.swift in Sources */,
 				DCA928DB24295DB800A40E85 /* testVideoModel.swift in Sources */,
 				DCA928DD2429655100A40E85 /* testContentModel.swift in Sources */,
 				DCA928ED242993F200A40E85 /* testX5GONApiAdapter.swift in Sources */,
 				DCA928D92429565000A40E85 /* testUserModel.swift in Sources */,
 				DCA928EB24298C6400A40E85 /* testAPI.swift in Sources */,
+				DC27111C24316C470066EE97 /* testHomeViewController.swift in Sources */,
+				CDC8A9A52431EDFF0096DBD6 /* ExtensionUIView.swift in Sources */,
 				DCA928E52429785A00A40E85 /* testPlaylistModel.swift in Sources */,
+				DC27111A24316BA40066EE97 /* testNavViewController.swift in Sources */,
 				DCA928DF242970C700A40E85 /* testPdfModel.swift in Sources */,
-				DCFB42512430CCE9004A7082 /* testHomeViewController.swift in Sources */,
+				DC27111E24316CAE0066EE97 /* testMainViewController.swift in Sources */,
 				CDFD3C0323CC7854000FCEF6 /* x5gon_mobileTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -749,8 +802,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDC8A9A32431D23B0096DBD6 /* testViewNavigation.swift in Sources */,
 				CDFD3C0E23CC7854000FCEF6 /* x5gon_mobileUITests.swift in Sources */,
-				DCA928FE2430C2F300A40E85 /* testHomeViewController.swift in Sources */,
+				DCA928FE2430C2F300A40E85 /* testContentViews.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,5 @@
 platform :ios, '13.3'
-
+use_frameworks!
 inhibit_all_warnings!
 
 def shared_pods

@@ -39,7 +39,7 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
 
     
     //MARK: - Methods
-    func customisation() {
+    func customisation() {        
         self.addSubview(self.navigationView)
         self.navigationView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.init(item: self, attribute: .top, relatedBy: .equal, toItem: self.navigationView, attribute: .top, multiplier: 1.0, constant: 0).isActive = true
