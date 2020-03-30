@@ -5,7 +5,6 @@
 //  Created by Felix Hu on 29/03/2020.
 //  Copyright © 2020 x5gon. All rights reserved.
 //
-
 import XCTest
 
 @testable import x5gon_mobile
@@ -59,6 +58,7 @@ class testHomeViewController: XCTestCase {
     }
     
     
+    
 
     func testPerformanceExample() {
         // This is an example of a performance test case.
@@ -68,4 +68,3 @@ class testHomeViewController: XCTestCase {
     }
 
 }
-

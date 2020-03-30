@@ -59,6 +59,9 @@
 		DC2711142431631F0066EE97 /* SubscriptionsChannelViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2711132431631F0066EE97 /* SubscriptionsChannelViewCell.swift */; };
 		DC2711162431633C0066EE97 /* SubscriptionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2711152431633C0066EE97 /* SubscriptionsCell.swift */; };
 		DC271118243163A90066EE97 /* testSearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC271117243163A90066EE97 /* testSearchResultViewController.swift */; };
+		DC27111A24316BA40066EE97 /* testNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27111924316BA40066EE97 /* testNavViewController.swift */; };
+		DC27111C24316C470066EE97 /* testHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27111B24316C470066EE97 /* testHomeViewController.swift */; };
+		DC27111E24316CAE0066EE97 /* testMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27111D24316CAE0066EE97 /* testMainViewController.swift */; };
 		DCA928D92429565000A40E85 /* testUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928D82429565000A40E85 /* testUserModel.swift */; };
 		DCA928DB24295DB800A40E85 /* testVideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928DA24295DB800A40E85 /* testVideoModel.swift */; };
 		DCA928DD2429655100A40E85 /* testContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928DC2429655100A40E85 /* testContentModel.swift */; };
@@ -73,7 +76,6 @@
 		DCA928F92430200900A40E85 /* ExtensionXCTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928F82430200900A40E85 /* ExtensionXCTest.swift */; };
 		DCA928FB2430306A00A40E85 /* testWikiChunkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928FA2430306A00A40E85 /* testWikiChunkModel.swift */; };
 		DCA928FE2430C2F300A40E85 /* testHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928F224300D8F00A40E85 /* testHomeViewController.swift */; };
-		DCFB42512430CCE9004A7082 /* testHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFB42502430CCE9004A7082 /* testHomeViewController.swift */; };
 		DCFB42542430CF36004A7082 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDFD3C1B23CC78B4000FCEF6 /* Main.storyboard */; };
 		F44A108D41ABF396669AF916 /* Pods_x5gon_mobileUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE0E02C90BF917AB2DFB3E91 /* Pods_x5gon_mobileUITests.framework */; };
 /* End PBXBuildFile section */
@@ -160,6 +162,9 @@
 		DC2711132431631F0066EE97 /* SubscriptionsChannelViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionsChannelViewCell.swift; sourceTree = "<group>"; };
 		DC2711152431633C0066EE97 /* SubscriptionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionsCell.swift; sourceTree = "<group>"; };
 		DC271117243163A90066EE97 /* testSearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testSearchResultViewController.swift; sourceTree = "<group>"; };
+		DC27111924316BA40066EE97 /* testNavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testNavViewController.swift; sourceTree = "<group>"; };
+		DC27111B24316C470066EE97 /* testHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testHomeViewController.swift; sourceTree = "<group>"; };
+		DC27111D24316CAE0066EE97 /* testMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testMainViewController.swift; sourceTree = "<group>"; };
 		DCA928D82429565000A40E85 /* testUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testUserModel.swift; sourceTree = "<group>"; };
 		DCA928DA24295DB800A40E85 /* testVideoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testVideoModel.swift; sourceTree = "<group>"; };
 		DCA928DC2429655100A40E85 /* testContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testContentModel.swift; sourceTree = "<group>"; };
@@ -174,7 +179,6 @@
 		DCA928F624301D3A00A40E85 /* FatalErrorUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FatalErrorUtil.swift; sourceTree = "<group>"; };
 		DCA928F82430200900A40E85 /* ExtensionXCTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionXCTest.swift; sourceTree = "<group>"; };
 		DCA928FA2430306A00A40E85 /* testWikiChunkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testWikiChunkModel.swift; sourceTree = "<group>"; };
-		DCFB42502430CCE9004A7082 /* testHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testHomeViewController.swift; sourceTree = "<group>"; };
 		EF47F4A65E710420A17F132D /* Pods-x5gon-mobile-x5gon-mobileTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-x5gon-mobile-x5gon-mobileTests.release.xcconfig"; path = "Target Support Files/Pods-x5gon-mobile-x5gon-mobileTests/Pods-x5gon-mobile-x5gon-mobileTests.release.xcconfig"; sourceTree = "<group>"; };
 		FD579A368EFC8BF538B6735A /* Pods-x5gon-mobileUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-x5gon-mobileUITests.release.xcconfig"; path = "Target Support Files/Pods-x5gon-mobileUITests/Pods-x5gon-mobileUITests.release.xcconfig"; sourceTree = "<group>"; };
 		FE0E02C90BF917AB2DFB3E91 /* Pods_x5gon_mobileUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_x5gon_mobileUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -371,10 +375,12 @@
 				DCA928EC242993F200A40E85 /* testX5GONApiAdapter.swift */,
 				DCA928EE2429986300A40E85 /* testX5LearnAPIAdapter.swift */,
 				DCA928FA2430306A00A40E85 /* testWikiChunkModel.swift */,
+				DC27111D24316CAE0066EE97 /* testMainViewController.swift */,
+				DC27111B24316C470066EE97 /* testHomeViewController.swift */,
 				DC271103243141280066EE97 /* testUserViewController.swift */,
-				DCFB42502430CCE9004A7082 /* testHomeViewController.swift */,
 				DC271105243142DA0066EE97 /* testFeaturedViewController.swift */,
 				DC271117243163A90066EE97 /* testSearchResultViewController.swift */,
+				DC27111924316BA40066EE97 /* testNavViewController.swift */,
 			);
 			path = "x5gon-mobileTests";
 			sourceTree = "<group>";
@@ -768,9 +774,11 @@
 				DCA928ED242993F200A40E85 /* testX5GONApiAdapter.swift in Sources */,
 				DCA928D92429565000A40E85 /* testUserModel.swift in Sources */,
 				DCA928EB24298C6400A40E85 /* testAPI.swift in Sources */,
+				DC27111C24316C470066EE97 /* testHomeViewController.swift in Sources */,
 				DCA928E52429785A00A40E85 /* testPlaylistModel.swift in Sources */,
+				DC27111A24316BA40066EE97 /* testNavViewController.swift in Sources */,
 				DCA928DF242970C700A40E85 /* testPdfModel.swift in Sources */,
-				DCFB42512430CCE9004A7082 /* testHomeViewController.swift in Sources */,
+				DC27111E24316CAE0066EE97 /* testMainViewController.swift in Sources */,
 				CDFD3C0323CC7854000FCEF6 /* x5gon_mobileTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
