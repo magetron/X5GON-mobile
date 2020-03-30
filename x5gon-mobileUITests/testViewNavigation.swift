@@ -73,5 +73,20 @@ class testViewNavigation: XCTestCase {
         element2.tap()
         
     }
+    
+    func testHistoryAndBookMark () {
+        XCUIApplication().children(matching: .window).element(boundBy: 0).children(matching: .other).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.collectionViews.children(matching: .cell).element(boundBy: 1).children(matching: .other).element.tap(); sleep(1)
+        XCUIApplication().children(matching: .window).collectionViews.children(matching: .cell).tables.element(boundBy: 0).cells.element(boundBy: 0).tap(); sleep(10)
+        XCUIApplication().buttons["Bookmark"].firstMatch.tap(); sleep(1)
+        XCUIApplication().images["hand.thumbsup"].forceTapElement(); sleep(1)
+        XCUIApplication().images["hand.thumbsup.fill"].forceTapElement(); sleep(1)
+        XCUIApplication().images["hand.thumbsdown"].forceTapElement(); sleep(1)
+        XCUIApplication().images["hand.thumbsdown.fill"].forceTapElement(); sleep(1)
+        print(XCUIApplication().debugDescription)
+        
+        XCUIApplication().otherElements["Video"].swipeDown(); sleep(1)
+        XCUIApplication().children(matching: .window).element(boundBy: 0).children(matching: .other).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.collectionViews.children(matching: .cell).element(boundBy: 3).children(matching: .other).element.tap(); sleep(1)
+        
+    }
 
 }
