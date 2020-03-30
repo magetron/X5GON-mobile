@@ -46,6 +46,20 @@ class testPlayerNavigationView: XCTestCase {
         let check = cell?.textView((cell?.textView)!, shouldChangeTextIn: NSRange.init(location: 0, length: 0), replacementText: "\n")
         XCTAssertNotNil(check)
     }
+    
+    func testPlayerNavigationView(){
+        nvc?.playerView.navigationView.hideNavigationView("true")
+        var entityArr = [WikiEntity]()
+        var wikiChunkArr = [WikiChunk]()
+        let tmpEntity = WikiEntity.init(id: "Test WikiEntity", title: "Title", url: URL.init(string: "www.testWiki.com")!)
+        entityArr.append(tmpEntity);
+        let wikiChunk = WikiChunk.init(entities: entityArr, length: 123, start: 32231, text: "Start of String")
+        wikiChunkArr.append(wikiChunk)
+        let wiki = Wiki.init(chunks: wikiChunkArr)
+        nvc?.playerView.navigationView.setWiki(wiki: wiki)
+        let cell = nvc?.playerView.navigationView.tableView((nvc?.playerView.navigationView.tableView)!, cellForRowAt: IndexPath(row: 0, section: 0))
+        XCTAssertNotNil(cell)
+    }
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
