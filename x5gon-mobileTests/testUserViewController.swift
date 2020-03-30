@@ -49,8 +49,12 @@ class testUserViewController: XCTestCase {
     }
     
     func testUserPlayListCell(){
-        let cell = userViewController?.tableView(userViewController!.tableView, cellForRowAt: IndexPath(row: 0, section: 1))as? userPlaylistCell
-        XCTAssertNil(cell)
+        let generateUser = User.init(name: "Felix Hu", profilePic: UIImage.init(named: "pl-angular")!, backgroundImage: UIImage.init(named: "pl-node")!)
+        let content1 = Content.init(title: "1231", id: 0, channelName: "Test", description: "Nil", url: URL.init(string: "www.TEST.com")!)
+        userViewController?.setUser(user: generateUser)
+        userViewController?.user.bookmarkedContent.insert(content1)
+        let cell = userViewController?.tableView(userViewController!.tableView, cellForRowAt: IndexPath(row: 6, section: 0))as? userPlaylistCell
+        XCTAssertNotNil(cell)
         
     }
     

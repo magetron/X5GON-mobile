@@ -7,20 +7,29 @@
 //
 
 import XCTest
-
+@testable import x5gon_mobile
 class testNavViewController: XCTestCase {
-
+//    func makeNavViewController() -> NavViewController {
+//         let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//         let nvc = storyboard.instantiateViewController(identifier: "App") as! NavViewController
+//         nvc.loadViewIfNeeded()
+//         return nvc
+//     }
+//     
+     var nvc:NavViewController?
+//
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        nvc = NavViewController.init()
+        
     }
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testShowSearchView() {
+        nvc?.playerView.awakeFromNib()
+        XCTAssertTrue(true)
     }
 
     func testPerformanceExample() throws {
