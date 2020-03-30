@@ -27,6 +27,23 @@ class testAPI: XCTestCase {
         API.logout()
         XCTAssertTrue(true)
     }
+    
+    func testDEPRECATED_fetchContents(){
+        let result = API.DEPRECATED_fetchContents(keyWord: "science")
+        MainController.Queue.cancelOperations()
+        XCTAssertNotNil(result)
+    }
+    
+    func testDEPRECATED_fetchContentsWithContenType(){
+        let result = API.DEPRECATED_fetchContents(keyWord: "sciecn", contentType: "pdf")
+        MainController.Queue.cancelOperations()
+        XCTAssertNotNil(result)
+    }
+    
+    func testTBD_Report(){
+        let check: () = API.TBD_report(id: 120, reason: "I just want to report it!")
+        XCTAssertNotNil(check)
+    }
 
     func testPerformanceExample() {
         // This is an example of a performance test case.
