@@ -63,6 +63,13 @@ class testNavViewController: XCTestCase {
         nvc?.swipeToMinimize(translation: 0.0, toState: .hidden)
         XCTAssertNotNil(check)
     }
+    
+    func testLoginView(){
+        nvc?.loginView.loginButtonPressed("true")
+        nvc?.loginView.loginButtonPressed("false")
+        nvc?.loginView.keyboardWillHide(notification: NSNotification.init(name: NSNotification.Name("hide"), object: true))
+        XCTAssertTrue(true)
+    }
 
 
     func testPerformanceExample() throws {
