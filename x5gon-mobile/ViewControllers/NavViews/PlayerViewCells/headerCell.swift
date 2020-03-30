@@ -71,6 +71,7 @@ class headerCell: UITableViewCell {
         self.bookmarkButton = UIButton(frame: CGRect(x:300, y:50, width:100, height:22))
         self.bookmarkButton.setTitleColor(UIColor.systemBlue, for: .normal)
         self.bookmarkButton.setTitle("Bookmark", for: .normal)
+        self.bookmarkButton.accessibilityIdentifier = "Bookmark"
         if (MainController.user.bookmarkedContent.contains(self.content)) { self.bookmarkButton.setImage(UIImage.init(systemName: "bookmark.fill"), for: .normal)
         } else {
             self.bookmarkButton.setImage(UIImage.init(systemName: "bookmark"), for: .normal)

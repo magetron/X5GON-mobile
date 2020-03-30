@@ -9,18 +9,18 @@
 import XCTest
 @testable import x5gon_mobile
 class testNavViewController: XCTestCase {
-//    func makeNavViewController() -> NavViewController {
-//         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//         let nvc = storyboard.instantiateViewController(identifier: "App") as! NavViewController
-//         nvc.loadViewIfNeeded()
-//         return nvc
-//     }
-//     
-     var nvc:NavViewController?
-//
+    
+    func makeNavViewController() -> NavViewController {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let nvc = storyboard.instantiateViewController(identifier: "NavViewController") as! NavViewController
+        nvc.loadView()
+        return nvc
+     }
+    
+    var nvc:NavViewController?
+
     override func setUpWithError() throws {
         nvc = NavViewController.init()
-        
     }
 
     override func tearDownWithError() throws {
@@ -28,8 +28,7 @@ class testNavViewController: XCTestCase {
     }
 
     func testShowSearchView() {
-        nvc?.playerView.awakeFromNib()
-        XCTAssertTrue(true)
+        XCTAssertNotNil(nvc)
     }
 
     func testPerformanceExample() throws {
