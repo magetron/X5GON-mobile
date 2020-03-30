@@ -9,7 +9,7 @@
 import XCTest
 @testable import x5gon_mobile
 class testPlaylistModel: XCTestCase {
-    let playList = Playlist.init(pic: UIImage.init(named: "pl-node")!, title: "This is title", numberOfVideos: 10 )
+    let playList = Playlist.init(pic: UIImage.init(named: "banner")!, title: "This is title", numberOfVideos: 10)
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -30,7 +30,7 @@ class testPlaylistModel: XCTestCase {
     }
     
     func testPlayListImage(){
-        let testImage = UIImage.init(named: "pl-node")!
+        let testImage = UIImage.init(named: "banner")!
         let bool = (testImage == playList.pic)
         XCTAssertTrue(bool)
     }

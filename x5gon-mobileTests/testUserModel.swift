@@ -11,7 +11,7 @@ import XCTest
 class testUserModel: XCTestCase {
     let user = User.generateDefaultUser()
     
-    let generateUser = User.init(name: "Felix Hu", profilePic: UIImage.init(named: "pl-angular")!, backgroundImage: UIImage.init(named: "pl-node")!)
+    let generateUser = User.init(name: "Felix Hu", profilePic: UIImage.init(named: "profilePic")!, backgroundImage: UIImage.init(named: "banner")!)
     
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -55,13 +55,13 @@ class testUserModel: XCTestCase {
     
     func testGeneratedUserProfilePic() {
         let profilPic = generateUser.profilePic
-        let checkPic = UIImage.init(named: "pl-angular")!
+        let checkPic = UIImage.init(named: "profilePic")!
         XCTAssertEqual(profilPic, checkPic)
     }
     
     func testGeneratedUserBackGroundImage(){
         let backgroudImage = generateUser.backgroundImage
-        let checkImage = UIImage.init(named: "pl-node")!
+        let checkImage = UIImage.init(named: "banner")!
         XCTAssertEqual(backgroudImage, checkImage)
     }
     

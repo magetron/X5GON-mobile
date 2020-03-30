@@ -25,9 +25,12 @@
 		CDA5D0AA23F3736200AA6902 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA5D0A823F3736200AA6902 /* API.swift */; };
 		CDA5D0AB23F3736200AA6902 /* APIAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA5D0A923F3736200AA6902 /* APIAdapter.swift */; };
 		CDC6643323F45536009A08FF /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC6643223F45536009A08FF /* MainController.swift */; };
-		CDC8A9A12431801B0096DBD6 /* ExtensionFatalErrorUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928F624301D3A00A40E85 /* ExtensionFatalErrorUtil.swift */; };
+		CDC8A9A12431801B0096DBD6 /* FatalErrorUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928F624301D3A00A40E85 /* FatalErrorUtil.swift */; };
 		CDC8A9A32431D23B0096DBD6 /* testViewNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC8A9A22431D23B0096DBD6 /* testViewNavigation.swift */; };
 		CDC8A9A52431EDFF0096DBD6 /* ExtensionUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC8A9A42431EDFF0096DBD6 /* ExtensionUIView.swift */; };
+		CDC8A9A7243261EB0096DBD6 /* Refresher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC8A9A6243261EB0096DBD6 /* Refresher.swift */; };
+		CDC8A9A9243262180096DBD6 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC8A9A8243262180096DBD6 /* UIViewExtensions.swift */; };
+		CDC8A9AB2432624E0096DBD6 /* AVAssetExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC8A9AA2432624E0096DBD6 /* AVAssetExtensions.swift */; };
 		CDDB99D5240593E900B79460 /* Wiki.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDB99D4240593E900B79460 /* Wiki.swift */; };
 		CDDB99D72405941A00B79460 /* WikiChunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDB99D62405941A00B79460 /* WikiChunk.swift */; };
 		CDDB99D92405943300B79460 /* WikiEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDB99D82405943300B79460 /* WikiEntity.swift */; };
@@ -51,7 +54,7 @@
 		CDFD3C3E23CC7C8E000FCEF6 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFD3C3D23CC7C8E000FCEF6 /* TabBarView.swift */; };
 		CDFD3C4023CC7C9F000FCEF6 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFD3C3F23CC7C9F000FCEF6 /* SearchView.swift */; };
 		CDFD3C4223CC7CBD000FCEF6 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFD3C4123CC7CBD000FCEF6 /* SettingsView.swift */; };
-		CDFD3C4523CC7CEA000FCEF6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFD3C4423CC7CEA000FCEF6 /* Extensions.swift */; };
+		CDFD3C4523CC7CEA000FCEF6 /* OtherExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFD3C4423CC7CEA000FCEF6 /* OtherExtensions.swift */; };
 		CDFD3C4823CC7D15000FCEF6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFD3C4723CC7D15000FCEF6 /* User.swift */; };
 		CDFD3C4A23CC7D64000FCEF6 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFD3C4923CC7D64000FCEF6 /* Video.swift */; };
 		CDFD3C5123CC869F000FCEF6 /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFD3C5023CC869F000FCEF6 /* SearchResultsViewController.swift */; };
@@ -126,6 +129,9 @@
 		CDC6643223F45536009A08FF /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		CDC8A9A22431D23B0096DBD6 /* testViewNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testViewNavigation.swift; sourceTree = "<group>"; };
 		CDC8A9A42431EDFF0096DBD6 /* ExtensionUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIView.swift; sourceTree = "<group>"; };
+		CDC8A9A6243261EB0096DBD6 /* Refresher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Refresher.swift; sourceTree = "<group>"; };
+		CDC8A9A8243262180096DBD6 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		CDC8A9AA2432624E0096DBD6 /* AVAssetExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVAssetExtensions.swift; sourceTree = "<group>"; };
 		CDDB99D4240593E900B79460 /* Wiki.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wiki.swift; sourceTree = "<group>"; };
 		CDDB99D62405941A00B79460 /* WikiChunk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiChunk.swift; sourceTree = "<group>"; };
 		CDDB99D82405943300B79460 /* WikiEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiEntity.swift; sourceTree = "<group>"; };
@@ -154,7 +160,7 @@
 		CDFD3C3D23CC7C8E000FCEF6 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		CDFD3C3F23CC7C9F000FCEF6 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		CDFD3C4123CC7CBD000FCEF6 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		CDFD3C4423CC7CEA000FCEF6 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		CDFD3C4423CC7CEA000FCEF6 /* OtherExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherExtensions.swift; sourceTree = "<group>"; };
 		CDFD3C4723CC7D15000FCEF6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CDFD3C4923CC7D64000FCEF6 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		CDFD3C5023CC869F000FCEF6 /* SearchResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
@@ -180,7 +186,7 @@
 		DCA928EC242993F200A40E85 /* testX5GONApiAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testX5GONApiAdapter.swift; sourceTree = "<group>"; };
 		DCA928EE2429986300A40E85 /* testX5LearnAPIAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testX5LearnAPIAdapter.swift; sourceTree = "<group>"; };
 		DCA928F224300D8F00A40E85 /* testContentViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testContentViews.swift; sourceTree = "<group>"; };
-		DCA928F624301D3A00A40E85 /* ExtensionFatalErrorUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionFatalErrorUtil.swift; sourceTree = "<group>"; };
+		DCA928F624301D3A00A40E85 /* FatalErrorUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FatalErrorUtil.swift; sourceTree = "<group>"; };
 		DCA928F82430200900A40E85 /* ExtensionXCTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionXCTest.swift; sourceTree = "<group>"; };
 		DCA928FA2430306A00A40E85 /* testWikiChunkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testWikiChunkModel.swift; sourceTree = "<group>"; };
 		EF47F4A65E710420A17F132D /* Pods-x5gon-mobile-x5gon-mobileTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-x5gon-mobile-x5gon-mobileTests.release.xcconfig"; path = "Target Support Files/Pods-x5gon-mobile-x5gon-mobileTests/Pods-x5gon-mobile-x5gon-mobileTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -434,8 +440,11 @@
 		CDFD3C4323CC7CDE000FCEF6 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				CDFD3C4423CC7CEA000FCEF6 /* Extensions.swift */,
-				DCA928F624301D3A00A40E85 /* ExtensionFatalErrorUtil.swift */,
+				CDFD3C4423CC7CEA000FCEF6 /* OtherExtensions.swift */,
+				DCA928F624301D3A00A40E85 /* FatalErrorUtil.swift */,
+				CDC8A9A6243261EB0096DBD6 /* Refresher.swift */,
+				CDC8A9A8243262180096DBD6 /* UIViewExtensions.swift */,
+				CDC8A9AA2432624E0096DBD6 /* AVAssetExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -739,22 +748,25 @@
 				CDDB99D92405943300B79460 /* WikiEntity.swift in Sources */,
 				CDFD3C2F23CC7986000FCEF6 /* MainViewController.swift in Sources */,
 				CDE92D9223E5D3CE004BB8BF /* headerCell.swift in Sources */,
-				CDC8A9A12431801B0096DBD6 /* ExtensionFatalErrorUtil.swift in Sources */,
+				CDC8A9A12431801B0096DBD6 /* FatalErrorUtil.swift in Sources */,
 				CDFD3C3923CC7C3F000FCEF6 /* UserViewController.swift in Sources */,
 				CD48FAA223F80253004415E7 /* userHeaderCell.swift in Sources */,
 				CDA5D0AB23F3736200AA6902 /* APIAdapter.swift in Sources */,
 				CDFD3C4823CC7D15000FCEF6 /* User.swift in Sources */,
+				CDC8A9A7243261EB0096DBD6 /* Refresher.swift in Sources */,
 				CDFD3C2E23CC7986000FCEF6 /* NavViewController.swift in Sources */,
 				CD00457B23E4E7AD009CA522 /* Content.swift in Sources */,
 				CDFD3C3323CC7BEE000FCEF6 /* FeaturedViewController.swift in Sources */,
+				CDC8A9A9243262180096DBD6 /* UIViewExtensions.swift in Sources */,
 				CDE92D9523E5D42D004BB8BF /* suggestionContentCell.swift in Sources */,
 				CDE92D9723E5D49D004BB8BF /* Channel.swift in Sources */,
 				CDFD6CF92409D237005C4D8F /* userHistoryViewCell.swift in Sources */,
-				CDFD3C4523CC7CEA000FCEF6 /* Extensions.swift in Sources */,
+				CDFD3C4523CC7CEA000FCEF6 /* OtherExtensions.swift in Sources */,
 				DC2711142431631F0066EE97 /* SubscriptionsChannelViewCell.swift in Sources */,
 				CD00457923E4E76A009CA522 /* PDF.swift in Sources */,
 				CD2D76F823F35D030031E3F1 /* Playlist.swift in Sources */,
 				CD43131123F9FBFC00B5C620 /* X5LearnAdapter.swift in Sources */,
+				CDC8A9AB2432624E0096DBD6 /* AVAssetExtensions.swift in Sources */,
 				CDE92D9023E5D396004BB8BF /* ContentCell.swift in Sources */,
 				CDFD3BEC23CC784C000FCEF6 /* AppDelegate.swift in Sources */,
 				CDDB99D5240593E900B79460 /* Wiki.swift in Sources */,

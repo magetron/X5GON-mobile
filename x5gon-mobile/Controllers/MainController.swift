@@ -86,11 +86,8 @@ class MainController {
     }
     
     static func fetchContents (keyWord : String, contentType : String, cancellable: Bool) -> [Content] {
-        if cancellable {
-            return API.fetchContents(keyWord: keyWord, contentType: contentType, fetchSwitch: Queue.cancellableFetchSwitch)
-        } else {
-            return API.fetchContents(keyWord: keyWord, contentType: contentType, fetchSwitch: Queue.uncancellableFetchSwitch)
-        }
+        return cancellable ?
+            API.fetchContents(keyWord: keyWord, contentType: contentType, fetchSwitch: Queue.cancellableFetchSwitch) : API.fetchContents(keyWord: keyWord, contentType: contentType, fetchSwitch: Queue.uncancellableFetchSwitch)
     }
     
     

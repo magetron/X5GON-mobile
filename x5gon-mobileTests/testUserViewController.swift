@@ -49,7 +49,7 @@ class testUserViewController: XCTestCase {
     }
     
     func testUserPlayListCell(){
-        let generateUser = User.init(name: "Felix Hu", profilePic: UIImage.init(named: "pl-angular")!, backgroundImage: UIImage.init(named: "pl-node")!)
+        let generateUser = User.init(name: "Felix Hu", profilePic: UIImage.init(named: "profilePic")!, backgroundImage: UIImage.init(named: "banner")!)
         let content1 = Content.init(title: "1231", id: 0, channelName: "Test", description: "Nil", url: URL.init(string: "www.TEST.com")!)
         userViewController?.setUser(user: generateUser)
         userViewController?.user.bookmarkedContent.insert(content1)
@@ -70,7 +70,7 @@ class testUserViewController: XCTestCase {
     }
     
     func testSetUser(){
-        let generateUser = User.init(name: "Felix Hu", profilePic: UIImage.init(named: "pl-angular")!, backgroundImage: UIImage.init(named: "pl-node")!)
+        let generateUser = User.init(name: "Felix Hu", profilePic: UIImage.init(named: "profilePic")!, backgroundImage: UIImage.init(named: "profilePic")!)
         userViewController?.setUser(user: generateUser)
         let name = userViewController?.user.name
         XCTAssertEqual(name, "Felix Hu")
