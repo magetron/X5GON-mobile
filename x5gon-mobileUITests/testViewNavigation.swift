@@ -74,7 +74,7 @@ class testViewNavigation: XCTestCase {
     }
     
     func testHistoryAndBookMark () {
-        XCUIApplication().children(matching: .window).element(boundBy: 0).children(matching: .other).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.collectionViews.children(matching: .cell).element(boundBy: 1).children(matching: .other).element.tap(); sleep(1)
+        XCUIApplication().children(matching: .window).element(boundBy: 0).children(matching: .other).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.collectionViews.children(matching: .cell).element(boundBy: 1).children(matching: .other).element.tap(); sleep(5)
         XCUIApplication().children(matching: .window).collectionViews.children(matching: .cell).tables.element(boundBy: 0).cells.element(boundBy: 0).tap(); sleep(10)
         XCUIApplication().buttons["Bookmark"].firstMatch.tap(); sleep(1)
         XCUIApplication().otherElements["Video"].swipeDown(); sleep(1)
