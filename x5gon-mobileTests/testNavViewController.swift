@@ -12,7 +12,7 @@ class testNavViewController: XCTestCase {
     
     func makeNavViewController() -> NavViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let nvc = storyboard.instantiateViewController(identifier: "NavViewController") as! NavViewController
+        let nvc = storyboard.instantiateInitialViewController() as! NavViewController
         nvc.loadView()
         return nvc
      }
@@ -20,7 +20,7 @@ class testNavViewController: XCTestCase {
     var nvc:NavViewController?
 
     override func setUpWithError() throws {
-        nvc = NavViewController.init()
+        nvc = makeNavViewController()
     }
 
     override func tearDownWithError() throws {
@@ -28,7 +28,9 @@ class testNavViewController: XCTestCase {
     }
 
     func testShowSearchView() {
-        XCTAssertNotNil(nvc)
+        XCTAssertNotNil(nvc?.playerView)
+        XCTAssertNotNil(nvc?.searchView)
+        XCTAssertNotNil(nvc?.playerView.tableView)
     }
 
     func testPerformanceExample() throws {
