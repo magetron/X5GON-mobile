@@ -24,6 +24,9 @@ class UserViewController: UIViewController, UITableViewDelegate, UITableViewData
     /// The offset of the last Content used to determine the scroll action
     var lastContentOffset: CGFloat = 0.0
     
+    var refreshControl = UIRefreshControl()
+
+    
     //MARK: - Methods
 
     /**
@@ -43,12 +46,27 @@ class UserViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.historyView.isHidden = true
         self.historyView.historyContent = user.historyContent
         
+        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        self.refreshControl.addTarget(self, action:#selector(refresh), for: UIControl.Event.valueChanged)
+        self.tableView.addSubview(refreshControl)
         self.tableView.contentInset = UIEdgeInsets(top: 50, left: 0, bottom: 30, right: 0)
         self.tableView.scrollIndicatorInsets = UIEdgeInsets(top: 50, left: 0, bottom: 30, right: 0)
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 300
         self.tableView.reloadDataWithAnimation()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.scrollViews(notification:)), name: Notification.Name.init(rawValue: "didSelectMenu"), object: nil)
     }
+    
+    /// Scroll the menu, this will be called when a notification is being sent with value **didSelectMenu**
+    @objc func scrollViews(notification: Notification) {
+        if let info = notification.userInfo {
+            let userInfo = info as! [String: Int]
+            if (userInfo["index"] == 3) {
+                self.historyView.hideHistoryView(self)
+            }
+        }
+    }
+    
     
     ///Show History View
     func showHistory () {
@@ -64,6 +82,11 @@ class UserViewController: UIViewController, UITableViewDelegate, UITableViewData
     /// Set User for view
     func setUser (user: User) {
         self.user = user
+    }
+    
+    @objc func refresh (sender:Any) {
+        refresherWithLoadingHUD(updateContent: {}, viewReload: {() -> Void in self.tableView.reloadDataWithAnimation()}, view: self.tableView, cancellable: false)
+        refreshControl.endRefreshing()
     }
     
     // MARK: Delegates

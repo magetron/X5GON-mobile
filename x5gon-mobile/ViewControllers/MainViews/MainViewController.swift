@@ -131,6 +131,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         return CGSize.init(width: self.collectionView.bounds.width, height: (self.collectionView.bounds.height + 22))
     }
     
+    
     /**
      Tells the delegate when the user scrolls the content view within the receiver.
      
