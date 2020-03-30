@@ -27,11 +27,43 @@ class testNavViewController: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testShowSearchView() {
+    func testView() {
         XCTAssertNotNil(nvc?.playerView)
         XCTAssertNotNil(nvc?.searchView)
         XCTAssertNotNil(nvc?.playerView.tableView)
     }
+    
+    func testShowViews(){
+        // this will error if the view didn't shows up
+        nvc?.showSearch()
+        nvc?.showLogin()
+        nvc?.showSettings()
+        XCTAssertTrue(true)
+    }
+    
+    func testPlayerViewAnimate(){
+        nvc?.didMinimize()
+        nvc?.didmaximize()
+        nvc?.didEndedSwipe(toState: .hidden)
+    }
+    
+    func testPositionDuringSwipe(){
+        let check = nvc?.positionDuringSwipe(scaleFactor: 0.0)
+        XCTAssertNotNil(check)
+    }
+    
+    func testSetPreferStatusBar(){
+        let check: ()? = nvc?.setPreferStatusBarHidden(true)
+        XCTAssertNotNil(check)
+    }
+    
+    func testSwipetoMinise(){
+        let check: ()? = nvc?.swipeToMinimize(translation: 0.0, toState: .minimized)
+        nvc?.swipeToMinimize(translation: 0.0, toState: .fullScreen)
+        nvc?.swipeToMinimize(translation: 0.0, toState: .hidden)
+        XCTAssertNotNil(check)
+    }
+
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
