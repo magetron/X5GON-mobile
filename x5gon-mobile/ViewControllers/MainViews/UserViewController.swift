@@ -135,6 +135,9 @@ class UserViewController: UIViewController, UITableViewDelegate, UITableViewData
                 showHistory()
             } else if (menuTitles[indexPath.row - 1] == "Logout") {
                 MainController.logout();
+                let alert = UIAlertController(title: "Logout Successful", message: "", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+                self.present(alert, animated:  true, completion: nil)
                 user = MainController.user
                 self.tableView.reloadDataWithAnimation()
             }
