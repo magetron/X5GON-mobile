@@ -57,10 +57,11 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         
         self.player.layer.shadowOpacity = 1
         self.player.layer.shadowOffset = .zero
+        self.player.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width * 9 / 16)
         self.player.layer.anchorPoint.applying(CGAffineTransform.init(translationX: -0.5, y: -0.5))
         self.tableView.tableFooterView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 0, height: 0))
         self.player.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(self.resumePlayerView)))
-        videoPlayerViewController.view.frame = self.player.frame
+        videoPlayerViewController.view.frame = CGRect(x: 0, y: 0, width: self.player.frame.width, height: self.player.frame.height * 1.1)
         videoPlayerViewController.videoGravity = AVLayerVideoGravity.resizeAspectFill
         videoPlayerViewController.showsPlaybackControls = true
         pdfView.frame = self.player.frame
