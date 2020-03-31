@@ -39,7 +39,7 @@ class SearchResultsViewController: UIViewController, UITableViewDelegate, UITabl
      
      */
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.contents.count
+        return self.contents.count == 0 ? 1 : self.contents.count
     }
     
     /**
@@ -53,9 +53,15 @@ class SearchResultsViewController: UIViewController, UITableViewDelegate, UITabl
      
      */
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ContentCell") as! ContentCell
-        cell.set(content: self.contents[indexPath.row])
-        return cell
+        if (self.contents.count != 0) {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ContentCell") as! ContentCell
+            cell.set(content: self.contents[indexPath.row])
+            return cell
+        } else {
+            let cell = UITableViewCell()
+            cell.textLabel?.text = "Search and come back here to see results!"
+            return cell
+        }
     }
     
     /**
@@ -66,8 +72,10 @@ class SearchResultsViewController: UIViewController, UITableViewDelegate, UITabl
         - indexPath: An index path locating the new selected row in tableView.
      */
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        NotificationCenter.default.post(name: NSNotification.Name("open"), object: contents[indexPath.row])
-        tableView.deselectRow(at: indexPath, animated: true)
+        if (self.contents.count != 0) {
+            NotificationCenter.default.post(name: NSNotification.Name("open"), object: contents[indexPath.row])
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
     }
 
     /*
