@@ -23,7 +23,9 @@ class MainController {
     ///UserViewController
     static var userViewController:UserViewController?
     /// User Placeholder
-    static var user = User.generateDefaultUser()
+    static var user = loadUserData()
+    
+    static var userDefaults = UserDefaults.standard
     
     static var DEBUG = true
     
@@ -170,6 +172,36 @@ class MainController {
         items.append(contentsOf: API.DEPRECATED_fetchContents(keyWord: "science"))
         return items
     }*/
+    
+    
+    static func saveUserData () {
+        do {
+            let encodedData: Data = try NSKeyedArchiver.archivedData(withRootObject: user, requiringSecureCoding: false)
+            userDefaults.set(encodedData, forKey: "user")
+            userDefaults.set(API.authenticationToken, forKey: "token")
+            userDefaults.set(true, forKey:"saved")
+        } catch {
+            if (DEBUG) {
+                print("saveData() error \(error)")
+            }
+            return
+        }
+    }
+    
+    static func loadUserData () -> User {
+        if (!(userDefaults.object(forKey: "saved") as? Bool ?? false)) {
+            return User.generateDefaultUser()
+        }
+        do {
+            let decodedUserData = userDefaults.data(forKey: "user")
+            let decodedUser = try NSKeyedUnarchiver.unarchivedObject(ofClass: User.self, from: decodedUserData!)!
+            API.authenticationToken =  userDefaults.string(forKey: "token")!
+            return decodedUser
+        } catch {
+            print("loadUserData() error \(error)")
+            return User.generateDefaultUser()
+        }
+    }
     
     deinit {
         MainController.Queue.cancelOperations()

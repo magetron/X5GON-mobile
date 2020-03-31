@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class User {
+class User: NSObject, NSCoding, NSSecureCoding {
     
     //MARK: Properties
     /// This is name Variable
@@ -22,7 +22,6 @@ class User {
     var bookmarkedContent = Set<Content>()
     /// This is a list of `Content` that is used to store history `Content`
     var historyContent = [Content]()
-    
 
     /// Initialising user
     init(name: String, profilePic: UIImage, backgroundImage: UIImage) {
@@ -35,7 +34,7 @@ class User {
     ///This is used to generateDefaultUser for testing purpose
     static func generateDefaultUser () -> User {
         //Dummy Data
-        let user = User.init(name: "Patrick Wu", profilePic: UIImage.init(named: "profilePic")!, backgroundImage: UIImage.init(named: "banner")!)
+        let user = User.init(name: "Tmp User #\(Int.random(in: 1..<2000))", profilePic: UIImage.init(named: "profilePic")!, backgroundImage: UIImage.init(named: "banner")!)
         return user
     }
     /**
@@ -58,6 +57,20 @@ class User {
     func unbookmark (content: Content) {
         bookmarkedContent.remove(content)
         API.updateBookmark(id: content.id, bookmark: false)
+    }
+    
+    //MARK: Persistant Data
+    required convenience init(coder decoder: NSCoder) {
+        let name = decoder.decodeObject(forKey: "name") as! String
+        self.init(name: name, profilePic: UIImage.init(named: "profilePic")!, backgroundImage: UIImage.init(named: "banner")!)
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(name, forKey: "name")
+    }
+    
+    static var supportsSecureCoding: Bool {
+      return true
     }
     
 }
