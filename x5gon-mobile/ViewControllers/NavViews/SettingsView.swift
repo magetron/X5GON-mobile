@@ -8,13 +8,14 @@
 
 import UIKit
 import SafariServices
+import MessageUI
 
 protocol SettingsViewControllerDelegate {
     func showLogin () -> Void
 }
 
 
-class SettingsView: UIView, UITableViewDelegate, UITableViewDataSource {
+class SettingsView: UIView, UITableViewDelegate, UITableViewDataSource, MFMailComposeViewControllerDelegate {
     
     //MARK: - Properties
     @IBOutlet weak var tableView: UITableView!
@@ -93,7 +94,28 @@ class SettingsView: UIView, UITableViewDelegate, UITableViewDataSource {
             guard let url = URL(string: "https://patrickwu.uk/X5GON-mobile/LICENSE") else { return }
             let vc = SFSafariViewController(url: url)
             self.parentViewController?.present(vc, animated: true, completion: nil)
+        } else if (self.items[indexPath.row] == "Help") {
+            guard let url = URL(string: "http://students.cs.ucl.ac.uk/2019/group4/") else { return }
+            let vc = SFSafariViewController(url: url)
+            self.parentViewController?.present(vc, animated: true, completion: nil)
+        } else if (self.items[indexPath.row] == "Send Feedback") {
+            if MFMailComposeViewController.canSendMail() {
+                let mail = MFMailComposeViewController()
+                mail.mailComposeDelegate = self
+                mail.setToRecipients(["patrick.wu.17@ucl.ac.uk"])
+                mail.setSubject("Feedback on X5GON App")
+                mail.setMessageBody("<p>Device UUID: \(UIDevice.current.identifierForVendor!.uuidString)</p>", isHTML: true)
+                self.parentViewController!.present(mail, animated: true)
+            } else {
+                let alert = UIAlertController(title: "This Device doesn't support sending Mail", message: "", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+                self.parentViewController!.present(alert, animated:  true, completion: nil)
+            }
         }
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true)
     }
     
     //MARK: - View LifeCycle
