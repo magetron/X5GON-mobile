@@ -1,5 +1,5 @@
 ////
-////  testMainViewController.swift
+////  IntegrationTest.swift
 ////  x5gon-mobileUITests
 ////
 ////  Created by Patrick Wu on 30/03/2020.
@@ -8,7 +8,7 @@
 
 import XCTest
 
-class integrationTest: XCTestCase {
+class IntegrationTest: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -64,7 +64,7 @@ class integrationTest: XCTestCase {
         logoutStaticText.tap()
         navsettingsButton.tap()
         loginStaticText.tap()
-        
+         
         let element3 = element5.children(matching: .other).element
         element3.children(matching: .textField).element.tap()
         element3.children(matching: .secureTextField).element.tap()
@@ -74,6 +74,7 @@ class integrationTest: XCTestCase {
     }
     
     func testHistoryAndBookMark () {
+        sleep(5)
         XCUIApplication().children(matching: .window).element(boundBy: 0).children(matching: .other).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.collectionViews.children(matching: .cell).element(boundBy: 1).children(matching: .other).element.tap(); sleep(5)
         XCUIApplication().children(matching: .window).collectionViews.children(matching: .cell).tables.element(boundBy: 0).cells.element(boundBy: 0).tap(); sleep(10)
         XCUIApplication().buttons["Bookmark"].firstMatch.tap(); sleep(1)
@@ -88,7 +89,8 @@ class integrationTest: XCTestCase {
         XCUIApplication().collectionViews.element(boundBy: 0).children(matching: .cell).children(matching: .other).children(matching: .other).tables.element(boundBy: 0).cells.element(boundBy: 6).forceTapElement(); sleep(1)
     }
 
-    func testContentViews(){
+    func testContentView(){
+        sleep(5)
         XCUIApplication().children(matching: .window).element(boundBy: 0).children(matching: .other).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.collectionViews.children(matching: .cell).element(boundBy: 1).children(matching: .other).element.tap(); sleep(5)
         XCUIApplication().children(matching: .window).collectionViews.children(matching: .cell).tables.element(boundBy: 0).cells.element(boundBy: 0).tap(); sleep(10)
         XCUIApplication().buttons["Bookmark"].firstMatch.tap(); sleep(1)

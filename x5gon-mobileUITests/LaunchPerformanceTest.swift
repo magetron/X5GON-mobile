@@ -1,5 +1,5 @@
 //
-//  x5gon_mobileUITests.swift
+//  LaunchPerformanceTest.swift
 //  x5gon-mobileUITests
 //
 //  Created by Patrick Wu on 13/01/2020.
@@ -8,7 +8,7 @@
 
 import XCTest
 
-class x5gon_mobileUITests: XCTestCase {
+class LaunchPerformanceTest: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
