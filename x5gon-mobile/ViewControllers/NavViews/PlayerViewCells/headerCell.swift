@@ -68,6 +68,18 @@ class headerCell: UITableViewCell {
         thumbUp.isUserInteractionEnabled = true; thumbDown.isUserInteractionEnabled = true
         thumbUp.addGestureRecognizer(likeTap); thumbDown.addGestureRecognizer(disLikeTap)
         
+        if (!(MainController.navViewController?.playerView.contentLiked)!) {
+            self.thumbUp.image = UIImage.init(systemName: "hand.thumbsup")
+        } else {
+            self.thumbUp.image = UIImage.init(systemName: "hand.thumbsup.fill")
+        }
+        
+        if (!(MainController.navViewController?.playerView.contentDisliked)!) {
+            self.thumbDown.image = UIImage.init(systemName: "hand.thumbsdown")
+        } else {
+            self.thumbDown.image = UIImage.init(systemName: "hand.thumbsdown.fill")
+        }
+        
         self.bookmarkButton = UIButton(frame: CGRect(x:300, y:50, width:100, height:22))
         self.bookmarkButton.setTitleColor(UIColor.systemBlue, for: .normal)
         self.bookmarkButton.setTitle("Bookmark", for: .normal)
