@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 protocol SettingsViewControllerDelegate {
     func showLogin () -> Void
@@ -88,6 +89,10 @@ class SettingsView: UIView, UITableViewDelegate, UITableViewDataSource {
         self.hideSettingsView(self)
         if (self.items[indexPath.row] == "Login") {
             self.delegate?.showLogin()
+        } else if (self.items[indexPath.row] == "Terms & privacy policy") {
+            guard let url = URL(string: "https://github.com/magetron/X5GON-mobile") else { return }
+            let vc = SFSafariViewController(url: url)
+            self.parentViewController?.present(vc, animated: true, completion: nil)
         }
     }
     
