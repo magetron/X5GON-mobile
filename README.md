@@ -74,3 +74,7 @@ Static Documentation will be generated at `./docs`. Simply double click `./docs/
 ## Showcase
 
 ![header-iPhone](./images/header-iphone.png)
+
+### Testing
+
+![testing](./images/testing.png)
