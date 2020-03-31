@@ -193,6 +193,35 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         }
     }
     
+    func setContent (content: Content) {
+        self.content = content
+        contentLiked = false
+        contentDisliked = false
+        if let video = content as? Video {
+            setVideo(video: video)
+        } else if let pdf = content as? PDF {
+            setPDF(pdf: pdf)
+        }
+        if content.suggestedContents.count == 0 {
+            refresherWithLoadingHUD(updateContent: { () -> Void in
+                content.fetchSuggestedContents()
+            }, viewReload: { () -> Void in
+                if (self.content == content) {
+                    self.tableView.reloadDataWithAnimation()
+                }
+            }, view: self.tableView, cancellable: true)
+        }
+        if content.wiki.chunks.count == 0 {
+            refresherWithLoadingHUD(updateContent: {() -> Void in content.fetchWikiChunkEnrichments() }, viewReload: { () -> Void in
+                if (self.content.hashValue == content.hashValue) {
+                    self.navigationView.setWiki(wiki: content.wiki)
+                    self.navigationView.tableView.reloadDataWithAnimation()
+                }
+            }, view: self.navigationView.tableView, cancellable: true)
+        }
+        self.tableView.reloadDataWithAnimation()
+    }
+    
     func setVideo(video : Video) {
         self.player.clearSubViews()
         if self.videoPlayerViewController.player == nil {
@@ -225,35 +254,6 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         self.player.addSubview(navBar)
         self.player.addSubview(returnButton)
         pdfView.document = PDFDocument.init(url: pdf.contentLink)
-    }
-    
-    func setContent (content: Content) {
-        self.content = content
-        contentLiked = false
-        contentDisliked = false
-        if let video = content as? Video {
-            setVideo(video: video)
-        } else if let pdf = content as? PDF {
-            setPDF(pdf: pdf)
-        }
-        if content.suggestedContents.count == 0 {
-            refresherWithLoadingHUD(updateContent: { () -> Void in
-                content.fetchSuggestedContents()
-            }, viewReload: { () -> Void in
-                if (self.content == content) {
-                    self.tableView.reloadDataWithAnimation()
-                }
-            }, view: self.tableView, cancellable: true)
-        }
-        if content.wiki.chunks.count == 0 {
-            refresherWithLoadingHUD(updateContent: {() -> Void in content.fetchWikiChunkEnrichments() }, viewReload: { () -> Void in
-                if (self.content.hashValue == content.hashValue) {
-                    self.navigationView.setWiki(wiki: content.wiki)
-                    self.navigationView.tableView.reloadDataWithAnimation()
-                }
-            }, view: self.navigationView.tableView, cancellable: true)
-        }
-        self.tableView.reloadDataWithAnimation()
     }
     
     //MARK: - Delegate
