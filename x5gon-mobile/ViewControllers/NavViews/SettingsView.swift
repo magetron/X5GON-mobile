@@ -90,7 +90,7 @@ class SettingsView: UIView, UITableViewDelegate, UITableViewDataSource {
         if (self.items[indexPath.row] == "Login") {
             self.delegate?.showLogin()
         } else if (self.items[indexPath.row] == "Terms & privacy policy") {
-            guard let url = URL(string: "https://github.com/magetron/X5GON-mobile") else { return }
+            guard let url = URL(string: "https://patrickwu.uk/X5GON-mobile/LICENSE") else { return }
             let vc = SFSafariViewController(url: url)
             self.parentViewController?.present(vc, animated: true, completion: nil)
         }
