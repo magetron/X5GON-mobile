@@ -34,7 +34,7 @@ class User: NSObject, NSCoding, NSSecureCoding {
     ///This is used to generateDefaultUser for testing purpose
     static func generateDefaultUser () -> User {
         //Dummy Data
-        let user = User.init(name: "Patrick Wu", profilePic: UIImage.init(named: "profilePic")!, backgroundImage: UIImage.init(named: "banner")!)
+        let user = User.init(name: "Tmp User #\(Int.random(in: 1..<2000))", profilePic: UIImage.init(named: "profilePic")!, backgroundImage: UIImage.init(named: "banner")!)
         return user
     }
     /**
