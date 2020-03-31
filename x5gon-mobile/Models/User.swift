@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class User {
+class User: NSObject, NSCoding, NSSecureCoding {
     
     //MARK: Properties
     /// This is name Variable
@@ -22,7 +22,6 @@ class User {
     var bookmarkedContent = Set<Content>()
     /// This is a list of `Content` that is used to store history `Content`
     var historyContent = [Content]()
-    
 
     /// Initialising user
     init(name: String, profilePic: UIImage, backgroundImage: UIImage) {
@@ -58,6 +57,20 @@ class User {
     func unbookmark (content: Content) {
         bookmarkedContent.remove(content)
         API.updateBookmark(id: content.id, bookmark: false)
+    }
+    
+    //MARK: Persistant Data
+    required convenience init(coder decoder: NSCoder) {
+        let name = decoder.decodeObject(forKey: "name") as! String
+        self.init(name: name, profilePic: UIImage.init(named: "profilePic")!, backgroundImage: UIImage.init(named: "banner")!)
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(name, forKey: "name")
+    }
+    
+    static var supportsSecureCoding: Bool {
+      return true
     }
     
 }

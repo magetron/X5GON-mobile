@@ -69,6 +69,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         NotificationCenter.default.addObserver(self, selector: #selector(self.scrollViews(notification:)), name: Notification.Name.init(rawValue: "didSelectMenu"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.hideBar(notification:)), name: NSNotification.Name("hide"), object: nil)
     }
+    
     /// Scroll the menu, this will be called when a notification is being sent with value **didSelectMenu**
     @objc func scrollViews(notification: Notification) {
         if let info = notification.userInfo {
