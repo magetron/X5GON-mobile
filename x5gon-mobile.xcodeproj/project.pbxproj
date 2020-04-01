@@ -47,7 +47,7 @@
 		CDFD3C1C23CC78B4000FCEF6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDFD3C1B23CC78B4000FCEF6 /* Main.storyboard */; };
 		CDFD3C2E23CC7986000FCEF6 /* NavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFD3C2C23CC7986000FCEF6 /* NavViewController.swift */; };
 		CDFD3C2F23CC7986000FCEF6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFD3C2D23CC7986000FCEF6 /* MainViewController.swift */; };
-		CDFD3C3123CC79F0000FCEF6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFD3C3023CC79F0000FCEF6 /* HomeViewController.swift */; };
+		CDFD3C3123CC79F0000FCEF6 /* HomeViewController .swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFD3C3023CC79F0000FCEF6 /* HomeViewController .swift */; };
 		CDFD3C3323CC7BEE000FCEF6 /* FeaturedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFD3C3223CC7BEE000FCEF6 /* FeaturedViewController.swift */; };
 		CDFD3C3923CC7C3F000FCEF6 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFD3C3823CC7C3F000FCEF6 /* UserViewController.swift */; };
 		CDFD3C3C23CC7C75000FCEF6 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFD3C3B23CC7C75000FCEF6 /* PlayerView.swift */; };
@@ -154,7 +154,7 @@
 		CDFD3C1B23CC78B4000FCEF6 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		CDFD3C2C23CC7986000FCEF6 /* NavViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavViewController.swift; sourceTree = "<group>"; };
 		CDFD3C2D23CC7986000FCEF6 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		CDFD3C3023CC79F0000FCEF6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		CDFD3C3023CC79F0000FCEF6 /* HomeViewController .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController .swift"; sourceTree = "<group>"; };
 		CDFD3C3223CC7BEE000FCEF6 /* FeaturedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedViewController.swift; sourceTree = "<group>"; };
 		CDFD3C3823CC7C3F000FCEF6 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		CDFD3C3B23CC7C75000FCEF6 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
@@ -255,7 +255,7 @@
 				CDFD3C3823CC7C3F000FCEF6 /* UserViewController.swift */,
 				CD70063024093A1C00FB6135 /* UserHistoryView.swift */,
 				CD48FAA023F80242004415E7 /* UserViewCells */,
-				CDFD3C3023CC79F0000FCEF6 /* HomeViewController.swift */,
+				CDFD3C3023CC79F0000FCEF6 /* HomeViewController .swift */,
 				CDFD3C3223CC7BEE000FCEF6 /* FeaturedViewController.swift */,
 				CDFD3C5023CC869F000FCEF6 /* SearchResultsViewController.swift */,
 				CDFD3C3D23CC7C8E000FCEF6 /* TabBarView.swift */,
@@ -776,7 +776,7 @@
 				DC2711162431633C0066EE97 /* SubscriptionsCell.swift in Sources */,
 				CDDDD6D623F0B4E5003C1EE5 /* LoginView.swift in Sources */,
 				CD48FAA623F8027E004415E7 /* userPlaylistCell.swift in Sources */,
-				CDFD3C3123CC79F0000FCEF6 /* HomeViewController.swift in Sources */,
+				CDFD3C3123CC79F0000FCEF6 /* HomeViewController .swift in Sources */,
 				CDFD3C3C23CC7C75000FCEF6 /* PlayerView.swift in Sources */,
 				CDFD3C4223CC7CBD000FCEF6 /* SettingsView.swift in Sources */,
 				CD43130F23F9FA3400B5C620 /* X5GONAPIAdapter.swift in Sources */,

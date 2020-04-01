@@ -20,21 +20,32 @@ class LoginView: UIView {
     @IBOutlet var loginButton: UIButton!
     @IBOutlet var backgroundView: UIButton!
     @IBOutlet var viewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet var personIcon: UIImageView!
+    @IBOutlet var lockIcon: UIImageView!
     @IBOutlet var view: UIView!
 
     // MARK: - Methods
 
     /// Customise the LoginView
     func customisation() {
+        view.frame.size.width = UIScreen.main.bounds.width
+        view.roundCorners([.topLeft, .topRight], radius: 20)
+        viewBottomConstraint.constant = -view.bounds.height
+        layoutIfNeeded()
+
+        usernameTextField.center.x = UIScreen.main.bounds.width / 2
+        passwordTextField.center.x = UIScreen.main.bounds.width / 2
+        loginButton.center.x = UIScreen.main.bounds.width / 2
+        personIcon.center.x = UIScreen.main.bounds.width / 2 - usernameTextField.frame.size.width / 2 - personIcon.frame.size.width / 2
+        lockIcon.center.x = UIScreen.main.bounds.width / 2 - usernameTextField.frame.size.width / 2 - lockIcon.frame.size.width / 2
+
         passwordTextField.isSecureTextEntry = true
         isUserInteractionEnabled = true
         /* let swipeToExit = UISwipeGestureRecognizer(target: self, action: #selector(self.hideLoginView))
          swipeToExit.direction = .down
          self.addGestureRecognizer(swipeToExit) */
         backgroundView.alpha = 0
-        view.roundCorners([.topLeft, .topRight], radius: 20)
-        viewBottomConstraint.constant = -view.bounds.height
-        layoutIfNeeded()
+
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }

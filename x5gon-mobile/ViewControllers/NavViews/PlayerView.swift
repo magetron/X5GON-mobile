@@ -27,6 +27,7 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
 
     @IBOutlet var tableView: UITableView!
     @IBOutlet var player: UIView!
+    @IBOutlet var playerAspectRatio: NSLayoutConstraint!
     @IBOutlet var navigationView: playerNavigationView!
     var content: Content!
     var delegate: PlayerViewControllerDelegate?
@@ -36,6 +37,8 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
     let videoPlayerViewController = AVPlayerViewController()
     var contentLiked = false
     var contentDisliked = false
+
+    var refreshControl = UIRefreshControl()
 
     // MARK: - Methods
 
@@ -53,19 +56,32 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         tableView.dataSource = self
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 90
+        tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
+        tableView.addSubview(refreshControl)
 
         player.layer.shadowOpacity = 1
         player.layer.shadowOffset = .zero
         player.layer.anchorPoint.applying(CGAffineTransform(translationX: -0.5, y: -0.5))
-        tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        player.frame.size.width = UIScreen.main.bounds.width
+        player.frame.size.height = UIScreen.main.bounds.width / playerAspectRatio.multiplier
         player.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(resumePlayerView)))
         videoPlayerViewController.view.frame = player.frame
+        videoPlayerViewController.view.bounds = player.bounds
+
         videoPlayerViewController.videoGravity = AVLayerVideoGravity.resizeAspectFill
         videoPlayerViewController.showsPlaybackControls = true
+
         pdfView.frame = player.frame
         pdfView.displayMode = PDFDisplayMode.singlePage
 
         NotificationCenter.default.addObserver(self, selector: #selector(newPlayerView), name: NSNotification.Name("open"), object: nil)
+    }
+
+    @objc func refresh(sender _: Any) {
+        refresherWithLoadingHUD(updateContent: {}, viewReload: { () -> Void in self.tableView.reloadDataWithAnimation() }, view: tableView, cancellable: false)
+        refreshControl.endRefreshing()
     }
 
     @IBAction func showNavigation(_: Any) {

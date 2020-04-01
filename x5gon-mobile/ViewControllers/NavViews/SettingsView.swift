@@ -27,6 +27,8 @@ class SettingsView: UIView, UITableViewDelegate, UITableViewDataSource, MFMailCo
     // MARK: - Methods
 
     func customisation() {
+        // tableViewWidthConstraint.constant = UIScreen.main.bounds.width
+        tableView.frame.size.width = UIScreen.main.bounds.width
         tableView.delegate = self
         tableView.dataSource = self
         backgroundView.alpha = 0

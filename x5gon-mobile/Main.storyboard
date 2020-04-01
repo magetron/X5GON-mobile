@@ -121,14 +121,14 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </imageView>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="klR-0b-sOy">
-                                    <rect key="frame" x="33" y="8" width="120" height="120"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                </imageView>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="lock.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="14j-Ay-Fno">
                                     <rect key="frame" x="50" y="174" width="23" height="28"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </imageView>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="klR-0b-sOy">
+                                    <rect key="frame" x="33" y="8" width="120" height="120"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jaf-N4-YdD">
                                     <rect key="frame" x="152" y="230.66666666666674" width="111" height="43"/>
@@ -161,8 +161,10 @@
                     <viewLayoutGuide key="safeArea" id="0DS-B4-Ews"/>
                     <connections>
                         <outlet property="backgroundView" destination="k5U-uS-c1a" id="Rs8-RY-QY5"/>
+                        <outlet property="lockIcon" destination="14j-Ay-Fno" id="4Ov-L0-OIj"/>
                         <outlet property="loginButton" destination="Jaf-N4-YdD" id="0tH-Ps-5ts"/>
                         <outlet property="passwordTextField" destination="9o5-Ed-rtO" id="jbP-In-iLS"/>
+                        <outlet property="personIcon" destination="za1-kG-10z" id="8mk-a5-oKb"/>
                         <outlet property="usernameTextField" destination="8eA-0E-S1L" id="PMm-ln-cIu"/>
                         <outlet property="view" destination="upq-sW-kbX" id="Gti-wr-CbR"/>
                         <outlet property="viewBottomConstraint" destination="PP1-1g-3T1" id="oC3-yA-S2G"/>
@@ -587,51 +589,9 @@
                     <connections>
                         <outlet property="navigationView" destination="gGU-Ai-btD" id="qjb-3l-DMj"/>
                         <outlet property="player" destination="smd-ED-5eC" id="fom-5B-WmU"/>
+                        <outlet property="playerAspectRatio" destination="Di0-QR-gRL" id="aju-LY-wZl"/>
                         <outlet property="tableView" destination="hai-Uu-zYx" id="qat-db-Zn4"/>
                     </connections>
-                </view>
-                <view contentMode="scaleToFill" id="fQN-J4-PXF">
-                    <rect key="frame" x="0.0" y="0.0" width="415" height="339"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="0aS-Sc-hFt">
-                            <rect key="frame" x="81" y="158" width="271" height="33"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </textField>
-                        <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="mbF-UV-NIO">
-                            <rect key="frame" x="81" y="191" width="271" height="35"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </textField>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="pNS-2e-nag">
-                            <rect key="frame" x="50" y="162" width="23" height="26"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KAp-5I-skU">
-                            <rect key="frame" x="148" y="275" width="111" height="43"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                            <state key="normal" title="Login" backgroundImage="square.fill" catalog="system">
-                                <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </state>
-                        </button>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="VQJ-Gp-KPA">
-                            <rect key="frame" x="33" y="28" width="120" height="120"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="lock.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="6dL-1U-WxZ">
-                            <rect key="frame" x="50" y="194" width="23" height="28"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                    </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="339" id="GzX-ex-ces"/>
-                    </constraints>
-                    <viewLayoutGuide key="safeArea" id="gqI-ao-fDl"/>
                 </view>
             </objects>
             <point key="canvasLocation" x="-134" y="154"/>
