@@ -7,7 +7,7 @@
 //
 
 protocol PlayerViewControllerDelegate {
-    ///Did the `playerView` minimised
+    /// Did the `playerView` minimised
     func didMinimize()
     // Did the `playerView` extended
     func didmaximize()
@@ -16,18 +16,18 @@ protocol PlayerViewControllerDelegate {
     func setPreferStatusBarHidden(_ preferHidden: Bool)
 }
 
-import UIKit
 import AVFoundation
 import AVKit
-import PDFKit
 import JGProgressHUD
+import PDFKit
+import UIKit
 
 class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate, PlayerViewHeaderCellDelegate {
+    // MARK: -  Properties
 
-    //MARK: -  Properties
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var player: UIView!
-    @IBOutlet weak var navigationView: playerNavigationView!
+    @IBOutlet var tableView: UITableView!
+    @IBOutlet var player: UIView!
+    @IBOutlet var navigationView: playerNavigationView!
     var content: Content!
     var delegate: PlayerViewControllerDelegate?
     var state = stateOfViewController.hidden
@@ -37,197 +37,196 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
     var contentLiked = false
     var contentDisliked = false
 
-    
-    //MARK: - Methods
-    func customisation() {        
-        self.addSubview(self.navigationView)
-        self.navigationView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.init(item: self, attribute: .top, relatedBy: .equal, toItem: self.navigationView, attribute: .top, multiplier: 1.0, constant: 0).isActive = true
-        NSLayoutConstraint.init(item: self, attribute: .left, relatedBy: .equal, toItem: self.navigationView, attribute: .left, multiplier: 1.0, constant: 0).isActive = true
-        NSLayoutConstraint.init(item: self, attribute: .right, relatedBy: .equal, toItem: self.navigationView, attribute: .right, multiplier: 1.0, constant: 0).isActive = true
-        NSLayoutConstraint.init(item: self, attribute: .bottom, relatedBy: .equal, toItem: self.navigationView, attribute: .bottom, multiplier: 1.0, constant: 0).isActive = true
-        self.navigationView.isHidden = true
-        
-        
-        self.backgroundColor = UIColor.clear
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
-        self.tableView.rowHeight = UITableView.automaticDimension
-        self.tableView.estimatedRowHeight = 90
-        
-        self.player.layer.shadowOpacity = 1
-        self.player.layer.shadowOffset = .zero
-        self.player.layer.anchorPoint.applying(CGAffineTransform.init(translationX: -0.5, y: -0.5))
-        self.tableView.tableFooterView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 0, height: 0))
-        self.player.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(self.resumePlayerView)))
-        videoPlayerViewController.view.frame = self.player.frame
+    // MARK: - Methods
+
+    func customisation() {
+        addSubview(navigationView)
+        navigationView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint(item: self, attribute: .top, relatedBy: .equal, toItem: navigationView, attribute: .top, multiplier: 1.0, constant: 0).isActive = true
+        NSLayoutConstraint(item: self, attribute: .left, relatedBy: .equal, toItem: navigationView, attribute: .left, multiplier: 1.0, constant: 0).isActive = true
+        NSLayoutConstraint(item: self, attribute: .right, relatedBy: .equal, toItem: navigationView, attribute: .right, multiplier: 1.0, constant: 0).isActive = true
+        NSLayoutConstraint(item: self, attribute: .bottom, relatedBy: .equal, toItem: navigationView, attribute: .bottom, multiplier: 1.0, constant: 0).isActive = true
+        navigationView.isHidden = true
+
+        backgroundColor = UIColor.clear
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 90
+
+        player.layer.shadowOpacity = 1
+        player.layer.shadowOffset = .zero
+        player.layer.anchorPoint.applying(CGAffineTransform(translationX: -0.5, y: -0.5))
+        tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        player.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(resumePlayerView)))
+        videoPlayerViewController.view.frame = player.frame
         videoPlayerViewController.videoGravity = AVLayerVideoGravity.resizeAspectFill
         videoPlayerViewController.showsPlaybackControls = true
-        pdfView.frame = self.player.frame
+        pdfView.frame = player.frame
         pdfView.displayMode = PDFDisplayMode.singlePage
-        
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(self.newPlayerView), name: NSNotification.Name("open"), object: nil)
+
+        NotificationCenter.default.addObserver(self, selector: #selector(newPlayerView), name: NSNotification.Name("open"), object: nil)
     }
-    
-    @IBAction func showNavigation(_ sender: Any) {
-        self.navigationView.isHidden = false
-        self.navigationView.tableView.center.x += self.navigationView.bounds.width;
+
+    @IBAction func showNavigation(_: Any) {
+        navigationView.isHidden = false
+        navigationView.tableView.center.x += navigationView.bounds.width
         UIView.animate(withDuration: 0.6) {
             self.navigationView.backgroundView.alpha = 0.5
             self.navigationView.tableView.center.x -= self.navigationView.bounds.width
         }
     }
-    
-    func animate()  {
-        switch self.state {
-            case .fullScreen:
-                UIView.animate(withDuration: 0.3, animations: {
-                    self.tableView.alpha = 1
-                    self.player.transform = CGAffineTransform.identity
-                    self.delegate?.setPreferStatusBarHidden(true)
+
+    func animate() {
+        switch state {
+        case .fullScreen:
+            UIView.animate(withDuration: 0.3, animations: {
+                self.tableView.alpha = 1
+                self.player.transform = CGAffineTransform.identity
+                self.delegate?.setPreferStatusBarHidden(true)
                 })
-            case .minimized:
-                UIView.animate(withDuration: 0.3, animations: {
-                    self.delegate?.setPreferStatusBarHidden(false)
-                    self.tableView.alpha = 0
-                    let scale = CGAffineTransform.init(scaleX: 0.5, y: 0.5)
-                    let trasform = scale.concatenating(CGAffineTransform.init(translationX: -self.player.bounds.width/4, y: -self.player.bounds.height/4))
-                    self.player.transform = trasform
+        case .minimized:
+            UIView.animate(withDuration: 0.3, animations: {
+                self.delegate?.setPreferStatusBarHidden(false)
+                self.tableView.alpha = 0
+                let scale = CGAffineTransform(scaleX: 0.5, y: 0.5)
+                let trasform = scale.concatenating(CGAffineTransform(translationX: -self.player.bounds.width / 4, y: -self.player.bounds.height / 4))
+                self.player.transform = trasform
                 })
-            default: break
+        default: break
         }
     }
-    
+
     func changeValues(scaleFactor: CGFloat) {
-        self.tableView.alpha = 1 - scaleFactor
-        let scale = CGAffineTransform.init(scaleX: (1 - 0.5 * scaleFactor), y: (1 - 0.5 * scaleFactor))
-        let trasform = scale.concatenating(CGAffineTransform.init(translationX: -(self.player.bounds.width / 4 * scaleFactor), y: -(self.player.bounds.height / 4 * scaleFactor)))
-        self.player.transform = trasform
+        tableView.alpha = 1 - scaleFactor
+        let scale = CGAffineTransform(scaleX: 1 - 0.5 * scaleFactor, y: 1 - 0.5 * scaleFactor)
+        let trasform = scale.concatenating(CGAffineTransform(translationX: -(player.bounds.width / 4 * scaleFactor), y: -(player.bounds.height / 4 * scaleFactor)))
+        player.transform = trasform
     }
-    
 
     @objc func resumePlayerView() {
-        if let _ = self.content as? Video {
-            self.videoPlayerViewController.player?.play()
+        if let _ = content as? Video {
+            videoPlayerViewController.player?.play()
         }
-        self.state = .fullScreen
-        self.delegate?.didmaximize()
-        self.animate()
+        state = .fullScreen
+        delegate?.didmaximize()
+        animate()
     }
-    
+
     @objc func newPlayerView(_ notification: Notification) {
         let content = notification.object as! Content
-        if (content == self.content) {
+        if content == self.content {
             return resumePlayerView()
         }
         MainController.Queue.cancelOperations() // for performance concerns
-        self.state = .fullScreen
-        self.delegate?.didmaximize()
-        self.animate()
+        state = .fullScreen
+        delegate?.didmaximize()
+        animate()
         setContent(content: content)
         MainController.addHistory(content: content)
     }
-    
+
     func onLikeTap(completion: @escaping () -> Void) {
-        if (!contentLiked) {
+        if !contentLiked {
             refresherWithLoadingHUD(updateContent: {
-                () -> Void in self.content.like() }, viewReload: { () -> Void in completion(); self.tableView.reloadDataWithAnimation()}, view: self.tableView, cancellable: false)
+                () -> Void in self.content.like()
+            }, viewReload: { () -> Void in completion(); self.tableView.reloadDataWithAnimation() }, view: tableView, cancellable: false)
             contentLiked = true
         } else {
             refresherWithLoadingHUD(updateContent: {
-                () -> Void in self.content.unlike() }, viewReload: { () -> Void in completion(); self.tableView.reloadDataWithAnimation()}, view: self.tableView, cancellable: false)
+                () -> Void in self.content.unlike()
+            }, viewReload: { () -> Void in completion(); self.tableView.reloadDataWithAnimation() }, view: tableView, cancellable: false)
             contentLiked = false
         }
     }
-    
+
     func onDisLikeTap(completion: @escaping () -> Void) {
-        if (!contentDisliked) {
+        if !contentDisliked {
             refresherWithLoadingHUD(updateContent: {
-                () -> Void in self.content.dislike() }, viewReload: { () -> Void in completion(); self.tableView.reloadDataWithAnimation()}, view: self.tableView, cancellable: false)
+                () -> Void in self.content.dislike()
+            }, viewReload: { () -> Void in completion(); self.tableView.reloadDataWithAnimation() }, view: tableView, cancellable: false)
             contentDisliked = true
         } else {
             refresherWithLoadingHUD(updateContent: {
-                () -> Void in self.content.undislike() }, viewReload: { () -> Void in completion(); self.tableView.reloadDataWithAnimation()}, view: self.tableView, cancellable: false)
+                () -> Void in self.content.undislike()
+            }, viewReload: { () -> Void in completion(); self.tableView.reloadDataWithAnimation() }, view: tableView, cancellable: false)
             contentDisliked = false
         }
     }
-    
-    
+
     @IBAction func minimizeGesture(_ sender: UIPanGestureRecognizer) {
         if sender.state == .began {
             let velocity = sender.velocity(in: nil)
             if abs(velocity.x) < abs(velocity.y) {
-                self.direction = .up
+                direction = .up
             } else {
-                self.direction = .left
+                direction = .left
             }
         }
         var finalState = stateOfViewController.fullScreen
-        switch self.state {
-            case .fullScreen:
-                let factor = (abs(sender.translation(in: nil).y) / UIScreen.main.bounds.height)
-                self.changeValues(scaleFactor: factor)
-                self.delegate?.swipeToMinimize(translation: factor, toState: .minimized)
-                finalState = .minimized
-            case .minimized:
-                if self.direction == .left {
-                    finalState = .hidden
-                    let factor: CGFloat = sender.translation(in: nil).x
-                    self.delegate?.swipeToMinimize(translation: factor, toState: .hidden)
-                } else {
-                    finalState = .fullScreen
-                    let factor = 1 - (abs(sender.translation(in: nil).y) / UIScreen.main.bounds.height)
-                    self.changeValues(scaleFactor: factor)
-                    self.delegate?.swipeToMinimize(translation: factor, toState: .fullScreen)
-                }
-            default: break
+        switch state {
+        case .fullScreen:
+            let factor = (abs(sender.translation(in: nil).y) / UIScreen.main.bounds.height)
+            changeValues(scaleFactor: factor)
+            delegate?.swipeToMinimize(translation: factor, toState: .minimized)
+            finalState = .minimized
+        case .minimized:
+            if direction == .left {
+                finalState = .hidden
+                let factor: CGFloat = sender.translation(in: nil).x
+                delegate?.swipeToMinimize(translation: factor, toState: .hidden)
+            } else {
+                finalState = .fullScreen
+                let factor = 1 - (abs(sender.translation(in: nil).y) / UIScreen.main.bounds.height)
+                changeValues(scaleFactor: factor)
+                delegate?.swipeToMinimize(translation: factor, toState: .fullScreen)
+            }
+        default: break
         }
         if sender.state == .ended {
-            self.state = finalState
-            self.animate()
-            self.delegate?.didEndedSwipe(toState: self.state)
-            if self.state == .hidden {
-                self.videoPlayerViewController.player?.pause()
+            state = finalState
+            animate()
+            delegate?.didEndedSwipe(toState: state)
+            if state == .hidden {
+                videoPlayerViewController.player?.pause()
             }
         }
     }
-    
-    func setVideo(video : Video) {
-        self.player.clearSubViews()
-        if self.videoPlayerViewController.player == nil {
-            self.videoPlayerViewController.player = AVPlayer()
+
+    func setVideo(video: Video) {
+        player.clearSubViews()
+        if videoPlayerViewController.player == nil {
+            videoPlayerViewController.player = AVPlayer()
         }
-        self.player.addSubview(videoPlayerViewController.view)
-        if (video.avPlayerItem != nil) {
-            self.videoPlayerViewController.player?.replaceCurrentItem(with: video.avPlayerItem)
+        player.addSubview(videoPlayerViewController.view)
+        if video.avPlayerItem != nil {
+            videoPlayerViewController.player?.replaceCurrentItem(with: video.avPlayerItem)
         } else {
-            video.avPlayerItem = AVPlayerItem.init(url: video.contentLink)
-            self.videoPlayerViewController.player?.replaceCurrentItem(with: video.avPlayerItem)
+            video.avPlayerItem = AVPlayerItem(url: video.contentLink)
+            videoPlayerViewController.player?.replaceCurrentItem(with: video.avPlayerItem)
         }
-        if self.state != .hidden {
-            self.videoPlayerViewController.player?.play()
+        if state != .hidden {
+            videoPlayerViewController.player?.play()
         }
-        //self.videoPlayerViewController.player?.pause()
+        // self.videoPlayerViewController.player?.pause()
     }
 
-    
-    func setPDF(pdf : PDF) {
-        self.player.clearSubViews()
-        self.player.addSubview(pdfView)
-        let returnButton = UIButton.init(frame: CGRect(x: 5, y: 16, width: 60, height: 35))
-        let navBar = UINavigationBar.init(frame: CGRect(x: 0, y: 0, width: self.player.bounds.width, height: 54))
+    func setPDF(pdf: PDF) {
+        player.clearSubViews()
+        player.addSubview(pdfView)
+        let returnButton = UIButton(frame: CGRect(x: 5, y: 16, width: 60, height: 35))
+        let navBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: player.bounds.width, height: 54))
         returnButton.backgroundColor = UIColor.clear
         returnButton.setTitleColor(UIColor.systemBlue, for: UIControl.State.normal)
         returnButton.setTitle("Back", for: UIControl.State.normal)
-        returnButton.setImage(UIImage.init(systemName: "chevron.left"), for: .normal)
+        returnButton.setImage(UIImage(systemName: "chevron.left"), for: .normal)
         returnButton.addTarget(nil, action: #selector(returnFromPlayerView), for: UIControl.Event.touchUpInside)
-        self.player.addSubview(navBar)
-        self.player.addSubview(returnButton)
-        pdfView.document = PDFDocument.init(url: pdf.contentLink)
+        player.addSubview(navBar)
+        player.addSubview(returnButton)
+        pdfView.document = PDFDocument(url: pdf.contentLink)
     }
-    
-    func setContent (content: Content) {
+
+    func setContent(content: Content) {
         self.content = content
         contentLiked = false
         contentDisliked = false
@@ -240,80 +239,81 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
             refresherWithLoadingHUD(updateContent: { () -> Void in
                 content.fetchSuggestedContents()
             }, viewReload: { () -> Void in
-                if (self.content == content) {
+                if self.content == content {
                     self.tableView.reloadDataWithAnimation()
                 }
-            }, view: self.tableView, cancellable: true)
+            }, view: tableView, cancellable: true)
         }
         if content.wiki.chunks.count == 0 {
-            refresherWithLoadingHUD(updateContent: {() -> Void in content.fetchWikiChunkEnrichments() }, viewReload: { () -> Void in
-                if (self.content.hashValue == content.hashValue) {
+            refresherWithLoadingHUD(updateContent: { () -> Void in content.fetchWikiChunkEnrichments() }, viewReload: { () -> Void in
+                if self.content.hashValue == content.hashValue {
                     self.navigationView.setWiki(wiki: content.wiki)
                     self.navigationView.tableView.reloadDataWithAnimation()
                 }
-            }, view: self.navigationView.tableView, cancellable: true)
+            }, view: navigationView.tableView, cancellable: true)
         }
-        self.tableView.reloadDataWithAnimation()
+        tableView.reloadDataWithAnimation()
     }
-    
-    //MARK: - Delegate
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let count = self.content?.suggestedContents.count {
+
+    // MARK: - Delegate
+
+    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
+        if let count = content?.suggestedContents.count {
             return count + 2
         }
         return 0
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "Header") as! headerCell
-            cell.set(content: self.content, onLikeTapFunc: self.onLikeTap, onDisLikeTapFunc: self.onDisLikeTap)
+            cell.set(content: content, onLikeTapFunc: onLikeTap, onDisLikeTapFunc: onDisLikeTap)
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "Notes", for: indexPath) as! notesCell
-            cell.set(text: MainController.getNotes(id: self.content.id), id: self.content.id)
+            cell.set(text: MainController.getNotes(id: content.id), id: content.id)
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! suggestionContentCell
-            cell.set(content: (self.content.suggestedContents[indexPath.row - 2]))
+            cell.set(content: content.suggestedContents[indexPath.row - 2])
             return cell
         }
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if (indexPath.row <= 1) {
+        if indexPath.row <= 1 {
             return
         } else {
-            NotificationCenter.default.post(name: NSNotification.Name("open"), object: self.content.suggestedContents[indexPath.row - 2])
+            NotificationCenter.default.post(name: NSNotification.Name("open"), object: content.suggestedContents[indexPath.row - 2])
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+
+    func tableView(_: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
-        case 0...1:
+        case 0 ... 1:
             return UITableView.automaticDimension
         default:
             return 110
         }
     }
-    
-    @objc func returnFromPlayerView () {
-        self.state = stateOfViewController.hidden
-        self.animate()
-        self.delegate?.didEndedSwipe(toState: self.state)
-        if self.state == .hidden {
-            self.videoPlayerViewController.player?.pause()
+
+    @objc func returnFromPlayerView() {
+        state = stateOfViewController.hidden
+        animate()
+        delegate?.didEndedSwipe(toState: state)
+        if state == .hidden {
+            videoPlayerViewController.player?.pause()
         }
     }
-    
-    //MARK: - View Lifecycle
+
+    // MARK: - View Lifecycle
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.customisation()
+        customisation()
     }
-    
 
     deinit {
         NotificationCenter.default.removeObserver(self)

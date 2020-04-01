@@ -6,10 +6,10 @@
 //  Copyright © 2020 x5gon. All rights reserved.
 //
 
-import XCTest
 @testable import x5gon_mobile
+import XCTest
 class testPlaylistModel: XCTestCase {
-    let playList = Playlist.init(pic: UIImage.init(named: "banner")!, title: "This is title", numberOfVideos: 10)
+    let playList = Playlist(pic: UIImage(named: "banner")!, title: "This is title", numberOfVideos: 10)
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -23,23 +23,22 @@ class testPlaylistModel: XCTestCase {
         let testNum = playList.numberOfVideos
         XCTAssertEqual(testNum, 10)
     }
-    
-    func testPlayListTitle(){
+
+    func testPlayListTitle() {
         let title = playList.title
         XCTAssertEqual(title, "This is title")
     }
-    
-    func testPlayListImage(){
-        let testImage = UIImage.init(named: "banner")!
+
+    func testPlayListImage() {
+        let testImage = UIImage(named: "banner")!
         let bool = (testImage == playList.pic)
         XCTAssertTrue(bool)
     }
 
     func testPerformanceExample() {
         // This is an example of a performance test case.
-        self.measure {
+        measure {
             // Put the code you want to measure the time of here.
         }
     }
-
 }

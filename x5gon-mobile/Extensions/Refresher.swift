@@ -7,37 +7,37 @@
 //
 
 import Foundation
-import UIKit
 import JGProgressHUD
+import UIKit
 
 /**
  Refresh the content and reload the view
- 
+
  ### Usage Example: ###
  ````
   refresher(updateContent: {() -> Void in self.content.like() }, viewReload: { () -> Void in self.tableView.reloadDataWithAnimation()})
- 
+
  ````
  */
-func refresher (updateContent: @escaping () -> Void, viewReload: @escaping () -> Void) {
-    DispatchQueue.global(qos: .background).async{
+func refresher(updateContent: @escaping () -> Void, viewReload: @escaping () -> Void) {
+    DispatchQueue.global(qos: .background).async {
         updateContent()
-        DispatchQueue.main.async{
+        DispatchQueue.main.async {
             viewReload()
         }
     }
 }
 
-func cancellableRefresher (updateContent: @escaping () -> Void, viewReload: @escaping () -> Void) {
+func cancellableRefresher(updateContent: @escaping () -> Void, viewReload: @escaping () -> Void) {
     MainController.Queue.addOperation {
         updateContent()
-        DispatchQueue.main.async{
+        DispatchQueue.main.async {
             viewReload()
         }
     }
 }
 
-func refresherWithLoadingHUD (updateContent: @escaping () -> Void, viewReload: @escaping () -> Void, view : UIView, cancellable: Bool) {
+func refresherWithLoadingHUD(updateContent: @escaping () -> Void, viewReload: @escaping () -> Void, view: UIView, cancellable: Bool) {
     let hud = JGProgressHUD(style: .dark)
     hud.textLabel.text = "Loading"
     hud.show(in: view)

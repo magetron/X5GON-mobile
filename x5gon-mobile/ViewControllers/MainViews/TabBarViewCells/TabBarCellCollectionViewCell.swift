@@ -10,6 +10,6 @@ import Foundation
 import UIKit
 
 class TabBarCellCollectionViewCell: UICollectionViewCell {
-    ///This is a `UIImageView` used to display icon picture
-    @IBOutlet weak var icon: UIImageView!
+    /// This is a `UIImageView` used to display icon picture
+    @IBOutlet var icon: UIImageView!
 }

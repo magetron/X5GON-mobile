@@ -10,10 +10,10 @@ import Foundation
 
 class Wiki {
     /// list of wikiChunks
-    let chunks : [WikiChunk]
-    
+    let chunks: [WikiChunk]
+
     /// Performe `Wiki` initialization
-    init (chunks: [WikiChunk]) {
+    init(chunks: [WikiChunk]) {
         self.chunks = chunks
     }
 }

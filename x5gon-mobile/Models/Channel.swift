@@ -10,26 +10,25 @@ import Foundation
 import UIKit
 
 class Channel {
-    
-    ///This is a String which is used to store the name of `Channel`
+    /// This is a String which is used to store the name of `Channel`
     let name: String
-    ///This is a `UIImage` which is used to display the image of `Channel`
+    /// This is a `UIImage` which is used to display the image of `Channel`
     let image: UIImage
-    ///Number of subscribers
+    /// Number of subscribers
     var subscribers = 0
-    
-    static func generateDefaultChannels () -> [Channel] {
+
+    static func generateDefaultChannels() -> [Channel] {
         var channels = [Channel]()
-        for _ in 0...18 {
+        for _ in 0 ... 18 {
             let name = ""
-            let image = UIImage.init(named: "logo")
-            let channel = Channel.init(name: name, image: image!)
+            let image = UIImage(named: "logo")
+            let channel = Channel(name: name, image: image!)
             channels.append(channel)
         }
         channels.myShuffle()
         return channels
     }
-    
+
     /// Performe `Channel` initialization
     init(name: String, image: UIImage) {
         self.name = name

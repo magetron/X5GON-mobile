@@ -9,34 +9,32 @@
 import Foundation
 
 protocol APIAdapter {
-    
     /// Reuturn rootURL
-    static func rootURL () -> String
-    
+    static func rootURL() -> String
+
     /// Return APIVersion in url form
-    static func APIVersion () -> String
-    
+    static func APIVersion() -> String
+
     /// Generate Content Query using `keywords` and `contentType`
-    static func generateContentQueryURL (keyWord: String, contentType: String) -> String
-    
+    static func generateContentQueryURL(keyWord: String, contentType: String) -> String
+
     /// Generate login Query URL
-    static func generateLoginQueryURL () -> String
-    
+    static func generateLoginQueryURL() -> String
+
     /// Generate logout Query URL
-    static func gererateLogoutQueryURL () -> String
-    
+    static func gererateLogoutQueryURL() -> String
+
     /// Generate User Seesion Query URL
-    static func generateUserSessionQueryURL () -> String
-    
+    static func generateUserSessionQueryURL() -> String
+
     /// Gnerate Featured `Content` URL
-    static func generateFeaturedContentURL () -> String
-        
+    static func generateFeaturedContentURL() -> String
+
     static func generateNotesURL() -> String
-    
+
     static func generateNotesURL(id: Int) -> String
-    
+
     static func TBD_generateBookmarkURL(id: Int, bookmark: Bool) -> String
-    
+
     static func TBD_generateReportURL(id: Int) -> String
-    
 }

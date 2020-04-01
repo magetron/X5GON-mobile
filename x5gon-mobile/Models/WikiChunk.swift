@@ -17,9 +17,9 @@ class WikiChunk {
     let start: Double
     ///  WikiChunk text
     let text: String
-    
+
     /// Performe `WikiChunk` initialization
-    init (entities: [WikiEntity], length: Double, start: Double, text:String) {
+    init(entities: [WikiEntity], length: Double, start: Double, text: String) {
         self.entities = entities
         self.length = length
         self.start = start

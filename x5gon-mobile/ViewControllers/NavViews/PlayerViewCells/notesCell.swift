@@ -9,32 +9,34 @@
 import UIKit
 
 class notesCell: UITableViewCell, UITextViewDelegate {
-    
     let defaultString = "Write Your Note Here"
-    
-    //MARK: - Properties
-    @IBOutlet weak var textView: UITextView!
+
+    // MARK: - Properties
+
+    @IBOutlet var textView: UITextView!
     var contentId = 0
-    
-    //MARK: - Methods
-    func customisation () {
+
+    // MARK: - Methods
+
+    func customisation() {
         textView.isScrollEnabled = true
         textView.text = ""
         textView.textColor = UIColor.lightGray
         textView.returnKeyType = .done
         textView.delegate = self
     }
-    
-    func set (text: String, id: Int) {
+
+    func set(text: String, id: Int) {
         textView.text = text
-        if (text == "") {
+        if text == "" {
             textView.text = "Write Your Note Here"
             textView.textColor = UIColor.lightGray
         }
         contentId = id
     }
-    
-    //MARK: - Delegates
+
+    // MARK: - Delegates
+
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.text == defaultString {
             textView.text = ""
@@ -42,7 +44,7 @@ class notesCell: UITableViewCell, UITextViewDelegate {
         }
     }
 
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+    func textView(_ textView: UITextView, shouldChangeTextIn _: NSRange, replacementText _: String) -> Bool {
         if textView.text == "\n" {
             textView.resignFirstResponder()
             return false
@@ -51,28 +53,28 @@ class notesCell: UITableViewCell, UITextViewDelegate {
     }
 
     func textViewDidEndEditing(_ textView: UITextView) {
-        if textView.text == ""{
+        if textView.text == "" {
             textView.text = "Write Your Note Here"
             textView.textColor = UIColor.lightGray
         }
         textView.sizeToFit()
-        for constraint in self.textView.constraints{
-            if constraint.identifier == "textViewHC"{
+        for constraint in self.textView.constraints {
+            if constraint.identifier == "textViewHC" {
                 constraint.constant = self.textView.contentSize.height
             }
         }
         MainController.createNotes(id: contentId, text: textView.text)
         MainController.navViewController?.playerView.tableView.reloadDataWithAnimation()
     }
-    
-    //MARK: - View Lifecycle
+
+    // MARK: - View Lifecycle
+
     override func awakeFromNib() {
         super.awakeFromNib()
         customisation()
     }
-    
+
     override func prepareForReuse() {
         super.prepareForReuse()
     }
-    
 }

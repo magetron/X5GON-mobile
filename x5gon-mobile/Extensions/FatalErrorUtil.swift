@@ -16,12 +16,11 @@ public func fatalError(_ message: @autoclosure () -> String = "", file: StaticSt
 public func unreachable() -> Never {
     repeat {
         RunLoop.current.run()
-    } while (true)
+    } while true
 }
 
 /// Utility functions that can replace and restore the `fatalError` global function.
 public struct FatalErrorUtil {
-
     // Called by the custom implementation of `fatalError`.
     static var fatalErrorClosure: (String, StaticString, UInt) -> Never = defaultFatalErrorClosure
 

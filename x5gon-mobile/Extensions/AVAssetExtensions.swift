@@ -6,26 +6,26 @@
 //  Copyright © 2020 x5gon. All rights reserved.
 //
 
+import AVFoundation
 import Foundation
 import UIKit
-import AVFoundation
 
 extension AVAsset {
     /**
-    Generate Thumbnail for `Content`
-    
-    ### Usage Example: ###
-    ````
-     AVAsset(url: contentLink).generateThumbnail { [weak self] (image, duration) in
-         guard let image = image, let duration = duration else {
-             return
-         }
-         self?.thumbnail = image
-         self?.duration = duration
-     }
-    
-    ````
-    */
+     Generate Thumbnail for `Content`
+
+     ### Usage Example: ###
+     ````
+      AVAsset(url: contentLink).generateThumbnail { [weak self] (image, duration) in
+          guard let image = image, let duration = duration else {
+              return
+          }
+          self?.thumbnail = image
+          self?.duration = duration
+      }
+
+     ````
+     */
     func generateInformation(completion: @escaping (UIImage?, Int?, AVPlayerItem?) -> Void) {
         DispatchQueue.global().async {
             let imageGenerator = AVAssetImageGenerator(asset: self)
