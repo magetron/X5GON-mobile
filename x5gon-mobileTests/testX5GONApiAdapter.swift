@@ -6,10 +6,9 @@
 //  Copyright © 2020 x5gon. All rights reserved.
 //
 
-import XCTest
 @testable import x5gon_mobile
+import XCTest
 class testX5GONApiAdapter: XCTestCase {
-
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -18,74 +17,73 @@ class testX5GONApiAdapter: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testRootUrl(){
+    func testRootUrl() {
         let url = X5GONAPIAdapter.rootURL()
         XCTAssertEqual(url, "https://platform.x5gon.org/")
     }
-    
-    func testAPIVersion(){
+
+    func testAPIVersion() {
         let url = X5GONAPIAdapter.APIVersion()
         XCTAssertEqual(url, "api/v1/")
     }
-    
-    func testGenerateContentQueryURL(){
+
+    func testGenerateContentQueryURL() {
         let url = X5GONAPIAdapter.generateContentQueryURL(keyWord: "abc", contentType: "pdf")
         XCTAssertEqual(url, X5GONAPIAdapter.rootURL() + X5GONAPIAdapter.APIVersion() + "recommend/oer_materials?text=" + "abc" + "&types=" + "pdf")
     }
-    
-    func testGenerateUserSessionQueryURL(){
+
+    func testGenerateUserSessionQueryURL() {
         expectFatalError(expectedMessage: "error: X5GON does not provide a user-session URL") {
-            let _ = X5GONAPIAdapter.generateUserSessionQueryURL()
+            _ = X5GONAPIAdapter.generateUserSessionQueryURL()
         }
     }
-    
-    func testGenerateLoginQueryURL(){
+
+    func testGenerateLoginQueryURL() {
         expectFatalError(expectedMessage: "error: X5GON does not provide a login URL") {
-            let _ = X5GONAPIAdapter.generateLoginQueryURL()
+            _ = X5GONAPIAdapter.generateLoginQueryURL()
         }
     }
-    
-    func testGererateLogoutQueryURL(){
+
+    func testGererateLogoutQueryURL() {
         expectFatalError(expectedMessage: "error: X5GON does not provide a logout URL") {
-            let _ = X5GONAPIAdapter.gererateLogoutQueryURL()
+            _ = X5GONAPIAdapter.gererateLogoutQueryURL()
         }
     }
-    
-    func testGererateFeaturedContentURL(){
+
+    func testGererateFeaturedContentURL() {
         expectFatalError(expectedMessage: "error: X5GON does not provide featured contents URL") {
-            let _ = X5GONAPIAdapter.generateFeaturedContentURL()
+            _ = X5GONAPIAdapter.generateFeaturedContentURL()
         }
     }
-    
-    func testGererateNotesURLOne(){
+
+    func testGererateNotesURLOne() {
         expectFatalError(expectedMessage: "error: X5GON does not provide notes URL") {
-            let _ = X5GONAPIAdapter.generateNotesURL(id: 123)
+            _ = X5GONAPIAdapter.generateNotesURL(id: 123)
         }
     }
-    
-    func testGererateNotesURLTwo(){
+
+    func testGererateNotesURLTwo() {
         expectFatalError(expectedMessage: "error: X5GON does not provide notes URL") {
-            let _ = X5GONAPIAdapter.generateNotesURL()
+            _ = X5GONAPIAdapter.generateNotesURL()
         }
     }
-    
-    func testTBD_generateBookmarkURL(){
+
+    func testTBD_generateBookmarkURL() {
         expectFatalError(expectedMessage: "error: X5GON does not provide content bookmark URL") {
-            let _ = X5GONAPIAdapter.TBD_generateBookmarkURL(id: 123, bookmark: true)
+            _ = X5GONAPIAdapter.TBD_generateBookmarkURL(id: 123, bookmark: true)
         }
     }
-    
-    func testTBD_generateReportURL(){
+
+    func testTBD_generateReportURL() {
         expectFatalError(expectedMessage: "error: X5GON does not provide content report URL") {
-            let _ = X5GONAPIAdapter.TBD_generateReportURL(id: 123)
+            _ = X5GONAPIAdapter.TBD_generateReportURL(id: 123)
         }
     }
 
     func testPerformanceExample() {
         // This is an example of a performance test case.
-        self.measure {
+        measure {
             // Put the code you want to measure the time of here.
         }
     }
-
 }

@@ -6,8 +6,8 @@
 //  Copyright © 2020 x5gon. All rights reserved.
 //
 
-import XCTest
 @testable import x5gon_mobile
+import XCTest
 class testMainViewController: XCTestCase {
     let mvc = MainViewController()
 
@@ -18,24 +18,22 @@ class testMainViewController: XCTestCase {
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-    
-    func testHide(){
-        let check: () = mvc.hideBar(notification: NSNotification.init(name: NSNotification.Name("hide"), object: true))
+
+    func testHide() {
+        let check: () = mvc.hideBar(notification: NSNotification(name: NSNotification.Name("hide"), object: true))
         XCTAssertNotNil(check)
     }
-    
-    func testScrollViews(){
-        let check: () = mvc.scrollViews(notification: NSNotification.init(name: NSNotification.Name("didSelectMenu"), object: "Home: 0") as Notification)
-        
+
+    func testScrollViews() {
+        let check: () = mvc.scrollViews(notification: NSNotification(name: NSNotification.Name("didSelectMenu"), object: "Home: 0") as Notification)
+
         XCTAssertNotNil(check)
-        
     }
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
-        self.measure {
+        measure {
             // Put the code you want to measure the time of here.
         }
     }
-
 }

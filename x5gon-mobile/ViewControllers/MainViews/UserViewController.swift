@@ -9,11 +9,11 @@
 import UIKit
 
 class UserViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
-    //MARK: - Properties
-    ///This is a `UITableView` that displays user information
-    @IBOutlet weak var tableView: UITableView!
-    ///This is a self-defined view called `UserHistoryView`, which is based on `UIView`
+    // MARK: - Properties
+
+    /// This is a `UITableView` that displays user information
+    @IBOutlet var tableView: UITableView!
+    /// This is a self-defined view called `UserHistoryView`, which is based on `UIView`
     @IBOutlet var historyView: UserHistoryView!
     /// This is a list of menu titles that is displayed in `UITableView`
     let menuTitles = ["History", "My Videos", "Watch Later", "Logout", "Bookmarks:"]
@@ -23,11 +23,10 @@ class UserViewController: UIViewController, UITableViewDelegate, UITableViewData
     var user = MainController.user
     /// The offset of the last Content used to determine the scroll action
     var lastContentOffset: CGFloat = 0.0
-    
+
     var refreshControl = UIRefreshControl()
 
-    
-    //MARK: - Methods
+    // MARK: - Methods
 
     /**
      ### Customise View ###
@@ -35,154 +34,148 @@ class UserViewController: UIViewController, UITableViewDelegate, UITableViewData
      - Setup `TableView`
      */
     func customisation() {
-        guard let v = self.view else { return }
-        
-        self.view.addSubview(historyView)
-        self.historyView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.init(item: v, attribute: .top, relatedBy: .equal, toItem: self.historyView, attribute: .top, multiplier: 1.0, constant: 0).isActive = true
-        NSLayoutConstraint.init(item: v, attribute: .left, relatedBy: .equal, toItem: self.historyView, attribute: .left, multiplier: 1.0, constant: 0).isActive = true
-        NSLayoutConstraint.init(item: v, attribute: .right, relatedBy: .equal, toItem: self.historyView, attribute: .right, multiplier: 1.0, constant: 0).isActive = true
-        NSLayoutConstraint.init(item: v, attribute: .bottom, relatedBy: .equal, toItem: self.historyView, attribute: .bottom, multiplier: 1.0, constant: 0).isActive = true
-        self.historyView.isHidden = true
-        self.historyView.historyContent = user.historyContent
-        
-        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
-        self.refreshControl.addTarget(self, action:#selector(refresh), for: UIControl.Event.valueChanged)
-        self.tableView.addSubview(refreshControl)
-        self.tableView.contentInset = UIEdgeInsets(top: 50, left: 0, bottom: 30, right: 0)
-        self.tableView.scrollIndicatorInsets = UIEdgeInsets(top: 50, left: 0, bottom: 30, right: 0)
-        self.tableView.rowHeight = UITableView.automaticDimension
-        self.tableView.estimatedRowHeight = 300
-        self.tableView.reloadDataWithAnimation()
-        NotificationCenter.default.addObserver(self, selector: #selector(self.scrollViews(notification:)), name: Notification.Name.init(rawValue: "didSelectMenu"), object: nil)
+        guard let v = view else { return }
+
+        view.addSubview(historyView)
+        historyView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint(item: v, attribute: .top, relatedBy: .equal, toItem: historyView, attribute: .top, multiplier: 1.0, constant: 0).isActive = true
+        NSLayoutConstraint(item: v, attribute: .left, relatedBy: .equal, toItem: historyView, attribute: .left, multiplier: 1.0, constant: 0).isActive = true
+        NSLayoutConstraint(item: v, attribute: .right, relatedBy: .equal, toItem: historyView, attribute: .right, multiplier: 1.0, constant: 0).isActive = true
+        NSLayoutConstraint(item: v, attribute: .bottom, relatedBy: .equal, toItem: historyView, attribute: .bottom, multiplier: 1.0, constant: 0).isActive = true
+        historyView.isHidden = true
+        historyView.historyContent = user.historyContent
+
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
+        tableView.addSubview(refreshControl)
+        tableView.contentInset = UIEdgeInsets(top: 50, left: 0, bottom: 30, right: 0)
+        tableView.scrollIndicatorInsets = UIEdgeInsets(top: 50, left: 0, bottom: 30, right: 0)
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 300
+        tableView.reloadDataWithAnimation()
+        NotificationCenter.default.addObserver(self, selector: #selector(scrollViews(notification:)), name: Notification.Name(rawValue: "didSelectMenu"), object: nil)
     }
-    
+
     /// Scroll the menu, this will be called when a notification is being sent with value **didSelectMenu**
     @objc func scrollViews(notification: Notification) {
         if let info = notification.userInfo {
             let userInfo = info as! [String: Int]
-            if (userInfo["index"] == 3) {
-                self.historyView.hideHistoryView(self)
+            if userInfo["index"] == 3 {
+                historyView.hideHistoryView(self)
             }
         }
     }
-    
-    
-    ///Show History View
-    func showHistory () {
-        self.historyView.historyContent = user.historyContent
-        self.historyView.tableView.reloadDataWithAnimation()
-        self.historyView.isHidden = false
-        self.historyView.center.x += self.historyView.bounds.width;
+
+    /// Show History View
+    func showHistory() {
+        historyView.historyContent = user.historyContent
+        historyView.tableView.reloadDataWithAnimation()
+        historyView.isHidden = false
+        historyView.center.x += historyView.bounds.width
         UIView.animate(withDuration: 0.3) {
             self.historyView.center.x -= self.historyView.bounds.width
         }
     }
-    
+
     /// Set User for view
-    func setUser (user: User) {
+    func setUser(user: User) {
         self.user = user
     }
-    
-    @objc func refresh (sender:Any) {
-        refresherWithLoadingHUD(updateContent: {}, viewReload: {() -> Void in self.tableView.reloadDataWithAnimation()}, view: self.tableView, cancellable: false)
+
+    @objc func refresh(sender _: Any) {
+        refresherWithLoadingHUD(updateContent: {}, viewReload: { () -> Void in self.tableView.reloadDataWithAnimation() }, view: tableView, cancellable: false)
         refreshControl.endRefreshing()
     }
-    
+
     // MARK: Delegates
+
     /**
      Tells the data source to return the number of rows in a given section of a table view.
-     
+
      - Parameters:
         - tableView: The table-view object requesting this information.
         - indexPath: An index number identifying a section in tableView.
      - returns:
      The number of rows in section.
-     
+
      */
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.defaultItems + self.user.bookmarkedContent.count
+    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
+        return defaultItems + user.bookmarkedContent.count
     }
-    
+
     /**
      Asks the source for a cell to insert in a particular location of the table view.
-     
+
      - Parameters:
         - tableView: A table-view object requesting the cell.
         - indexPath: An index path locating a row in tableView.
      - returns:
      An object inheriting from `UITableViewCel`l that the table view can use for the specified row. `UIKit` raises an assertion if you return nil.
-     
+
      */
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "UserHeaderCell", for: indexPath) as! userHeaderCell
-            cell.name.text = self.user.name
-            cell.profilePic.image = self.user.profilePic
-            cell.backgroundImage.image = self.user.backgroundImage
+            cell.name.text = user.name
+            cell.profilePic.image = user.profilePic
+            cell.backgroundImage.image = user.backgroundImage
             return cell
-        case 1...self.defaultItems - 2:
+        case 1 ... defaultItems - 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "UserMenuCell", for: indexPath) as! userMenuCell
-            cell.menuTitles.text = self.menuTitles[indexPath.row - 1]
-            cell.menuIcon.image = UIImage.init(named: self.menuTitles[indexPath.row - 1])
-           return cell
-        case self.defaultItems - 1:
+            cell.menuTitles.text = menuTitles[indexPath.row - 1]
+            cell.menuIcon.image = UIImage(named: menuTitles[indexPath.row - 1])
+            return cell
+        case defaultItems - 1:
             let cell = UITableViewCell()
             cell.textLabel?.text = "Bookmarks :"
             return cell
-        case self.defaultItems...(self.defaultItems + self.user.bookmarkedContent.count):
+        case defaultItems ... (defaultItems + user.bookmarkedContent.count):
             let cell = tableView.dequeueReusableCell(withIdentifier: "UserPlaylistsCell", for: indexPath) as! userPlaylistCell
-            cell.pic.image = self.user.bookmarkedContent[self.user.bookmarkedContent.index(self.user.bookmarkedContent.startIndex, offsetBy: indexPath.row - self.defaultItems)].thumbnail
-            cell.title.text = self.user.bookmarkedContent[self.user.bookmarkedContent.index(self.user.bookmarkedContent.startIndex, offsetBy: indexPath.row - self.defaultItems)].title
-            cell.channel.text = self.user.bookmarkedContent[self.user.bookmarkedContent.index(self.user.bookmarkedContent.startIndex, offsetBy: indexPath.row - self.defaultItems)].channel.name
+            cell.pic.image = user.bookmarkedContent[user.bookmarkedContent.index(user.bookmarkedContent.startIndex, offsetBy: indexPath.row - defaultItems)].thumbnail
+            cell.title.text = user.bookmarkedContent[user.bookmarkedContent.index(user.bookmarkedContent.startIndex, offsetBy: indexPath.row - defaultItems)].title
+            cell.channel.text = user.bookmarkedContent[user.bookmarkedContent.index(user.bookmarkedContent.startIndex, offsetBy: indexPath.row - defaultItems)].channel.name
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "UserMenuCell", for: indexPath) as! userMenuCell
             return cell
         }
     }
-    
+
     /**
      Tells the delegate that the specified row is now selected.
-     
+
      - Parameters:
         - tableView: A table-view object informing the delegate about the new row selection.
         - indexPath: An index path locating the new selected row in tableView.
      */
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if (indexPath.row == 0) {
+        if indexPath.row == 0 {
             return
-        } else if (indexPath.row < self.defaultItems) {
-            if (menuTitles[indexPath.row - 1] == "History") {
+        } else if indexPath.row < defaultItems {
+            if menuTitles[indexPath.row - 1] == "History" {
                 showHistory()
-            } else if (menuTitles[indexPath.row - 1] == "Logout") {
-                MainController.logout();
+            } else if menuTitles[indexPath.row - 1] == "Logout" {
+                MainController.logout()
                 let alert = UIAlertController(title: "Logout Successful", message: "", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .cancel))
-                self.present(alert, animated:  true, completion: nil)
+                present(alert, animated: true, completion: nil)
                 user = MainController.user
                 self.tableView.reloadDataWithAnimation()
             }
         } else {
-            NotificationCenter.default.post(name: NSNotification.Name("open"), object: self.user.bookmarkedContent[self.user.bookmarkedContent.index(self.user.bookmarkedContent.startIndex, offsetBy: indexPath.row - self.defaultItems)])
+            NotificationCenter.default.post(name: NSNotification.Name("open"), object: user.bookmarkedContent[user.bookmarkedContent.index(user.bookmarkedContent.startIndex, offsetBy: indexPath.row - defaultItems)])
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }
 
+    // MARK: - ViewController Lifecycle
 
-    
-    
-    //MARK: - ViewController Lifecycle
     /**
      Called after the controller's view is loaded into memory. Load  `customisation`
      */
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.customisation()
+        customisation()
     }
 }
-
-
-
-

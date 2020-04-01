@@ -10,24 +10,26 @@ import Foundation
 import UIKit
 
 class suggestionContentCell: UITableViewCell {
-    //MARK: - Properties
-    @IBOutlet weak var thumbnail: UIImageView!
-    @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var name: UILabel!
-    
-    //MARK: - Method
-    func set(content: Content)  {
-        self.thumbnail.image = content.thumbnail
-        self.title.text = content.title
-        self.name.text = content.channel.name
+    // MARK: - Properties
+
+    @IBOutlet var thumbnail: UIImageView!
+    @IBOutlet var title: UILabel!
+    @IBOutlet var name: UILabel!
+
+    // MARK: - Method
+
+    func set(content: Content) {
+        thumbnail.image = content.thumbnail
+        title.text = content.title
+        name.text = content.channel.name
     }
-    
-    //MARK: - View Lifecycle
+
+    // MARK: - View Lifecycle
+
     override func prepareForReuse() {
         super.prepareForReuse()
-        self.thumbnail.image = UIImage.init(named: "Video Placeholder")
-        self.title.text = nil
-        self.name.text = nil
+        thumbnail.image = UIImage(named: "Video Placeholder")
+        title.text = nil
+        name.text = nil
     }
-    
 }

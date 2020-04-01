@@ -11,20 +11,21 @@ import UIKit
 
 class userPlaylistCell: UITableViewCell {
     //
-    ///UIImageView in storyboard
-    @IBOutlet weak var pic: UIImageView!
-    ///UILabel in storyboard
-    @IBOutlet weak var title: UILabel!
-    ///UILabel in storybaord
-    @IBOutlet weak var channel: UILabel!
-    
-    func customisation () {
-        self.pic.layer.cornerRadius = 5
-        self.pic.clipsToBounds = true
+    /// UIImageView in storyboard
+    @IBOutlet var pic: UIImageView!
+    /// UILabel in storyboard
+    @IBOutlet var title: UILabel!
+    /// UILabel in storybaord
+    @IBOutlet var channel: UILabel!
+
+    func customisation() {
+        pic.layer.cornerRadius = 5
+        pic.clipsToBounds = true
     }
-    
-    //MARK: View Lifecycle
-    ///Prepares the receiver for service after it has been loaded from an Interface Builder archive, or nib file.
+
+    // MARK: View Lifecycle
+
+    /// Prepares the receiver for service after it has been loaded from an Interface Builder archive, or nib file.
     override func awakeFromNib() {
         super.awakeFromNib()
         customisation()

@@ -16,7 +16,7 @@ struct Playlist {
     let title: String
     /// Used to display number of videos in `Playlist`
     let numberOfVideos: Int
-    
+
     /// Performe `Playlist` initialization
     init(pic: UIImage, title: String, numberOfVideos: Int) {
         self.pic = pic

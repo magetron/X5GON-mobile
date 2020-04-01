@@ -7,14 +7,13 @@
 //
 
 import Foundation
-import XCTest
 @testable import x5gon_mobile
+import XCTest
 extension XCTestCase {
     func expectFatalError(expectedMessage: String, testcase: @escaping () -> Void) {
-
         // arrange
         let expectation = self.expectation(description: "expectingFatalError")
-        var assertionMessage: String? = nil
+        var assertionMessage: String?
 
         // override fatalError. This will pause forever when fatalError is called.
         FatalErrorUtil.replaceFatalError { message, _, _ in

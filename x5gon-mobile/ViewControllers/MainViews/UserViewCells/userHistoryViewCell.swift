@@ -10,22 +10,21 @@ import Foundation
 import UIKit
 
 class userHistoryViewCell: UITableViewCell {
-    //UIImageView in storyboard
-    @IBOutlet weak var videoThumbnail: UIImageView!
-    //UILabel in storyboard
-    @IBOutlet weak var videoTitle: UILabel!
-    //UILabel in storyboard
-    @IBOutlet weak var videoChannel: UILabel!
-    
+    // UIImageView in storyboard
+    @IBOutlet var videoThumbnail: UIImageView!
+    // UILabel in storyboard
+    @IBOutlet var videoTitle: UILabel!
+    // UILabel in storyboard
+    @IBOutlet var videoChannel: UILabel!
+
     /**
      set History Video Content
-     
+
      - Parameters:
         - thumbnail: UIImage
         - title: String
         - channel: String
-     
-     
+
      ### Usage Example: ###
      ````
      set(thumbnail, title, channel)

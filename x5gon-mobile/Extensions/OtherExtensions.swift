@@ -6,10 +6,10 @@
 //  Copyright © 2020 x5gon. All rights reserved.
 //
 
-import UIKit
 import Foundation
+import UIKit
 
-extension UIColor{
+extension UIColor {
     /**
      Covert rgb number into swift `UIColor`
      - returns: UIColor
@@ -17,27 +17,27 @@ extension UIColor{
         - r: Red
         - g:  Green
         - b: Blue
-     
+
      ### Usage Example: ###
      ````
      let color = rbg(233,232,101)
-     
+
      ````
      */
     class func rbg(r: CGFloat, g: CGFloat, b: CGFloat) -> UIColor {
-        let color = UIColor.init(red: r/255, green: g/255, blue: b/255, alpha: 1)
+        let color = UIColor(red: r / 255, green: g / 255, blue: b / 255, alpha: 1)
         return color
     }
 }
 
 extension MutableCollection where Index == Int {
-    ///Implementation of Knuth Shuffle
+    /// Implementation of Knuth Shuffle
     mutating func myShuffle() {
         if count < 2 { return }
         for i in startIndex ..< endIndex - 1 {
             let j = Int(arc4random_uniform(UInt32(endIndex - i))) + i
             if i != j {
-                self.swapAt(i, j)
+                swapAt(i, j)
             }
         }
     }
@@ -52,31 +52,31 @@ extension Int {
             let hs = String(hours)
             return hs
         }()
-        
+
         let minutesString: String = {
             var ms = ""
-            if  (minutes <= 9 && minutes >= 0) {
+            if minutes <= 9, minutes >= 0 {
                 ms = "0\(minutes)"
-            } else{
+            } else {
                 ms = String(minutes)
             }
             return ms
         }()
-        
+
         let secondsString: String = {
             var ss = ""
-            if  (second <= 9 && second >= 0) {
+            if second <= 9, second >= 0 {
                 ss = "0\(second)"
-            } else{
+            } else {
                 ss = String(second)
             }
             return ss
         }()
-        
+
         var label = ""
         if hours == 0 {
-            label =  minutesString + ":" + secondsString
-        } else{
+            label = minutesString + ":" + secondsString
+        } else {
             label = hoursString + ":" + minutesString + ":" + secondsString
         }
         return label
@@ -100,5 +100,3 @@ enum Direction {
     /// No movement
     case none
 }
-
-

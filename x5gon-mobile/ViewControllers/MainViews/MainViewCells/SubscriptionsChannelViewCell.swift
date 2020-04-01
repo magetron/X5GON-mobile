@@ -5,10 +5,10 @@
 ////  Created by Patrick Wu on 19/02/2020.
 ////  Copyright © 2020 x5gon. All rights reserved.
 ////
-//import Foundation
-//import UIKit
+// import Foundation
+// import UIKit
 //
-//class SubscriptionsCVCell: UICollectionViewCell {
+// class SubscriptionsCVCell: UICollectionViewCell {
 //    //MARK: - Property
 //    /// This is a `UIImageView` which is used to display channel pictures
 //    @IBOutlet weak var channelPic: UIImageView!
@@ -24,4 +24,4 @@
 //        customisation()
 //        channelPic.accessibilityIdentifier = "Image--ChannelPic"
 //    }
-//}
+// }

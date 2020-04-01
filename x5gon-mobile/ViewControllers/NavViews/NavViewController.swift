@@ -9,30 +9,33 @@
 import UIKit
 
 class NavViewController: UINavigationController, PlayerViewControllerDelegate, SettingsViewControllerDelegate {
+    // MARK: - Properties
 
-    //MARK: - Properties
     @IBOutlet var playerView: PlayerView!
     @IBOutlet var searchView: SearchView!
     @IBOutlet var settingsView: SettingsView!
     @IBOutlet var loginView: LoginView!
-    
+
     let titleLabel = UILabel()
     let names = ["Home", "Featured", "Search Results", "User"]
     let hiddenOrigin: CGPoint = {
         let y = UIScreen.main.bounds.height - (UIScreen.main.bounds.width * 9 / 32) - 10
         let x = -UIScreen.main.bounds.width
-        let coordinate = CGPoint.init(x: x, y: y)
+        let coordinate = CGPoint(x: x, y: y)
         return coordinate
     }()
-    let minimizedOrigin: CGPoint = {
-        let x = UIScreen.main.bounds.width/2 - 10
-        let y = UIScreen.main.bounds.height - (UIScreen.main.bounds.width * 9 / 32) - 10
-        let coordinate = CGPoint.init(x: x, y: y)
-        return coordinate
-    }()
-    let fullScreenOrigin = CGPoint.init(x: 0, y: 0)
 
-    //MARK: - Methods
+    let minimizedOrigin: CGPoint = {
+        let x = UIScreen.main.bounds.width / 2 - 10
+        let y = UIScreen.main.bounds.height - (UIScreen.main.bounds.width * 9 / 32) - 10
+        let coordinate = CGPoint(x: x, y: y)
+        return coordinate
+    }()
+
+    let fullScreenOrigin = CGPoint(x: 0, y: 0)
+
+    // MARK: - Methods
+
     /**
      ### Customise View ###
      - Setup NavigationBarButtons
@@ -44,123 +47,123 @@ class NavViewController: UINavigationController, PlayerViewControllerDelegate, S
      */
     func customisation() {
         MainController.navViewController = self
-        
-        //NavigationBar buttons
-        
-        //Settings Button
-        let settingsButton = UIButton.init(type: .system)
-        settingsButton.setImage(UIImage.init(named: "navSettings"), for: .normal)
-        settingsButton.tintColor = UIColor.white;
-        settingsButton.addTarget(self, action: #selector(self.showSettings), for: UIControl.Event.touchUpInside)
-        self.navigationBar.addSubview(settingsButton)
+
+        // NavigationBar buttons
+
+        // Settings Button
+        let settingsButton = UIButton(type: .system)
+        settingsButton.setImage(UIImage(named: "navSettings"), for: .normal)
+        settingsButton.tintColor = UIColor.white
+        settingsButton.addTarget(self, action: #selector(showSettings), for: UIControl.Event.touchUpInside)
+        navigationBar.addSubview(settingsButton)
         settingsButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.init(item: self.navigationBar, attribute: .height, relatedBy: .equal, toItem: settingsButton, attribute: .height, multiplier: 1.0, constant: 0).isActive = true
-        NSLayoutConstraint.init(item: settingsButton, attribute: .width, relatedBy: .equal, toItem: settingsButton, attribute: .height, multiplier: 1.0, constant: 0).isActive = true
-        NSLayoutConstraint.init(item: self.navigationBar, attribute: .centerY, relatedBy: .equal, toItem: settingsButton, attribute: .centerY, multiplier: 1.0, constant: 0).isActive = true
-        NSLayoutConstraint.init(item: self.navigationBar, attribute: .right, relatedBy: .equal, toItem: settingsButton, attribute: .right, multiplier: 1.0, constant: 10).isActive = true
-        
-        //SearchButton
-        let searchButton = UIButton.init(type: .system)
-        searchButton.setImage(UIImage.init(named: "navSearch"), for: .normal)
-        searchButton.tintColor = UIColor.white;
-        searchButton.addTarget(self, action: #selector(self.showSearch), for: UIControl.Event.touchUpInside)
-        self.navigationBar.addSubview(searchButton)
+        NSLayoutConstraint(item: navigationBar, attribute: .height, relatedBy: .equal, toItem: settingsButton, attribute: .height, multiplier: 1.0, constant: 0).isActive = true
+        NSLayoutConstraint(item: settingsButton, attribute: .width, relatedBy: .equal, toItem: settingsButton, attribute: .height, multiplier: 1.0, constant: 0).isActive = true
+        NSLayoutConstraint(item: navigationBar, attribute: .centerY, relatedBy: .equal, toItem: settingsButton, attribute: .centerY, multiplier: 1.0, constant: 0).isActive = true
+        NSLayoutConstraint(item: navigationBar, attribute: .right, relatedBy: .equal, toItem: settingsButton, attribute: .right, multiplier: 1.0, constant: 10).isActive = true
+
+        // SearchButton
+        let searchButton = UIButton(type: .system)
+        searchButton.setImage(UIImage(named: "navSearch"), for: .normal)
+        searchButton.tintColor = UIColor.white
+        searchButton.addTarget(self, action: #selector(showSearch), for: UIControl.Event.touchUpInside)
+        navigationBar.addSubview(searchButton)
         searchButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.init(item: self.navigationBar, attribute: .height, relatedBy: .equal, toItem: searchButton, attribute: .height, multiplier: 1.0, constant: 0).isActive = true
-        NSLayoutConstraint.init(item: searchButton, attribute: .width, relatedBy: .equal, toItem: searchButton, attribute: .height, multiplier: 1.0, constant: 0).isActive = true
-        NSLayoutConstraint.init(item: self.navigationBar, attribute: .centerY, relatedBy: .equal, toItem: searchButton, attribute: .centerY, multiplier: 1.0, constant: 0).isActive = true
-        NSLayoutConstraint.init(item: searchButton, attribute: .right, relatedBy: .equal, toItem: settingsButton, attribute: .left, multiplier: 1.0, constant: -10).isActive = true
-        
-        //TitleLabel setup
-        self.titleLabel.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
-        self.titleLabel.textColor =  UIColor.white
-        self.titleLabel.text = self.names[0]
-        self.navigationBar.addSubview(self.titleLabel)
-        self.titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.init(item: self.navigationBar, attribute: .centerY, relatedBy: .equal, toItem: self.titleLabel, attribute: .centerY, multiplier: 1.0, constant: 0).isActive = true
-        NSLayoutConstraint.init(item: self.navigationBar, attribute: .height, relatedBy: .equal, toItem: self.titleLabel, attribute: .height, multiplier: 1.0, constant: 0).isActive = true
-        NSLayoutConstraint.init(item: self.navigationBar, attribute: .left, relatedBy: .equal, toItem: self.titleLabel, attribute: .left, multiplier: 1.0, constant: -15).isActive = true
-        self.titleLabel.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        //NavigationBar color and shadow
-        self.navigationBar.barTintColor = Environment.X5Color
-        self.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationBar.shadowImage = UIImage()
-        self.navigationItem.hidesBackButton = true
-        guard let v = self.view else { return }
-        
-        //SearchView setup
-        self.view.addSubview(self.searchView)
-        self.searchView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.init(item: v, attribute: .top, relatedBy: .equal, toItem: self.searchView, attribute: .top, multiplier: 1.0, constant: 0).isActive = true
-        NSLayoutConstraint.init(item: v, attribute: .left, relatedBy: .equal, toItem: self.searchView, attribute: .left, multiplier: 1.0, constant: 0).isActive = true
-        NSLayoutConstraint.init(item: v, attribute: .right, relatedBy: .equal, toItem: self.searchView, attribute: .right, multiplier: 1.0, constant: 0).isActive = true
-        NSLayoutConstraint.init(item: v, attribute: .bottom, relatedBy: .equal, toItem: self.searchView, attribute: .bottom, multiplier: 1.0, constant: 0).isActive = true
-        self.searchView.isHidden = true
-        
-        //SettingsView setup
-        self.view.addSubview(self.settingsView)
-        self.settingsView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.init(item: v, attribute: .top, relatedBy: .equal, toItem: self.settingsView, attribute: .top, multiplier: 1.0, constant: 0).isActive = true
-        NSLayoutConstraint.init(item: v, attribute: .left, relatedBy: .equal, toItem: self.settingsView, attribute: .left, multiplier: 1.0, constant: 0).isActive = true
-        NSLayoutConstraint.init(item: v, attribute: .right, relatedBy: .equal, toItem: self.settingsView, attribute: .right, multiplier: 1.0, constant: 0).isActive = true
-        NSLayoutConstraint.init(item: v, attribute: .bottom, relatedBy: .equal, toItem: self.settingsView, attribute: .bottom, multiplier: 1.0, constant: 0).isActive = true
-        self.settingsView.isHidden = true
-        self.settingsView.delegate = self
-        
-        //LoginView setup
-        self.view.addSubview(self.loginView)
-        self.loginView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.init(item: v, attribute: .top, relatedBy: .equal, toItem: self.loginView, attribute: .top, multiplier: 1.0, constant: 0).isActive = true
-        NSLayoutConstraint.init(item: v, attribute: .left, relatedBy: .equal, toItem: self.loginView, attribute: .left, multiplier: 1.0, constant: 0).isActive = true
-        NSLayoutConstraint.init(item: v, attribute: .right, relatedBy: .equal, toItem: self.loginView, attribute: .right, multiplier: 1.0, constant: 0).isActive = true
-        NSLayoutConstraint.init(item: v, attribute: .bottom, relatedBy: .equal, toItem: self.loginView, attribute: .bottom, multiplier: 1.0, constant: 0).isActive = true
-        self.loginView.isHidden = true
-        
-        //PlayerView setup
-        self.view.addSubview(self.playerView)
-        self.playerView.frame = CGRect.init(origin: self.hiddenOrigin, size: UIScreen.main.bounds.size)
-        self.playerView.delegate = self
-        
-        //NotificaionCenter Setup
-        NotificationCenter.default.addObserver(self, selector: #selector(self.changeTitle(notification:)), name: Notification.Name.init(rawValue: "scrollMenu"), object: nil)
+        NSLayoutConstraint(item: navigationBar, attribute: .height, relatedBy: .equal, toItem: searchButton, attribute: .height, multiplier: 1.0, constant: 0).isActive = true
+        NSLayoutConstraint(item: searchButton, attribute: .width, relatedBy: .equal, toItem: searchButton, attribute: .height, multiplier: 1.0, constant: 0).isActive = true
+        NSLayoutConstraint(item: navigationBar, attribute: .centerY, relatedBy: .equal, toItem: searchButton, attribute: .centerY, multiplier: 1.0, constant: 0).isActive = true
+        NSLayoutConstraint(item: searchButton, attribute: .right, relatedBy: .equal, toItem: settingsButton, attribute: .left, multiplier: 1.0, constant: -10).isActive = true
+
+        // TitleLabel setup
+        titleLabel.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
+        titleLabel.textColor = UIColor.white
+        titleLabel.text = names[0]
+        navigationBar.addSubview(titleLabel)
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint(item: navigationBar, attribute: .centerY, relatedBy: .equal, toItem: titleLabel, attribute: .centerY, multiplier: 1.0, constant: 0).isActive = true
+        NSLayoutConstraint(item: navigationBar, attribute: .height, relatedBy: .equal, toItem: titleLabel, attribute: .height, multiplier: 1.0, constant: 0).isActive = true
+        NSLayoutConstraint(item: navigationBar, attribute: .left, relatedBy: .equal, toItem: titleLabel, attribute: .left, multiplier: 1.0, constant: -15).isActive = true
+        titleLabel.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        // NavigationBar color and shadow
+        navigationBar.barTintColor = Environment.X5Color
+        navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationBar.shadowImage = UIImage()
+        navigationItem.hidesBackButton = true
+        guard let v = view else { return }
+
+        // SearchView setup
+        view.addSubview(searchView)
+        searchView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint(item: v, attribute: .top, relatedBy: .equal, toItem: searchView, attribute: .top, multiplier: 1.0, constant: 0).isActive = true
+        NSLayoutConstraint(item: v, attribute: .left, relatedBy: .equal, toItem: searchView, attribute: .left, multiplier: 1.0, constant: 0).isActive = true
+        NSLayoutConstraint(item: v, attribute: .right, relatedBy: .equal, toItem: searchView, attribute: .right, multiplier: 1.0, constant: 0).isActive = true
+        NSLayoutConstraint(item: v, attribute: .bottom, relatedBy: .equal, toItem: searchView, attribute: .bottom, multiplier: 1.0, constant: 0).isActive = true
+        searchView.isHidden = true
+
+        // SettingsView setup
+        view.addSubview(settingsView)
+        settingsView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint(item: v, attribute: .top, relatedBy: .equal, toItem: settingsView, attribute: .top, multiplier: 1.0, constant: 0).isActive = true
+        NSLayoutConstraint(item: v, attribute: .left, relatedBy: .equal, toItem: settingsView, attribute: .left, multiplier: 1.0, constant: 0).isActive = true
+        NSLayoutConstraint(item: v, attribute: .right, relatedBy: .equal, toItem: settingsView, attribute: .right, multiplier: 1.0, constant: 0).isActive = true
+        NSLayoutConstraint(item: v, attribute: .bottom, relatedBy: .equal, toItem: settingsView, attribute: .bottom, multiplier: 1.0, constant: 0).isActive = true
+        settingsView.isHidden = true
+        settingsView.delegate = self
+
+        // LoginView setup
+        view.addSubview(loginView)
+        loginView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint(item: v, attribute: .top, relatedBy: .equal, toItem: loginView, attribute: .top, multiplier: 1.0, constant: 0).isActive = true
+        NSLayoutConstraint(item: v, attribute: .left, relatedBy: .equal, toItem: loginView, attribute: .left, multiplier: 1.0, constant: 0).isActive = true
+        NSLayoutConstraint(item: v, attribute: .right, relatedBy: .equal, toItem: loginView, attribute: .right, multiplier: 1.0, constant: 0).isActive = true
+        NSLayoutConstraint(item: v, attribute: .bottom, relatedBy: .equal, toItem: loginView, attribute: .bottom, multiplier: 1.0, constant: 0).isActive = true
+        loginView.isHidden = true
+
+        // PlayerView setup
+        view.addSubview(playerView)
+        playerView.frame = CGRect(origin: hiddenOrigin, size: UIScreen.main.bounds.size)
+        playerView.delegate = self
+
+        // NotificaionCenter Setup
+        NotificationCenter.default.addObserver(self, selector: #selector(changeTitle(notification:)), name: Notification.Name(rawValue: "scrollMenu"), object: nil)
     }
-    
-    @objc func showSearch()  {
-        self.searchView.alpha = 0
-        self.searchView.isHidden = false
-        self.view.bringSubviewToFront(searchView)
+
+    @objc func showSearch() {
+        searchView.alpha = 0
+        searchView.isHidden = false
+        view.bringSubviewToFront(searchView)
         UIView.animate(withDuration: 0.2, animations: {
             self.searchView.alpha = 1
         }) { _ in
             self.searchView.inputField.becomeFirstResponder()
         }
     }
-    
+
     @objc func showSettings() {
-        self.settingsView.isHidden = false
-        self.settingsView.tableViewBottomConstraint.constant = 0
-        UIView.animate(withDuration: 0.3) { 
+        settingsView.isHidden = false
+        settingsView.tableViewBottomConstraint.constant = 0
+        UIView.animate(withDuration: 0.3) {
             self.settingsView.backgroundView.alpha = 0.5
             self.settingsView.layoutIfNeeded()
         }
     }
-    
-    func showLogin () {
-        self.loginView.isHidden = false
-        self.loginView.viewBottomConstraint.constant = 0
+
+    func showLogin() {
+        loginView.isHidden = false
+        loginView.viewBottomConstraint.constant = 0
         UIView.animate(withDuration: 0.3) {
             self.loginView.backgroundView.alpha = 0.5
             self.loginView.layoutIfNeeded()
         }
     }
-    
-    @objc func changeTitle(notification: Notification)  {
+
+    @objc func changeTitle(notification: Notification) {
         if let info = notification.userInfo {
             let userInfo = info as! [String: CGFloat]
-            self.titleLabel.text = self.names[Int(round(userInfo["length"]!))]
+            titleLabel.text = names[Int(round(userInfo["length"]!))]
         }
     }
-    
+
     func animatePlayView(toState: stateOfViewController) {
         switch toState {
         case .fullScreen:
@@ -180,75 +183,76 @@ class NavViewController: UINavigationController, PlayerViewControllerDelegate, S
             MainController.setHideTopBar(hide: false)
         }
     }
-    
+
     func positionDuringSwipe(scaleFactor: CGFloat) -> CGPoint {
         let width = UIScreen.main.bounds.width * 0.5 * scaleFactor
         let height = width * 9 / 16
         let x = (UIScreen.main.bounds.width - 10) * scaleFactor - width
         let y = (UIScreen.main.bounds.height - 10) * scaleFactor - height
-        let coordinate = CGPoint.init(x: x, y: y)
+        let coordinate = CGPoint(x: x, y: y)
         return coordinate
     }
-    
+
     func setPreferStatusBarHidden(_ preferHidden: Bool) {
-        self.isHidden = preferHidden
+        isHidden = preferHidden
     }
-    
+
     var isHidden = true {
         didSet {
-            self.setNeedsStatusBarAppearanceUpdate()
-        }
-    }
-    
-    //MARK: Delegate
-    func didMinimize() {
-        self.animatePlayView(toState: .minimized)
-    }
-    
-    func didmaximize(){
-        self.animatePlayView(toState: .fullScreen)
-    }
-    
-    func didEndedSwipe(toState: stateOfViewController){
-        self.animatePlayView(toState: toState)
-    }
-    
-    func swipeToMinimize(translation: CGFloat, toState: stateOfViewController){
-        switch toState {
-        case .fullScreen:
-            self.playerView.frame.origin = self.positionDuringSwipe(scaleFactor: translation)
-        case .hidden:
-            self.playerView.frame.origin.x = UIScreen.main.bounds.width/2 - abs(translation) - 10
-        case .minimized:
-            self.playerView.frame.origin = self.positionDuringSwipe(scaleFactor: translation)
+            setNeedsStatusBarAppearanceUpdate()
         }
     }
 
-    
+    // MARK: Delegate
+
+    func didMinimize() {
+        animatePlayView(toState: .minimized)
+    }
+
+    func didmaximize() {
+        animatePlayView(toState: .fullScreen)
+    }
+
+    func didEndedSwipe(toState: stateOfViewController) {
+        animatePlayView(toState: toState)
+    }
+
+    func swipeToMinimize(translation: CGFloat, toState: stateOfViewController) {
+        switch toState {
+        case .fullScreen:
+            playerView.frame.origin = positionDuringSwipe(scaleFactor: translation)
+        case .hidden:
+            playerView.frame.origin.x = UIScreen.main.bounds.width / 2 - abs(translation) - 10
+        case .minimized:
+            playerView.frame.origin = positionDuringSwipe(scaleFactor: translation)
+        }
+    }
+
     override var prefersStatusBarHidden: Bool {
         return isHidden
     }
-    
-    //MARK: - ViewController lifecycle
+
+    // MARK: - ViewController lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.customisation()
+        customisation()
     }
-    
+
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
+
+    override func viewDidAppear(_: Bool) {
         super.viewWillAppear(true)
         let keyWindow = UIApplication.shared.connectedScenes
-            .filter({$0.activationState == .foregroundActive})
-            .map({$0 as? UIWindowScene})
-            .compactMap({$0})
+            .filter { $0.activationState == .foregroundActive }
+            .map { $0 as? UIWindowScene }
+            .compactMap { $0 }
             .first?.windows
-            .filter({$0.isKeyWindow}).first
+            .filter { $0.isKeyWindow }.first
         if let window = keyWindow {
-            window.addSubview(self.playerView)
+            window.addSubview(playerView)
         }
     }
 }

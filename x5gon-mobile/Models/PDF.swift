@@ -6,35 +6,32 @@
 //  Copyright © 2020 x5gon. All rights reserved.
 //
 
-import Foundation
 import AVFoundation
+import Foundation
 import UIKit
 
-
-class PDF : Content {
+class PDF: Content {
     /// Performe `PDF` initialization
-    override init (title: String, id: Int, channelName: String, description: String, url: URL) {
+    override init(title: String, id: Int, channelName: String, description: String, url: URL) {
         super.init(title: title, id: id, channelName: channelName, description: description, url: url)
-        self.fetchContentInfo()
+        fetchContentInfo()
     }
-    
+
     /// Fetching content using **text(pdf)** as contentType
-    override func fetchSuggestedContents () {
-        let pdfs = MainController.fetchContents(keyWord: self.title, contentType: "text", cancellable: true)
+    override func fetchSuggestedContents() {
+        let pdfs = MainController.fetchContents(keyWord: title, contentType: "text", cancellable: true)
         super.suggestedContents = pdfs
     }
-    
+
     /**
      Fetching `Content` information
-     
+
      ### Usage Example: ###
      ````
       self.fetchContentInfo()
      ````
      */
     override func fetchContentInfo() {
-        self.duration = 0
+        duration = 0
     }
-    
 }
-
