@@ -193,6 +193,35 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         }
     }
 
+    func setContent(content: Content) {
+        self.content = content
+        contentLiked = false
+        contentDisliked = false
+        if let video = content as? Video {
+            setVideo(video: video)
+        } else if let pdf = content as? PDF {
+            setPDF(pdf: pdf)
+        }
+        if content.suggestedContents.count == 0 {
+            refresherWithLoadingHUD(updateContent: { () -> Void in
+                content.fetchSuggestedContents()
+            }, viewReload: { () -> Void in
+                if self.content == content {
+                    self.tableView.reloadDataWithAnimation()
+                }
+            }, view: tableView, cancellable: true)
+        }
+        if content.wiki.chunks.count == 0 {
+            refresherWithLoadingHUD(updateContent: { () -> Void in content.fetchWikiChunkEnrichments() }, viewReload: { () -> Void in
+                if self.content.hashValue == content.hashValue {
+                    self.navigationView.setWiki(wiki: content.wiki)
+                    self.navigationView.tableView.reloadDataWithAnimation()
+                }
+            }, view: navigationView.tableView, cancellable: true)
+        }
+        tableView.reloadDataWithAnimation()
+    }
+
     func setVideo(video: Video) {
         player.clearSubViews()
         if videoPlayerViewController.player == nil {
@@ -224,35 +253,6 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         player.addSubview(navBar)
         player.addSubview(returnButton)
         pdfView.document = PDFDocument(url: pdf.contentLink)
-    }
-
-    func setContent(content: Content) {
-        self.content = content
-        contentLiked = false
-        contentDisliked = false
-        if let video = content as? Video {
-            setVideo(video: video)
-        } else if let pdf = content as? PDF {
-            setPDF(pdf: pdf)
-        }
-        if content.suggestedContents.count == 0 {
-            refresherWithLoadingHUD(updateContent: { () -> Void in
-                content.fetchSuggestedContents()
-            }, viewReload: { () -> Void in
-                if self.content == content {
-                    self.tableView.reloadDataWithAnimation()
-                }
-            }, view: tableView, cancellable: true)
-        }
-        if content.wiki.chunks.count == 0 {
-            refresherWithLoadingHUD(updateContent: { () -> Void in content.fetchWikiChunkEnrichments() }, viewReload: { () -> Void in
-                if self.content.hashValue == content.hashValue {
-                    self.navigationView.setWiki(wiki: content.wiki)
-                    self.navigationView.tableView.reloadDataWithAnimation()
-                }
-            }, view: navigationView.tableView, cancellable: true)
-        }
-        tableView.reloadDataWithAnimation()
     }
 
     // MARK: - Delegate
