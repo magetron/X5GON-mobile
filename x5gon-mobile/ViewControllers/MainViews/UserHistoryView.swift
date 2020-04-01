@@ -8,14 +8,15 @@
 
 import Foundation
 import UIKit
-
+/// User History View set up
 class UserHistoryView: UIView, UITableViewDelegate, UITableViewDataSource, UINavigationBarDelegate {
     // MARK: - Properties
 
-    // This is a list of `Content`s which is used to store history contents
+    /// This is a list of `Content`s which is used to store history contents
     var historyContent = [Content]()
-
+    /// The `Back` button
     @IBOutlet var backButton: UIButton!
+    /// Connenct to UInavigationBar
     @IBOutlet var navBar: UINavigationBar!
     // This is a `UITableView` which is used to display `Content`s as cells.
     @IBOutlet var tableView: UITableView!
@@ -42,6 +43,7 @@ class UserHistoryView: UIView, UITableViewDelegate, UITableViewDataSource, UINav
         bringSubviewToFront(backButton)
     }
 
+    /// This will hide the historyview when a notification value **true** is being sent
     @IBAction func hideHistoryView(_: Any) {
         UIView.animate(withDuration: 0.3, animations: {
             self.transform = CGAffineTransform(translationX: self.bounds.width, y: 0)

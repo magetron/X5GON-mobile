@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+/// This a controller to control search results
 class SearchResultsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
     // MARK: - Properties
 
@@ -82,10 +82,10 @@ class SearchResultsViewController: UIViewController, UITableViewDelegate, UITabl
 
     /*
      /**
-          Tells the delegate when the user scrolls the content view within the receiver. Send the **hide** notification
+           Tells the delegate when the user scrolls the content view within the receiver. Send the **hide** notification
 
-          - Parameters:
-             - scorllView: The scroll-view object in which the scrolling occurred.
+           - Parameters:
+              - scorllView: The scroll-view object in which the scrolling occurred.
       */
      func scrollViewDidScroll(_ scrollView: UIScrollView) {
          if (self.lastContentOffset > scrollView.contentOffset.y) {
@@ -96,11 +96,11 @@ class SearchResultsViewController: UIViewController, UITableViewDelegate, UITabl
      }
 
      /**
-          Tells the delegate when dragging ended in the scroll view.  Update the last Content Offset
+           Tells the delegate when dragging ended in the scroll view.  Update the last Content Offset
 
-          - Parameters:
-             - scrollView: The scrollVview object that finished scrolling the content view.
-             - decelerate: The value is true if the scrolling movement will continue, but decelerate, after a touch-up gesture during a dragging operation. If the value is false, scrolling stops immediately upon touch-up.
+           - Parameters:
+              - scrollView: The scrollVview object that finished scrolling the content view.
+              - decelerate: The value is true if the scrolling movement will continue, but decelerate, after a touch-up gesture during a dragging operation. If the value is false, scrolling stops immediately upon touch-up.
       */
      func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
          self.lastContentOffset = scrollView.contentOffset.y;

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+/// Home View Controller  controls the home page views and operation
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
     // MARK: - Properties
 
@@ -17,7 +17,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     var contents = [Content]()
     /// This is the offset of the last Content used to determine the scroll action
     var lastContentOffset: CGFloat = 0.0
-
+    /// This is a refresh control
     var refreshControl = UIRefreshControl()
 
     // MARK: - Methods
@@ -40,6 +40,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }, viewReload: { () -> Void in self.tableView.reloadDataWithAnimation() }, view: tableView, cancellable: false)
     }
 
+    /// Refresh the page and reload `content`, when a notification is being sent with value **refresh**
     @objc func refresh(sender _: Any) {
         refresherWithLoadingHUD(updateContent: { () -> Void in self.contents =
                 MainController.fetchDefaultContents(cancellable: false)
@@ -93,10 +94,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     /*
      /**
-           Tells the delegate when the user scrolls the content view within the receiver. Send the **hide** notification
+            Tells the delegate when the user scrolls the content view within the receiver. Send the **hide** notification
 
-           - Parameters:
-              - scorllView: The scroll-view object in which the scrolling occurred.
+            - Parameters:
+               - scorllView: The scroll-view object in which the scrolling occurred.
       */
      func scrollViewDidScroll(_ scrollView: UIScrollView) {
          if (self.lastContentOffset > scrollView.contentOffset.y) {
@@ -107,11 +108,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
      }
 
      /**
-           Tells the delegate when dragging ended in the scroll view.  Update the last Content Offset
+            Tells the delegate when dragging ended in the scroll view.  Update the last Content Offset
 
-           - Parameters:
-              - scrollView: The scrollVview object that finished scrolling the content view.
-              - decelerate: The value is true if the scrolling movement will continue, but decelerate, after a touch-up gesture during a dragging operation. If the value is false, scrolling stops immediately upon touch-up.
+            - Parameters:
+               - scrollView: The scrollVview object that finished scrolling the content view.
+               - decelerate: The value is true if the scrolling movement will continue, but decelerate, after a touch-up gesture during a dragging operation. If the value is false, scrolling stops immediately upon touch-up.
       */
      func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
          self.lastContentOffset = scrollView.contentOffset.y;

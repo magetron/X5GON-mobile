@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+/// Set up tab bar view
 class TabBarView: UIView, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate {
     // MARK: - Properties
 
