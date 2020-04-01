@@ -38,6 +38,8 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
     var contentLiked = false
     var contentDisliked = false
 
+    var refreshControl = UIRefreshControl()
+
     // MARK: - Methods
 
     func customisation() {
@@ -55,6 +57,9 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 90
         tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
+        tableView.addSubview(refreshControl)
 
         player.layer.shadowOpacity = 1
         player.layer.shadowOffset = .zero
@@ -72,6 +77,11 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         pdfView.displayMode = PDFDisplayMode.singlePage
 
         NotificationCenter.default.addObserver(self, selector: #selector(newPlayerView), name: NSNotification.Name("open"), object: nil)
+    }
+
+    @objc func refresh(sender _: Any) {
+        refresherWithLoadingHUD(updateContent: {}, viewReload: { () -> Void in self.tableView.reloadDataWithAnimation() }, view: tableView, cancellable: false)
+        refreshControl.endRefreshing()
     }
 
     @IBAction func showNavigation(_: Any) {

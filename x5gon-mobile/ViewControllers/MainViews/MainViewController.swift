@@ -61,12 +61,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         for vc in viewControllers {
             addChild(vc!)
             vc!.didMove(toParent: self)
-
-            if vc == homeVC {
-                vc!.view.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height - 99)
-            } else {
-                vc!.view.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height - 95)
-            }
+            vc!.view.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height - 95)
             views.append(vc!.view)
         }
         collectionView.reloadData()
