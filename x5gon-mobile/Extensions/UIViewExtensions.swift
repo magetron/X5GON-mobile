@@ -11,12 +11,14 @@ import Foundation
 import UIKit
 
 extension UITableView {
+    /// Reload data with animation
     func reloadDataWithAnimation() {
         UIView.transition(with: self, duration: 0.6, options: .transitionCrossDissolve, animations: { self.reloadData() }, completion: nil)
     }
 }
 
 extension UIView {
+    /// Make the UI view corner round
     func roundCorners(_ corners: UIRectCorner, radius: CGFloat) {
         let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
         let mask = CAShapeLayer()
@@ -24,6 +26,7 @@ extension UIView {
         layer.mask = mask
     }
 
+    /// Ripple Effect
     func ripple() {
         let ripple = CATransition()
         ripple.type = .init(rawValue: "rippleEffect")

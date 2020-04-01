@@ -28,6 +28,15 @@ func refresher(updateContent: @escaping () -> Void, viewReload: @escaping () -> 
     }
 }
 
+/**
+ Refresh the content and reload the view
+
+ ### Usage Example: ###
+ ````
+ cancellableRefresher(updateContent: {() -> Void in self.content.like() }, viewReload: { () -> Void in self.tableView.reloadDataWithAnimation()})
+
+ ````
+ */
 func cancellableRefresher(updateContent: @escaping () -> Void, viewReload: @escaping () -> Void) {
     MainController.Queue.addOperation {
         updateContent()
@@ -37,6 +46,14 @@ func cancellableRefresher(updateContent: @escaping () -> Void, viewReload: @esca
     }
 }
 
+/**
+ Refresh the content,reload the view and show the refresh view
+ ### Usage Example: ###
+ ````
+ refresherWithLoadingHUD(updateContent: {() -> Void in self.content.like() }, viewReload: { () -> Void in self.tableView.reloadDataWithAnimation(),ViewController.view,true})
+
+ ````
+ */
 func refresherWithLoadingHUD(updateContent: @escaping () -> Void, viewReload: @escaping () -> Void, view: UIView, cancellable: Bool) {
     let hud = JGProgressHUD(style: .dark)
     hud.textLabel.text = "Loading"
