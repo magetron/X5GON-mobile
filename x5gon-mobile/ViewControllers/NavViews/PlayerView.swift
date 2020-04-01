@@ -64,6 +64,7 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         player.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(resumePlayerView)))
         videoPlayerViewController.view.frame = player.frame
         videoPlayerViewController.view.bounds = player.bounds
+
         videoPlayerViewController.videoGravity = AVLayerVideoGravity.resizeAspectFill
         videoPlayerViewController.showsPlaybackControls = true
 
