@@ -8,6 +8,7 @@
 
 import Foundation
 @testable import x5gon_mobile
+
 import XCTest
 extension XCTestCase {
     func expectFatalError(expectedMessage: String, testcase: @escaping () -> Void) {
@@ -25,7 +26,7 @@ extension XCTestCase {
         // act, perform on separate thead because a call to fatalError pauses forever
         DispatchQueue.global(qos: .userInitiated).async(execute: testcase)
 
-        waitForExpectations(timeout: 0.1) { _ in
+        waitForExpectations(timeout: 5) { _ in
             // assert
             XCTAssertEqual(assertionMessage, expectedMessage)
 
