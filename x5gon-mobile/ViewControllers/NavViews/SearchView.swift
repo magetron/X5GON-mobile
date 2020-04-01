@@ -8,18 +8,22 @@
 
 import UIKit
 
+/// The view for search Bar
 class SearchView: UIView, UITextFieldDelegate {
     // MARK: - Properties
 
+    /// This is a `UItextField` used to input the search content
     @IBOutlet var inputField: UITextField!
     var suggestions = [String]()
 
     // MARK: - Methods
 
+    /// Cusomise the view
     func customisation() {
         inputField.delegate = self
     }
 
+    /// HIde search View
     @IBAction func hideSearchView(_: Any) {
         inputField.text = ""
         inputField.resignFirstResponder()
@@ -32,6 +36,16 @@ class SearchView: UIView, UITextFieldDelegate {
 
     // MARK: - Delegate
 
+    /**
+     Asks the delegate if the text field should process the pressing of the return button.
+
+     - Parameters:
+        - textField: The text field whose return button was pressed.
+
+     - returns:
+     `true` if the text field should implement its default behavior for the return button; otherwise, `false`.
+
+     */
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         let text = textField.text ?? ""
         refresherWithLoadingHUD(updateContent: { () -> Void in
@@ -45,6 +59,7 @@ class SearchView: UIView, UITextFieldDelegate {
 
     // MARK: - View LifeCycle
 
+    /// Prepares the receiver for service after it has been loaded from an Interface Builder archive, or nib file.
     override func awakeFromNib() {
         super.awakeFromNib()
         customisation()

@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+/// This is a protocol for player view header cell
 @objc protocol PlayerViewHeaderCellDelegate {
     /// Function will be called when `like` button is tapped
     func onLikeTap(completion: @escaping () -> Void)
@@ -16,6 +17,7 @@ import UIKit
     func onDisLikeTap(completion: @escaping () -> Void)
 }
 
+/// A header cell is used to display the `like` `unlike` `bookmark` `sidebar`
 class headerCell: UITableViewCell {
     /// This is a `UILabel` used to display title.
     @IBOutlet var title: UILabel!
@@ -38,12 +40,17 @@ class headerCell: UITableViewCell {
     /// This is a `UIImageView` used to display the thumbDown Icon.
     @IBOutlet var thumbDown: UIImageView!
 
+    /// This is a `UIButton` for bookmark
     var bookmarkButton: UIButton!
+    /// This is a variable to store the `Content`
     var content: Content!
 
+    /// If the like is tapped
     var onLikeTapFunc = { (_: @escaping () -> Void) -> Void in }
+    /// If the disliek is tapped
     var onDisLikeTapFunc = { (_: @escaping () -> Void) -> Void in }
 
+    /// This is a function to set the content information into the header cell.
     func set(content: Content!, onLikeTapFunc: @escaping (@escaping () -> Void) -> Void, onDisLikeTapFunc: @escaping (@escaping () -> Void) -> Void) {
         self.content = content
 
@@ -93,6 +100,7 @@ class headerCell: UITableViewCell {
         addSubview(bookmarkButton)
     }
 
+    /// Change the icon when like is tappedn and increase the number of content like
     @objc func onLikeTap() {
         if !(MainController.navViewController?.playerView.contentLiked)! {
             onLikeTapFunc {
@@ -105,6 +113,7 @@ class headerCell: UITableViewCell {
         }
     }
 
+    /// Change the icon  when dislike is tapped and increase the number of content dislike
     @objc func onDisLikeTap() {
         if !(MainController.navViewController?.playerView.contentDisliked)! {
             onDisLikeTapFunc {
@@ -117,6 +126,7 @@ class headerCell: UITableViewCell {
         }
     }
 
+    /// Change the icon when bookmark is pressed
     @objc func bookmarkCurrentContent() {
         if MainController.user.bookmarkedContent.contains(content) {
             MainController.user.unbookmark(content: content)
@@ -129,6 +139,7 @@ class headerCell: UITableViewCell {
         MainController.navViewController?.playerView.tableView.reloadDataWithAnimation()
     }
 
+    /// Prepares a reusable cell for reuse by the table view's delegate.
     override func prepareForReuse() {
         super.prepareForReuse()
         bookmarkButton.setImage(UIImage(systemName: "bookmark"), for: .normal)
