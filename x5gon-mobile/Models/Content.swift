@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+/// Self defined `Content` , the source we put in the app is saved as this format
 class Content: Hashable {
     /// Self defined operator ==, return `true` if both equals, else return `false`
     static func == (lhs: Content, rhs: Content) -> Bool {

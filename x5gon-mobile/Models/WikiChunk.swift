@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// `WikiChunk` initialised with list of  `WikiEntity`
 class WikiChunk {
     /// this is a list of wiki entities
     let entities: [WikiEntity]

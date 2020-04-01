@@ -10,6 +10,7 @@ import AVFoundation
 import Foundation
 import UIKit
 
+/// `Video` is a special type of `Content`
 class Video: Content {
     var avPlayerItem: AVPlayerItem?
 

@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+/// A `playslist` is used to stroe number of `video`s
 struct Playlist {
     /// This is a `UIImage` which is used to display picture of `Playlist`
     let pic: UIImage
