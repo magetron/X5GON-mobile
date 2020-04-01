@@ -587,6 +587,7 @@
                     <connections>
                         <outlet property="navigationView" destination="gGU-Ai-btD" id="qjb-3l-DMj"/>
                         <outlet property="player" destination="smd-ED-5eC" id="fom-5B-WmU"/>
+                        <outlet property="playerAspectRatio" destination="Di0-QR-gRL" id="aju-LY-wZl"/>
                         <outlet property="tableView" destination="hai-Uu-zYx" id="qat-db-Zn4"/>
                     </connections>
                 </view>

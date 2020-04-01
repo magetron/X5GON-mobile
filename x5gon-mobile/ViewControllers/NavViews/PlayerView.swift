@@ -27,6 +27,7 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
 
     @IBOutlet var tableView: UITableView!
     @IBOutlet var player: UIView!
+    @IBOutlet var playerAspectRatio: NSLayoutConstraint!
     @IBOutlet var navigationView: playerNavigationView!
     var content: Content!
     var delegate: PlayerViewControllerDelegate?
@@ -53,15 +54,18 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         tableView.dataSource = self
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 90
+        tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
 
         player.layer.shadowOpacity = 1
         player.layer.shadowOffset = .zero
         player.layer.anchorPoint.applying(CGAffineTransform(translationX: -0.5, y: -0.5))
-        tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        player.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width / playerAspectRatio.multiplier)
         player.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(resumePlayerView)))
         videoPlayerViewController.view.frame = player.frame
+        videoPlayerViewController.view.bounds = player.bounds
         videoPlayerViewController.videoGravity = AVLayerVideoGravity.resizeAspectFill
         videoPlayerViewController.showsPlaybackControls = true
+
         pdfView.frame = player.frame
         pdfView.displayMode = PDFDisplayMode.singlePage
 
