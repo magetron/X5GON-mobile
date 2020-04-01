@@ -59,7 +59,8 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         player.layer.shadowOpacity = 1
         player.layer.shadowOffset = .zero
         player.layer.anchorPoint.applying(CGAffineTransform(translationX: -0.5, y: -0.5))
-        player.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width / playerAspectRatio.multiplier)
+        player.frame.size.width = UIScreen.main.bounds.width
+        player.frame.size.height = UIScreen.main.bounds.width / playerAspectRatio.multiplier
         player.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(resumePlayerView)))
         videoPlayerViewController.view.frame = player.frame
         videoPlayerViewController.view.bounds = player.bounds
