@@ -1,5 +1,5 @@
 //
-//  VideoPlayerView.swift
+//  PlayerView.swift
 //  x5gon-mobile
 //
 //  Created by Patrick Wu on 13/01/2020.

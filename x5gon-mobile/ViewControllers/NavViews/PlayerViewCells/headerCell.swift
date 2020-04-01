@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  headerCell.swift
 //  x5gon-mobile
 //
 //  Created by Patrick Wu on 01/02/2020.
