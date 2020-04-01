@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// API Aadpater Protocol, used to define functions to generate different URLs for our App
 protocol APIAdapter {
     /// Reuturn rootURL
     static func rootURL() -> String
@@ -30,11 +31,25 @@ protocol APIAdapter {
     /// Gnerate Featured `Content` URL
     static func generateFeaturedContentURL() -> String
 
+    /// Gnerate Featured `Note` URL
     static func generateNotesURL() -> String
 
+    /// Gnerate Featured `Note` URL,  with id as parameter
     static func generateNotesURL(id: Int) -> String
 
+    /**
+     Generate **Bookmark**  url with `id`
+
+     - Parameters:
+     - id: Content id, `Int`
+     - bookmark:  `Bool` value if the content is being bookmarked
+
+     - returns:
+     bookmark url
+
+     */
     static func TBD_generateBookmarkURL(id: Int, bookmark: Bool) -> String
 
+    /// Generate`Report` content url
     static func TBD_generateReportURL(id: Int) -> String
 }

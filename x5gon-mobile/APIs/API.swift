@@ -8,6 +8,7 @@
 import Foundation
 import SwiftSoup
 
+/// This is api file to generate apis for the app
 class API {
     /// This is `X5GONAPIAdapter`
     static let oldAdapter = X5GONAPIAdapter.self
@@ -298,6 +299,7 @@ class API {
         return tmpUser ?? User.generateDefaultUser()
     }
 
+    /// create notes with cotent id
     static func createNotes(id _: Int, text _: String) {
         /*
          var request = URLRequest(url: URL(string: newAdapter.generateNotesURL())!)
@@ -330,6 +332,7 @@ class API {
          semaphore.wait()*/
     }
 
+    /// Get notes with content id
     static func getNotes(id _: Int) -> String {
         /*
          let notesURLString = newAdapter.generateNotesURL(id: id)
@@ -360,6 +363,18 @@ class API {
         return ""
     }
 
+    /**
+     Update Bookmark Info
+
+     - Parameters:
+        - id: Content  id
+        - bookmark: `Bool` to show if the content is bookmarked
+
+     ### Usage Example: ###
+     ````
+     API.updateBookmark(13, true)
+     ````
+     */
     static func updateBookmark(id: Int, bookmark: Bool) {
         let bookmarkURLString = newAdapter.TBD_generateBookmarkURL(id: id, bookmark: bookmark)
         let bookmarkURL = URL(string: bookmarkURLString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!
@@ -454,6 +469,20 @@ class API {
         return tmpItems
     }
 
+    /**
+     Fetch `Wikichunk`Enrichments
+
+     - Parameters:
+        - ids: `WikiChunk` id
+
+     - returns:
+     Self defined type `Wiki`
+
+     ### Usage Example: ###
+     ````
+     let content = API.fetchWikiChunkEnrichments([Int])
+     ````
+     */
     static func fetchWikiChunkEnrichments(ids: [Int]) -> Wiki {
         var tmpWiki: Wiki?
         var request = URLRequest(url: URL(string: newAdapter.generateWikiChunkEnrichmentsURL())!)
@@ -507,6 +536,20 @@ class API {
         return tmpWiki ?? Wiki(chunks: [])
     }
 
+    /**
+     Report a `Content`
+
+     - Parameters:
+        - id: Content id
+        - reason: `String` , the reason you report this content
+     - returns:
+        Nil
+
+     ### Usage Example: ###
+     ````
+     API.TBD_report(13, "Just want to report it")
+     ````
+     */
     static func TBD_report(id _: Int, reason _: String) {
         return
     }
