@@ -20,6 +20,7 @@ class testNavViewController: XCTestCase {
 
     override func setUp() {
         nvc = makeNavViewController()
+        MainController.Queue.cancelOperations()
     }
 
     override func tearDown() {

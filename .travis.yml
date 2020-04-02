@@ -11,5 +11,5 @@ install:
     - sudo gem install jazzy
 
 script:
-    - source ./scripts/build.sh -old-test
+    - source ./scripts/build.sh
     - source ./scripts/build-docs.sh
