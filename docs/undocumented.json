@@ -106,6 +106,13 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/patrick/Documents/University-College-London/UCL-CS/Year-2/COMP0016/x5gon-mobile/x5gon-mobile/Environments/Environment.swift",
+      "line": 17,
+      "symbol": "Environment.loadLICENSE()",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/patrick/Documents/University-College-London/UCL-CS/Year-2/COMP0016/x5gon-mobile/x5gon-mobile/Extensions/FatalErrorUtil.swift",
       "line": 26,
       "symbol": "FatalErrorUtil.fatalErrorClosure",
