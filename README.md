@@ -39,10 +39,16 @@ Click the `Build` / `Test` Button for build / test only, respectively.
 
 #### To use CLI
 
-**Build First (Test included)**
+**Build First**
 
 ```zsh
 $ source ./scripts/build.sh
+```
+
+(With Tests)
+
+```zsh
+$ source ./scripts/build.sh -test
 ```
 
 **Then Run**
