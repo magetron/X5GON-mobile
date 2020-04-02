@@ -8,7 +8,7 @@
 
 @testable import x5gon_mobile
 import XCTest
-class testX5GONApiAdapter: XCTestCase {
+class testX5GONAPIAdapter: XCTestCase {
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }

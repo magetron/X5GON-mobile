@@ -77,7 +77,7 @@
 		DCA928E3242973FB00A40E85 /* testChannelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928E2242973FB00A40E85 /* testChannelModel.swift */; };
 		DCA928E52429785A00A40E85 /* testPlaylistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928E42429785A00A40E85 /* testPlaylistModel.swift */; };
 		DCA928EB24298C6400A40E85 /* testAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928EA24298C6400A40E85 /* testAPI.swift */; };
-		DCA928ED242993F200A40E85 /* testX5GONApiAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928EC242993F200A40E85 /* testX5GONApiAdapter.swift */; };
+		DCA928ED242993F200A40E85 /* testX5GONAPIAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928EC242993F200A40E85 /* testX5GONAPIAdapter.swift */; };
 		DCA928EF2429986300A40E85 /* testX5LearnAPIAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928EE2429986300A40E85 /* testX5LearnAPIAdapter.swift */; };
 		DCA928F92430200900A40E85 /* ExtensionXCTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928F82430200900A40E85 /* ExtensionXCTest.swift */; };
 		DCA928FB2430306A00A40E85 /* testWikiChunkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA928FA2430306A00A40E85 /* testWikiChunkModel.swift */; };
@@ -186,7 +186,7 @@
 		DCA928E2242973FB00A40E85 /* testChannelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testChannelModel.swift; sourceTree = "<group>"; };
 		DCA928E42429785A00A40E85 /* testPlaylistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testPlaylistModel.swift; sourceTree = "<group>"; };
 		DCA928EA24298C6400A40E85 /* testAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testAPI.swift; sourceTree = "<group>"; };
-		DCA928EC242993F200A40E85 /* testX5GONApiAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testX5GONApiAdapter.swift; sourceTree = "<group>"; };
+		DCA928EC242993F200A40E85 /* testX5GONAPIAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testX5GONAPIAdapter.swift; sourceTree = "<group>"; };
 		DCA928EE2429986300A40E85 /* testX5LearnAPIAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testX5LearnAPIAdapter.swift; sourceTree = "<group>"; };
 		DCA928F224300D8F00A40E85 /* ForceTapElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForceTapElement.swift; sourceTree = "<group>"; };
 		DCA928F624301D3A00A40E85 /* FatalErrorUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FatalErrorUtil.swift; sourceTree = "<group>"; };
@@ -396,7 +396,7 @@
 				DCA928E2242973FB00A40E85 /* testChannelModel.swift */,
 				DCA928E42429785A00A40E85 /* testPlaylistModel.swift */,
 				DCA928EA24298C6400A40E85 /* testAPI.swift */,
-				DCA928EC242993F200A40E85 /* testX5GONApiAdapter.swift */,
+				DCA928EC242993F200A40E85 /* testX5GONAPIAdapter.swift */,
 				DCA928EE2429986300A40E85 /* testX5LearnAPIAdapter.swift */,
 				DCA928FA2430306A00A40E85 /* testWikiChunkModel.swift */,
 				DC27111D24316CAE0066EE97 /* testMainViewController.swift */,
@@ -805,7 +805,7 @@
 				DC271118243163A90066EE97 /* testSearchResultViewController.swift in Sources */,
 				DCA928DB24295DB800A40E85 /* testVideoModel.swift in Sources */,
 				DCA928DD2429655100A40E85 /* testContentModel.swift in Sources */,
-				DCA928ED242993F200A40E85 /* testX5GONApiAdapter.swift in Sources */,
+				DCA928ED242993F200A40E85 /* testX5GONAPIAdapter.swift in Sources */,
 				DCA928D92429565000A40E85 /* testUserModel.swift in Sources */,
 				DCA928EB24298C6400A40E85 /* testAPI.swift in Sources */,
 				DC27111C24316C470066EE97 /* testHomeViewController.swift in Sources */,
