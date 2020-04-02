@@ -30,6 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
+    /// Tells the delegate that the app is now in the background.
     func applicationDidEnterBackground(_: UIApplication) {
         MainController.saveUserData()
     }

@@ -6,6 +6,7 @@
 //  Copyright © 2020 x5gon. All rights reserved.
 //
 
+/// The protocol for Player View
 protocol PlayerViewControllerDelegate {
     /// Did the `playerView` minimised
     func didMinimize()
@@ -22,26 +23,40 @@ import JGProgressHUD
 import PDFKit
 import UIKit
 
+/// Player view is the view displayed when user tap a `content`
 class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate, PlayerViewHeaderCellDelegate {
     // MARK: -  Properties
 
+    /// Table view for the cells
     @IBOutlet var tableView: UITableView!
+    /// This is a `UIview` for the player
     @IBOutlet var player: UIView!
+    /// This is a `NSLayoutConstraint` for player
     @IBOutlet var playerAspectRatio: NSLayoutConstraint!
+    /// This is a `playerNavigationView` to show the side bar for `Wiki`
     @IBOutlet var navigationView: playerNavigationView!
+    /// This is variable to store `content`
     var content: Content!
+    /// This is a deleaget for playerView
     var delegate: PlayerViewControllerDelegate?
+    /// Initialise the state of View Controller set to `.hidden` for default
     var state = stateOfViewController.hidden
+    /// The direction
     var direction = Direction.none
+    /// This is a view for the pdf
     var pdfView = PDFView()
+    /// This is the controller for the player
     let videoPlayerViewController = AVPlayerViewController()
+    /// This is a variable to show if the content is liked
     var contentLiked = false
+    /// This is a variable to show if a conten is disliked
     var contentDisliked = false
 
     var refreshControl = UIRefreshControl()
 
     // MARK: - Methods
 
+    /// Customise the player View
     func customisation() {
         addSubview(navigationView)
         navigationView.translatesAutoresizingMaskIntoConstraints = false
@@ -79,11 +94,13 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         NotificationCenter.default.addObserver(self, selector: #selector(newPlayerView), name: NSNotification.Name("open"), object: nil)
     }
 
+    /// Refresh the view, when a notification is being sent with value **refresh**
     @objc func refresh(sender _: Any) {
         refresherWithLoadingHUD(updateContent: {}, viewReload: { () -> Void in self.tableView.reloadDataWithAnimation() }, view: tableView, cancellable: false)
         refreshControl.endRefreshing()
     }
 
+    /// Show the sidebar
     @IBAction func showNavigation(_: Any) {
         navigationView.isHidden = false
         navigationView.tableView.center.x += navigationView.bounds.width
@@ -93,6 +110,7 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         }
     }
 
+    /// Process the animate
     func animate() {
         switch state {
         case .fullScreen:

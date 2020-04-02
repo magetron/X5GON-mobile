@@ -44,6 +44,7 @@ extension MutableCollection where Index == Int {
 }
 
 extension Int {
+    /// Make seconds to format string
     func secondsToFormattedString() -> String {
         let hours = self / 3600
         let minutes = (self % 3600) / 60

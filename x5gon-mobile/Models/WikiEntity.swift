@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// `WikiEntity` type
 class WikiEntity {
     /// Id for wiki entity
     let id: String

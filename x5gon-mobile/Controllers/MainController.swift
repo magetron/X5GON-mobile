@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+/// `MainController` control the operation in each `viewController`
 class MainController {
     /// MainViewController
     static var mainViewController: MainViewController?
@@ -24,11 +25,11 @@ class MainController {
     static var userViewController: UserViewController?
     /// User Placeholder
     static var user = loadUserData()
-
+    /// Defalut user
     static var userDefaults = UserDefaults.standard
-
+    /// Debug status
     static var DEBUG = true
-
+    /// Queue to process the operation of the App
     class Queue {
         private static var queue = OperationQueue()
         private static var cancellableTasks = [(URLSessionDataTask, DispatchSemaphore)]()
@@ -77,6 +78,17 @@ class MainController {
         }
     }
 
+    /**
+     Fetch default content for the `homeView`
+
+     - Parameters:
+       - hide:Type: **Bool**
+
+     ### Usage Example: ###
+     ````
+     MainController.setHideTopBar(true)
+     ````
+     */
     static func fetchDefaultContents(cancellable: Bool) -> [Content] {
         return MainController.fetchContents(keyWord: "science", contentType: "any", cancellable: cancellable)
     }
@@ -142,6 +154,7 @@ class MainController {
         user = User.generateDefaultUser()
     }
 
+    ///
     static func addHistory(content: Content) {
         MainController.user.historyContent.append(content)
     }

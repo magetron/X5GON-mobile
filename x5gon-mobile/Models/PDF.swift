@@ -10,6 +10,7 @@ import AVFoundation
 import Foundation
 import UIKit
 
+/// `PDF` is a special type of `Content`
 class PDF: Content {
     /// Performe `PDF` initialization
     override init(title: String, id: Int, channelName: String, description: String, url: URL) {

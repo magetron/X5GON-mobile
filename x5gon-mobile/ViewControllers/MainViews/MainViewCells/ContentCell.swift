@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+/// This is a `Contentcell` used to hold the `content`
 class ContentCell: UITableViewCell {
     // MARK: - Properties
 
@@ -22,7 +23,7 @@ class ContentCell: UITableViewCell {
     @IBOutlet var videoTitle: UILabel!
     /// This is a `UILabel` which is used to display the video description.
     @IBOutlet var videoDescription: UILabel!
-
+    /// Content id ,defined by the backend
     var contentId = 0
 
     // MARK: - Methods
@@ -52,6 +53,7 @@ class ContentCell: UITableViewCell {
         contentId = content.id
     }
 
+    /// ReportContent Operataion
     @objc func reportContent() {
         let generator = UIImpactFeedbackGenerator(style: .medium)
         generator.impactOccurred()

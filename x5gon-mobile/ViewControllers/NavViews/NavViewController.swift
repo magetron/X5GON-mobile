@@ -8,16 +8,24 @@
 
 import UIKit
 
+/// This is a controller used to control the initial view
 class NavViewController: UINavigationController, PlayerViewControllerDelegate, SettingsViewControllerDelegate {
     // MARK: - Properties
 
+    /// Player View is displayed when a `content` is tapped
     @IBOutlet var playerView: PlayerView!
+    /// Search View will show up if you press the search button
     @IBOutlet var searchView: SearchView!
+    /// Setting View will show up if you press the setting button
     @IBOutlet var settingsView: SettingsView!
+    /// Login View will show up if you press the login button
     @IBOutlet var loginView: LoginView!
 
+    /// The title of the page
     let titleLabel = UILabel()
+    /// Page names
     let names = ["Home", "Featured", "Search Results", "User"]
+    /// The origin point of  playerview
     let hiddenOrigin: CGPoint = {
         let y = UIScreen.main.bounds.height - (UIScreen.main.bounds.width * 9 / 32) - 10
         let x = -UIScreen.main.bounds.width
@@ -25,6 +33,7 @@ class NavViewController: UINavigationController, PlayerViewControllerDelegate, S
         return coordinate
     }()
 
+    /// The origin point of playerview after the minimized prossses is operated
     let minimizedOrigin: CGPoint = {
         let x = UIScreen.main.bounds.width / 2 - 10
         let y = UIScreen.main.bounds.height - (UIScreen.main.bounds.width * 9 / 32) - 10
@@ -32,6 +41,7 @@ class NavViewController: UINavigationController, PlayerViewControllerDelegate, S
         return coordinate
     }()
 
+    /// The origin point when full screen mode
     let fullScreenOrigin = CGPoint(x: 0, y: 0)
 
     // MARK: - Methods
@@ -128,6 +138,7 @@ class NavViewController: UINavigationController, PlayerViewControllerDelegate, S
         NotificationCenter.default.addObserver(self, selector: #selector(changeTitle(notification:)), name: Notification.Name(rawValue: "scrollMenu"), object: nil)
     }
 
+    /// Show Search View
     @objc func showSearch() {
         searchView.alpha = 0
         searchView.isHidden = false
@@ -139,6 +150,7 @@ class NavViewController: UINavigationController, PlayerViewControllerDelegate, S
         }
     }
 
+    /// Show Setting view
     @objc func showSettings() {
         settingsView.isHidden = false
         settingsView.tableViewBottomConstraint.constant = 0
@@ -148,6 +160,7 @@ class NavViewController: UINavigationController, PlayerViewControllerDelegate, S
         }
     }
 
+    /// Show login view
     func showLogin() {
         loginView.isHidden = false
         loginView.viewBottomConstraint.constant = 0
@@ -157,6 +170,7 @@ class NavViewController: UINavigationController, PlayerViewControllerDelegate, S
         }
     }
 
+    /// Change th title
     @objc func changeTitle(notification: Notification) {
         if let info = notification.userInfo {
             let userInfo = info as! [String: CGFloat]
@@ -164,6 +178,16 @@ class NavViewController: UINavigationController, PlayerViewControllerDelegate, S
         }
     }
 
+    /**
+     Animate to the state of the viewController
+
+     ### Usage Example: ###
+     ````
+     let content = NaviViewController.animatePlayView(.hidden)
+
+     ````
+     - Parameter toState: `fullScreen`, `minimized`, `hidden`
+     */
     func animatePlayView(toState: stateOfViewController) {
         switch toState {
         case .fullScreen:
@@ -184,6 +208,7 @@ class NavViewController: UINavigationController, PlayerViewControllerDelegate, S
         }
     }
 
+    /// Detect the swipe position
     func positionDuringSwipe(scaleFactor: CGFloat) -> CGPoint {
         let width = UIScreen.main.bounds.width * 0.5 * scaleFactor
         let height = width * 9 / 16
@@ -193,10 +218,12 @@ class NavViewController: UINavigationController, PlayerViewControllerDelegate, S
         return coordinate
     }
 
+    /// Set prefer status bar Hidden
     func setPreferStatusBarHidden(_ preferHidden: Bool) {
         isHidden = preferHidden
     }
 
+    /// True if the `Content`  is hidden
     var isHidden = true {
         didSet {
             setNeedsStatusBarAppearanceUpdate()
@@ -205,18 +232,22 @@ class NavViewController: UINavigationController, PlayerViewControllerDelegate, S
 
     // MARK: Delegate
 
+    /// Animate `palyView` to minimise
     func didMinimize() {
         animatePlayView(toState: .minimized)
     }
 
+    /// Animate to fullScreen display the playview
     func didmaximize() {
         animatePlayView(toState: .fullScreen)
     }
 
+    /// Detech if the user end swipe
     func didEndedSwipe(toState: stateOfViewController) {
         animatePlayView(toState: toState)
     }
 
+    /// Swipe to the state of view Controller
     func swipeToMinimize(translation: CGFloat, toState: stateOfViewController) {
         switch toState {
         case .fullScreen:
@@ -228,21 +259,27 @@ class NavViewController: UINavigationController, PlayerViewControllerDelegate, S
         }
     }
 
+    /// Return the value of `isHidden`
     override var prefersStatusBarHidden: Bool {
         return isHidden
     }
 
     // MARK: - ViewController lifecycle
 
+    /// Called after the controller's view is loaded into memory.
     override func viewDidLoad() {
         super.viewDidLoad()
         customisation()
     }
 
+    /// Deinit
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
 
+    /**
+     Notifies the view controller that its view was added to a view hierarchy.
+     */
     override func viewDidAppear(_: Bool) {
         super.viewWillAppear(true)
         let keyWindow = UIApplication.shared.connectedScenes

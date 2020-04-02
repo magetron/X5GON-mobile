@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// `MainViewConroller` set up other view controllers
 class MainViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     // MARK: - Properties
 
@@ -17,7 +18,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     @IBOutlet var collectionView: UICollectionView!
     /// This is a variable to save a list of `UIView`s
     var views = [UIView]()
-
+    /// List of `Viewcontrollers`
     var viewControllers = [UIViewController?]()
 
     // MARK: - Methods

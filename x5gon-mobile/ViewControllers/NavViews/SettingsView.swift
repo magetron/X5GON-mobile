@@ -10,22 +10,31 @@ import MessageUI
 import SafariServices
 import UIKit
 
+/// The protocol for setting view
 protocol SettingsViewControllerDelegate {
     func showLogin() -> Void
 }
 
+/// This a Setting View
 class SettingsView: UIView, UITableViewDelegate, UITableViewDataSource, MFMailComposeViewControllerDelegate {
     // MARK: - Properties
 
+    /// This is a `tableView` to display the setting contents as cell
     @IBOutlet var tableView: UITableView!
+    /// This is background View
     @IBOutlet var backgroundView: UIButton!
+    /// This is a `NSLayoutConstraint` for the bottom constraint
     @IBOutlet var tableViewBottomConstraint: NSLayoutConstraint!
+    /// This is a variable for delegates
     var delegate: SettingsViewControllerDelegate?
+    /// The items on setting view
     let items = ["Settings", "Terms & privacy policy", "Send Feedback", "Help", "Login", "Cancel"]
+    /// Show Login
     var showLogin: (() -> Void) = { () in }
 
     // MARK: - Methods
 
+    /// Customise the view
     func customisation() {
         // tableViewWidthConstraint.constant = UIScreen.main.bounds.width
         tableView.frame.size.width = UIScreen.main.bounds.width
@@ -37,6 +46,7 @@ class SettingsView: UIView, UITableViewDelegate, UITableViewDataSource, MFMailCo
         layoutIfNeeded()
     }
 
+    /// Hide setting View
     @IBAction func hideSettingsView(_: Any) {
         tableViewBottomConstraint.constant = -tableView.bounds.height
         UIView.animate(withDuration: 0.3, animations: {
@@ -117,6 +127,14 @@ class SettingsView: UIView, UITableViewDelegate, UITableViewDataSource, MFMailCo
         }
     }
 
+    /**
+     Tells the delegate that the user wants to dismiss the mail composition view.
+
+     - Parameters:
+        - controller: The view controller object that manages the mail composition view.
+        - didFinishWith: The result of the user’s action.
+        - error: If an error occurred, this parameter contains an error object with information about the type of failure.
+     */
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith _: MFMailComposeResult, error _: Error?) {
         controller.dismiss(animated: true)
     }

@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// `X5LearnAPIAdapter` use to generate url base on root url **http://x5learn.org\/**
 class X5LearnAPIAdapter: APIAdapter {
     /// Generate X5Learn Root url **http://x5learn.org\/**
     static func rootURL() -> String {
@@ -69,14 +70,17 @@ class X5LearnAPIAdapter: APIAdapter {
         return rootURL() + APIVersion() + "note"
     }
 
+    /// Generate X5Learn Notes URL with Id as parameter;
     static func generateNotesURL(id: Int) -> String {
         return rootURL() + APIVersion() + "note/\(id)"
     }
 
+    /// Generate`Bookmark` content url
     static func TBD_generateBookmarkURL(id: Int, bookmark _: Bool) -> String {
         return rootURL() + APIVersion() + "bookmark/\(id)"
     }
 
+    /// Generated `Report` content url
     static func TBD_generateReportURL(id: Int) -> String {
         return rootURL() + APIVersion() + "report/\(id)"
     }

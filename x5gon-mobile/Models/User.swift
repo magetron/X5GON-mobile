@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+/// `User` type
 class User: NSObject, NSCoding, NSSecureCoding {
     // MARK: Properties
 
@@ -55,6 +56,17 @@ class User: NSObject, NSCoding, NSSecureCoding {
         API.updateBookmark(id: content.id, bookmark: true)
     }
 
+    /**
+     Unbookmark a `Content`
+
+     - Parameters:
+        - content: self-defined type `Content`
+
+     ### Usage Example: ###
+     ````
+      MainController.user.unbookmark(content)
+     ````
+     */
     func unbookmark(content: Content) {
         bookmarkedContent.remove(content)
         API.updateBookmark(id: content.id, bookmark: false)
@@ -62,15 +74,18 @@ class User: NSObject, NSCoding, NSSecureCoding {
 
     // MARK: Persistant Data
 
+    /// Returns an object initialized from data in a given unarchiver.
     required convenience init(coder decoder: NSCoder) {
         let name = decoder.decodeObject(forKey: "name") as! String
         self.init(name: name, profilePic: UIImage(named: "profilePic")!, backgroundImage: UIImage(named: "banner")!)
     }
 
+    /// Encodes the receiver using a given archiver.
     func encode(with coder: NSCoder) {
         coder.encode(name, forKey: "name")
     }
 
+    /// Set up secure Coding
     static var supportsSecureCoding: Bool {
         return true
     }

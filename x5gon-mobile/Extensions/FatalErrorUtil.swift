@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Rewrite the fatalError
 public func fatalError(_ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) -> Never {
     FatalErrorUtil.fatalErrorClosure(message(), file, line)
 }

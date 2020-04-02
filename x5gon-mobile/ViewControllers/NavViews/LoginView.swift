@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+/// This is login View
 class LoginView: UIView {
     // MARK: - Properties
 
@@ -18,10 +19,15 @@ class LoginView: UIView {
     @IBOutlet var passwordTextField: UITextField!
     /// This is a `UIButton` which is used to press for logiin
     @IBOutlet var loginButton: UIButton!
+    /// This is a `UIButton`
     @IBOutlet var backgroundView: UIButton!
+    /// This is a `NSLayoutConstraint` which is used for bottom bonstraint
     @IBOutlet var viewBottomConstraint: NSLayoutConstraint!
+    /// This is a `UIImageView` used to display a person icon
     @IBOutlet var personIcon: UIImageView!
+    /// This is a `UIImageView` used to display a lock icon
     @IBOutlet var lockIcon: UIImageView!
+    /// This is a `UIiew`
     @IBOutlet var view: UIView!
 
     // MARK: - Methods
@@ -50,6 +56,7 @@ class LoginView: UIView {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
 
+    /// Show the keyboard
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             print(keyboardSize.height)
@@ -59,6 +66,7 @@ class LoginView: UIView {
         }
     }
 
+    /// Hide the keyboard
     @objc func keyboardWillHide(notification: NSNotification) {
         if let _ = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             UIView.animate(withDuration: 0.3, animations: {

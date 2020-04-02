@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+/// Used for subsciprition
 class Channel {
     /// This is a String which is used to store the name of `Channel`
     let name: String
@@ -17,6 +18,7 @@ class Channel {
     /// Number of subscribers
     var subscribers = 0
 
+    /// Generate place holder channels, for displaying purpose
     static func generateDefaultChannels() -> [Channel] {
         var channels = [Channel]()
         for _ in 0 ... 18 {

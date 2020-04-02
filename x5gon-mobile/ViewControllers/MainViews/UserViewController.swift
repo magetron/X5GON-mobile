@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// `UserViewController` is used to control the user page view
 class UserViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     // MARK: - Properties
 
@@ -23,7 +24,7 @@ class UserViewController: UIViewController, UITableViewDelegate, UITableViewData
     var user = MainController.user
     /// The offset of the last Content used to determine the scroll action
     var lastContentOffset: CGFloat = 0.0
-
+    /// Control the refresh process
     var refreshControl = UIRefreshControl()
 
     // MARK: - Methods
@@ -82,6 +83,7 @@ class UserViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.user = user
     }
 
+    /// Refresh the page, when a notification is being sent with value **refresh**
     @objc func refresh(sender _: Any) {
         refresherWithLoadingHUD(updateContent: {}, viewReload: { () -> Void in self.tableView.reloadDataWithAnimation() }, view: tableView, cancellable: false)
         refreshControl.endRefreshing()
