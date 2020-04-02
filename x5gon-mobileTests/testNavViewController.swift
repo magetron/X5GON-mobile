@@ -18,11 +18,11 @@ class testNavViewController: XCTestCase {
 
     var nvc: NavViewController?
 
-    override func setUpWithError() throws {
+    override func setUp() {
         nvc = makeNavViewController()
     }
 
-    override func tearDownWithError() throws {
+    override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 

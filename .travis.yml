@@ -8,7 +8,7 @@ git:
 
 install:
     - pod install
-    - gem install jazzy
+    - sudo gem install jazzy
 
 script:
     - source ./scripts/build.sh

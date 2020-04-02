@@ -243,7 +243,7 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
                 if self.content == content {
                     self.tableView.reloadDataWithAnimation()
                 }
-            }, view: tableView, cancellable: true)
+            }, view: tableView, info: "Loading Related Contents...", cancellable: true)
         }
         if content.wiki.chunks.count == 0 {
             refresherWithLoadingHUD(updateContent: { () -> Void in content.fetchWikiChunkEnrichments() }, viewReload: { () -> Void in
@@ -251,7 +251,7 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
                     self.navigationView.setWiki(wiki: content.wiki)
                     self.navigationView.tableView.reloadDataWithAnimation()
                 }
-            }, view: navigationView.tableView, cancellable: true)
+            }, view: navigationView.tableView, info: "Loading Wiki...", cancellable: true)
         }
         tableView.reloadDataWithAnimation()
     }

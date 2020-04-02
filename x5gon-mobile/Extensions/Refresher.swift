@@ -70,3 +70,20 @@ func refresherWithLoadingHUD(updateContent: @escaping () -> Void, viewReload: @e
         })
     }
 }
+
+func refresherWithLoadingHUD(updateContent: @escaping () -> Void, viewReload: @escaping () -> Void, view: UIView, info: String, cancellable: Bool) {
+    let hud = JGProgressHUD(style: .dark)
+    hud.textLabel.text = info
+    hud.show(in: view)
+    if cancellable {
+        cancellableRefresher(updateContent: updateContent, viewReload: {
+            viewReload()
+            hud.dismiss()
+        })
+    } else {
+        refresher(updateContent: updateContent, viewReload: {
+            viewReload()
+            hud.dismiss()
+        })
+    }
+}
