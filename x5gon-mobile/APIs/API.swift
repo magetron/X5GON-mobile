@@ -547,10 +547,28 @@ class API {
 
      ### Usage Example: ###
      ````
-     API.TBD_report(13, "Just want to report it")
+     API.TBD_report(8, "Just want to report it")
      ````
      */
     static func TBD_report(id _: Int, reason _: String) {
+        return
+    }
+
+    /**
+     Vote for a `Content`
+
+     - Parameters:
+        - id: Content id
+        - vote: `Bool`, true for UpVoting and false for DownVoting
+     - returns:
+        Nil
+
+     ### Usage Example: ###
+     ````
+     API.TBD_vote(8, True)
+     ````
+     */
+    static func TBD_vote(id _: Int, vote _: Bool) {
         return
     }
 }
