@@ -71,7 +71,7 @@ class playerNavigationView: UIView, UITableViewDelegate, UITableViewDataSource {
 
      */
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        return tableViewContent.count
+        return tableViewContent.count == 0 ? 1 : tableViewContent.count
     }
 
     /**
@@ -85,8 +85,10 @@ class playerNavigationView: UIView, UITableViewDelegate, UITableViewDataSource {
 
      */
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if wiki == nil {
-            return UITableViewCell()
+        if tableViewContent.count == 0 {
+            let cell = UITableViewCell()
+            cell.textLabel?.text = "⚠️ Wiki unavailable"
+            return cell
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: "PlayerNavigationCell")!
         cell.textLabel?.text = tableViewContent[indexPath.row]
