@@ -4,6 +4,5 @@
 *.swp
 Pods
 build/
-docs/
 Podfile.lock
 
