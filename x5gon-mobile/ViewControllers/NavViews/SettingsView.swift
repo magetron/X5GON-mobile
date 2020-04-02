@@ -101,7 +101,7 @@ class SettingsView: UIView, UITableViewDelegate, UITableViewDataSource, MFMailCo
             viewController.view.addSubview(textView)
             parentViewController?.present(viewController, animated: true)
         } else if items[indexPath.row] == "Help" {
-            guard let url = URL(string: "http://students.cs.ucl.ac.uk/2019/group4/") else { return }
+            guard let url = URL(string: "http://patrickwu.uk/X5GON-mobile") else { return }
             let vc = SFSafariViewController(url: url)
             parentViewController?.present(vc, animated: true, completion: nil)
         } else if items[indexPath.row] == "Send Feedback" {
