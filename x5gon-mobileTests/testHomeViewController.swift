@@ -21,6 +21,7 @@ class testHomeViewController: XCTestCase {
 
     override func setUp() {
         homeViewController = makeHomeViewController()
+        MainController.Queue.cancelOperations()
         let content1 = Content(title: "1231", id: 0, channelName: "Test", description: "Nil", url: URL(string: "www.TEST.com")!)
         homeViewController?.contents.append(content1)
     }

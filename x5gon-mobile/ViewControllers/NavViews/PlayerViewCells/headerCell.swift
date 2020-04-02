@@ -39,9 +39,10 @@ class headerCell: UITableViewCell {
     @IBOutlet var thumbUp: UIImageView!
     /// This is a `UIImageView` used to display the thumbDown Icon.
     @IBOutlet var thumbDown: UIImageView!
-
+    /// This is a `UIButton` for wikichunk
+    @IBOutlet var sideBarButton: UIButton!
     /// This is a `UIButton` for bookmark
-    var bookmarkButton: UIButton!
+    @IBOutlet var bookmarkButton: UIButton!
     /// This is a variable to store the `Content`
     var content: Content!
 
@@ -87,17 +88,13 @@ class headerCell: UITableViewCell {
             thumbDown.image = UIImage(systemName: "hand.thumbsdown.fill")
         }
 
-        bookmarkButton = UIButton(frame: CGRect(x: 300, y: 50, width: 100, height: 22))
-        bookmarkButton.setTitleColor(UIColor.systemBlue, for: .normal)
-        bookmarkButton.setTitle("Bookmark", for: .normal)
-        if MainController.user.bookmarkedContent.contains(self.content) { bookmarkButton.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
+        if self.content != nil, MainController.user.bookmarkedContent.contains(self.content) { bookmarkButton.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
         } else {
             bookmarkButton.setImage(UIImage(systemName: "bookmark"), for: .normal)
         }
         let bookmarkTap = UITapGestureRecognizer(target: self, action: #selector(bookmarkCurrentContent))
         bookmarkButton.isUserInteractionEnabled = true
         bookmarkButton.addGestureRecognizer(bookmarkTap)
-        addSubview(bookmarkButton)
     }
 
     /// Change the icon when like is tappedn and increase the number of content like
@@ -142,6 +139,8 @@ class headerCell: UITableViewCell {
     /// Prepares a reusable cell for reuse by the table view's delegate.
     override func prepareForReuse() {
         super.prepareForReuse()
-        bookmarkButton.setImage(UIImage(systemName: "bookmark"), for: .normal)
+        thumbUp.gestureRecognizers?.forEach(thumbUp.removeGestureRecognizer)
+        thumbDown.gestureRecognizers?.forEach(thumbDown.removeGestureRecognizer)
+        bookmarkButton.gestureRecognizers?.forEach(bookmarkButton.removeGestureRecognizer)
     }
 }

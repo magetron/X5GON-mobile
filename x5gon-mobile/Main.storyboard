@@ -428,6 +428,15 @@
                                                     <action selector="showNavigation:" destination="5gL-Aw-hkc" eventType="touchUpInside" id="VYx-2x-ba9"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lm0-7z-GNX">
+                                                <rect key="frame" x="298" y="52" width="102" height="22"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="102" id="0lB-ay-LDc"/>
+                                                </constraints>
+                                                <state key="normal" title="Bookmark" image="bookmark" catalog="system">
+                                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                            </button>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="BW9-Ht-IWc" firstAttribute="top" secondItem="0ca-mZ-3VK" secondAttribute="bottom" constant="14" id="1cN-AT-BNh"/>
@@ -435,6 +444,7 @@
                                             <constraint firstItem="bwh-c8-ljN" firstAttribute="trailing" secondItem="5VB-wW-c7d" secondAttribute="trailingMargin" id="6RP-0a-aVA"/>
                                             <constraint firstItem="0n3-CX-chw" firstAttribute="leading" secondItem="016-Rn-zZs" secondAttribute="leading" id="73k-m3-2op"/>
                                             <constraint firstItem="FM6-uO-2GO" firstAttribute="top" secondItem="0ca-mZ-3VK" secondAttribute="bottom" constant="11.333333333333336" id="7Jm-5H-AbN"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="Lm0-7z-GNX" secondAttribute="trailing" constant="-5" id="Abi-fx-rrX"/>
                                             <constraint firstItem="IZ9-Xp-GaY" firstAttribute="top" secondItem="7mI-94-9Pe" secondAttribute="bottom" constant="7" id="BLN-Eg-nnw"/>
                                             <constraint firstItem="BnV-rd-kCv" firstAttribute="leading" secondItem="5VB-wW-c7d" secondAttribute="leadingMargin" id="C7Q-Of-3np"/>
                                             <constraint firstItem="016-Rn-zZs" firstAttribute="top" secondItem="0ca-mZ-3VK" secondAttribute="bottom" constant="11.333333333333336" id="HsH-y9-dSM"/>
@@ -444,6 +454,7 @@
                                             <constraint firstItem="BnV-rd-kCv" firstAttribute="top" secondItem="6AR-op-Iwf" secondAttribute="bottom" constant="8" symbolic="YES" id="RI4-dj-QPk"/>
                                             <constraint firstItem="0ca-mZ-3VK" firstAttribute="top" secondItem="bwh-c8-ljN" secondAttribute="bottom" constant="5.5" id="VMd-Lx-Mrq"/>
                                             <constraint firstItem="ghd-Go-5tw" firstAttribute="top" secondItem="cn9-zh-jEI" secondAttribute="top" constant="-2" id="WKq-hW-y59"/>
+                                            <constraint firstItem="Lm0-7z-GNX" firstAttribute="top" secondItem="bwh-c8-ljN" secondAttribute="bottom" constant="15" id="Wkr-Nc-C2C"/>
                                             <constraint firstItem="bwh-c8-ljN" firstAttribute="leading" secondItem="5VB-wW-c7d" secondAttribute="leadingMargin" id="YO0-1c-c6G"/>
                                             <constraint firstItem="cn9-zh-jEI" firstAttribute="top" secondItem="0ca-mZ-3VK" secondAttribute="bottom" constant="14.333333333333336" id="a8n-IL-Zc9"/>
                                             <constraint firstItem="FM6-uO-2GO" firstAttribute="leading" secondItem="cn9-zh-jEI" secondAttribute="trailing" constant="16" id="a9w-41-aqF"/>
@@ -464,12 +475,14 @@
                                         </constraints>
                                     </tableViewCellContentView>
                                     <connections>
+                                        <outlet property="bookmarkButton" destination="Lm0-7z-GNX" id="exe-2k-2af"/>
                                         <outlet property="channelPic" destination="BnV-rd-kCv" id="9sX-OC-83x"/>
                                         <outlet property="channelSubscribers" destination="IZ9-Xp-GaY" id="xfw-fY-PEg"/>
                                         <outlet property="channelTitle" destination="7mI-94-9Pe" id="ISg-sk-hiD"/>
                                         <outlet property="descriptionTextView" destination="0n3-CX-chw" id="5Zt-ZZ-LrM"/>
                                         <outlet property="disLikes" destination="BW9-Ht-IWc" id="S01-a6-Vgp"/>
                                         <outlet property="likes" destination="cn9-zh-jEI" id="a9e-WS-WVo"/>
+                                        <outlet property="sideBarButton" destination="ghd-Go-5tw" id="kCJ-vp-y2B"/>
                                         <outlet property="thumbDown" destination="FM6-uO-2GO" id="Bqc-2l-o0a"/>
                                         <outlet property="thumbUp" destination="016-Rn-zZs" id="Qgo-Y6-ooy"/>
                                         <outlet property="title" destination="bwh-c8-ljN" id="hvz-MX-pKf"/>
@@ -1408,6 +1421,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bookmark" catalog="system" width="112" height="128"/>
         <image name="cancel" width="24" height="24"/>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
         <image name="emptyTumbnail" width="375" height="211"/>
