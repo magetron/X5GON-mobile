@@ -18,12 +18,12 @@ class testPlayerNavigationView: XCTestCase {
 
     var nvc: NavViewController?
 
-    override func setUpWithError() throws {
+    override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         nvc = makeNavViewController()
     }
 
-    override func tearDownWithError() throws {
+    override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 

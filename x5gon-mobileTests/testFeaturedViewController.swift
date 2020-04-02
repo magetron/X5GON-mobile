@@ -18,13 +18,13 @@ class testFeaturedViewController: XCTestCase {
 
     var featuredViewController: FeaturedViewController?
 
-    override func setUpWithError() throws {
+    override func setUp() {
         featuredViewController = makeFeaturedViewController()
         let content1 = Content(title: "1231", id: 0, channelName: "Test", description: "Nil", url: URL(string: "www.TEST.com")!)
         featuredViewController?.contents.append(content1)
     }
 
-    override func tearDownWithError() throws {
+    override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
