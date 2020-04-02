@@ -84,6 +84,7 @@ class testPdfModel: XCTestCase {
 
     func testPdfFetchSuggestionContents() {
         let pdfs: () = pdf.fetchSuggestedContents()
+        MainController.Queue.cancelOperations()
         XCTAssertNotNil(pdfs)
     }
 

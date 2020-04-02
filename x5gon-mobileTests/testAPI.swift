@@ -28,14 +28,16 @@ class testAPI: XCTestCase {
     }
 
     func testDEPRECATED_fetchContents() {
-        let result = API.DEPRECATED_fetchContents(keyWord: "science")
-        MainController.Queue.cancelOperations()
+        var result = [Content]()
+        cancellableRefresher(updateContent: { result = API.DEPRECATED_fetchContents(keyWord: "science") }, viewReload: {})
+        MainController.Queue.cancelOperations(); sleep(1)
         XCTAssertNotNil(result)
     }
 
     func testDEPRECATED_fetchContentsWithContenType() {
-        let result = API.DEPRECATED_fetchContents(keyWord: "sciecn", contentType: "pdf")
-        MainController.Queue.cancelOperations()
+        var result = [Content]()
+        cancellableRefresher(updateContent: { result = API.DEPRECATED_fetchContents(keyWord: "science", contentType: "pdf") }, viewReload: {})
+        MainController.Queue.cancelOperations(); sleep(1)
         XCTAssertNotNil(result)
     }
 
