@@ -20,6 +20,7 @@
 		CD48FAA223F80253004415E7 /* userHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD48FAA123F80253004415E7 /* userHeaderCell.swift */; };
 		CD48FAA423F8026F004415E7 /* userMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD48FAA323F8026F004415E7 /* userMenuCell.swift */; };
 		CD48FAA623F8027E004415E7 /* userPlaylistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD48FAA523F8027E004415E7 /* userPlaylistCell.swift */; };
+		CD6DFFCE24361D0D0016FD73 /* UIImageInvertColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6DFFCD24361D0D0016FD73 /* UIImageInvertColor.swift */; };
 		CD70063124093A1C00FB6135 /* UserHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD70063024093A1C00FB6135 /* UserHistoryView.swift */; };
 		CD7CBA3D23E96E1E003BF035 /* notesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7CBA3C23E96E1E003BF035 /* notesCell.swift */; };
 		CD87A1FA2435B8D60047BB84 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = CD87A1F92435B8D60047BB84 /* LICENSE */; };
@@ -124,6 +125,7 @@
 		CD48FAA123F80253004415E7 /* userHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userHeaderCell.swift; sourceTree = "<group>"; };
 		CD48FAA323F8026F004415E7 /* userMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userMenuCell.swift; sourceTree = "<group>"; };
 		CD48FAA523F8027E004415E7 /* userPlaylistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userPlaylistCell.swift; sourceTree = "<group>"; };
+		CD6DFFCD24361D0D0016FD73 /* UIImageInvertColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageInvertColor.swift; sourceTree = "<group>"; };
 		CD70063024093A1C00FB6135 /* UserHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHistoryView.swift; sourceTree = "<group>"; };
 		CD7CBA3C23E96E1E003BF035 /* notesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notesCell.swift; sourceTree = "<group>"; };
 		CD87A1F92435B8D60047BB84 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
@@ -451,6 +453,7 @@
 				CDC8A9A6243261EB0096DBD6 /* Refresher.swift */,
 				CDC8A9A8243262180096DBD6 /* UIViewExtensions.swift */,
 				CDC8A9AA2432624E0096DBD6 /* AVAssetExtensions.swift */,
+				CD6DFFCD24361D0D0016FD73 /* UIImageInvertColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -747,6 +750,7 @@
 				CD0175332403103A0081A9AC /* playerNavigationView.swift in Sources */,
 				CDFD3C4023CC7C9F000FCEF6 /* SearchView.swift in Sources */,
 				CD318CAB23E78AFA0091017B /* Environment.swift in Sources */,
+				CD6DFFCE24361D0D0016FD73 /* UIImageInvertColor.swift in Sources */,
 				CDFD3C3E23CC7C8E000FCEF6 /* TabBarView.swift in Sources */,
 				CDA5D0AA23F3736200AA6902 /* API.swift in Sources */,
 				CDC6643323F45536009A08FF /* MainController.swift in Sources */,

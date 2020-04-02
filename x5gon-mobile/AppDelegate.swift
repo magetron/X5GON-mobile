@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
      */
     func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         if #available(iOS 13.0, *) {
-            window?.overrideUserInterfaceStyle = .light
+            // window?.overrideUserInterfaceStyle = .light
         }
         return true
     }
