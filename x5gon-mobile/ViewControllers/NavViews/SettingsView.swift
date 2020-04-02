@@ -96,6 +96,7 @@ class SettingsView: UIView, UITableViewDelegate, UITableViewDataSource, MFMailCo
         } else if items[indexPath.row] == "Terms & privacy policy" {
             let viewController = UIViewController()
             let textView = UITextView(frame: viewController.view.frame)
+            textView.font = UIFont.systemFont(ofSize: 10)
             textView.text = Environment.loadLICENSE()
             viewController.view.addSubview(textView)
             parentViewController?.present(viewController, animated: true)
