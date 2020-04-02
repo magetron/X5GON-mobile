@@ -59,7 +59,6 @@ class LoginView: UIView {
     /// Show the keyboard
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            print(keyboardSize.height)
             UIView.animate(withDuration: 0.3, animations: {
                 self.viewBottomConstraint.constant = keyboardSize.height
             })
