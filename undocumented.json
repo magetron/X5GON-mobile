@@ -1,10 +1,31 @@
 {
   "warnings": [
     {
+      "file": "/Users/patrick/Documents/University-College-London/UCL-CS/Year-2/COMP0016/x5gon-mobile/x5gon-mobile/APIs/APIAdapter.swift",
+      "line": 56,
+      "symbol": "APIAdapter.TBD_genreateVoteURL(id:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/patrick/Documents/University-College-London/UCL-CS/Year-2/COMP0016/x5gon-mobile/x5gon-mobile/APIs/APIAdapters/X5GONAPIAdapter.swift",
       "line": 11,
       "symbol": "X5GONAPIAdapter",
       "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/patrick/Documents/University-College-London/UCL-CS/Year-2/COMP0016/x5gon-mobile/x5gon-mobile/APIs/APIAdapters/X5GONAPIAdapter.swift",
+      "line": 82,
+      "symbol": "X5GONAPIAdapter.TBD_genreateVoteURL(id:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/patrick/Documents/University-College-London/UCL-CS/Year-2/COMP0016/x5gon-mobile/x5gon-mobile/APIs/APIAdapters/X5LearnAdapter.swift",
+      "line": 88,
+      "symbol": "X5LearnAPIAdapter.TBD_genreateVoteURL(id:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
       "warning": "undocumented"
     },
     {
@@ -131,6 +152,27 @@
       "line": 96,
       "symbol": "Direction",
       "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/patrick/Documents/University-College-London/UCL-CS/Year-2/COMP0016/x5gon-mobile/x5gon-mobile/Extensions/Refresher.swift",
+      "line": 74,
+      "symbol": "refresherWithLoadingHUD(updateContent:viewReload:view:info:cancellable:)",
+      "symbol_kind": "source.lang.swift.decl.function.free",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/patrick/Documents/University-College-London/UCL-CS/Year-2/COMP0016/x5gon-mobile/x5gon-mobile/Extensions/UIImageInvertColor.swift",
+      "line": 13,
+      "symbol": "UIImage.invertedImage()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/patrick/Documents/University-College-London/UCL-CS/Year-2/COMP0016/x5gon-mobile/x5gon-mobile/Extensions/UIImageInvertColor.swift",
+      "line": 25,
+      "symbol": "UIImage.adaptToDarkMode()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
