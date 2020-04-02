@@ -126,7 +126,7 @@ class UserViewController: UIViewController, UITableViewDelegate, UITableViewData
         case 1 ... defaultItems - 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "UserMenuCell", for: indexPath) as! userMenuCell
             cell.menuTitles.text = menuTitles[indexPath.row - 1]
-            cell.menuIcon.image = UIImage(named: menuTitles[indexPath.row - 1])
+            cell.menuIcon.image = UIImage(named: menuTitles[indexPath.row - 1])?.adaptToDarkMode()
             return cell
         case defaultItems - 1:
             let cell = UITableViewCell()
