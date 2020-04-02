@@ -94,9 +94,11 @@ class SettingsView: UIView, UITableViewDelegate, UITableViewDataSource, MFMailCo
         if items[indexPath.row] == "Login" {
             delegate?.showLogin()
         } else if items[indexPath.row] == "Terms & privacy policy" {
-            guard let url = URL(string: "https://patrickwu.uk/X5GON-mobile/LICENSE") else { return }
-            let vc = SFSafariViewController(url: url)
-            parentViewController?.present(vc, animated: true, completion: nil)
+            let viewController = UIViewController()
+            let textView = UITextView(frame: viewController.view.frame)
+            textView.text = Environment.loadLICENSE()
+            viewController.view.addSubview(textView)
+            parentViewController?.present(viewController, animated: true)
         } else if items[indexPath.row] == "Help" {
             guard let url = URL(string: "http://students.cs.ucl.ac.uk/2019/group4/") else { return }
             let vc = SFSafariViewController(url: url)

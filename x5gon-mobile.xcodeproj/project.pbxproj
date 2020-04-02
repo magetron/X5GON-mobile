@@ -22,6 +22,7 @@
 		CD48FAA623F8027E004415E7 /* userPlaylistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD48FAA523F8027E004415E7 /* userPlaylistCell.swift */; };
 		CD70063124093A1C00FB6135 /* UserHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD70063024093A1C00FB6135 /* UserHistoryView.swift */; };
 		CD7CBA3D23E96E1E003BF035 /* notesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7CBA3C23E96E1E003BF035 /* notesCell.swift */; };
+		CD87A1FA2435B8D60047BB84 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = CD87A1F92435B8D60047BB84 /* LICENSE */; };
 		CDA5D0AA23F3736200AA6902 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA5D0A823F3736200AA6902 /* API.swift */; };
 		CDA5D0AB23F3736200AA6902 /* APIAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA5D0A923F3736200AA6902 /* APIAdapter.swift */; };
 		CDC6643323F45536009A08FF /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC6643223F45536009A08FF /* MainController.swift */; };
@@ -125,6 +126,7 @@
 		CD48FAA523F8027E004415E7 /* userPlaylistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userPlaylistCell.swift; sourceTree = "<group>"; };
 		CD70063024093A1C00FB6135 /* UserHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHistoryView.swift; sourceTree = "<group>"; };
 		CD7CBA3C23E96E1E003BF035 /* notesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notesCell.swift; sourceTree = "<group>"; };
+		CD87A1F92435B8D60047BB84 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
 		CDA5D0A823F3736200AA6902 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		CDA5D0A923F3736200AA6902 /* APIAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIAdapter.swift; sourceTree = "<group>"; };
 		CDC6643223F45536009A08FF /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
@@ -365,6 +367,7 @@
 				CDFD3C1D23CC78F5000FCEF6 /* ViewControllers */,
 				CDFD3C1B23CC78B4000FCEF6 /* Main.storyboard */,
 				CDFD3BEB23CC784C000FCEF6 /* AppDelegate.swift */,
+				CD87A1F92435B8D60047BB84 /* LICENSE */,
 				CDFD3BF123CC7853000FCEF6 /* Assets.xcassets */,
 				CDFD3BF323CC7853000FCEF6 /* Preview Content */,
 			);
@@ -610,6 +613,7 @@
 				CDFD3C5523CC8AB0000FCEF6 /* LaunchView.xib in Resources */,
 				CDFD3BF223CC7853000FCEF6 /* Assets.xcassets in Resources */,
 				CDFD3C1C23CC78B4000FCEF6 /* Main.storyboard in Resources */,
+				CD87A1FA2435B8D60047BB84 /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

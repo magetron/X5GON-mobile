@@ -13,4 +13,17 @@ import UIKit
 class Environment {
     /// **x5gon color**
     static let X5Color = UIColor.rbg(r: 91, g: 149, b: 165)
+
+    static func loadLICENSE() -> String {
+        if let filepath = Bundle.main.path(forResource: "LICENSE", ofType: "") {
+            do {
+                let contents = try String(contentsOfFile: filepath)
+                return contents
+            } catch {
+                return "contents could not be loaded"
+            }
+        } else {
+            return "LICENSE not found!"
+        }
+    }
 }
