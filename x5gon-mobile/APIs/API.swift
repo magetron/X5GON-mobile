@@ -486,6 +486,9 @@ class API {
     static func fetchWikiChunkEnrichments(ids: [Int]) -> Wiki {
         var tmpWiki: Wiki?
         var request = URLRequest(url: URL(string: newAdapter.generateWikiChunkEnrichmentsURL())!)
+        if MainController.DEBUG {
+            print("API: fetching wiki... \(ids)")
+        }
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         applyAuthToken(request: &request)
         request.httpMethod = "POST"
@@ -533,6 +536,9 @@ class API {
         }
         dataTask.resume()
         semaphore.wait()
+        if MainController.DEBUG {
+            print("API: wiki done \(ids)")
+        }
         return tmpWiki ?? Wiki(chunks: [])
     }
 

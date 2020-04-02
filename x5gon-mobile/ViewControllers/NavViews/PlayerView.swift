@@ -247,7 +247,7 @@ class PlayerView: UIView, UITableViewDelegate, UITableViewDataSource, UIGestureR
         }
         if content.wiki.chunks.count == 0 {
             refresherWithLoadingHUD(updateContent: { () -> Void in content.fetchWikiChunkEnrichments() }, viewReload: { () -> Void in
-                if self.content.hashValue == content.hashValue {
+                if self.content == content {
                     self.navigationView.setWiki(wiki: content.wiki)
                     self.navigationView.tableView.reloadDataWithAnimation()
                 }
