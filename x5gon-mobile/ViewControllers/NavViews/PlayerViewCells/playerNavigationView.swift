@@ -87,7 +87,7 @@ class playerNavigationView: UIView, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableViewContent.count == 0 {
             let cell = UITableViewCell()
-            cell.textLabel?.text = "⚠️ Wiki unavailable"
+            cell.textLabel?.text = "⚠️ Topics unavailable"
             return cell
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: "PlayerNavigationCell")!
