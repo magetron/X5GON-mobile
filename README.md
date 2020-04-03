@@ -7,18 +7,22 @@
 ### Prerequisites
 
 * Git
-* Xcode 11.3.1(macOS 15 Catalina+)
-* iPhone running iOS 13.2+ or an iOS Simulator
+* Xcode 11.3+(ideally **11.4**) running on macOS 14 Mojave+(ideally **15 Catalina**)
+* Apple Device running iOS(iPadOS) 13.3+(ideally **13.4**) or an Device Simulator with similar specs
 * Cocoapods
-* Homebrew (CLI-only)
-* ios-sim (CLI-only)
+* Homebrew (**CLI-only**)
+* ios-sim (**CLI-only**)
+* ruby-gem (**docs-only**)
+* swiftformat (**dev-only**)
 
-### Building, Testing and Installation
+### General Installation
 
 ```zsh
 $ git clone https://github.com/magetron/x5gon-mobile.git
 $ pod install 
-$ brew install ios-sim (cli-only)
+$ brew install ios-sim (CLI-only)
+$ gem install jazzy (docs-only)
+$ brew install swiftformat (dev only)
 ```
 
 #### To Use Xcode GUI:
@@ -31,24 +35,12 @@ Click the `Run` Button to build and run.
 
 ![RUN-GUI](./images/gui-run.png)
 
-**Build / Test**
-
-Click the `Build` / `Test` Button for build / test only, respectively.
-
-![BUILD-GUI](./images/gui-build.png)
-
-#### To use CLI
+#### To Use CLI
 
 **Build First**
 
 ```zsh
 $ source ./scripts/build.sh
-```
-
-(With Tests)
-
-```zsh
-$ source ./scripts/build.sh -test
 ```
 
 **Then Run**
@@ -57,17 +49,33 @@ $ source ./scripts/build.sh -test
 $ source ./scripts/run.sh
 ```
 
-**Note**: It is possible to run iOS application with temporary signature on an actual iPhone using CLI. However, given the complexity of steps, we do not recommend this deployment method at this stage.
+**Note**: It is possible to run iOS application with temporary signature on an actual iPhone using CLI. However, given the complexity of steps, we do not recommend this deployment method. 
 
-**Test Only**
+### Building, Testing 
+
+#### To Use Xcode GUI:
+
+Select relevant option / profile in the **Product** drop down menu of Xcode.
+
+![Xcode-product](./images/xcode-product.png)
+
+#### To Use CLI
+
+**Build with Test**
 
 ```zsh
-$ xcodebuild test -workspace x5gon-mobile.xcworkspace -scheme x5gon-mobile -destination 'platform=iOS Simulator,name=iPhone 11 Pro Max,OS=13.3'
+$ source ./scripts/build.sh -test
 ```
 
-Change the specification, models and OS Version above to test on different platforms.
+Alternatively, test with `Swift 5.1, Xcode 11.3` backwards compatible feature.
+
+```zsh
+$ source ./scripts/build.sh -old-test
+```
 
 ### Documentation
+
+Online version deployed [on GitHub Pages](https://patrickwu.uk/X5GON-mobile).
 
 **Build Docs**
 
@@ -77,10 +85,30 @@ $ source ./scripts/build-docs.sh
 
 Static Documentation will be generated at `./docs`. Simply double click `./docs/index.html` to open with a browser or use `open ./docs/index.html` on `macOS`.
 
+### Setting up new Development Environment
+
+**Install Development Dependencies and Git Hooks**
+
+```zsh
+$ source ./scripts/setup-dev.sh
+```
+
+This script
+* sets up a local `Git` pre-commit hook to run `git-diff` and `swiftformat` on source code.
+* installs development required dependencies for local user.
+
+
 ## Showcase
 
-![header-iPhone](./images/header-iphone.png)
+### Interface
 
-### Testing
+![dark-mode](./images/showcase-dark.png)
+![light-mode](./images/showcase-light.png)
+
+### Test Coverage
 
 ![testing](./images/testing.png)
+
+### CI/CD with Travis
+
+
