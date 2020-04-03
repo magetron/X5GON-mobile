@@ -53,5 +53,5 @@ protocol APIAdapter {
     /// Generate`Report` content url
     static func TBD_generateReportURL(id: Int) -> String
 
-    static func TBD_genreateVoteURL(id: Int) -> String
+    static func TBD_generateVoteURL(id: Int) -> String
 }

@@ -78,9 +78,9 @@ class testVideoModel: XCTestCase {
     }
 
     func testFetchSuggestionContent() {
-        let videos: () = video.fetchSuggestedContents()
+        cancellableRefresher(updateContent: { self.video.fetchSuggestedContents() }, viewReload: {})
         MainController.Queue.cancelOperations()
-        XCTAssertNotNil(videos)
+        XCTAssertNotNil(video.suggestedContents)
     }
 
     func testPerformanceExample() {
