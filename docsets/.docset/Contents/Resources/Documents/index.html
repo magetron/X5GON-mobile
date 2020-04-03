@@ -270,35 +270,34 @@
 
 <ul>
 <li>Git</li>
-<li>Xcode 11.3.1(macOS 15 Catalina+)</li>
-<li>iPhone running iOS 13.2+ or an iOS Simulator</li>
+<li>Xcode 11.3+(ideally <strong>11.4</strong>) running on macOS 14 Mojave+(ideally <strong>15 Catalina</strong>)</li>
+<li>Apple Device running iOS(iPadOS) 13.3+(ideally <strong>13.4</strong>) or a Device Simulator with similar specs</li>
 <li>Cocoapods</li>
-<li>Homebrew (CLI-only)</li>
-<li>ios-sim (CLI-only)</li>
+<li>Homebrew (<strong>CLI-only</strong>)</li>
+<li>ios-sim (<strong>CLI-only</strong>)</li>
+<li>ruby-gem (<strong>docs-only</strong>)</li>
+<li>jazzy (<strong>docs-only</strong>)</li>
+<li>swiftformat (<strong>dev-only</strong>)</li>
 </ul>
-<h3 id='building-testing-and-installation' class='heading'>Building, Testing and Installation</h3>
+<h3 id='general-installation' class='heading'>General Installation</h3>
 <pre class="highlight shell"><code><span class="nv">$ </span>git clone https://github.com/magetron/x5gon-mobile.git
 <span class="nv">$ </span>pod <span class="nb">install</span> 
-<span class="nv">$ </span>brew <span class="nb">install </span>ios-sim <span class="o">(</span>cli-only<span class="o">)</span>
+<span class="nv">$ </span>brew <span class="nb">install </span>ios-sim <span class="o">(</span>CLI-only<span class="o">)</span>
+<span class="nv">$ </span>gem <span class="nb">install </span>jazzy <span class="o">(</span>docs-only<span class="o">)</span>
+<span class="nv">$ </span>brew <span class="nb">install </span>swiftformat <span class="o">(</span>dev-only<span class="o">)</span>
 </code></pre>
 <h4 id='to-use-xcode-gui' class='heading'>To Use Xcode GUI:</h4>
 
 <p><strong>Build and Run</strong></p>
 
-<p>Double click to open <code>x5gon-mobile.xcworkspace</code> and select build target on top left corner.</p>
+<p>Double click to open <code>x5gon-mobile.xcworkspace</code> and select target on top left corner.</p>
 
 <p>Click the <code>Run</code> Button to build and run.</p>
 
 <p><img src="./images/gui-run.png" alt="RUN-GUI"></p>
+<h4 id='to-use-cli' class='heading'>To Use CLI</h4>
 
-<p><strong>Build / Test</strong></p>
-
-<p>Click the <code>Build</code> / <code>Test</code> Button for build / test only, respectively.</p>
-
-<p><img src="./images/gui-build.png" alt="BUILD-GUI"></p>
-<h4 id='to-use-cli' class='heading'>To use CLI</h4>
-
-<p><strong>Build First (Test included)</strong></p>
+<p><strong>Build First</strong></p>
 <pre class="highlight shell"><code><span class="nv">$ </span><span class="nb">source</span> ./scripts/build.sh
 </code></pre>
 
@@ -306,26 +305,62 @@
 <pre class="highlight shell"><code><span class="nv">$ </span><span class="nb">source</span> ./scripts/run.sh
 </code></pre>
 
-<p><strong>Note</strong>: It is possible to run iOS application with temporary signature on an actual iPhone using CLI. However, given the complexity of steps, we do not recommend this deployment method at this stage.</p>
+<p><strong>Note</strong>: It is possible to run iOS application with temporary signature on an actual iPhone using CLI. However, given the complexity of steps, we do not recommend this deployment method. </p>
+<h3 id='building-testing' class='heading'>Building, Testing</h3>
+<h4 id='to-use-xcode-gui' class='heading'>To Use Xcode GUI:</h4>
 
-<p><strong>Test Only</strong></p>
-<pre class="highlight shell"><code><span class="nv">$ </span>xcodebuild <span class="nb">test</span> <span class="nt">-workspace</span> x5gon-mobile.xcworkspace <span class="nt">-scheme</span> x5gon-mobile <span class="nt">-destination</span> <span class="s1">'platform=iOS Simulator,name=iPhone 11 Pro Max,OS=13.3'</span>
+<p>Select relevant option / profile in the <strong>Product</strong> drop down menu of Xcode.</p>
+
+<p><img src="./images/xcode-product.png" alt="Xcode-product"></p>
+<h4 id='to-use-cli' class='heading'>To Use CLI</h4>
+
+<p><strong>Build with Test</strong></p>
+<pre class="highlight shell"><code><span class="nv">$ </span><span class="nb">source</span> ./scripts/build.sh <span class="nt">-test</span>
 </code></pre>
 
-<p>Change the specification, models and OS Version above to test on different platforms.</p>
+<p>Alternatively, test with <code>Swift 5.1, Xcode 11.3</code> backwards compatible feature.</p>
+<pre class="highlight shell"><code><span class="nv">$ </span><span class="nb">source</span> ./scripts/build.sh <span class="nt">-old-test</span>
+</code></pre>
+
+<p><strong>Test Only</strong></p>
+<pre class="highlight shell"><code><span class="nv">$ </span>xcodebuild <span class="nb">test</span> <span class="nt">-workspace</span> x5gon-mobile.xcworkspace <span class="nt">-scheme</span> x5gon-mobile <span class="nt">-destination</span> <span class="s1">'platform=iOS Simulator,name=iPhone 11 Pro Max,OS=13.4'</span>
+</code></pre>
+
+<p>Change <code>destination</code> argument as you wish to test on different devices or different OS versions.</p>
 <h3 id='documentation' class='heading'>Documentation</h3>
+
+<p>Online version deployed <a href="https://patrickwu.uk/X5GON-mobile">on GitHub Pages</a>.</p>
 
 <p><strong>Build Docs</strong></p>
 <pre class="highlight shell"><code><span class="nv">$ </span><span class="nb">source</span> ./scripts/build-docs.sh
 </code></pre>
 
-<p>Static Documentation will be generated at <code>./docs</code>. Simply double click <code>./docs/index.html</code> to open with a browser or use <code>open ./docs/index.html</code> on <code>macOS</code>.</p>
-<h2 id='showcase' class='heading'>Showcase</h2>
+<p>Static Documentation will be generated at <code>./docs</code>. </p>
 
-<p><img src="./images/header-iphone.png" alt="header-iPhone"></p>
-<h3 id='testing' class='heading'>Testing</h3>
+<p>Simply double click <code>./docs/index.html</code> to open with a browser or use <code>open ./docs/index.html</code> on <code>macOS</code>.</p>
+<h3 id='setting-up-new-development-environment' class='heading'>Setting up new Development Environment</h3>
+
+<p><strong>Install Development Dependencies and Git Hooks</strong></p>
+<pre class="highlight shell"><code><span class="nv">$ </span><span class="nb">source</span> ./scripts/setup-dev.sh
+</code></pre>
+
+<p>This script</p>
+
+<ul>
+<li>sets up a local <code>Git</code> pre-commit hook to run <code>git-diff</code> and <code>swiftformat</code> on source code.</li>
+<li>installs development required dependencies for local user.</li>
+</ul>
+<h2 id='showcase' class='heading'>Showcase</h2>
+<h3 id='interface' class='heading'>Interface</h3>
+
+<p><img src="./images/showcase-dark.png" alt="dark-mode">
+<img src="./images/showcase-light.png" alt="light-mode"></p>
+<h3 id='test-coverage' class='heading'>Test Coverage</h3>
 
 <p><img src="./images/testing.png" alt="testing"></p>
+<h3 id='ci-cd-with-travis' class='heading'>CI/CD with Travis</h3>
+
+<p><img src="./images/ci-cd.png" alt="ci-cd"></p>
 
           </div>
         </section>
@@ -334,7 +369,7 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2020 <a class="link" href="" target="_blank" rel="external">Patrick and Felix</a>. All rights reserved. (Last updated: 2020-04-02)</p>
+      <p>&copy; 2020 <a class="link" href="" target="_blank" rel="external">Patrick and Felix</a>. All rights reserved. (Last updated: 2020-04-03)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

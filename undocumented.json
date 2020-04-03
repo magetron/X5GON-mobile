@@ -3,7 +3,7 @@
     {
       "file": "/Users/patrick/Documents/University-College-London/UCL-CS/Year-2/COMP0016/x5gon-mobile/x5gon-mobile/APIs/APIAdapter.swift",
       "line": 56,
-      "symbol": "APIAdapter.TBD_genreateVoteURL(id:)",
+      "symbol": "APIAdapter.TBD_generateVoteURL(id:)",
       "symbol_kind": "source.lang.swift.decl.function.method.static",
       "warning": "undocumented"
     },
@@ -17,14 +17,14 @@
     {
       "file": "/Users/patrick/Documents/University-College-London/UCL-CS/Year-2/COMP0016/x5gon-mobile/x5gon-mobile/APIs/APIAdapters/X5GONAPIAdapter.swift",
       "line": 82,
-      "symbol": "X5GONAPIAdapter.TBD_genreateVoteURL(id:)",
+      "symbol": "X5GONAPIAdapter.TBD_generateVoteURL(id:)",
       "symbol_kind": "source.lang.swift.decl.function.method.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/patrick/Documents/University-College-London/UCL-CS/Year-2/COMP0016/x5gon-mobile/x5gon-mobile/APIs/APIAdapters/X5LearnAdapter.swift",
       "line": 88,
-      "symbol": "X5LearnAPIAdapter.TBD_genreateVoteURL(id:)",
+      "symbol": "X5LearnAPIAdapter.TBD_generateVoteURL(id:)",
       "symbol_kind": "source.lang.swift.decl.function.method.static",
       "warning": "undocumented"
     },
