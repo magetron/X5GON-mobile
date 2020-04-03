@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Website Title -->
-    <title>Design - Team 4 - X5GON Project Website</title>
+    <title>Implementation - Team 4 - X5GON Project Website</title>
 
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
@@ -39,7 +39,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h1>Design</h1>
+                    <h1>Implementation</h1>
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
         </div> <!-- end of container -->
@@ -53,117 +53,13 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumbs">
-                        <a href="index.html">Intro</a><i class="fa fa-angle-double-right"></i><span>Design & Implementation</span>
+                        <a href="index.html">Intro</a><i class="fa fa-angle-double-right"></i><span>Implementation</span>
                     </div> <!-- end of breadcrumbs -->
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
         </div> <!-- end of container -->
     </div> <!-- end of ex-basic-1 -->
     <!-- end of breadcrumbs -->
-
-    <div id="architecture" class="ex-basic-2">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-10 offset-lg-1">
-                    <div class="text-container">
-                        <h3>System Architecture</h3>
-                        <p> This section introduces the design of the mobile application. Generally speaking, this architecture adopts the classic Model-View-Controller (MVC) pattern (Reenskaug and Coplien, 2009). </p>
-                        <img class="img-fluid" src="images/system-arch.png"  alt="alternative"/>
-                        <p> Models include <code>UserModel</code>, <code>ChannelModel</code> , <code>VideoModel</code>, <code>WikiModel</code> and many others,
-                            each holding information and buffered data from X5GON Backend.</p>
-                        <p> Data updates are made from <code>ViewControllers</code> to <code>Views</code>.
-                        <p> User interactions are captured through <code>GestureRecognisers</code> and <code>Actions</code> in various <code>ViewControllers</code> and then delegate to the <code>MainController</code>.
-                        <p> With the main logic implemented in the <code>MainController</code>, it dispatch changes to relevant <code>Models</code>, which will then be reflected in <code>Views</code> eventually.
-                        <p> Meanwhile, daemon <code>Refresher</code> workers keep track of the <code>Model</code> changes and update them with the X5Learn backend when suitable. </p>
-                        <h4>Reason</h4>
-                        <p> Our team adopted the MVC architecture mainly because of its high cohesion and low coupling. We can group sections of similar actions on <code>DataModels</code> together in the <code>MainController</code>, and ensure there is little to no coupling among these three parts. In other words, modifications to views would in no way break our API, and similarly otherwise. This gives us confidence when working on our code and helps us to work together as a team with multiple development branches on the same code base.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="uml-diagram" class="ex-basic-3">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-10 offset-lg-1">
-                    <div class="text-container">
-                        <h3>UML Class Diagram</h3>
-                        <p>Click on the diagram below to get a clearer view of the general software design of the application.</p>
-                        <a href="images/uml-class-diagram.svg"><img class="img-fluid-svg" src="images/uml-class-diagram.svg"  alt="alternative"/></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <div id="design-patterns" class="ex-basic-2">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-10 offset-lg-1">
-                    <div class="text-container">
-                        <h3>Design Patterns</h3>
-                        <div class="row list-unstyled">
-                            <h4><i class="fas fa-square"></i> Prototype Design Pattern (Duell, 1997)</h4>
-                            <p class="indent">Prototype Design Pattern is used in the project on <code>PlayerViewController</code> to ensure single responsibility principle and make different <code>ViewControllers</code> replicas for various Video sessions cleaner.</p>
-                            <img class="img-fluid" src="images/prototype-design.png"  alt="alternative"/>
-                            <h4><i class="fas fa-square"></i> Adapter Design Pattern (Freeman et al., 2004)</h4>
-                            <p class="indent">Whilst we are developing our application, the backend from our client is transforming from <code>X5GON</code> to <code>X5Learn</code>, such that we are supporting two back-ends at the same time. Therefore, we utilised the Adapter Design Pattern to make sure our <code>MainController</code> have access to the same set of API at the same time.</p>
-                            <img class="img-fluid" src="images/adapter-design.png"  alt="alternative"/>
-                            <h4><i class="fas fa-square"></i> Singleton Design Pattern (Gamma et al., 1994)</h4>
-                            <p class="indent"> To ensure that there is only one hefty <code>MainController</code> available globally, we utilised the singleton design pattern. The controller is available globally and statically, and is forbidden be constructed twice throughout the application's lifecycle.</p>
-                            <img class="img-fluid" src="images/singleton-design.png"  alt="alternative"/>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="data-storage" class="ex-basic-3">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-10 offset-lg-1">
-                    <div class="text-container">
-                        <h3>Data Storage and Entity Relations</h3>
-                        <p>As a typical client side application, we are only storing limited amount of user and cache data. </p>
-                        <p>User token, name and ID information are stored with <code>NSUserDefaults</code> (Apple Developer, 2020b) to ensure data persistence after quitting the application. </p>
-                        <p>Videos, audios and PDF contents are only cached and can be retrieved with the <code>CoreData</code> of <code>iOS</code> (Apple Developer, 2020a).</p>
-                        <p>See below, an entity diagram, on relations of user and cache data stored. </p>
-                        <img class="img-fluid"  src="images/entity-diagram.png"  alt="alternative"/>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="sequence-diagram" class="ex-basic-2">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-10 offset-lg-1">
-                    <div class="text-container">
-                        <h3>Sequence Diagram</h3>
-                        <p> We drew up a sequence diagram to clearly illustrate how a typical user would be able to interact with our application. </p>
-                        <p> Click on the diagram below to get a clearer view. </p>
-                        <a href="images/sequence-diagram.svg"><img class="img-fluid-svg" src="images/sequence-diagram.svg"  alt="alternative"/></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Header -->
-    <header id="header-implementation" class="ex-header">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h1>Implementation</h1>
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </header> <!-- end of ex-header -->
-    <!-- end of header -->
 
     <div id="main-technologies" class="ex-basic-2">
         <div class="container">
@@ -202,7 +98,7 @@
                             <div class="col-lg-7">
                                 <div class="text-container">
                                     <h4>SwiftSoup</h4>
-                                    <p>SwiftSoup is a pure <code>Swift</code> library, cross-platform (macOS, iOS, tvOS, watchOS and Linux!), for working with real-world HTML. It provides a very convenient API for extracting and manipulating data, using the best of DOM, CSS, and jQuery-like methods.</p>
+                                    <p>SwiftSoup is a pure <code>Swift</code> library, cross-platform (macOS, iOS, tvOS, watchOS and Linux!), for working with real-world HTML. It provides a very convenient API for extracting and manipulating data, using the best of DOM, CSS, and jQuery-like methods (Chatbi, 2020).</p>
                                     <p>We are embedding SwiftSoup as a core part of the project to parse HTML sent from the <code>X5Learn</code>
                                         backend. It empowers us to understand the API changes and adapt to it quickly.</p>
                                 </div>
@@ -212,7 +108,7 @@
                             <div class="col-lg-7">
                                 <div class="text-container">
                                     <h4>JGProgressHUD</h4>
-                                    <p>JGProgressHUD is an elegant and simple progress HUD for iOS and tvOS.</p>
+                                    <p>JGProgressHUD is an elegant and simple progress HUD for iOS and tvOS (Gessner, 2020).</p>
                                     <p>We adopt JGProgressHUD heavily in our user-friendly design and refreshing aspect of our application. We utilise this library in all main <code>refresher()</code> to clearly show the loading progress of our application and keep user informed of what the application is doing on the backend.</p>
                                 </div>
                             </div>
@@ -227,7 +123,7 @@
                             <div class="col-lg-7">
                                 <div class="text-container">
                                     <h4>Jazzy</h4>
-                                    <p>Instead of building documentation ourselves, we deployed jazzy, which hooks into <code>Clang</code> and <code>SourceKit</code> to use the AST representation of the code and actual code comments for generating documentation. </p>
+                                    <p>Instead of building documentation ourselves, we deployed jazzy, which hooks into <code>Clang</code> and <code>SourceKit</code> to use the AST representation of the code and actual code comments for generating documentation (realm/jazzy, 2020). </p>
                                     <p>Moreover, with the touch of Jazzy templates, the documentation matches the look and feel of Apple’s official reference documentation.</p>
                                 </div>
                             </div>
@@ -236,8 +132,8 @@
                             <div class="col-lg-7">
                                 <div class="text-container">
                                     <h4>XCTest</h4>
-                                    <p>Since <code>Xcode 5</code>, <code>XCTest</code> framework was introduced to perform unit test and UI Tests for <code>Xcode</code> projects.</p>
-                                    <p> Our team took advantage of the built-in fast framework and wrote all of our test logic including unit tests, integration tests and performance tests on this framework, and archived <code>70%</code>+ coverage. This enables us to deliver our product with confidence to our clients.</p>
+                                    <p>Since <code>Xcode 5</code>, <code>XCTest</code> framework was introduced to perform unit test and UI Tests for <code>Xcode</code> projects (XCTest, 2020).</p>
+                                    <p> Our team took advantage of the built-in fast framework and wrote all of our test logic including unit tests, integration tests and performance tests on this framework, and archived <code>90%</code>+ coverage. This enables us to deliver our product with confidence to our clients.</p>
                                 </div>
                             </div>
                             <div class="col-lg-5">
@@ -251,8 +147,8 @@
                             <div class="col-lg-7">
                                 <div class="text-container">
                                     <h4>SwiftFormat</h4>
-                                    <p>SwiftFormat is a code library and command-line tool for reformatting swift code on macOS or Linux.</p>
-                                    <p>Our team was faced with the problem that coding styles are different between the 2 of us. </p>
+                                    <p>SwiftFormat is a code library and command-line tool for reformatting swift code on macOS or Linux (Lockwood, 2020).</p>
+                                    <p>Our team was faced with the problem that coding styles are different between the 2 of us. Therefore, we decided to use code linter and formatter to make sure our code compilers and adheres to a good tidy standard in general. </p>
                                 </div>
                             </div>
                         </div>
@@ -260,7 +156,7 @@
                             <div class="col-lg-7">
                                 <div class="text-container">
                                     <h4>Travis CI</h4>
-                                    <p>Travis CI is a hosted continuous integration service used to build and test software projects. </p>
+                                    <p>Travis CI is a hosted continuous integration service used to build and test software projects (Travis-CI, 2020). </p>
                                     <p>In this project, we followed better <code>CI/CD</code> practices and pipelined our application's building and testing without human intervention. Travis CI consistently delivers build results and enables us to merge Pull Requests with reliable backup.</p>
                                 </div>
                             </div>
@@ -274,13 +170,104 @@
         </div>
     </div>
 
+    <div id="implementation-highlights" class="tabs ex-basic-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="text-container">
+                        <h3>Implementation Highlights</h3>
+                        <p>...</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+                <!-- Tabs Links -->
+                <ul class="nav nav-tabs" id="lenoTabs" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="nav-tab-1" data-toggle="tab" href="#tab-1" role="tab" aria-controls="tab-1" aria-selected="true"><i class="fas fa-image"></i>Fast Thumbnail Generation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="nav-tab-2" data-toggle="tab" href="#tab-2" role="tab" aria-controls="tab-2" aria-selected="false"><i class="fas fa-sync"></i>Video Preloading and Async Refreshing</a>
+                    </li>
+                </ul>
+                <!-- end of tabs links -->
+
+                <!-- Tabs Content-->
+                <div class="tab-content">
+
+                    <!-- Tab -->
+                    <div class="tab-pane fade show active" id="tab-1" role="tabpanel" aria-labelledby="tab-1">
+                        <div class="container">
+                            <div class="row">
+
+                                <!-- Image Pane -->
+                                <div class="col-lg-6">
+                                    <img class="img-fluid" src="images/fast-thumbnail-generation.png" alt="alternative">
+                                </div>
+                                <!-- end of image pane -->
+
+                                <!-- Icon Cards Pane -->
+                                <div class="col-lg-6">
+                                    <div class="text-area">
+                                        <h4>Generate Thumbnails on-the-fly</h4>
+                                        <p>
+                                           The X5GON backend provides users with videos but not thumbnails or preview methods.
+                                            To tackle this issue, we used a <code>DispatchQueue</code> (Apple, 2009) to create a separate <code>Thread</code> that aims to
+                                            generate thumbnails by fetching the video image at 1 minute mark, without interfering with user interface on the main thread. </p>
+                                        <p>Click on the code below to see an sample of implementation for such methods.</p>
+                                        <a class="image-link" href="images/fast-thumbnail-code.png"><img class="img-fluid" src="images/fast-thumbnail-code.png"  alt="alternative"/></a>
+                                    </div> <!-- end of text-area -->
+                                </div>
+                                <!-- end of icon cards pane -->
+
+                            </div> <!-- end of row -->
+                        </div> <!-- end of container -->
+                    </div> <!-- end of tab-pane -->
+                    <!-- end of tab -->
+
+                    <!-- Tab -->
+                    <div class="tab-pane fade" id="tab-2" role="tabpanel" aria-labelledby="tab-2">
+                        <div class="container">
+                            <div class="row">
+
+                                <!-- Text And Icon Cards Area -->
+                                <div class="col-lg-6">
+                                    <div class="text-area offset-1">
+                                        <h4>Load everything behind the scene</h4>
+                                        <p> We kept performance in mind since our application is rather network-heavy and requires common re-rendering.
+                                            That's the key reason why we load everything behind scene with <code>Apple's Grand Central Dispatch Multi-threading</code> (Apple, 2009) and hint <code>UIView</code> whenever we finish loading
+                                            to refresh only bits of <code>Cells</code>. This ensures smallest amount of load on both CPU and GPU on mobile platforms, and of course, greatest responsive from a users' perspective.</p>
+                                        <p>Click on the code below to see an sample of implementation for such methods.</p>
+                                            <a class="image-link" href="images/async-load-code.png"><img class="img-fluid" src="images/async-load-code.png"  alt="alternative"/></a>
+                                    </div> <!-- end of text-area -->
+                                </div> <!-- end of col-md-8 -->
+
+                                <!-- Image Pane -->
+                                <div class="col-lg-6">
+                                    <img class="img-fluid" src="images/async-load.png" alt="alternative">
+                                </div>
+                                <!-- end of image pane -->
+
+                            </div> <!-- end of row -->
+                        </div> <!-- end of container -->
+                    </div> <!-- end of tab-pane -->
+                    <!-- end of tab -->
+
+                </div> <!-- end of tab-content -->
+                <!-- end of tabs content -->
+
+            </div> <!-- end of row -->
+        </div>
+    </div>
+
     <div id="implementation" class="slider-2">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="text-container">
-                        <h3>Implementation</h3>
-                        <p>Since our project is a mobile application, our implementation is heavily <code>View</code> based. Our team decide to present each view class in our application. </p>
+                        <h3>Implementation Showcase</h3>
+                        <p>Since our project is a mobile application, our implementation is heavily <code>View</code> based. Our team decide to present each view in our application for reference. </p>
                         <br>
                     </div>
                     <!-- Image Slider -->
@@ -368,111 +355,18 @@
     </div> <!-- end of slider-2 -->
     <!-- end of screenshots -->
 
-
-    <div id="implementation-highlights" class="tabs ex-basic-3">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-10 offset-lg-1">
-                    <div class="text-container">
-                        <h3>Implementation Highlights</h3>
-                        <p>Since a brief introduction of overall System Architecture can be found <a class="page-scroll turquoise" href="#architecture">above</a>, we provide several highlights that are worth noting at our current development stage.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-
-                <!-- Tabs Links -->
-                <ul class="nav nav-tabs" id="lenoTabs" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link active" id="nav-tab-1" data-toggle="tab" href="#tab-1" role="tab" aria-controls="tab-1" aria-selected="true"><i class="fas fa-image"></i>Fast Thumbnail Generation</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="nav-tab-2" data-toggle="tab" href="#tab-2" role="tab" aria-controls="tab-2" aria-selected="false"><i class="fas fa-sync"></i>Video Preloading and Async Refreshing</a>
-                    </li>
-                </ul>
-                <!-- end of tabs links -->
-
-                <!-- Tabs Content-->
-                <div class="tab-content">
-
-                    <!-- Tab -->
-                    <div class="tab-pane fade show active" id="tab-1" role="tabpanel" aria-labelledby="tab-1">
-                        <div class="container">
-                            <div class="row">
-
-                                <!-- Image Pane -->
-                                <div class="col-lg-6">
-                                    <img class="img-fluid" src="images/fast-thumbnail-generation.png" alt="alternative">
-                                </div>
-                                <!-- end of image pane -->
-
-                                <!-- Icon Cards Pane -->
-                                <div class="col-lg-6">
-                                    <div class="text-area">
-                                        <h4>Generate Thumbnails on-the-fly</h4>
-                                        <p>
-                                           The X5GON backend provides users with videos but not thumbnails or preview methods.
-                                            To tackle this issue, we used a <code>DispatchQueue</code> (Apple, 2009) to create a separate <code>Thread</code> that aims to
-                                            generate thumbnails by fetching the video image at 1 minute mark, without interfering with user interface on the main thread. </p>
-                                        <p>Click on the code below to see an sample of implementation for such methods.</p>
-                                        <a class="image-link" href="images/fast-thumbnail-code.png"><img class="img-fluid" src="images/fast-thumbnail-code.png"  alt="alternative"/></a>
-                                    </div> <!-- end of text-area -->
-                                </div>
-                                <!-- end of icon cards pane -->
-
-                            </div> <!-- end of row -->
-                        </div> <!-- end of container -->
-                    </div> <!-- end of tab-pane -->
-                    <!-- end of tab -->
-
-                    <!-- Tab -->
-                    <div class="tab-pane fade" id="tab-2" role="tabpanel" aria-labelledby="tab-2">
-                        <div class="container">
-                            <div class="row">
-
-                                <!-- Text And Icon Cards Area -->
-                                <div class="col-lg-6">
-                                    <div class="text-area offset-1">
-                                        <h4>Load everything behind the scene</h4>
-                                        <p> We kept performance in mind since our application is rather network-heavy and requires common re-rendering.
-                                            That's the key reason why we load everything behind scene with <code>Apple's Grand Central Dispatch Multi-threading</code> (Apple, 2009) and hint <code>UIView</code> whenever we finish loading
-                                            to refresh only bits of <code>Cells</code>. This ensures smallest amount of load on both CPU and GPU on mobile platforms, and of course, greatest responsive from a users' perspective.</p>
-                                        <p>Click on the code below to see an sample of implementation for such methods.</p>
-                                            <a class="image-link" href="images/async-load-code.png"><img class="img-fluid" src="images/async-load-code.png"  alt="alternative"/></a>
-                                    </div> <!-- end of text-area -->
-                                </div> <!-- end of col-md-8 -->
-
-                                <!-- Image Pane -->
-                                <div class="col-lg-6">
-                                    <img class="img-fluid" src="images/async-load.png" alt="alternative">
-                                </div>
-                                <!-- end of image pane -->
-
-                            </div> <!-- end of row -->
-                        </div> <!-- end of container -->
-                    </div> <!-- end of tab-pane -->
-                    <!-- end of tab -->
-
-                </div> <!-- end of tab-content -->
-                <!-- end of tabs content -->
-
-            </div> <!-- end of row -->
-        </div>
-    </div>
-
     <div id="requirements-references" class="ex-basic-2">
         <div class="container">
             <div class="row">
                 <h3>References</h3>
                 <ul class="list-unstyled li-space-lg indent">
-                    <li class="media"> <div class="media-body">Apple (2009). Apple Technical Brief on Grand Central Dispatch" (PDF). Archived from the original on September 20, 2009. Retrieved September 12, 2009.</div></li><br>
-                    <li class="media"> <div class="media-body">Apple Developer (2020). Core Data | Apple Developer Documentation. [online] Available at: https://developer.apple.com/documentation/coredata [Accessed 22 Jan. 2020].</div></li><br>
-                    <li class="media"> <div class="media-body">Apple Developer (2020). UserDefaults - Foundation | Apple Developer Documentation. [online] Available at: https://developer.apple.com/documentation/foundation/userdefaults [Accessed 22 Mar. 2020].</div></li><br>
-                    <li class="meida"> <div class="media-body">Chatbi, Nabil (2020). SwiftSoup, a Swift HTML Parser. [online] Available at: https://github.com/scinfu/SwiftSoup [Accessed 25 Mar. 2020].</div></li>
-                    <li class="media"> <div class="media-body">Duell, Michael (July 1997). "Non-Software Examples of Design Patterns". Object Magazine. 7 (5): 54. ISSN 1055-3614.</div></li><br>
-                    <li class="media"> <div class="media-body">Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides (1994). Design Patterns: Elements of Reusable Object-Oriented Software. Addison Wesley. pp. 97ff. ISBN 0-201-63361-2.</div></li><br>
-                    <li class="media"> <div class="media-body">Freeman, Eric; Freeman, Elisabeth; Sierra, Kathy; Bates, Bert (2004). "Head First Design Patterns" (paperback). O'Reilly Media: 244. ISBN 978-0-596-00712-6. OCLC 809772256. Retrieved 2013-04-30.</div></li><br>
-                    <li class="media"> <div class="media-body">Reenskaug, Trygve; Coplien, James O. (20 March 2009). "The DCI Architecture: A New Vision of Object-Oriented Programming". Artima Developer. Archived from the original (html) on 23 March 2009. Retrieved 3 August 2019. "More deeply, the framework exists to separate the representation of information from user interaction." </div></li><br>
+                    <li class="media"> <div class="media-body">Chatbi, N., 2020. Scinfu/Swiftsoup. [online] GitHub. Available at: https://github.com/scinfu/SwiftSoup [Accessed 3 April 2020].</div></li><br>
+                    <li class="media"> <div class="media-body">Gessner, J., 2020. Jonasgessner/Jgprogresshud. [online] GitHub. Available at: https://github.com/JonasGessner/JGProgressHUD [Accessed 3 April 2020].</div></li>
+                    <li class="media"> <div class="media-body">Realm. 2020. Realm/Jazzy. [online] Available at: https://github.com/realm/jazzy [Accessed 3 April 2020].</div></li>
+                    <li class="media"> <div class="media-body">Developer.apple.com. 2020. Xctest | Apple Developer Documentation. [online] Available at: https://developer.apple.com/documentation/xctest [Accessed 3 April 2020].</div></li>
+                    <li class="media"> <div class="media-body">Lockwood, N., 2020. Nicklockwood/Swiftformat. [online] Available at: https://github.com/nicklockwood/SwiftFormat [Accessed 3 April 2020].</div></li>
+                    <li class="media"> <div class="media-body">Travis-ci.com. 2020. Travis CI - Test And Deploy With Confidence. [online] Available at: https://travis-ci.com/ [Accessed 3 April 2020].</div></li>
+                    <li class="media"> <div class="media-body"></div></li>
                 </ul>
             </div> <!-- end of text-container-->
         </div>
