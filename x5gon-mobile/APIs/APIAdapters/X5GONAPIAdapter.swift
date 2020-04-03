@@ -79,7 +79,7 @@ class X5GONAPIAdapter: APIAdapter {
         fatalError("error: X5GON does not provide content report URL")
     }
 
-    static func TBD_genreateVoteURL(id _: Int) -> String {
+    static func TBD_generateVoteURL(id _: Int) -> String {
         fatalError("error: X5GON does not provide voting URL")
     }
 }

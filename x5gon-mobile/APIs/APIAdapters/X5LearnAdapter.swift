@@ -85,7 +85,7 @@ class X5LearnAPIAdapter: APIAdapter {
         return rootURL() + APIVersion() + "report/\(id)"
     }
 
-    static func TBD_genreateVoteURL(id: Int) -> String {
+    static func TBD_generateVoteURL(id: Int) -> String {
         return rootURL() + APIVersion() + "vote/\(id)"
     }
 }

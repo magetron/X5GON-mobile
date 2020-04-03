@@ -83,9 +83,9 @@ class testPdfModel: XCTestCase {
     }
 
     func testPdfFetchSuggestionContents() {
-        let pdfs: () = pdf.fetchSuggestedContents()
+        cancellableRefresher(updateContent: { self.pdf.fetchSuggestedContents() }, viewReload: {})
         MainController.Queue.cancelOperations()
-        XCTAssertNotNil(pdfs)
+        XCTAssertNotNil(pdf.suggestedContents)
     }
 
     func testPerformanceExample() {

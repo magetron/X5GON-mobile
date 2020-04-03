@@ -99,4 +99,26 @@ class IntegrationTest: XCTestCase {
         XCUIApplication().images["hand.thumbsdown.fill"].forceTapElement(); sleep(1)
         XCUIApplication().buttons["Sidebar"].tap(); sleep(1)
     }
+
+    func testLicenseView() {
+        let app = XCUIApplication()
+        let navsettingsButton = app.navigationBars["App"].buttons["navSettings"]
+        navsettingsButton.tap()
+
+        let tablesQuery = app.tables
+        tablesQuery/*@START_MENU_TOKEN@*/ .staticTexts["Terms & privacy policy"]/*[[".cells.staticTexts[\"Terms & privacy policy\"]",".staticTexts[\"Terms & privacy policy\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/ .tap()
+    }
+
+    func testMailView() {
+        let app = XCUIApplication()
+        app.navigationBars["App"].buttons["navSettings"].tap()
+        app.tables/*@START_MENU_TOKEN@*/ .staticTexts["Send Feedback"]/*[[".cells.staticTexts[\"Send Feedback\"]",".staticTexts[\"Send Feedback\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/ .tap()
+        app.alerts["This Device doesn't support sending Mail"].scrollViews.otherElements.buttons["OK"].tap()
+    }
+
+    func testHelpView() {
+        let app = XCUIApplication()
+        app.navigationBars["App"].buttons["navSettings"].tap()
+        app.tables/*@START_MENU_TOKEN@*/ .staticTexts["Help"]/*[[".cells.staticTexts[\"Help\"]",".staticTexts[\"Help\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/ .tap()
+    }
 }

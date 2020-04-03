@@ -80,6 +80,12 @@ class testX5GONAPIAdapter: XCTestCase {
         }
     }
 
+    func testTBD_generateVoteURL() {
+        expectFatalError(expectedMessage: "error: X5GON does not provide voting URL") {
+            _ = X5GONAPIAdapter.TBD_generateVoteURL(id: 123)
+        }
+    }
+
     func testPerformanceExample() {
         // This is an example of a performance test case.
         measure {

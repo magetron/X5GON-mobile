@@ -1,4 +1,4 @@
-# X5GON-mobile [![Build Status](https://travis-ci.com/magetron/X5GON-mobile.svg?token=1egyyzxUBmAzQpnmo8g4&branch=master)](https://travis-ci.com/magetron/X5GON-mobile) ![Version](https://img.shields.io/badge/v-0.2-blue) ![Swift Version](https://img.shields.io/badge/Swift-5-red) 
+# X5GON-mobile [![Build Status](https://travis-ci.com/magetron/X5GON-mobile.svg?token=1egyyzxUBmAzQpnmo8g4&branch=master)](https://travis-ci.com/magetron/X5GON-mobile) ![Version](https://img.shields.io/badge/v-0.3-blue) ![Swift Version](https://img.shields.io/badge/Swift-5-red) 
 
 ![onefetch](./images/onefetch.png)
 
@@ -7,48 +7,41 @@
 ### Prerequisites
 
 * Git
-* Xcode 11.3.1(macOS 15 Catalina+)
-* iPhone running iOS 13.2+ or an iOS Simulator
+* Xcode 11.3+(ideally **11.4**) running on macOS 14 Mojave+(ideally **15 Catalina**)
+* Apple Device running iOS(iPadOS) 13.3+(ideally **13.4**) or a Device Simulator with similar specs
 * Cocoapods
-* Homebrew (CLI-only)
-* ios-sim (CLI-only)
+* Homebrew (**CLI-only**)
+* ios-sim (**CLI-only**)
+* ruby-gem (**docs-only**)
+* jazzy (**docs-only**)
+* swiftformat (**dev-only**)
 
-### Building, Testing and Installation
+### General Installation
 
 ```zsh
 $ git clone https://github.com/magetron/x5gon-mobile.git
 $ pod install 
-$ brew install ios-sim (cli-only)
+$ brew install ios-sim (CLI-only)
+$ gem install jazzy (docs-only)
+$ brew install swiftformat (dev-only)
 ```
 
 #### To Use Xcode GUI:
 
 **Build and Run**
 
-Double click to open `x5gon-mobile.xcworkspace` and select build target on top left corner.
+Double click to open `x5gon-mobile.xcworkspace` and select target on top left corner.
 
 Click the `Run` Button to build and run.
 
 ![RUN-GUI](./images/gui-run.png)
 
-**Build / Test**
-
-Click the `Build` / `Test` Button for build / test only, respectively.
-
-![BUILD-GUI](./images/gui-build.png)
-
-#### To use CLI
+#### To Use CLI
 
 **Build First**
 
 ```zsh
 $ source ./scripts/build.sh
-```
-
-(With Tests)
-
-```zsh
-$ source ./scripts/build.sh -test
 ```
 
 **Then Run**
@@ -57,17 +50,41 @@ $ source ./scripts/build.sh -test
 $ source ./scripts/run.sh
 ```
 
-**Note**: It is possible to run iOS application with temporary signature on an actual iPhone using CLI. However, given the complexity of steps, we do not recommend this deployment method at this stage.
+**Note**: It is possible to run iOS application with temporary signature on an actual iPhone using CLI. However, given the complexity of steps, we do not recommend this deployment method. 
+
+### Building, Testing 
+
+#### To Use Xcode GUI:
+
+Select relevant option / profile in the **Product** drop down menu of Xcode.
+
+![Xcode-product](./images/xcode-product.png)
+
+#### To Use CLI
+
+**Build with Test**
+
+```zsh
+$ source ./scripts/build.sh -test
+```
+
+Alternatively, test with `Swift 5.1, Xcode 11.3` backwards compatible feature.
+
+```zsh
+$ source ./scripts/build.sh -old-test
+```
 
 **Test Only**
 
 ```zsh
-$ xcodebuild test -workspace x5gon-mobile.xcworkspace -scheme x5gon-mobile -destination 'platform=iOS Simulator,name=iPhone 11 Pro Max,OS=13.3'
+$ xcodebuild test -workspace x5gon-mobile.xcworkspace -scheme x5gon-mobile -destination 'platform=iOS Simulator,name=iPhone 11 Pro Max,OS=13.4'
 ```
 
-Change the specification, models and OS Version above to test on different platforms.
+Change `destination` argument as you wish to test on different devices or different OS versions.
 
 ### Documentation
+
+Online version deployed [on GitHub Pages](https://patrickwu.uk/X5GON-mobile).
 
 **Build Docs**
 
@@ -75,12 +92,38 @@ Change the specification, models and OS Version above to test on different platf
 $ source ./scripts/build-docs.sh
 ```
 
-Static Documentation will be generated at `./docs`. Simply double click `./docs/index.html` to open with a browser or use `open ./docs/index.html` on `macOS`.
+Static Documentation will be generated at `./docs`. 
+
+Simply double click `./docs/index.html` to open with a browser or use `open ./docs/index.html` on `macOS`.
+
+### Setting up new Development Environment
+
+**Install Development Dependencies and Git Hooks**
+
+```zsh
+$ source ./scripts/setup-dev.sh
+```
+
+This script
+* sets up a local `Git` pre-commit hook to run `git-diff` and `swiftformat` on source code.
+* installs development required dependencies for local user.
+
 
 ## Showcase
 
-![header-iPhone](./images/header-iphone.png)
+### Interface
 
-### Testing
+![dark-mode](./images/showcase-dark.png)
+![light-mode](./images/showcase-light.png)
+
+### Test Coverage
 
 ![testing](./images/testing.png)
+
+### Documentation Coverage
+
+![docs](./images/docs.png)
+
+### CI/CD with Travis
+
+![ci-cd](./images/ci-cd.png)

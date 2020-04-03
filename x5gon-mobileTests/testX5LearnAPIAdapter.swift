@@ -77,6 +77,11 @@ class testX5LearnAPIAdapter: XCTestCase {
         XCTAssertEqual(url, "http://x5learn.org/" + "api/v1/" + "report/\(123)")
     }
 
+    func testTBD_generateVoteURL() {
+        let url = X5LearnAPIAdapter.TBD_generateVoteURL(id: 123)
+        XCTAssertEqual(url, "http://x5learn.org/" + "api/v1/" + "vote/\(123)")
+    }
+
     func testPerformanceExample() {
         // This is an example of a performance test case.
         measure {
