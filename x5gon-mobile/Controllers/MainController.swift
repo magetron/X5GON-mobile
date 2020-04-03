@@ -28,7 +28,7 @@ class MainController {
     /// Defalut user
     static var userDefaults = UserDefaults.standard
     /// Debug status
-    static var DEBUG = true
+    static var DEBUG = false
     /// Queue to process the operation of the App
     class Queue {
         private static var queue = OperationQueue()
