@@ -1,4 +1,4 @@
-# X5GON-mobile [![Build Status](https://travis-ci.com/magetron/X5GON-mobile.svg?token=1egyyzxUBmAzQpnmo8g4&branch=master)](https://travis-ci.com/magetron/X5GON-mobile) ![Version](https://img.shields.io/badge/v-0.2-blue) ![Swift Version](https://img.shields.io/badge/Swift-5-red) 
+# X5GON-mobile [![Build Status](https://travis-ci.com/magetron/X5GON-mobile.svg?token=1egyyzxUBmAzQpnmo8g4&branch=master)](https://travis-ci.com/magetron/X5GON-mobile) ![Version](https://img.shields.io/badge/v-0.3-blue) ![Swift Version](https://img.shields.io/badge/Swift-5-red) 
 
 ![onefetch](./images/onefetch.png)
 
@@ -8,11 +8,12 @@
 
 * Git
 * Xcode 11.3+(ideally **11.4**) running on macOS 14 Mojave+(ideally **15 Catalina**)
-* Apple Device running iOS(iPadOS) 13.3+(ideally **13.4**) or an Device Simulator with similar specs
+* Apple Device running iOS(iPadOS) 13.3+(ideally **13.4**) or a Device Simulator with similar specs
 * Cocoapods
 * Homebrew (**CLI-only**)
 * ios-sim (**CLI-only**)
 * ruby-gem (**docs-only**)
+* jazzy (**docs-only**)
 * swiftformat (**dev-only**)
 
 ### General Installation
@@ -22,14 +23,14 @@ $ git clone https://github.com/magetron/x5gon-mobile.git
 $ pod install 
 $ brew install ios-sim (CLI-only)
 $ gem install jazzy (docs-only)
-$ brew install swiftformat (dev only)
+$ brew install swiftformat (dev-only)
 ```
 
 #### To Use Xcode GUI:
 
 **Build and Run**
 
-Double click to open `x5gon-mobile.xcworkspace` and select build target on top left corner.
+Double click to open `x5gon-mobile.xcworkspace` and select target on top left corner.
 
 Click the `Run` Button to build and run.
 
@@ -73,6 +74,14 @@ Alternatively, test with `Swift 5.1, Xcode 11.3` backwards compatible feature.
 $ source ./scripts/build.sh -old-test
 ```
 
+**Test Only**
+
+```zsh
+$ xcodebuild test -workspace x5gon-mobile.xcworkspace -scheme x5gon-mobile -destination 'platform=iOS Simulator,name=iPhone 11 Pro Max,OS=13.4'
+```
+
+Change `destination` argument as you wish to test on different devices or different OS versions.
+
 ### Documentation
 
 Online version deployed [on GitHub Pages](https://patrickwu.uk/X5GON-mobile).
@@ -83,7 +92,9 @@ Online version deployed [on GitHub Pages](https://patrickwu.uk/X5GON-mobile).
 $ source ./scripts/build-docs.sh
 ```
 
-Static Documentation will be generated at `./docs`. Simply double click `./docs/index.html` to open with a browser or use `open ./docs/index.html` on `macOS`.
+Static Documentation will be generated at `./docs`. 
+
+Simply double click `./docs/index.html` to open with a browser or use `open ./docs/index.html` on `macOS`.
 
 ### Setting up new Development Environment
 
@@ -109,6 +120,10 @@ This script
 
 ![testing](./images/testing.png)
 
+### Documentation Coverage
+
+![docs](./images/docs.png)
+
 ### CI/CD with Travis
 
-
+![ci-cd](./images/ci-cd.png)
