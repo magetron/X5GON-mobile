@@ -218,6 +218,27 @@
                                     <p> With a lambda or <code>Closure</code> injection shown above, we are able to regain control of the <code>dataTask</code> and rank, update or cancel them accordingly. More so, we internally rank tasks with a max-heap to make sure we are always dealing with the most crucial task at hand in the application.</p>
                                     <p> Now, <code>ViewControllers</code> would be able to notify the <code>MainController</code> of the changes and make <code>OperationTask</code> queueing much more efficient. We followed the Open Closed Principle and exposed easy-to-use <code>Queue</code> APIs (see below for example) across the application. </p>
                                     <a class="image-link" href="images/queue-api.png"><img class="img-fluid" src="images/queue-api.png" alt="alternative"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="text-container">
+                                    <p>With some comparison in the profiling tool below, we can easily see the reduction of time hangs caused on the <code>Main Thread</code>, as well as a reduction of dispatch-tasks conducted. This is only tested with loading <code>3</code> videos concurrently, greater performance increase can be seen if more videos are loaded. Click on the images below for a clearer comparison.</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <h5>Before</h5>
+                                <a class="image-link" href="images/before-profiling.png"><img class="img-fluid" src="images/before-profiling.png" alt="alternative"></a>
+                            </div>
+                            <div class="col-lg-6">
+                                <h5>After</h5>
+                                <a class="image-link" href="images/after-profiling.png"><img class="img-fluid" src="images/after-profiling.png" alt="alternative"></a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="text-container">
                                     <p> With some effort, it finally runs as smooth as silk without worrying anything that could possibly block the main UI Thread. </p>
                                 </div>
                             </div>

@@ -93,34 +93,31 @@
         </div>
     </div>
 
-    <div id="testing-strategy" class="ex-basic-2">
+    <div id="unit-integration-testing" class="ex-basic-2">
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 offset-lg-1">
-                    <div class="text-container">
-                        <h3>Testing Strategy</h3>
-                        <p> As a client side application, we test our code thoroughly with a coverage of over <code>90%</code>+ (if we can count them). Therefore, we are delivering our product to client with great confidence.</p>
                         <div class="row">
-                            <div class="col-md-6">
-                                <h4>Fully-automated:</h4>
-                                <ul class="list-unstyled li-space-lg indent">
-                                    <li class="media"> <i class="fas fa-square"></i> <div class="media-body">Unit testing</div></li>
-                                    <li class="media"> <i class="fas fa-square"></i> <div class="media-body">Integration testing</div></li>
-                                    <li class="media"> <i class="fas fa-square"></i> <div class="media-body">Performance testing</div></li>
-                                </ul>
-                            </div> <!-- end of col -->
-
-                            <div class="col-md-6">
-                                <h4>Semi-automated:</h4>
-                                <ul class="list-unstyled li-space-lg indent">
-                                    <li class="media"> <i class="fas fa-square"></i> <div class="media-body">Responsive Design testing</div></li>
-                                    <li class="media"> <i class="fas fa-square"></i> <div class="media-body">Compatibility testing</div></li>
-                                    <li class="media"> <i class="fas fa-square"></i> <div class="media-body">User Acceptance testing</div></li>
-                                </ul>
-                            </div> <!-- end of col -->
-                        </div> <!-- end of row -->
-                        <p>Besides pure testing, we also use <code>Jazzy</code> documentation coverage and <code>swiftformat</code> code-linter formatting as part of our quality assurance process.</p>
-                    </div> <!-- end of text-container-->
+                            <div class="col-md-4">
+                                <a class="image-link" href="images/unit-tests.png"><img class="img-fluid" src="images/unit-tests.png"  alt="alternative"/></a>
+                            </div>
+                            <div class="col-md-8">
+                                <div id="unit-testing" class="text-container">
+                                    <h3>Unit Testing</h3>
+                                    <p>Unit tests were among the first type of testing strategy we introduced to our application. It was initially aimed towards <code>DataModels</code>, <code>APIs</code>, and <code>Controllers</code>, and later expanded to all parts of the application, including <code>Views</code> and <code>ViewControllers.</code></p>
+                                    <p>Contrary to common belief, <code>ViewControllers</code> are standalone instantiable with our <code>Storyboard</code> setup. </p>
+                                    <a class="image-link" href="images/storyboard-testing.png"><img class="img-fluid" src="images/storyboard-testing.png"  alt="alternative"/></a>
+                                    <p>We were able to instantiate all <code>ViewControllers</code> on its own and feed it custom data in unit tests, hence providing a higher coverage.</p>
+                                </div>
+                                <br>
+                                <div id="integration-testing" class="text-container">
+                                    <h3>Integration Testing</h3>
+                                    <p>Our first tests written for UI are integration tests on the application as whole. Since <code>Xcode</code> does provide underlying support for <code>UITesting</code>, we utilised its built-in method and wrote our integration tests.</p>
+                                    <p>We made our best attempt to analyse our UI Hierarchy, and call <code>UITesting</code> module with accurate element tap. This gives us higher coverage, especially among UI components.</p>
+                                    <a class="image-link" href="images/ui-hierarchy.png"><img class="img-fluid" src="images/ui-hierarchy.png"  alt="alternative"/></a>
+                                </div>
+                            </div>
+                        </div>
                 </div>
             </div>
         </div>
@@ -129,7 +126,7 @@
 
 
     <!-- References -->
-    <div id="requirements-references" class="ex-basic-3">
+    <div id="requirements-references" class="ex-basic-2">
         <div class="container">
             <div class="row">
                 <h3>References</h3>
@@ -145,22 +142,44 @@
 
     <!-- Scripts -->
     <script src="js/jquery.min.js"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
+    <script src="js/jquery.magnific-popup.js"></script> <!-- Magnific Popup for lightboxes -->
     <script>
+        $(document).ready(function() {
+            $('.image-link').magnificPopup({type:'image'});
+        });
         $(function(){
             $("#nav-placeholder").load("nav.html");
         });
         $(function(){
             $("#footer-placeholder").load("footer.html");
         });
+        $('.image-link').magnificPopup({
+            type: 'image',
+            mainClass: 'mfp-with-zoom', // this class is for CSS animation below
+            image: {
+                verticalFit: true
+            },
+            zoom: {
+                enabled: true, // By default it's false, so don't forget to enable it
+                duration: 300, // duration of the effect, in milliseconds
+                easing: 'ease-in-out', // CSS transition easing function
+                // The "opener" function should return the element from which popup will be zoomed in
+                // and to which popup will be scaled down
+                // By defailt it looks for an image tag:
+                opener: function(openerElement) {
+                    // openerElement is the element on which popup was initialized, in this case its <a> tag
+                    // you don't need to add "opener" option if this code matches your needs, it's defailt one.
+                    return openerElement.is('img') ? openerElement : openerElement.find('img');
+                }
+            }
+        });
     </script>
     <script src="js/popper.min.js"></script> <!-- Popper tooltip library for Bootstrap -->
     <script src="js/bootstrap.min.js"></script> <!-- Bootstrap framework -->
     <script src="js/jquery.easing.min.js"></script> <!-- jQuery Easing for smooth scrolling between anchors -->
     <script src="js/swiper.min.js"></script> <!-- Swiper for image and text sliders -->
-    <script src="js/jquery.magnific-popup.js"></script> <!-- Magnific Popup for lightboxes -->
     <script src="js/morphext.min.js"></script> <!-- Morphtext rotating text in the header -->
     <script src="js/validator.min.js"></script> <!-- Validator.js - Bootstrap plugin that validates forms -->
     <script src="js/scripts.js"></script> <!-- Custom scripts -->
-
 </body>
 </html>
