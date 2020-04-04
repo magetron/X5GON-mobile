@@ -86,7 +86,7 @@
                                 </ul>
                             </div> <!-- end of col -->
                         </div> <!-- end of row -->
-                        <p>Besides pure testing, we also use <code>Jazzy</code> documentation coverage and <code>swiftformat</code> code-linter formatting as part of our quality assurance process.</p>
+                        <p>Besides pure testing, we also use Continuous Integration (CI) with <code>Travis</code>, <code>Jazzy</code> documentation coverage and <code>swiftformat</code> code-linter formatting as part of our quality assurance process.</p>
                     </div> <!-- end of text-container-->
                 </div>
             </div>
@@ -145,14 +145,89 @@
                         <p> With multiple optimisations made during our implementation stage, and making full use of the multi-threading and pre-fetching strategy, we are able to archive better results then a main-stream education resource application.</p>
                         <p> All data below are collected on Patrick's <code>iPhone XS Max, Apple A12 Bionic@2x2.5GHz, 4x1.6GHz, 4GB RAM</code>, testing <code>X5GON-Mobile v0.3</code> and <code>Coursera v3.6</code>.</p>
                         <a class="image-link" href="images/performance-comparison.png"><img class="img-fluid" src="images/performance-comparison.png"  alt="alternative"/></a>
-
-
                     </div>
                 </div>
+            </div>
         </div>
     </div>
 
 
+    <div id="responsive-design-testing" class="ex-basic-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="text-container">
+                        <h3>Responsive Design Testing</h3>
+                        <p>Although we have tested our application with integration UI testing on multiple platforms, we would also have to deploy them manually and try them out ourselves to make sure these UI elements are placed correctly and clearly visible to the end user. </p>
+                        <a class="image-link" href="images/responsive-home.png"><img class="img-fluid" src="images/responsive-home.png"  alt="alternative"/></a>
+                        <a class="image-link" href="images/responsive-player.png"><img class="img-fluid" src="images/responsive-player.png"  alt="alternative"/></a>
+                        <p>With our limited knowledge, we didn't find a way to automate this process, nor are we rich enough to own every Apple Device. However, as shown above, we made our best attempt to make full use of the simulator and adapted our application to multiple screen sizes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="compatibility-testing" class="ex-basic-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="text-container">
+                        <h3>Compatibility Testing</h3>
+                        <p>As an application developed with <code>Swift 5</code> and upgraded to <code>Swift 5.1</code> during the development cycle, we have very limited support for older devices. However, we do aim to support all devices with Operating System version newer than <code>iOS 13.0</code> and <code>iPadOS 13.0</code>.</p>
+                        <p>To do backwards compatibility testing, we provided CI test scripts so as to test on earlier platforms we do not have.</p>
+                        <p>See actual scripts below for detailed information.</p>
+                        <a class="image-link" href="images/compatibility-testing.png"><img class="img-fluid" src="images/compatibility-testing.png"  alt="alternative"/></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="user-acceptance-testing" class="ex-basic-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="text-container">
+                        <h3>User Acceptance Testing</h3>
+                        <p>To gain an overview of how our application is doing and find out about potential improvements, we asked 6 people from various backgrounds to test our application and subsequently recorded their feedbacks.</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="continuous-integration" class="ex-basic-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="text-container">
+                        <h3>Continuous Integration</h3>
+                        <p>We utilised Continuous Integration extensively throughout the validation process of our application. Since version <code>v0.1</code> (prototype 1), we imported <code>Travis</code> as our CI platform and tested almost all PRs with CI before merging. </p>
+                        <p>Since then, we have made more than <code>350</code> builds and <code>40</code> types of tests. We believe this is also an important part on how we deploy our testing strategies to everyday development.</p>
+                        <a class="image-link" href="images/continuous-integration.png"><img class="img-fluid" src="images/continuous-integration.png"  alt="alternative"/></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="git-hook" class="ex-basic-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="text-container">
+                        <h3>Testing and Formatting at Development Stage with <code>Git</code> Hook</h3>
+                        <p>We recognise the importance of eliminating human errors in code development and follow good automation practices. Therefore, we use <code>swiftformat</code> and hook it to <code>Git</code>, so as to force the execution of linting and formatting process before every single code commit </p>
+                        <a class="image-link" href="images/git-hook.png"><img class="img-fluid" src="images/git-hook.png"  alt="alternative"/></a>
+                        <p>As developer ourselves, we are amazed at how automation could eliminate certain easy but hard-to-notice bugs to be committed into the code base. We believe that this is a key part of how we practice testing and validation in our development cycle.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <!-- References -->
