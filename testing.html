@@ -93,35 +93,65 @@
         </div>
     </div>
 
-    <div id="unit-integration-testing" class="ex-basic-2">
+    <div id="unit-integration-testing" class="ex-basic-3">
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 offset-lg-1">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <a class="image-link" href="images/unit-tests.png"><img class="img-fluid" src="images/unit-tests.png"  alt="alternative"/></a>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <a class="image-link" href="images/unit-tests.png"><img class="img-fluid" src="images/unit-tests.png"  alt="alternative"/></a>
+                        </div>
+                        <div class="col-md-8">
+                            <div id="unit-testing" class="text-container">
+                                <h3>Unit Testing</h3>
+                                <p>Unit tests were among the first type of testing strategy we introduced to our application. It was initially aimed towards <code>DataModels</code>, <code>APIs</code>, and <code>Controllers</code>, and later expanded to all parts of the application, including <code>Views</code> and <code>ViewControllers.</code></p>
+                                <p>Contrary to common belief, <code>ViewControllers</code> are standalone instantiable with our <code>Storyboard</code> setup. </p>
+                                <a class="image-link" href="images/storyboard-testing.png"><img class="img-fluid" src="images/storyboard-testing.png"  alt="alternative"/></a>
+                                <p>We were able to instantiate all <code>ViewControllers</code> on its own and feed it custom data in unit tests, hence providing a higher coverage.</p>
                             </div>
-                            <div class="col-md-8">
-                                <div id="unit-testing" class="text-container">
-                                    <h3>Unit Testing</h3>
-                                    <p>Unit tests were among the first type of testing strategy we introduced to our application. It was initially aimed towards <code>DataModels</code>, <code>APIs</code>, and <code>Controllers</code>, and later expanded to all parts of the application, including <code>Views</code> and <code>ViewControllers.</code></p>
-                                    <p>Contrary to common belief, <code>ViewControllers</code> are standalone instantiable with our <code>Storyboard</code> setup. </p>
-                                    <a class="image-link" href="images/storyboard-testing.png"><img class="img-fluid" src="images/storyboard-testing.png"  alt="alternative"/></a>
-                                    <p>We were able to instantiate all <code>ViewControllers</code> on its own and feed it custom data in unit tests, hence providing a higher coverage.</p>
-                                </div>
-                                <br>
-                                <div id="integration-testing" class="text-container">
-                                    <h3>Integration Testing</h3>
-                                    <p>Our first tests written for UI are integration tests on the application as whole. Since <code>Xcode</code> does provide underlying support for <code>UITesting</code>, we utilised its built-in method and wrote our integration tests.</p>
-                                    <p>We made our best attempt to analyse our UI Hierarchy, and call <code>UITesting</code> module with accurate element tap. This gives us higher coverage, especially among UI components.</p>
-                                    <a class="image-link" href="images/ui-hierarchy.png"><img class="img-fluid" src="images/ui-hierarchy.png"  alt="alternative"/></a>
-                                </div>
+                            <br>
+                            <div id="integration-testing" class="text-container">
+                                <h3>Integration Testing</h3>
+                                <p>Our first tests written for UI are integration tests on the application as whole. Since <code>Xcode</code> does provide underlying support for <code>UITesting</code>, we utilised its built-in method and wrote our integration tests.</p>
+                                <p>We made our best attempt to analyse our UI Hierarchy, and call <code>UITesting</code> module with accurate element tap. This gives us higher coverage, especially among UI components.</p>
+                                <a class="image-link" href="images/ui-hierarchy.png"><img class="img-fluid" src="images/ui-hierarchy.png"  alt="alternative"/></a>
                             </div>
                         </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="text-container">
+                                <p>These <code>2</code> automated testing types altogether covers more than <code>90%</code> of the code, as shown the coverage summary collected from <code>LLVM</code> below.</p>
+                                <a class="image-link" href="images/test-coverage.png"><img class="img-fluid" src="images/test-coverage.png"  alt="alternative"/></a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+
+    <div id="performance-testing" class="ex-basic-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="text-container">
+                        <h3>Performance Tests</h3>
+                        <p> We used <code>Xcode's</code> built-in <code>XCTest</code> for performance testing, in aspects of launching, loading a video and loading a <code>4K60FPS</code> video.</p>
+                        <a class="image-link" href="images/launch-testing.png"><img class="img-fluid" src="images/launch-testing.png"  alt="alternative"/></a>
+                        <p> Sample code of how are able to measure time is shown above.</p>
+                        <p> With multiple optimisations made during our implementation stage, and making full use of the multi-threading and pre-fetching strategy, we are able to archive better results then a main-stream education resource application.</p>
+                        <p> All data below are collected on Patrick's <code>iPhone XS Max, Apple A12 Bionic@2x2.5GHz, 4x1.6GHz, 4GB RAM</code>, testing <code>X5GON-Mobile v0.3</code> and <code>Coursera v3.6</code>.</p>
+                        <a class="image-link" href="images/performance-comparison.png"><img class="img-fluid" src="images/performance-comparison.png"  alt="alternative"/></a>
+
+
+                    </div>
+                </div>
+        </div>
+    </div>
+
 
 
 
