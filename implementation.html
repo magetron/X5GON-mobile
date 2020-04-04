@@ -170,13 +170,128 @@
         </div>
     </div>
 
-    <div id="implementation-highlights" class="tabs ex-basic-2">
+    <div id="multi-threading" class="tabs ex-basic-2">
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 offset-lg-1">
                     <div class="text-container">
-                        <h3>Implementation Highlights</h3>
-                        <p>...</p>
+                        <h3>Multi-threading and Task Queue Implementation</h3>
+                        <p>Our project at its core is a mobile content application with relatively heavy network load as fetching videos, pdfs, wikichunk data from numerous APIs and sources is embedded in almost every user interaction.</p>
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <img class="img-fluid" src="images/loading.png" alt="alternative">
+                            </div>
+                            <div class="col-lg-7">
+                                <div class="text-container">
+                                    <br><br>
+                                    <p> As demonstrated on the left, the loading process typically involves async-ly conducting network requests, retrieving data and then presenting them on the UI interface with a <code>reloadData()</code> called for a <code>TableView</code> or a <code>CollectionView</code>. </p>
+                                    <p> This poses a significant issue when multiple tasks are dispatched to another Thread and not cancellable afterwards. For example, user opens up <code>Video A</code>, and the application dispatches <code>fetchVideo()</code>, <code>fetchSuggestedContents()</code> and <code>fetchWikiChunk()</code> to another thread for async execution, and of course, a <code>reloadData()</code> on UI for the main thread. </p>
+                                    <p> To gain a general understanding of how this would typically work, see the <code>refresher</code> below for reference.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="images/refresher.png" alt="alternative">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="text-container">
+                                    <p> Following up on the previous example, a user would possibly quit <code>Video A</code> before all contents finish loading and quickly open up <code>Video B</code>, or he might repeat it several times to open up couple of other contents. </p>
+                                    <p> The traditional async loading strategy would cause a problem here not only as the <code>fetch...()</code> function stacking up slows the overall network connection, more so as the many awaiting <code>reloadData()</code> calls would block the main thread from doing its UI related work and causing significant lags.</p>
+                                    <p> Our team then came up with a solution to possibly <code>cancel()</code> some not so useful tasks, e.g. <code>Video A</code>'s task when user is actually looking at another video.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="images/cancellable-refresher.png" alt="alternative">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="text-container">
+                                    <p> Our first attempt is to build a custom <code>OperationQueue()</code> that takes in tasks through the <code>MainController.Queue</code> and manage them from there. However, this is a right step towards our final solution, but not good enough.</p>
+                                    <p> The backend from our client is responding to queries with an average of more than 10 seconds, and during that time you would not have access to the <code>dataTask</code> as it is on a daemon thread. This would still cause resource leaks and uncontrollable tasks if we only stop here, and experiment does show an alleviation of the problem above but not solving it straight-up.
+                                        Therefore, as a follow up, we rewrote part of the <code>dataTask</code> logic and use a <code>FetchSwitch</code> and a <code>DispatchSemaphore</code> to capture the "out-of-control" tasks.</p>
+                                </div>
+                                <img class="img-fluid" src="images/queue-fetch-switch.png" alt="alternative">
+                                <img class="img-fluid" src="images/fetch-switch-injection.png" alt="alternative">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="text-container">
+                                    <p> With a lambda or <code>Closure</code> injection shown above, we are able to regain control of the <code>dataTask</code> and rank, update or cancel them accordingly. More so, we internally rank tasks with a max-heap to make sure we are always dealing with the most crucial task at hand in the application.</p>
+                                    <p> Now, <code>ViewControllers</code> would be able to notify the <code>MainController</code> of the changes and make <code>OperationTask</code> queueing much more efficient. We followed the Open Closed Principle and exposed easy-to-use <code>Queue</code> APIs (see below for example) across the application. </p>
+                                    <img class="img-fluid" src="images/queue-api.png" alt="alternative">
+                                    <p> With some effort, it finally runs as smooth as silk without worrying anything that could possibly block the main UI Thread. </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="playerView" class="tabs ex-basic-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="text-container">
+                        <h3>Draggable <code>PlayerView</code> with flexibility</h3>
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <img class="img-fluid" src="images/playerView-demo.gif" alt="alternative">
+                            </div>
+                            <div class="col-lg-8">
+                                <div class="text-container">
+                                    <br><br>
+                                    <p>One thing we noticed during our HCI design phase was that users are generally prefer the a video application that does not let video occupy the whole screen for the majority of time, especially for a learning application like our project.</p>
+                                    <p>Therefore, we attempted to implement a draggable <code>PlayerView</code> with intuitive gestures to minimise/maximise it. </p>
+                                    <p>The main challenge here is that you would not be able to use a standard approach like a <code>UIViewController</code> to handle this type of view, simply because presenting a <code>UIViewController</code> inside another one would cause not only significant performance issues, but also not being able to implement dragging <code>UIViewController</code> around.
+                                    <p>We decided to think out of the box and used a floating <code>NavView</code> based <code>UIView</code> to archive this, as you can see below in the <code>Storyboard</code>. It is not a fully functional <code>UIViewController</code>, but instead a <code>UIView</code> subsequent in the <code>AppScene</code> of the <code>RootViewController</code>.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <img class="img-fluid" src="images/playerView.png" alt="alternative">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="text-container">
+                                    <p>This brought up the issue that we have to control its floating coordinates by ourselves on the screen, yet to consider so many variations of screen sizes on the <code>iOS</code> and <code>iPadOS</code> platforms. </p>
+                                    <p>To tackle this difficulty, we started with the <code>origin</code>(centre point) of the <code>View</code>. From the image below, we utilised know constants of <code>UIScreen.main.bounds</code>, i.e the size of the displaying screen to figure out the origin of <code>playerView</code> in its 3 states.</p>
+                                </div>
+                                <img class="img-fluid" src="images/playerViewOrigin.png" alt="alternative">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="text-container">
+                                    <p>The animation and gesture recognition of the <code>UIView</code> is a subsequent problem to solve. Otherwise the <code>UIView</code> would just jump around and very likely uncontrollable. </p>
+                                    <p>Likewise, we would have to figure out the exact coordinates to make it look and feel smooth when dragging around. We put forward a fast <code>CGPoint</code> function <code>positionDuringSwipe()</code> to calculate its behaviour live with no pre-made animations. See below for implementation details.</p>
+                                    <img class="img-fluid" src="images/playerView-animate.png" alt="alternative">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="text-container">
+                                    <p>Rather than rendering pre-made animations, or fixing the coordinates to a certain point, we took the most difficult approach which is calculate everything by hand. Yet retrospectively, we think its definitely worth it as it yields the best results as well as the smoothest user experience. </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="design-principles-patterns" class="tabs ex-basic-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="text-container">
+                        <h3>Design Principles and Patterns</h3>
+                        <p></p>
                     </div>
                 </div>
             </div>
@@ -185,10 +300,10 @@
                 <!-- Tabs Links -->
                 <ul class="nav nav-tabs" id="lenoTabs" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" id="nav-tab-1" data-toggle="tab" href="#tab-1" role="tab" aria-controls="tab-1" aria-selected="true"><i class="fas fa-image"></i>Fast Thumbnail Generation</a>
+                        <a class="nav-link active" id="nav-tab-1" data-toggle="tab" href="#tab-1" role="tab" aria-controls="tab-1" aria-selected="true"><i class="fas fa-book"></i>Design Principles</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="nav-tab-2" data-toggle="tab" href="#tab-2" role="tab" aria-controls="tab-2" aria-selected="false"><i class="fas fa-sync"></i>Video Preloading and Async Refreshing</a>
+                        <a class="nav-link" id="nav-tab-2" data-toggle="tab" href="#tab-2" role="tab" aria-controls="tab-2" aria-selected="false"><i class="fas fa-wrench"></i>Design Patterns</a>
                     </li>
                 </ul>
                 <!-- end of tabs links -->
@@ -200,29 +315,22 @@
                     <div class="tab-pane fade show active" id="tab-1" role="tabpanel" aria-labelledby="tab-1">
                         <div class="container">
                             <div class="row">
-
-                                <!-- Image Pane -->
-                                <div class="col-lg-6">
-                                    <img class="img-fluid" src="images/fast-thumbnail-generation.png" alt="alternative">
+                                <div class="col-lg-10 offset-lg-1">
+                                    <div class="text-container">
+                                        <div class="row list-unstyled">
+                                            <h4><i class="fas fa-square"></i> Single Responsibility Principle (DeMarco, 1979) </h4>
+                                            <p class="indent">We have made substantial effort to separate responsibility among multiple modules in our application. As an example, we abstracted the reloading and refreshing logic out of all <code>ViewControllers</code> and put them into an <code>Extension</code> named <code>refresher()</code>.</p>
+                                            <p class="indent">Refreshing can be done easily with passing lambda or <code>Closures</code> to the extension without any other code needed.</p>
+                                            <p class="indent">We find this principle particularly useful as we can maintain a same set of multi-threading strategy and <code>Queue</code> throughout the code base. For a deeper dive into our multi-threading strategy, see <a href="implementation.html#multi-threading">implementation section</a> for more details.</p>
+                                            <img class="img-fluid" src="images/single-responsibility.png"  alt="alternative"/>
+                                            <h4><i class="fas fa-square"></i> Liskov's Substitution Principle (Liskov, 1994)</h4>
+                                            <p class="indent">We strictly follow the Open Closed Principle and its extension Liskov's Substitution Principle throughout our <code>DataModels</code>. For instance, models like <code>Videos</code> or <code>PDFs</code> are subtypes of <code>Content</code> and can be substituted seamlessly in the code. This allows us to share multiple properties among the <code>DataModels</code> and eliminate redundancy.</p>
+                                            <img class="img-fluid" src="images/liskov-sub.png"  alt="alternative"/>
+                                        </div>
+                                    </div>
                                 </div>
-                                <!-- end of image pane -->
-
-                                <!-- Icon Cards Pane -->
-                                <div class="col-lg-6">
-                                    <div class="text-area">
-                                        <h4>Generate Thumbnails on-the-fly</h4>
-                                        <p>
-                                           The X5GON backend provides users with videos but not thumbnails or preview methods.
-                                            To tackle this issue, we used a <code>DispatchQueue</code> (Apple, 2009) to create a separate <code>Thread</code> that aims to
-                                            generate thumbnails by fetching the video image at 1 minute mark, without interfering with user interface on the main thread. </p>
-                                        <p>Click on the code below to see an sample of implementation for such methods.</p>
-                                        <a class="image-link" href="images/fast-thumbnail-code.png"><img class="img-fluid" src="images/fast-thumbnail-code.png"  alt="alternative"/></a>
-                                    </div> <!-- end of text-area -->
-                                </div>
-                                <!-- end of icon cards pane -->
-
-                            </div> <!-- end of row -->
-                        </div> <!-- end of container -->
+                            </div>
+                        </div>
                     </div> <!-- end of tab-pane -->
                     <!-- end of tab -->
 
@@ -230,27 +338,23 @@
                     <div class="tab-pane fade" id="tab-2" role="tabpanel" aria-labelledby="tab-2">
                         <div class="container">
                             <div class="row">
-
-                                <!-- Text And Icon Cards Area -->
-                                <div class="col-lg-6">
-                                    <div class="text-area offset-1">
-                                        <h4>Load everything behind the scene</h4>
-                                        <p> We kept performance in mind since our application is rather network-heavy and requires common re-rendering.
-                                            That's the key reason why we load everything behind scene with <code>Apple's Grand Central Dispatch Multi-threading</code> (Apple, 2009) and hint <code>UIView</code> whenever we finish loading
-                                            to refresh only bits of <code>Cells</code>. This ensures smallest amount of load on both CPU and GPU on mobile platforms, and of course, greatest responsive from a users' perspective.</p>
-                                        <p>Click on the code below to see an sample of implementation for such methods.</p>
-                                            <a class="image-link" href="images/async-load-code.png"><img class="img-fluid" src="images/async-load-code.png"  alt="alternative"/></a>
-                                    </div> <!-- end of text-area -->
-                                </div> <!-- end of col-md-8 -->
-
-                                <!-- Image Pane -->
-                                <div class="col-lg-6">
-                                    <img class="img-fluid" src="images/async-load.png" alt="alternative">
+                                <div class="col-lg-10 offset-lg-1">
+                                    <div class="text-container">
+                                        <div class="row list-unstyled">
+                                            <h4><i class="fas fa-square"></i> Prototype Design Pattern (Duell, 1997)</h4>
+                                            <p class="indent">Prototype Design Pattern is used in the project on <code>PlayerViewController</code> to ensure single responsibility principle and make different <code>ViewControllers</code> replicas for various Video sessions cleaner. For more information on our <code>playerView</code> implementation, see <a href="implementation.html#playerView">here</a> for details.</p>
+                                            <img class="img-fluid" src="images/prototype-design.png"  alt="alternative"/>
+                                            <h4><i class="fas fa-square"></i> Adapter Design Pattern (Freeman et al., 2004)</h4>
+                                            <p class="indent">Whilst we are developing our application, the backend from our client is transforming from <code>X5GON</code> to <code>X5Learn</code>, such that we are supporting two back-ends at the same time. Therefore, we utilised the Adapter Design Pattern to make sure our <code>MainController</code> have access to the same set of API at the same time.</p>
+                                            <img class="img-fluid" src="images/adapter-design.png"  alt="alternative"/>
+                                            <h4><i class="fas fa-square"></i> Singleton Design Pattern (Gamma et al., 1994)</h4>
+                                            <p class="indent"> To ensure that there is only one hefty <code>MainController</code> available globally, we utilised the singleton design pattern. The controller is available globally and statically, and is forbidden be constructed twice throughout the application's lifecycle.</p>
+                                            <img class="img-fluid" src="images/singleton-design.png"  alt="alternative"/>
+                                        </div>
+                                    </div>
                                 </div>
-                                <!-- end of image pane -->
-
-                            </div> <!-- end of row -->
-                        </div> <!-- end of container -->
+                            </div>
+                        </div>
                     </div> <!-- end of tab-pane -->
                     <!-- end of tab -->
 
