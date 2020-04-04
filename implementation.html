@@ -179,7 +179,7 @@
                         <p>Our project at its core is a mobile content application with relatively heavy network load as fetching videos, pdfs, wikichunk data from numerous APIs and sources is embedded in almost every user interaction.</p>
                         <div class="row">
                             <div class="col-lg-5">
-                                <img class="img-fluid" src="images/loading.png" alt="alternative">
+                                <a class="image-link" href="images/loading.png"><img class="img-fluid" src="images/loading.png" alt="alternative"></a>
                             </div>
                             <div class="col-lg-7">
                                 <div class="text-container">
@@ -190,7 +190,7 @@
                                 </div>
                             </div>
                         </div>
-                        <img class="img-fluid" src="images/refresher.png" alt="alternative">
+                        <a class="image-link" href="images/refresher.png"><img class="img-fluid" src="images/refresher.png" alt="alternative"></a>
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="text-container">
@@ -200,7 +200,7 @@
                                 </div>
                             </div>
                         </div>
-                        <img class="img-fluid" src="images/cancellable-refresher.png" alt="alternative">
+                        <a class="image-link" href="images/cancellable-refresher.png"><img class="img-fluid" src="images/cancellable-refresher.png" alt="alternative"></a>
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="text-container">
@@ -208,8 +208,8 @@
                                     <p> The backend from our client is responding to queries with an average of more than 10 seconds, and during that time you would not have access to the <code>dataTask</code> as it is on a daemon thread. This would still cause resource leaks and uncontrollable tasks if we only stop here, and experiment does show an alleviation of the problem above but not solving it straight-up.
                                         Therefore, as a follow up, we rewrote part of the <code>dataTask</code> logic and use a <code>FetchSwitch</code> and a <code>DispatchSemaphore</code> to capture the "out-of-control" tasks.</p>
                                 </div>
-                                <img class="img-fluid" src="images/queue-fetch-switch.png" alt="alternative">
-                                <img class="img-fluid" src="images/fetch-switch-injection.png" alt="alternative">
+                                <a class="image-link" href="images/queue-fetch-switch.png"><img class="img-fluid" src="images/queue-fetch-switch.png" alt="alternative"></a>
+                                <a class="image-link" href="images/fetch-switch-injection.png"><img class="img-fluid" src="images/fetch-switch-injection.png" alt="alternative"></a>
                             </div>
                         </div>
                         <div class="row">
@@ -217,7 +217,7 @@
                                 <div class="text-container">
                                     <p> With a lambda or <code>Closure</code> injection shown above, we are able to regain control of the <code>dataTask</code> and rank, update or cancel them accordingly. More so, we internally rank tasks with a max-heap to make sure we are always dealing with the most crucial task at hand in the application.</p>
                                     <p> Now, <code>ViewControllers</code> would be able to notify the <code>MainController</code> of the changes and make <code>OperationTask</code> queueing much more efficient. We followed the Open Closed Principle and exposed easy-to-use <code>Queue</code> APIs (see below for example) across the application. </p>
-                                    <img class="img-fluid" src="images/queue-api.png" alt="alternative">
+                                    <a class="image-link" href="images/queue-api.png"><img class="img-fluid" src="images/queue-api.png" alt="alternative"></a>
                                     <p> With some effort, it finally runs as smooth as silk without worrying anything that could possibly block the main UI Thread. </p>
                                 </div>
                             </div>
@@ -234,6 +234,7 @@
                 <div class="col-lg-10 offset-lg-1">
                     <div class="text-container">
                         <h3>Draggable <code>PlayerView</code> with flexibility</h3>
+                        <br>
                         <div class="row">
                             <div class="col-lg-4">
                                 <img class="img-fluid" src="images/playerView-demo.gif" alt="alternative">
@@ -250,7 +251,7 @@
                         </div>
                         <div class="row">
                             <div class="col-lg-12">
-                                <img class="img-fluid" src="images/playerView.png" alt="alternative">
+                                <a class="image-link" href="images/playerView.png"><img class="img-fluid" src="images/playerView.png" alt="alternative"></a>
                             </div>
                         </div>
                         <div class="row">
@@ -259,7 +260,7 @@
                                     <p>This brought up the issue that we have to control its floating coordinates by ourselves on the screen, yet to consider so many variations of screen sizes on the <code>iOS</code> and <code>iPadOS</code> platforms. </p>
                                     <p>To tackle this difficulty, we started with the <code>origin</code>(centre point) of the <code>View</code>. From the image below, we utilised know constants of <code>UIScreen.main.bounds</code>, i.e the size of the displaying screen to figure out the origin of <code>playerView</code> in its 3 states.</p>
                                 </div>
-                                <img class="img-fluid" src="images/playerViewOrigin.png" alt="alternative">
+                                <a class="image-link" href="images/playerViewOrigin.png"><img class="img-fluid" src="images/playerViewOrigin.png" alt="alternative"></a>
                             </div>
                         </div>
                         <div class="row">
@@ -267,7 +268,7 @@
                                 <div class="text-container">
                                     <p>The animation and gesture recognition of the <code>UIView</code> is a subsequent problem to solve. Otherwise the <code>UIView</code> would just jump around and very likely uncontrollable. </p>
                                     <p>Likewise, we would have to figure out the exact coordinates to make it look and feel smooth when dragging around. We put forward a fast <code>CGPoint</code> function <code>positionDuringSwipe()</code> to calculate its behaviour live with no pre-made animations. See below for implementation details.</p>
-                                    <img class="img-fluid" src="images/playerView-animate.png" alt="alternative">
+                                    <a class="image-link" href="images/playerView-animate.png"><img class="img-fluid" src="images/playerView-animate.png" alt="alternative"></a>
                                 </div>
                             </div>
                         </div>
@@ -284,14 +285,13 @@
         </div>
     </div>
 
-
-    <div id="design-principles-patterns" class="tabs ex-basic-3">
+    <div id="other-implementation-highlights" class="tabs ex-basic-2">
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 offset-lg-1">
                     <div class="text-container">
-                        <h3>Design Principles and Patterns</h3>
-                        <p></p>
+                        <h3>Other Implementation Highlights</h3>
+                        <p>Apart from the two detailed main implementation highlights, we provide several other highlights that are worth noting in our product.</p>
                     </div>
                 </div>
             </div>
@@ -300,10 +300,10 @@
                 <!-- Tabs Links -->
                 <ul class="nav nav-tabs" id="lenoTabs" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" id="nav-tab-1" data-toggle="tab" href="#tab-1" role="tab" aria-controls="tab-1" aria-selected="true"><i class="fas fa-book"></i>Design Principles</a>
+                        <a class="nav-link active" id="nav-tab-1" data-toggle="tab" href="#tab-1" role="tab" aria-controls="tab-1" aria-selected="true"><i class="fas fa-image"></i>Async Pre-fetch and Thumbnail Generation</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="nav-tab-2" data-toggle="tab" href="#tab-2" role="tab" aria-controls="tab-2" aria-selected="false"><i class="fas fa-wrench"></i>Design Patterns</a>
+                        <a class="nav-link" id="nav-tab-2" data-toggle="tab" href="#tab-2" role="tab" aria-controls="tab-2" aria-selected="false"><i class="fas fa-mobile"></i>Extendable <code>UIKit</code> for Dark-mode Support</a>
                     </li>
                 </ul>
                 <!-- end of tabs links -->
@@ -315,22 +315,28 @@
                     <div class="tab-pane fade show active" id="tab-1" role="tabpanel" aria-labelledby="tab-1">
                         <div class="container">
                             <div class="row">
-                                <div class="col-lg-10 offset-lg-1">
-                                    <div class="text-container">
-                                        <div class="row list-unstyled">
-                                            <h4><i class="fas fa-square"></i> Single Responsibility Principle (DeMarco, 1979) </h4>
-                                            <p class="indent">We have made substantial effort to separate responsibility among multiple modules in our application. As an example, we abstracted the reloading and refreshing logic out of all <code>ViewControllers</code> and put them into an <code>Extension</code> named <code>refresher()</code>.</p>
-                                            <p class="indent">Refreshing can be done easily with passing lambda or <code>Closures</code> to the extension without any other code needed.</p>
-                                            <p class="indent">We find this principle particularly useful as we can maintain a same set of multi-threading strategy and <code>Queue</code> throughout the code base. For a deeper dive into our multi-threading strategy, see <a href="implementation.html#multi-threading">implementation section</a> for more details.</p>
-                                            <img class="img-fluid" src="images/single-responsibility.png"  alt="alternative"/>
-                                            <h4><i class="fas fa-square"></i> Liskov's Substitution Principle (Liskov, 1994)</h4>
-                                            <p class="indent">We strictly follow the Open Closed Principle and its extension Liskov's Substitution Principle throughout our <code>DataModels</code>. For instance, models like <code>Videos</code> or <code>PDFs</code> are subtypes of <code>Content</code> and can be substituted seamlessly in the code. This allows us to share multiple properties among the <code>DataModels</code> and eliminate redundancy.</p>
-                                            <img class="img-fluid" src="images/liskov-sub.png"  alt="alternative"/>
-                                        </div>
-                                    </div>
+
+                                <!-- Image Pane -->
+                                <div class="col-lg-5">
+                                    <img class="img-fluid" src="images/fast-thumbnail-generation.png" alt="alternative">
                                 </div>
-                            </div>
-                        </div>
+                                <!-- end of image pane -->
+
+                                <!-- Icon Cards Pane -->
+                                <div class="col-lg-7">
+                                    <div class="text-area">
+                                        <h4>Pre-fetching and Generating Thumbnail on-the-fly</h4>
+                                        <p>The <code>X5Learn</code> backend only provides users with video's URL. However, it doesn't provide any thumbnails, preview methods or actual video content. To tackle this issue, we created a separate operation with Grand Central Dispatch(Apple, 2009) that aims to
+                                            generate thumbnails by fetching the video image at 1 minute mark. </p>
+                                        <p>This process is automatically activated when the <code>ViewController</code> determines that the content is visible by the user, which is selective yet efficient.</p>
+                                        <p>Whilst generating the thumbnail, we figured it would be no difference to also preload the first minute of the video, as we are using that part to generate thumbnail already. </p>
+                                        <p>Click on the code below to see the code of this implementation.</p>
+                                    </div> <!-- end of text-area -->
+                                </div>
+                                <!-- end of icon cards pane -->
+                            </div> <!-- end of row -->
+                            <a class="image-link" href="images/fast-thumbnail-code.png"><img class="img-fluid" src="images/fast-thumbnail-code.png"  alt="alternative"/></a>
+                        </div> <!-- end of container -->
                     </div> <!-- end of tab-pane -->
                     <!-- end of tab -->
 
@@ -338,23 +344,93 @@
                     <div class="tab-pane fade" id="tab-2" role="tabpanel" aria-labelledby="tab-2">
                         <div class="container">
                             <div class="row">
-                                <div class="col-lg-10 offset-lg-1">
-                                    <div class="text-container">
-                                        <div class="row list-unstyled">
-                                            <h4><i class="fas fa-square"></i> Prototype Design Pattern (Duell, 1997)</h4>
-                                            <p class="indent">Prototype Design Pattern is used in the project on <code>PlayerViewController</code> to ensure single responsibility principle and make different <code>ViewControllers</code> replicas for various Video sessions cleaner. For more information on our <code>playerView</code> implementation, see <a href="implementation.html#playerView">here</a> for details.</p>
-                                            <img class="img-fluid" src="images/prototype-design.png"  alt="alternative"/>
-                                            <h4><i class="fas fa-square"></i> Adapter Design Pattern (Freeman et al., 2004)</h4>
-                                            <p class="indent">Whilst we are developing our application, the backend from our client is transforming from <code>X5GON</code> to <code>X5Learn</code>, such that we are supporting two back-ends at the same time. Therefore, we utilised the Adapter Design Pattern to make sure our <code>MainController</code> have access to the same set of API at the same time.</p>
-                                            <img class="img-fluid" src="images/adapter-design.png"  alt="alternative"/>
-                                            <h4><i class="fas fa-square"></i> Singleton Design Pattern (Gamma et al., 1994)</h4>
-                                            <p class="indent"> To ensure that there is only one hefty <code>MainController</code> available globally, we utilised the singleton design pattern. The controller is available globally and statically, and is forbidden be constructed twice throughout the application's lifecycle.</p>
-                                            <img class="img-fluid" src="images/singleton-design.png"  alt="alternative"/>
-                                        </div>
-                                    </div>
+
+                                <!-- Text And Icon Cards Area -->
+                                <div class="col-lg-9">
+                                    <div class="text-area offset-1">
+                                        <h4>Extendable UIKit for Dark-mode Support</h4>
+                                        <p> Dark-mode, as a newly introduced feature in <code>iOS 13</code> and <code>iPadOS 13</code>, is greatly welcomed by many users. </p>
+                                        <p> We decided at our polishing stage that we will be providing this feature in our application. It seemed we need to re-work most of our icons and images to support the dark-mode as they might be invisible with the dark background.</p>
+                                        <p> However, we used the <code>CIFilter</code> toolkit to invert <code>UIImages</code> in-code, while taking precautions to preserve the original scale and size of the image. </p>
+                                        <p>Click on the code below to see the implementation in code.</p>
+                                    </div> <!-- end of text-area -->
+                                </div> <!-- end of col-md-8 -->
+
+                                <!-- Image Pane -->
+                                <div class="col-lg-3">
+                                    <img class="img-fluid" src="images/darkmode.png" alt="alternative">
                                 </div>
-                            </div>
-                        </div>
+                                <!-- end of image pane -->
+                                <a class="image-link" href="images/darkmode-code.png"><img class="img-fluid" src="images/darkmode-code.png"  alt="alternative"/></a>
+
+                            </div> <!-- end of row -->
+                        </div> <!-- end of container -->
+                    </div> <!-- end of tab-pane -->
+                    <!-- end of tab -->
+
+                </div> <!-- end of tab-content -->
+                <!-- end of tabs content -->
+
+            </div> <!-- end of row -->
+            <div class="row">
+
+                <!-- Tabs Links -->
+                <ul class="nav nav-tabs" id="lenoTabs1" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="nav-tab-3" data-toggle="tab" href="#tab-3" role="tab" aria-controls="tab-1" aria-selected="true"><i class="fas fa-database"></i>Mock-up Backend for Pre-development</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="nav-tab-4" data-toggle="tab" href="#tab-4" role="tab" aria-controls="tab-2" aria-selected="false"><i class="fas fa-mobile"></i>Custom-Built Recommendation System</a>
+                    </li>
+                </ul>
+                <!-- end of tabs links -->
+
+                <!-- Tabs Content-->
+                <div class="tab-content">
+
+                    <!-- Tab -->
+                    <div class="tab-pane fade show active" id="tab-3" role="tabpanel" aria-labelledby="tab-1">
+                        <div class="container">
+                            <div class="row">
+
+                                <!-- Image Pane -->
+                                <div class="col-lg-8">
+                                    <a class="image-link" href="images/x5learn-mockup.png"><img class="img-fluid" src="images/x5learn-mockup.png" alt="alternative"></a>
+                                </div>
+                                <!-- end of image pane -->
+
+                                <!-- Icon Cards Pane -->
+                                <div class="col-lg-4">
+                                    <div class="text-area">
+                                        <br>
+                                        <h4>Mock-up Backend for Pre-development</h4>
+                                        <p>As we were developing our project, our client was developing the backend of the project. Hence, certain <code>API</code> endpoints like <code>bookmark/</code> or <code>notes/</code> are unavailable. </p>
+                                        <p>To mitigate their development's effect on our progress, we forked their code and kept on making mocked-up endpoints and APIs such that we can develop, test and deliver our application on time.</p>
+                                    </div> <!-- end of text-area -->
+                                </div>
+                                <!-- end of icon cards pane -->
+                            </div> <!-- end of row -->
+                        </div> <!-- end of container -->
+                    </div> <!-- end of tab-pane -->
+                    <!-- end of tab -->
+
+                    <!-- Tab -->
+                    <div class="tab-pane fade" id="tab-4" role="tabpanel" aria-labelledby="tab-2">
+                        <div class="container">
+                            <div class="row">
+                                <!-- Text And Icon Cards Area -->
+                                <div class="col-lg-9">
+                                    <div class="text-area offset-1">
+                                        <h4>Custom-Built Recommendation System</h4>
+                                        <p> At our development stage, we are facing the lack of a recommendation system on the backend to show relevant contents for the content on display.</p>
+                                        <p> On that note, to provide some placeholder while looking believable, we used the search function on <code>X5Learn</code> with the content title as input, and archived valid results. This approach has proven to be a great alternative to an actual recommendation system.</p>
+                                    </div> <!-- end of text-area -->
+                                </div> <!-- end of col-md-8 -->
+                                <div class="col-lg-3">
+                                    <img class="img-fluid" src="images/recomendation-system.png" alt="alternative">
+                                </div> <!-- end of col-md-8 -->
+                            </div> <!-- end of row -->
+                        </div> <!-- end of container -->
                     </div> <!-- end of tab-pane -->
                     <!-- end of tab -->
 
@@ -464,6 +540,7 @@
             <div class="row">
                 <h3>References</h3>
                 <ul class="list-unstyled li-space-lg indent">
+                    <li class="media"> <div class="media-body">Apple (2009). Apple Technical Brief on Grand Central Dispatch" (PDF). Archived from the original on September 20, 2009. Retrieved September 12, 2009.</div></li><br>
                     <li class="media"> <div class="media-body">Chatbi, N., 2020. Scinfu/Swiftsoup. [online] GitHub. Available at: https://github.com/scinfu/SwiftSoup [Accessed 3 April 2020].</div></li><br>
                     <li class="media"> <div class="media-body">Gessner, J., 2020. Jonasgessner/Jgprogresshud. [online] GitHub. Available at: https://github.com/JonasGessner/JGProgressHUD [Accessed 3 April 2020].</div></li>
                     <li class="media"> <div class="media-body">Realm. 2020. Realm/Jazzy. [online] Available at: https://github.com/realm/jazzy [Accessed 3 April 2020].</div></li>

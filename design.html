@@ -68,7 +68,7 @@
                     <div class="text-container">
                         <h3>System Architecture</h3>
                         <p> This section introduces the design of the mobile application. Generally speaking, this architecture adopts the classic Model-View-Controller (MVC) pattern (Reenskaug and Coplien, 2009). </p>
-                        <img class="img-fluid" src="images/system-arch.png"  alt="alternative"/>
+                        <a class="image-link" href="images/system-arch.png"><img class="img-fluid" src="images/system-arch.png"  alt="alternative"/></a>
                         <p> Models include <code>UserModel</code>, <code>ChannelModel</code> , <code>VideoModel</code>, <code>WikiModel</code> and many others,
                             each holding information and buffered data from X5GON Backend.</p>
                         <p> Data updates are made from <code>ViewControllers</code> to <code>Views</code>.
@@ -120,10 +120,10 @@
                                             <p class="indent">We have made substantial effort to separate responsibility among multiple modules in our application. As an example, we abstracted the reloading and refreshing logic out of all <code>ViewControllers</code> and put them into an <code>Extension</code> named <code>refresher()</code>.</p>
                                             <p class="indent">Refreshing can be done easily with passing lambda or <code>Closures</code> to the extension without any other code needed.</p>
                                             <p class="indent">We find this principle particularly useful as we can maintain a same set of multi-threading strategy and <code>Queue</code> throughout the code base. For a deeper dive into our multi-threading strategy, see <a href="implementation.html#multi-threading">implementation section</a> for more details.</p>
-                                            <img class="img-fluid" src="images/single-responsibility.png"  alt="alternative"/>
+                                            <a class="image-link" href="images/single-responsibility.png"><img class="img-fluid" src="images/single-responsibility.png"  alt="alternative"/></a>
                                             <h4><i class="fas fa-square"></i> Liskov's Substitution Principle (Liskov, 1994)</h4>
                                             <p class="indent">We strictly follow the Open Closed Principle and its extension Liskov's Substitution Principle throughout our <code>DataModels</code>. For instance, models like <code>Videos</code> or <code>PDFs</code> are subtypes of <code>Content</code> and can be substituted seamlessly in the code. This allows us to share multiple properties among the <code>DataModels</code> and eliminate redundancy.</p>
-                                            <img class="img-fluid" src="images/liskov-sub.png"  alt="alternative"/>
+                                            <a class="image-link" href="images/liskov-sub.png"><img class="img-fluid" src="images/liskov-sub.png"  alt="alternative"/></a>
                                         </div>
                                     </div>
                                 </div>
@@ -141,13 +141,13 @@
                                         <div class="row list-unstyled">
                                             <h4><i class="fas fa-square"></i> Prototype Design Pattern (Duell, 1997)</h4>
                                             <p class="indent">Prototype Design Pattern is used in the project on <code>PlayerViewController</code> to ensure single responsibility principle and make different <code>ViewControllers</code> replicas for various Video sessions cleaner. For more information on our <code>playerView</code> implementation, see <a href="implementation.html#playerView">here</a> for details.</p>
-                                            <img class="img-fluid" src="images/prototype-design.png"  alt="alternative"/>
+                                            <a class="image-link" href="images/prototype-design.png"><img class="img-fluid" src="images/prototype-design.png"  alt="alternative"/></a>
                                             <h4><i class="fas fa-square"></i> Adapter Design Pattern (Freeman et al., 2004)</h4>
                                             <p class="indent">Whilst we are developing our application, the backend from our client is transforming from <code>X5GON</code> to <code>X5Learn</code>, such that we are supporting two back-ends at the same time. Therefore, we utilised the Adapter Design Pattern to make sure our <code>MainController</code> have access to the same set of API at the same time.</p>
-                                            <img class="img-fluid" src="images/adapter-design.png"  alt="alternative"/>
+                                            <a class="image-link" href="images/adapter-design.png"><img class="img-fluid" src="images/adapter-design.png"  alt="alternative"/></a>
                                             <h4><i class="fas fa-square"></i> Singleton Design Pattern (Gamma et al., 1994)</h4>
                                             <p class="indent"> To ensure that there is only one hefty <code>MainController</code> available globally, we utilised the singleton design pattern. The controller is available globally and statically, and is forbidden be constructed twice throughout the application's lifecycle.</p>
-                                            <img class="img-fluid" src="images/singleton-design.png"  alt="alternative"/>
+                                            <a class="image-link" href="images/singleton-design.png"><img class="img-fluid" src="images/singleton-design.png"  alt="alternative"/></a>
                                         </div>
                                     </div>
                                 </div>
@@ -192,7 +192,7 @@
                         <p>User token, name and ID information are stored with <code>NSUserDefaults</code> (Apple Developer, 2020b) to ensure data persistence after quitting the application. </p>
                         <p>Videos, audios and PDF contents are only cached and can be retrieved with the <code>CoreData</code> of <code>iOS</code> (Apple Developer, 2020a).</p>
                         <p>See below, an entity diagram, on relations of user and cache data stored. </p>
-                        <img class="img-fluid"  src="images/entity-diagram.png"  alt="alternative"/>
+                        <a class="image-link" href="images/entity-diagram.png"><img class="img-fluid"  src="images/entity-diagram.png"  alt="alternative"/></a>
                     </div>
                 </div>
             </div>
@@ -223,7 +223,7 @@
                         <p> We tried to make our application as intuitive as possible so as the user would be easy to navigate around. All views can be divided into <code>NavigationViews</code> and <code>MainViews</code>. </p>
                         <p> <code>NavigationViews</code> are used to navigate users around and incorporating supporting views such as <code>SettingsView</code> and <code>SearchView</code>.</p>
                         <p> <code>MainViews</code> are the core content presenting views and the user profile console.</p>
-                        <img class="img-fluid" src="images/application-map.png"  alt="alternative"/>
+                        <a class="image-link" href="images/application-map.png"><img class="img-fluid" src="images/application-map.png"  alt="alternative"/></a>
                     </div>
                 </div>
             </div>
@@ -235,7 +235,6 @@
             <div class="row">
                 <h3>References</h3>
                 <ul class="list-unstyled li-space-lg indent">
-                    <li class="media"> <div class="media-body">Apple (2009). Apple Technical Brief on Grand Central Dispatch" (PDF). Archived from the original on September 20, 2009. Retrieved September 12, 2009.</div></li><br>
                     <li class="media"> <div class="media-body">Apple Developer (2020). Core Data | Apple Developer Documentation. [online] Available at: https://developer.apple.com/documentation/coredata [Accessed 22 Jan. 2020].</div></li><br>
                     <li class="media"> <div class="media-body">Apple Developer (2020). UserDefaults - Foundation | Apple Developer Documentation. [online] Available at: https://developer.apple.com/documentation/foundation/userdefaults [Accessed 22 Mar. 2020].</div></li><br>
                     <li class="media"> <div class="media-body">DeMarco, T., 1979. Structured Analysis And System Specification. Englewood Cliffs, NJ: Yourdon.</div></li><br>
