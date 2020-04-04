@@ -218,6 +218,27 @@
                                     <p> With a lambda or <code>Closure</code> injection shown above, we are able to regain control of the <code>dataTask</code> and rank, update or cancel them accordingly. More so, we internally rank tasks with a max-heap to make sure we are always dealing with the most crucial task at hand in the application.</p>
                                     <p> Now, <code>ViewControllers</code> would be able to notify the <code>MainController</code> of the changes and make <code>OperationTask</code> queueing much more efficient. We followed the Open Closed Principle and exposed easy-to-use <code>Queue</code> APIs (see below for example) across the application. </p>
                                     <a class="image-link" href="images/queue-api.png"><img class="img-fluid" src="images/queue-api.png" alt="alternative"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="text-container">
+                                    <p>With some comparison in the profiling tool below, we can easily see the reduction of time hangs caused on the <code>Main Thread</code>, as well as a reduction of dispatch-tasks conducted. This is only tested with loading <code>3</code> videos concurrently, greater performance increase can be seen if more videos are loaded. Click on the images below for a clearer comparison.</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <h5>Before</h5>
+                                <a class="image-link" href="images/before-profiling.png"><img class="img-fluid" src="images/before-profiling.png" alt="alternative"></a>
+                            </div>
+                            <div class="col-lg-6">
+                                <h5>After</h5>
+                                <a class="image-link" href="images/after-profiling.png"><img class="img-fluid" src="images/after-profiling.png" alt="alternative"></a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="text-container">
                                     <p> With some effort, it finally runs as smooth as silk without worrying anything that could possibly block the main UI Thread. </p>
                                 </div>
                             </div>
@@ -258,7 +279,7 @@
                             <div class="col-lg-12">
                                 <div class="text-container">
                                     <p>This brought up the issue that we have to control its floating coordinates by ourselves on the screen, yet to consider so many variations of screen sizes on the <code>iOS</code> and <code>iPadOS</code> platforms. </p>
-                                    <p>To tackle this difficulty, we started with the <code>origin</code>(centre point) of the <code>View</code>. From the image below, we utilised know constants of <code>UIScreen.main.bounds</code>, i.e the size of the displaying screen to figure out the origin of <code>playerView</code> in its 3 states.</p>
+                                    <p>To tackle this difficulty, we started with the <code>origin</code>(centre point) of the <code>View</code>. From the image below, we utilised known constants of <code>UIScreen.main.bounds</code>, i.e the size of the displaying screen to figure out the origin of <code>playerView</code> in its 3 states.</p>
                                 </div>
                                 <a class="image-link" href="images/playerViewOrigin.png"><img class="img-fluid" src="images/playerViewOrigin.png" alt="alternative"></a>
                             </div>
@@ -419,15 +440,18 @@
                         <div class="container">
                             <div class="row">
                                 <!-- Text And Icon Cards Area -->
-                                <div class="col-lg-9">
+                                <div class="col-lg-8">
                                     <div class="text-area offset-1">
+                                        <br><br>
                                         <h4>Custom-Built Recommendation System</h4>
-                                        <p> At our development stage, we are facing the lack of a recommendation system on the backend to show relevant contents for the content on display.</p>
-                                        <p> On that note, to provide some placeholder while looking believable, we used the search function on <code>X5Learn</code> with the content title as input, and archived valid results. This approach has proven to be a great alternative to an actual recommendation system.</p>
+                                        <p>At our development stage, we are facing the lack of a recommendation system on the backend to show relevant contents for the content on display.</p>
+                                        <p>On that note, to provide some placeholder while looking believable, we used the search function on <code>X5Learn</code> with the content title as input, and archived valid results. This approach has proven to be a great alternative to an actual recommendation system.</p>
+                                        <p>See code below for more details.</p>
                                     </div> <!-- end of text-area -->
+                                    <a class="image-link" href="images/recommendation-system-code.png"><img class="img-fluid" src="images/recommendation-system-code.png" alt="alternative"></a>
                                 </div> <!-- end of col-md-8 -->
-                                <div class="col-lg-3">
-                                    <img class="img-fluid" src="images/recomendation-system.png" alt="alternative">
+                                <div class="col-lg-4">
+                                    <img class="img-fluid" src="images/recommendation-system.png" alt="alternative">
                                 </div> <!-- end of col-md-8 -->
                             </div> <!-- end of row -->
                         </div> <!-- end of container -->
@@ -441,7 +465,7 @@
         </div>
     </div>
 
-    <div id="implementation" class="slider-2">
+    <div id="showcase" class="slider-2">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -535,18 +559,18 @@
     </div> <!-- end of slider-2 -->
     <!-- end of screenshots -->
 
-    <div id="requirements-references" class="ex-basic-2">
+    <div id="requirements-references" class="ex-basic-3">
         <div class="container">
             <div class="row">
                 <h3>References</h3>
                 <ul class="list-unstyled li-space-lg indent">
                     <li class="media"> <div class="media-body">Apple (2009). Apple Technical Brief on Grand Central Dispatch" (PDF). Archived from the original on September 20, 2009. Retrieved September 12, 2009.</div></li><br>
                     <li class="media"> <div class="media-body">Chatbi, N., 2020. Scinfu/Swiftsoup. [online] GitHub. Available at: https://github.com/scinfu/SwiftSoup [Accessed 3 April 2020].</div></li><br>
-                    <li class="media"> <div class="media-body">Gessner, J., 2020. Jonasgessner/Jgprogresshud. [online] GitHub. Available at: https://github.com/JonasGessner/JGProgressHUD [Accessed 3 April 2020].</div></li>
-                    <li class="media"> <div class="media-body">Realm. 2020. Realm/Jazzy. [online] Available at: https://github.com/realm/jazzy [Accessed 3 April 2020].</div></li>
-                    <li class="media"> <div class="media-body">Developer.apple.com. 2020. Xctest | Apple Developer Documentation. [online] Available at: https://developer.apple.com/documentation/xctest [Accessed 3 April 2020].</div></li>
-                    <li class="media"> <div class="media-body">Lockwood, N., 2020. Nicklockwood/Swiftformat. [online] Available at: https://github.com/nicklockwood/SwiftFormat [Accessed 3 April 2020].</div></li>
-                    <li class="media"> <div class="media-body">Travis-ci.com. 2020. Travis CI - Test And Deploy With Confidence. [online] Available at: https://travis-ci.com/ [Accessed 3 April 2020].</div></li>
+                    <li class="media"> <div class="media-body">Gessner, J., 2020. Jonasgessner/Jgprogresshud. [online] GitHub. Available at: https://github.com/JonasGessner/JGProgressHUD [Accessed 3 April 2020].</div></li><br>
+                    <li class="media"> <div class="media-body">Realm. 2020. Realm/Jazzy. [online] Available at: https://github.com/realm/jazzy [Accessed 3 April 2020].</div></li><br>
+                    <li class="media"> <div class="media-body">Developer.apple.com. 2020. Xctest | Apple Developer Documentation. [online] Available at: https://developer.apple.com/documentation/xctest [Accessed 3 April 2020].</div></li><br>
+                    <li class="media"> <div class="media-body">Lockwood, N., 2020. Nicklockwood/Swiftformat. [online] Available at: https://github.com/nicklockwood/SwiftFormat [Accessed 3 April 2020].</div></li><br>
+                    <li class="media"> <div class="media-body">Travis-ci.com. 2020. Travis CI - Test And Deploy With Confidence. [online] Available at: https://travis-ci.com/ [Accessed 3 April 2020].</div></li><br>
                     <li class="media"> <div class="media-body"></div></li>
                 </ul>
             </div> <!-- end of text-container-->

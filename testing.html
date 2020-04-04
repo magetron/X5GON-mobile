@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Website Title -->
+    <title>Testing - Team 4 - X5GON Project Website</title>
+
+    <!-- Styles -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/fontawesome-all.css" rel="stylesheet">
+    <link href="css/swiper.css" rel="stylesheet">
+    <link href="css/magnific-popup.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+
+    <!-- Favicon  -->
+    <link rel="icon" href="images/favicon.png">
+</head>
+<body data-spy="scroll" data-target=".fixed-top">
+
+    <!-- Preloader -->
+    <div class="spinner-wrapper">
+        <div class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+    </div>
+    <!-- end of preloader -->
+
+    <div id="nav-placeholder"></div>
+
+    <!-- Header -->
+    <header id="header" class="ex-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Testing</h1>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </header> <!-- end of ex-header -->
+    <!-- end of header -->
+
+    <!-- Breadcrumbs -->
+    <div class="ex-basic-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumbs">
+                        <a href="index.html">Introduction</a><i class="fa fa-angle-double-right"></i><span>Testing</span>
+                    </div> <!-- end of breadcrumbs -->
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of ex-basic-1 -->
+    <!-- end of breadcrumbs -->
+
+    <!-- Project Background -->
+    <div id="testing-strategy" class="ex-basic-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="text-container">
+                        <h3>Testing Strategy</h3>
+                        <p> As a client side application, we test our code thoroughly with a coverage of over <code>90%</code>+ (if we can count them). Therefore, we are delivering our product to client with great confidence.</p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4>Fully-automated:</h4>
+                                <ul class="list-unstyled li-space-lg indent">
+                                    <li class="media"> <i class="fas fa-square"></i> <div class="media-body">Unit testing</div></li>
+                                    <li class="media"> <i class="fas fa-square"></i> <div class="media-body">Integration testing</div></li>
+                                    <li class="media"> <i class="fas fa-square"></i> <div class="media-body">Performance testing</div></li>
+                                </ul>
+                            </div> <!-- end of col -->
+
+                            <div class="col-md-6">
+                                <h4>Semi-automated:</h4>
+                                <ul class="list-unstyled li-space-lg indent">
+                                    <li class="media"> <i class="fas fa-square"></i> <div class="media-body">Responsive Design testing</div></li>
+                                    <li class="media"> <i class="fas fa-square"></i> <div class="media-body">Compatibility testing</div></li>
+                                    <li class="media"> <i class="fas fa-square"></i> <div class="media-body">User Acceptance testing</div></li>
+                                </ul>
+                            </div> <!-- end of col -->
+                        </div> <!-- end of row -->
+                        <p>Besides pure testing, we also use Continuous Integration (CI) with <code>Travis</code>, <code>Jazzy</code> documentation coverage and <code>swiftformat</code> code-linter formatting as part of our quality assurance process.</p>
+                    </div> <!-- end of text-container-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="unit-integration-testing" class="ex-basic-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <a class="image-link" href="images/unit-tests.png"><img class="img-fluid" src="images/unit-tests.png"  alt="alternative"/></a>
+                        </div>
+                        <div class="col-md-8">
+                            <div id="unit-testing" class="text-container">
+                                <h3>Unit Testing</h3>
+                                <p>Unit tests were among the first type of testing strategy we introduced to our application. It was initially aimed towards <code>DataModels</code>, <code>APIs</code>, and <code>Controllers</code>, and later expanded to all parts of the application, including <code>Views</code> and <code>ViewControllers.</code></p>
+                                <p>Contrary to common belief, <code>ViewControllers</code> are standalone instantiable with our <code>Storyboard</code> setup. </p>
+                                <a class="image-link" href="images/storyboard-testing.png"><img class="img-fluid" src="images/storyboard-testing.png"  alt="alternative"/></a>
+                                <p>We were able to instantiate all <code>ViewControllers</code> on its own and feed it custom data in unit tests, hence providing a higher coverage.</p>
+                            </div>
+                            <br>
+                            <div id="integration-testing" class="text-container">
+                                <h3>Integration Testing</h3>
+                                <p>Our first tests written for UI are integration tests on the application as whole. Since <code>Xcode</code> does provide underlying support for <code>UITesting</code>, we utilised its built-in method and wrote our integration tests.</p>
+                                <p>We made our best attempt to analyse our UI Hierarchy, and call <code>UITesting</code> module with accurate element tap. This gives us higher coverage, especially among UI components.</p>
+                                <a class="image-link" href="images/ui-hierarchy.png"><img class="img-fluid" src="images/ui-hierarchy.png"  alt="alternative"/></a>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="text-container">
+                                <p>These <code>2</code> automated testing types altogether covers more than <code>90%</code> of the code, as shown the coverage summary collected from <code>LLVM</code> below.</p>
+                                <a class="image-link" href="images/test-coverage.png"><img class="img-fluid" src="images/test-coverage.png"  alt="alternative"/></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="performance-testing" class="ex-basic-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="text-container">
+                        <h3>Performance Tests</h3>
+                        <p> We used <code>Xcode's</code> built-in <code>XCTest</code> for performance testing, in aspects of launching, loading a video and loading a <code>4K60FPS</code> video.</p>
+                        <a class="image-link" href="images/launch-testing.png"><img class="img-fluid" src="images/launch-testing.png"  alt="alternative"/></a>
+                        <p> Sample code of how are able to measure time is shown above.</p>
+                        <p> With multiple optimisations made during our implementation stage, and making full use of the multi-threading and pre-fetching strategy, we are able to archive better results then a main-stream education resource application.</p>
+                        <p> All data below are collected on Patrick's <code>iPhone XS Max, Apple A12 Bionic@2x2.5GHz, 4x1.6GHz, 4GB RAM</code>, testing <code>X5GON-Mobile v0.3</code> and <code>Coursera v3.6</code>.</p>
+                        <a class="image-link" href="images/performance-comparison.png"><img class="img-fluid" src="images/performance-comparison.png"  alt="alternative"/></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="responsive-design-testing" class="ex-basic-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="text-container">
+                        <h3>Responsive Design Testing</h3>
+                        <p>Although we have tested our application with integration UI testing on multiple platforms, we would also have to deploy them manually and try them out ourselves to make sure these UI elements are placed correctly and clearly visible to the end user. </p>
+                        <a class="image-link" href="images/responsive-home.png"><img class="img-fluid" src="images/responsive-home.png"  alt="alternative"/></a>
+                        <a class="image-link" href="images/responsive-player.png"><img class="img-fluid" src="images/responsive-player.png"  alt="alternative"/></a>
+                        <p>With our limited knowledge, we didn't find a way to automate this process, nor are we rich enough to own every Apple Device. However, as shown above, we made our best attempt to make full use of the simulator and adapted our application to multiple screen sizes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="compatibility-testing" class="ex-basic-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="text-container">
+                        <h3>Compatibility Testing</h3>
+                        <p>As an application developed with <code>Swift 5</code> and upgraded to <code>Swift 5.1</code> during the development cycle, we have very limited support for older devices. However, we do aim to support all devices with Operating System version newer than <code>iOS 13.0</code> and <code>iPadOS 13.0</code>.</p>
+                        <p>To do backwards compatibility testing, we provided CI test scripts so as to test on earlier platforms we do not have.</p>
+                        <p>See actual scripts below for detailed information.</p>
+                        <a class="image-link" href="images/compatibility-testing.png"><img class="img-fluid" src="images/compatibility-testing.png"  alt="alternative"/></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="user-acceptance-testing" class="ex-basic-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="text-container">
+                        <h3>User Acceptance Testing</h3>
+                        <p>To gain an overview of how our application is doing and find out about potential improvements, we asked 6 people from various backgrounds to test our application and subsequently recorded their feedbacks.</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="continuous-integration" class="ex-basic-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="text-container">
+                        <h3>Continuous Integration</h3>
+                        <p>We utilised Continuous Integration extensively throughout the validation process of our application. Since version <code>v0.1</code> (prototype 1), we imported <code>Travis</code> as our CI platform and tested almost all PRs with CI before merging. </p>
+                        <p>Since then, we have made more than <code>350</code> builds and <code>40</code> types of tests. We believe this is also an important part on how we deploy our testing strategies to everyday development.</p>
+                        <a class="image-link" href="images/continuous-integration.png"><img class="img-fluid" src="images/continuous-integration.png"  alt="alternative"/></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="documentation-coverage" class="ex-basic-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="text-container">
+                        <h3>Documentation Coverage</h3>
+                        <p>Technically speaking, as a client-facing application, documentation would not be such an urgent need like an API-based software. Despite this, we are proud to announce that we have archived a documentation coverage of higher than <code>85%</code>. </p>
+                        <a class="image-link" href="images/docs.png"><img class="img-fluid" src="images/docs.png"  alt="alternative"/></a>
+                        <p>Although documentation coverage is not an actual test, we take it as an validation process of making sure we understand every bit of our code, and make them ready to be presented to clients and to be developed in the future.</p>
+                        <p>An online published version of documentation can be found <a href="https://patrickwu.uk/X5GON-mobile">here. </a> </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="git-hook" class="ex-basic-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="text-container">
+                        <h3>Testing and Formatting at Development Stage with <code>Git</code> Hook</h3>
+                        <p>We recognise the importance of eliminating human errors in code development and follow good automation practices. Therefore, we use <code>swiftformat</code> and hook it to <code>Git</code>, so as to force the execution of linting and formatting process before every single code commit </p>
+                        <a class="image-link" href="images/git-hook.png"><img class="img-fluid" src="images/git-hook.png"  alt="alternative"/></a>
+                        <p>As developer ourselves, we are amazed at how automation could eliminate certain easy but hard-to-notice bugs to be committed into the code base. We believe that this is a key part of how we practice testing and validation in our development cycle.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="js/jquery.min.js"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
+    <script src="js/jquery.magnific-popup.js"></script> <!-- Magnific Popup for lightboxes -->
+    <script>
+        $(document).ready(function() {
+            $('.image-link').magnificPopup({type:'image'});
+        });
+        $(function(){
+            $("#nav-placeholder").load("nav.html");
+        });
+        $(function(){
+            $("#footer-placeholder").load("footer.html");
+        });
+        $('.image-link').magnificPopup({
+            type: 'image',
+            mainClass: 'mfp-with-zoom', // this class is for CSS animation below
+            image: {
+                verticalFit: true
+            },
+            zoom: {
+                enabled: true, // By default it's false, so don't forget to enable it
+                duration: 300, // duration of the effect, in milliseconds
+                easing: 'ease-in-out', // CSS transition easing function
+                // The "opener" function should return the element from which popup will be zoomed in
+                // and to which popup will be scaled down
+                // By defailt it looks for an image tag:
+                opener: function(openerElement) {
+                    // openerElement is the element on which popup was initialized, in this case its <a> tag
+                    // you don't need to add "opener" option if this code matches your needs, it's defailt one.
+                    return openerElement.is('img') ? openerElement : openerElement.find('img');
+                }
+            }
+        });
+    </script>
+    <script src="js/popper.min.js"></script> <!-- Popper tooltip library for Bootstrap -->
+    <script src="js/bootstrap.min.js"></script> <!-- Bootstrap framework -->
+    <script src="js/jquery.easing.min.js"></script> <!-- jQuery Easing for smooth scrolling between anchors -->
+    <script src="js/swiper.min.js"></script> <!-- Swiper for image and text sliders -->
+    <script src="js/morphext.min.js"></script> <!-- Morphtext rotating text in the header -->
+    <script src="js/validator.min.js"></script> <!-- Validator.js - Bootstrap plugin that validates forms -->
+    <script src="js/scripts.js"></script> <!-- Custom scripts -->
+</body>
+</html>
