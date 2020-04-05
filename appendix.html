@@ -117,7 +117,97 @@
         </div>
     </div>
 
-    <div id="user-manual" class="ex-basic-2">
+    <div id="deploy" class="ex-basic-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="text-container">
+                        <h3>Deployment Manual</h3>
+                        <h4>X5GON-mobile <a href="https://travis-ci.com/magetron/X5GON-mobile"><img class="img-fluid" src="deployment_files/X5GON-mobile.svg" alt="Build Status"></a> <img class="img-fluid" src="deployment_files/v-0.svg" alt="Version"> <img class="img-fluid" src="deployment_files/Swift-5-red.svg" alt="Swift Version">  <a name="#marker" id="marker"></a></h4>
+                            <p><img class="img-fluid" src="deployment_files/onefetch.png" alt="onefetch"></p>
+                            <h5>Prerequisites</h5>
+                             <ul class="list-unstyled li-space-lg indent">
+                                 <li class="media"> <i class="fas fa-square"></i> <div class="media-body">Git</div></li>
+                                <li class="media"> <i class="fas fa-square"></i> <div class="media-body">Xcode 11.3+(ideally <strong>11.4</strong>) running on macOS 14 Mojave+(ideally <strong>15 Catalina</strong>)</div></li>
+                                <li class="media"> <i class="fas fa-square"></i> <div class="media-body">Apple Device running iOS(iPadOS) 13.3+(ideally <strong>13.4</strong>) or a Device Simulator with similar specs</div></li>
+                                <li class="media"> <i class="fas fa-square"></i> <div class="media-body">Cocoapods</div></li>
+                                <li class="media"> <i class="fas fa-square"></i> <div class="media-body">Homebrew (<strong>CLI-only</strong>)</div></li>
+                                <li class="media"> <i class="fas fa-square"></i> <div class="media-body">ios-sim (<strong>CLI-only</strong>)</div></li>
+                                <li class="media"> <i class="fas fa-square"></i> <div class="media-body">ruby-gem (<strong>docs-only</strong>)</div></li>
+                                <li class="media"> <i class="fas fa-square"></i> <div class="media-body">jazzy (<strong>docs-only</strong>)</div></li>
+                                <li class="media"> <i class="fas fa-square"></i> <div class="media-body">swiftformat (<strong>dev-only</strong>)</div></li>
+                            </ul>
+                            <h5>General Installation</h5>
+                            <code>$ git clone https://github.com/magetron/x5gon-mobile.git</code><br>
+                            <code>$ pod install</code><br>
+                            <code>$ brew install ios-sim (CLI-only)</code><br>
+                            <code>$ gem install jazzy (docs-only)</code><br>
+                            <code>$ brew install swiftformat (dev-only)</code><br><br>
+                            <h5>To Use Xcode GUI:</h5>
+                            <p><strong>Build and Run</strong></p>
+                            <p>Double click to open <code>x5gon-mobile.xcworkspace</code> and select target on top left corner.</p>
+                            <p>Click the <code>Run</code> Button to build and run.</p>
+                            <p><img class="img-fluid" src="deployment_files/gui-run.png" alt="RUN-GUI"></p>
+                            <h5>To Use CLI</h5>
+                            <p><strong>Build First</strong></p>
+                            <code>$ <span class="hljs-built_in">source</span> ./scripts/build.sh
+</code><br><br>
+                            <p><strong>Then Run</strong></p>
+                            <code class="language-zsh">$ <span class="hljs-built_in">source</span> ./scripts/run.sh
+</code><br><br>
+                        <p><strong>Note</strong>: It is possible to run <code>iOS</code> application with
+                                temporary signature on an actual iPhone using CLI. However, given the
+                                complexity of steps, we do not recommend this deployment method.</p>
+                            <h4>Building, Testing</h4>
+                            <h5>To Use Xcode GUI:</h5>
+                            <p>Select relevant option / profile in the <strong>Product</strong> drop down menu of Xcode.</p>
+                            <p><img class="img-fluid" src="deployment_files/xcode-product.png" alt="Xcode-product"></p>
+                            <h5>To Use CLI</h5>
+                            <p><strong>Build with Test</strong></p>
+                            <code class="language-zsh">$ <span class="hljs-built_in">source</span> ./scripts/build.sh -<span class="hljs-built_in">test</span>
+</code><br><br>
+                            <p>Alternatively, test with <code>Swift 5.1, Xcode 11.3</code> backwards compatible feature.</p>
+                            <code class="language-zsh">$ <span class="hljs-built_in">source</span> ./scripts/build.sh -old-test
+</code><br><br>
+                            <p><strong>Test Only</strong></p>
+                            <code class="language-zsh">$ xcodebuild <span class="hljs-built_in">test</span> -workspace x5gon-mobile.xcworkspace -scheme x5gon-mobile -destination <span class="hljs-string">'platform=iOS Simulator,name=iPhone 11 Pro Max,OS=13.4'</span>
+</code><br><br>
+                            <p>Change <code>destination</code> argument as you wish to test on different devices or different OS versions.</p>
+                            <h4>Documentation</h4>
+                            <p>Online version deployed <a href="https://patrickwu.uk/X5GON-mobile">on GitHub Pages</a>.</p>
+                            <p><strong>Build Docs</strong></p>
+                            <code class="language-zsh">$ <span class="hljs-built_in">source</span> ./scripts/build-docs.sh
+</code><br><br>
+                            <p>Static Documentation will be generated at <code>./docs</code>.</p>
+                            <p>Simply double click <code>./docs/index.html</code> to open with a browser or use <code>open ./docs/index.html</code> on <code>macOS</code>.</p>
+                            <h4>Setting up new Development Environment</h4>
+                            <p><strong>Install Development Dependencies and Git Hooks</strong></p>
+                            <code class="language-zsh">$ <span class="hljs-built_in">source</span> ./scripts/setup-dev.sh
+</code><br><br>
+                            <p>This script</p>
+                             <ul class="list-unstyled li-space-lg indent">
+                                <li class="media"> <i class="fas fa-square"></i> <div class="media-body">sets up a local <code>Git</code> pre-commit hook to run <code>git-diff</code> and <code>swiftformat</code> on source code.</li>
+                                <li class="media"> <i class="fas fa-square"></i> <div class="media-body">installs development required dependencies for local user.</li>
+                            </ul>
+                        <!--
+                            <h3>Showcase</h3>
+                            <h4>Interface</h4>
+                            <p><img class="img-fluid" src="deployment_files/showcase-dark.png" alt="dark-mode">
+                                <img class="img-fluid" src="deployment_files/showcase-light.png" alt="light-mode"></p>
+                            <h4>Test Coverage</h4>
+                            <p><img class="img-fluid" src="deployment_files/testing.png" alt="testing"></p>
+                            <h4>Documentation Coverage</h4>
+                            <p><img class="img-fluid" src="deployment_files/docs.png" alt="docs"></p>
+                            <h4>CI/CD with Travis</h4>
+                            <p><img class="img-fluid" src="deployment_files/ci-cd.png" alt="ci-cd"></p>
+                            -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="user-manual" class="ex-basic-3">
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 offset-lg-1">
@@ -138,39 +228,7 @@
         </div>
     </div>
 
-    <div id="deploy" class="ex-basic-2">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-10 offset-lg-1">
-                    <div class="text-container">
-                        <h3>Deployment Manual</h3>
-                        <h4>Prerequisites</h4>
-                        <ul class="list-unstyled li-space-lg indent">
-                            <li class="media"> <i class="fas fa-square"></i> <div class="media-body">Git</div></li>
-                            <li class="media"> <i class="fas fa-square"></i> <div class="media-body">Xcode 11.3.1(macOS 15 Catalina+)</div></li>
-                            <li class="media"> <i class="fas fa-square"></i> <div class="media-body">iPhone running iOS 13.2+ or an iOS Simulator</div></li>
-                            <li class="media"> <i class="fas fa-square"></i> <div class="media-body">Homebrew (CLI-only)</div></li>
-                        </ul>
-                        <h4>Installation</h4>
-                        <p><code>$ git clone https://github.com/magetron/x5gon-mobile.git</code></p>
-                        <h5>To use GUI:</h5>
-                        <img class="img-fluid" src="images/xcode-interface.png" alt="alternative">
-                        <p>Double click to open <code>x5gon-mobile.xcodeproj</code> and select build target on top left corner.</p>
-                        <p>Click <code>Build then Run the current scheme</code> to run.</p>
-                        <h5>To use CLI (Simulator only):</h5>
-                        <p><code>$ brew install ios-sim</code></p>
-                        <p><code>$ cd x5gon-mobile</code></p>
-                        <p><code>$ xcodebuild -project x5gon-mobile.xcodeproj -sdk iphonesimulator </code></p>
-                        <p><code>$ ios-sim launch --devicetypeid "iPhone-11-Pro-Max" "build/Release-iphonesimulator/x5gon-mobile.app"</code></p>
-                        <h5>Note: It is possible to run <code>iOS</code> application with temporary signature on <code>iPhone</code> using CLI.
-                            However, given the complexity of steps, we do not recommend this deployment method at this stage.</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="license" class="ex-basic-3">
+    <div id="license" class="ex-basic-2">
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 offset-lg-1">
@@ -298,7 +356,7 @@
         </div>
     </div>
 
-    <div id="credits" class="ex-basic-2">
+    <div id="credits" class="ex-basic-3">
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 offset-lg-1">

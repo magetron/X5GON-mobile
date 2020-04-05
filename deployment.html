@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html class="" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>instant-markdown-d</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Content-Language" content="en">
+  <link rel="stylesheet" type="text/css" href="deployment_files/github-syntax-highlight.css">
+  <link rel="stylesheet" type="text/css" href="deployment_files/github-markdown.css">
+  <link rel="stylesheet" type="text/css" href="deployment_files/mjpage-html.css">
+  <style>
+    .markdown-body {
+      min-width: 200px;
+      margin: 0 auto;
+      padding: 30px;
+    }
+    #con-error {
+      position: fixed;
+      top: 0px;
+      right: 0px;
+      padding: 5px;
+      background: white;
+      color: red;
+    }
+  </style>
+  <script src="deployment_files/socket.js"></script>
+  <script>
+    var socket = io.connect('http://'+ window.location.host +'/');
+    socket.on('connect', function () {
+      setDisconnected(false);
+      socket.on('newContent', function(newHTML) {
+        document.querySelector(".markdown-body").innerHTML = newHTML;
+
+        // scroll to the hyperlink with id="marker"
+        let marker = document.getElementById("marker");
+        if(marker) {
+          marker.scrollIntoView();
+        }
+      });
+      socket.on('die', function(newHTML) {
+        window.open('', '_self', '');
+        window.close();
+
+        var firefoxWarning =
+        "<h1>Oops!</h1>" +
+        "<h3>Firefox doesn't allow windows to self-close.</h3>" +
+        "<h3>If you want the preview window to close automatically like in other browsers, go to about:config and set dom.allow_scripts_to_close_windows to true.</h3>"
+        document.body.innerHTML = firefoxWarning;
+      });
+    });
+    socket.on('disconnect', function() {
+      setDisconnected(true);
+    });
+
+    try {
+      eval('// If CSP is active, then this is blocked');
+    } catch (e) {
+      // Detected that the CSP was active (by the user's preference).
+      // Drop capabilities to prevent rendered markdown from executing scripts.
+      var meta = document.createElement('meta');
+      meta.setAttribute('http-equiv', 'Content-Security-Policy');
+      meta.setAttribute('content', "script-src 'none';");
+      document.head.appendChild(meta);
+    }
+
+    function setDisconnected(isDisconnected) {
+      document.getElementById('con-error').style.display =
+        isDisconnected ? 'block' : 'none';
+    }
+  </script><meta http-equiv="Content-Security-Policy" content="script-src 'none';">
+</head>
+<body>
+  <div class="container">
+    <div class="item row1"></div>
+    <div class="item row1"></div>
+    <div class="item row2"></div>
+    <div class="item row2">
+      <div class="repository-with-sidebar repo-container new-discussion-timeline with-full-navigation">
+         <div id="js-repo-pjax-container" class="repository-content context-loader-container">
+           <div id="readme" class="boxed-group flush clearfix announce instapaper_body md">
+             <article class="markdown-body"><h1>X5GON-mobile <a href="https://travis-ci.com/magetron/X5GON-mobile"><img src="deployment_files/X5GON-mobile.svg" alt="Build Status"></a> <img src="deployment_files/v-0.svg" alt="Version"> <img src="deployment_files/Swift-5-red.svg" alt="Swift Version">  <a name="#marker" id="marker"></a></h1>
+<p><img src="deployment_files/onefetch.png" alt="onefetch"></p>
+<h2>Deployment Manual</h2>
+<h3>Prerequisites</h3>
+<ul>
+<li>Git</li>
+<li>Xcode 11.3+(ideally <strong>11.4</strong>) running on macOS 14 Mojave+(ideally <strong>15 Catalina</strong>)</li>
+<li>Apple Device running iOS(iPadOS) 13.3+(ideally <strong>13.4</strong>) or a Device Simulator with similar specs</li>
+<li>Cocoapods</li>
+<li>Homebrew (<strong>CLI-only</strong>)</li>
+<li>ios-sim (<strong>CLI-only</strong>)</li>
+<li>ruby-gem (<strong>docs-only</strong>)</li>
+<li>jazzy (<strong>docs-only</strong>)</li>
+<li>swiftformat (<strong>dev-only</strong>)</li>
+</ul>
+<h3>General Installation</h3>
+<pre><code class="language-zsh">$ git <span class="hljs-built_in">clone</span> https://github.com/magetron/x5gon-mobile.git
+$ pod install 
+$ brew install ios-sim (CLI-only)
+$ gem install jazzy (docs-only)
+$ brew install swiftformat (dev-only)
+</code></pre>
+<h4>To Use Xcode GUI:</h4>
+<p><strong>Build and Run</strong></p>
+<p>Double click to open <code>x5gon-mobile.xcworkspace</code> and select target on top left corner.</p>
+<p>Click the <code>Run</code> Button to build and run.</p>
+<p><img src="deployment_files/gui-run.png" alt="RUN-GUI"></p>
+<h4>To Use CLI</h4>
+<p><strong>Build First</strong></p>
+<pre><code class="language-zsh">$ <span class="hljs-built_in">source</span> ./scripts/build.sh
+</code></pre>
+<p><strong>Then Run</strong></p>
+<pre><code class="language-zsh">$ <span class="hljs-built_in">source</span> ./scripts/run.sh
+</code></pre>
+<p><strong>Note</strong>: It is possible to run iOS application with 
+temporary signature on an actual iPhone using CLI. However, given the 
+complexity of steps, we do not recommend this deployment method.</p>
+<h3>Building, Testing</h3>
+<h4>To Use Xcode GUI:</h4>
+<p>Select relevant option / profile in the <strong>Product</strong> drop down menu of Xcode.</p>
+<p><img src="deployment_files/xcode-product.png" alt="Xcode-product"></p>
+<h4>To Use CLI</h4>
+<p><strong>Build with Test</strong></p>
+<pre><code class="language-zsh">$ <span class="hljs-built_in">source</span> ./scripts/build.sh -<span class="hljs-built_in">test</span>
+</code></pre>
+<p>Alternatively, test with <code>Swift 5.1, Xcode 11.3</code> backwards compatible feature.</p>
+<pre><code class="language-zsh">$ <span class="hljs-built_in">source</span> ./scripts/build.sh -old-test
+</code></pre>
+<p><strong>Test Only</strong></p>
+<pre><code class="language-zsh">$ xcodebuild <span class="hljs-built_in">test</span> -workspace x5gon-mobile.xcworkspace -scheme x5gon-mobile -destination <span class="hljs-string">'platform=iOS Simulator,name=iPhone 11 Pro Max,OS=13.4'</span>
+</code></pre>
+<p>Change <code>destination</code> argument as you wish to test on different devices or different OS versions.</p>
+<h3>Documentation</h3>
+<p>Online version deployed <a href="https://patrickwu.uk/X5GON-mobile">on GitHub Pages</a>.</p>
+<p><strong>Build Docs</strong></p>
+<pre><code class="language-zsh">$ <span class="hljs-built_in">source</span> ./scripts/build-docs.sh
+</code></pre>
+<p>Static Documentation will be generated at <code>./docs</code>.</p>
+<p>Simply double click <code>./docs/index.html</code> to open with a browser or use <code>open ./docs/index.html</code> on <code>macOS</code>.</p>
+<h3>Setting up new Development Environment</h3>
+<p><strong>Install Development Dependencies and Git Hooks</strong></p>
+<pre><code class="language-zsh">$ <span class="hljs-built_in">source</span> ./scripts/setup-dev.sh
+</code></pre>
+<p>This script</p>
+<ul>
+<li>sets up a local <code>Git</code> pre-commit hook to run <code>git-diff</code> and <code>swiftformat</code> on source code.</li>
+<li>installs development required dependencies for local user.</li>
+</ul>
+<h2>Showcase</h2>
+<h3>Interface</h3>
+<p><img src="deployment_files/showcase-dark.png" alt="dark-mode">
+<img src="deployment_files/showcase-light.png" alt="light-mode"></p>
+<h3>Test Coverage</h3>
+<p><img src="deployment_files/testing.png" alt="testing"></p>
+<h3>Documentation Coverage</h3>
+<p><img src="deployment_files/docs.png" alt="docs"></p>
+<h3>CI/CD with Travis</h3>
+<p><img src="deployment_files/ci-cd.png" alt="ci-cd"></p>
+</article>
+           </div>
+         </div>
+       </div>
+    </div>
+    <div class="item row2"></div>
+    <div class="item row3"></div>
+    <div class="item row3"></div>
+    <div class="item row3"></div>
+  </div>
+  <div id="con-error" style="display:none">Live preview is unavailable</div>
+
+
+</body></html>
