@@ -133,7 +133,7 @@
                             <p>Shadow is everywhere, and is a perfect tool for showing different levels and layers of elements on the screen. We used <code>CGLayer</code> to add subtle shadows to key UI elements on screen. Take <code>PlayerView</code> for example, the
                                 floating shadow  hints user it is draggable and could be easily minimised by simply swiping down.</p>
                         </div>
-                        <br><br>
+                        <br><br><br>
                         <h4><i class="fas fa-square"></i> Pull</h4>
                         <div class="indent">
                             <div class="row">
@@ -149,7 +149,7 @@
                             </div>
                             <p>Pulling an seemingly un-pullable table could mean a lot. This could well be a desperate move made by the user when they find the <code>View</code> not loading correctly. Well, we considered this from a HCI standpoint and added pull to refresh for every single <code>UITableView</code> to make sure even if it is not loading correctly, users can make a second attempt.</p>
                         </div>
-                        <br><br>
+                        <br><br><br>
                         <h4><i class="fas fa-square"></i> PopUp</h4>
                         <div class="indent">
                             <div class="row">
@@ -163,7 +163,8 @@
                                     <img class="img-fluid" src="images/hci-popup-user.png" alt="alternative">
                                 </div>
                             </div>
-                            <p></p>
+                            <p>Popup is generally bad as we do not want to make drastic measures to tell users want actions they are taking. However, in certain circumstances, we find them absolutely necessary and also used a <code>UserFeedbackController</code> to provide the iPhone's iconic haptic feedback when certain important events are happening.</p>
+                            <p>Loading Popup is also useful so as it hides the <code>View</code> from user's operations. We can inform users to the loading progress as well as stopping them from touching loading contents and turn application into an unknown state.</p>
                         </div>
                     </div>
                 </div>
