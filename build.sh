@@ -15,6 +15,7 @@ cp -r images static
 cp -r js static
 cp -r webfonts static
 cp -r external static
+cp -r deployment_files static
 
 cd static
 
