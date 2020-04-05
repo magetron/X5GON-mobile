@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html class="" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>instant-markdown-d</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Content-Language" content="en">
+  <link rel="stylesheet" type="text/css" href="instant-markdown-d_files/github-syntax-highlight.css">
+  <link rel="stylesheet" type="text/css" href="instant-markdown-d_files/github-markdown.css">
+  <link rel="stylesheet" type="text/css" href="instant-markdown-d_files/mjpage-html.css">
+  <style>
+    .markdown-body {
+      min-width: 200px;
+      margin: 0 auto;
+      padding: 30px;
+    }
+    #con-error {
+      position: fixed;
+      top: 0px;
+      right: 0px;
+      padding: 5px;
+      background: white;
+      color: red;
+    }
+  </style>
+  <script src="instant-markdown-d_files/socket.js"></script>
+  <script>
+    var socket = io.connect('http://'+ window.location.host +'/');
+    socket.on('connect', function () {
+      setDisconnected(false);
+      socket.on('newContent', function(newHTML) {
+        document.querySelector(".markdown-body").innerHTML = newHTML;
+
+        // scroll to the hyperlink with id="marker"
+        let marker = document.getElementById("marker");
+        if(marker) {
+          marker.scrollIntoView();
+        }
+      });
+      socket.on('die', function(newHTML) {
+        window.open('', '_self', '');
+        window.close();
+
+        var firefoxWarning =
+        "<h1>Oops!</h1>" +
+        "<h3>Firefox doesn't allow windows to self-close.</h3>" +
+        "<h3>If you want the preview window to close automatically like in other browsers, go to about:config and set dom.allow_scripts_to_close_windows to true.</h3>"
+        document.body.innerHTML = firefoxWarning;
+      });
+    });
+    socket.on('disconnect', function() {
+      setDisconnected(true);
+    });
+
+    try {
+      eval('// If CSP is active, then this is blocked');
+    } catch (e) {
+      // Detected that the CSP was active (by the user's preference).
+      // Drop capabilities to prevent rendered markdown from executing scripts.
+      var meta = document.createElement('meta');
+      meta.setAttribute('http-equiv', 'Content-Security-Policy');
+      meta.setAttribute('content', "script-src 'none';");
+      document.head.appendChild(meta);
+    }
+
+    function setDisconnected(isDisconnected) {
+      document.getElementById('con-error').style.display =
+        isDisconnected ? 'block' : 'none';
+    }
+  </script><meta http-equiv="Content-Security-Policy" content="script-src 'none';">
+</head>
+<body>
+  <div class="container">
+    <div class="item row1"></div>
+    <div class="item row1"></div>
+    <div class="item row2"></div>
+    <div class="item row2">
+      <div class="repository-with-sidebar repo-container new-discussion-timeline with-full-navigation">
+         <div id="js-repo-pjax-container" class="repository-content context-loader-container">
+           <div id="readme" class="boxed-group flush clearfix announce instapaper_body md">
+             <article class="markdown-body"><h1>An innovative approach to re-design mobile learning experience with X5Learn <a name="#marker" id="marker"></a></h1>
+<p>Patrick Wu, Yinrui Hu</p>
+<h2>About Us</h2>
+<p><img src="instant-markdown-d_files/team.png" alt="teammate"></p>
+<p>Hello, we are Team 4. My name is <a href="https://www.linkedin.com/in/patrick-daiqi-wu/">Patrick Wu</a>,
+ the team lead and a 2nd-Year Computer Science student at University 
+College London. My interest mainly lies in low-level system design and 
+networked systems. For this summer, I'm going to intern at a trading 
+firm working on its infrastructural components.
+My teammate <a href="https://www.linkedin.com/in/yinrui-hu-050215182/">Yinrui(Felix) Hu</a>,
+ is also a second-year computer science student studying at UCL. He is 
+mostly interested in artificial intelligence and cyber-security related 
+fields.
+I am delighted to be working with Yinrui this year, and developed a 
+brand new mobile application with many innovative approaches for UCL's 
+X5Learn research team, our industrial partner.</p>
+<h2>What have we been working on?</h2>
+<p>Online Education is no stranger to us, students, nowadays, as we have
+ been utilising this extensively in day to day life. For instance, due 
+to the recent COVID-19 outbreak, UCL students would all logon to Moodle 
+to conduct remote learning through contents of formats including but not
+ limited to videos, texts and audios. Apart from Moodle, there are such a
+ great number of alternatives out there, e.g. Coursera, Khan Academy, 
+LinkedIn Learning, MIT Open Courseware and many more. The trouble mainly
+ lies which platform to choose instead of a lack of learning materials. 
+As a student, we have spent way too long looking for a useful resource 
+rather than learning itself. Therefore, X5GON and X5Learn as a 
+Software-as-a-Service (SaaS), can solve this problem for you.</p>
+<p>The main focus of X5GON development team is creating a solution that 
+will help users/students find what they need not just in OER 
+repositories, but across all open educational resources on the web. This
+ solution will adapt to the user's needs and learn how to make ongoing 
+customised recommendations and suggestions through a truly interactive 
+and impactful learning experience.</p>
+<p><img src="instant-markdown-d_files/desktop.png" alt="website version of X5Learn"></p>
+<p>Figure 1. A demonstration of X5Learn's website version.</p>
+<p>Our goal, as a student team, is to develop a mobile application that 
+utilises the X5Learn platform and provide an authentic and 
+mobile-friendly user experience. With this mobile application, the 
+X5Learn system would be able to attract more customers from the mobile 
+platform and enable users to access their customised X5Learn learning 
+contents at all times.</p>
+<h2>What are the technical challenges?</h2>
+<p>The critical challenge above all is to differentiate our application 
+from other proprietary learning platforms. We continuously ask ourselves
+ how to make the app more accessible and easy to navigate around for 
+users. Given the fact there are many established applications out there,
+ our team considered trying them out ourselves and conduct double-blind 
+experiments on UI, app responsiveness and content relevancy experiments.
+ We have learnt a lot in the process and greatly influenced our design 
+of X5GON-Mobile afterwards.</p>
+<p>Whilst we are testing out multiple applications under the <code>eduroam</code>
+ network environment, there was one significant issue that emerged out 
+of the dark. Some apps, under mediocre network environment, suffered 
+from constant loss of network connection and plodding loading speed. 
+Also, given the fact that the X5Learn usually takes 10 to 15 seconds to 
+process videos and generate analytic reports, these together makes the 
+app increasingly laggy and unusable at all under such circumstances. 
+This issue of performance we noticed at an early stage influenced our 
+application design and development process thereafter and is proven to 
+be a significant differentiating factor for our application.</p>
+<p>Last but not least, another essential technical challenge we faced 
+was that the X5Learn was in ongoing development. Hence, many of the 
+functionalities we aim to accomplish in our project are still in 
+development or doesn't exist as an API from the back-end. This caused us
+ considerable trouble initially. However, we were able to overcome this 
+difficulty eventually and made our application more adaptable to this 
+type of situation, which would be beneficial for future expansion of the
+ whole platform after our delivery of the project.</p>
+<h2>How did we solve them?</h2>
+<p><img src="instant-markdown-d_files/technologies.png" alt="technologies at glance"></p>
+<p>Figure 2. An overview of the technologies used in this project.</p>
+<p>We tackled challenges above using advanced technology provided by <code>Apple</code>, the open-source community and algorithms written by ourselves.</p>
+<p><img src="instant-markdown-d_files/comparison.png" alt="comparison of app"></p>
+<p>Figure 3. A comparison between traditional learning app and our approach.</p>
+<p>From a design perspective, we took the information-feed approach 
+rather than listing all courses available for the users find. As on most
+ other platforms, users would have to search for what they want to 
+learn, we actively push this information to the screen for users to 
+choose from, similar to video sites but unlike a learning platform. Our 
+design also utilises an innovative way of enabling users to read 
+bullet-points or browse external supportive contents. Users can scroll 
+to a sidebar whilst not stopping the video and start from there. They 
+can also minimise the video to let it play as a floating window at the 
+bottom of the screen. This design received great feedback from our 
+clients and users at our testing stage.</p>
+<p><img src="instant-markdown-d_files/performance.gif" alt="fast fetching optimisation"></p>
+<p>Figure 4. A demonstration of our app's performance on videos.</p>
+<p>With regards to the performance of the application, we utilised 
+extensive caching and predicting techniques to minimise the lag and 
+increase the responsiveness. First of all, the choice of using <code>Swift</code> to develop a native <code>iOS</code> application provides us with a faster foundation compared to hybrid frameworks like <code>React Native</code>. More so, our aggressive pre-loading daemon utilised a <code>HashMap</code>
+ storing technique and regularly fetches first 20-seconds of content 
+whenever user finds the thumbnail on display. Although we did make a 
+trade-off of having more background tasks, which is negligible, app 
+users now receive a notably faster application and smoother learning 
+experience.</p>
+<p>As a project that has both the ongoing development of front-end and 
+back-end at the same time, we found it challenging to adapt to the 
+constant changing API as an external mobile application. Therefore, we 
+then utilised <code>SwiftSoup</code>, an external parser for HTML,
+together with our own algorithm to analyse changing API endpoints on the
+ fly and self-adapt the code. This still at an early stage and would 
+require a constant change of code to actually make the new version work.
+ However, this adaptive API layer has undoubtedly saved us a lot of time
+ investigating broken APIs and migrating to new ones.</p>
+<h2>Some Final Thoughts</h2>
+<p>Having never developed an <code>iOS</code> application, we have learned a lot about <code>Apple</code> 's tool-chain and especially the <code>Swift</code> language. While developing this project, an issue among which also encouraged to make an actual contribution to the <code>apple/swift</code>
+ language on its co-routine implementation. Our team find this year of 
+cooperating with UCL's X5Learn Team very enjoyable and worthwhile.</p>
+</article>
+           </div>
+         </div>
+       </div>
+    </div>
+    <div class="item row2"></div>
+    <div class="item row3"></div>
+    <div class="item row3"></div>
+    <div class="item row3"></div>
+  </div>
+  <div id="con-error" style="display:none">Live preview is unavailable</div>
+
+
+</body></html>
