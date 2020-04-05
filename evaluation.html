@@ -130,40 +130,38 @@
                             We put a lot of work into making UI responsive, and user-friendly with custom animations and effects in our application. For more information, checkout <a href="testing.html#user-acceptance-testing">User Acceptance Testing</a>.</p>
                         <p>In all, We give ourselves <code>Good</code> for our UI work.</p>
                         <h4>Functionality</h4>
-                        <p>With our backend in active development, we made our best attempt to mock up APIs and write our own backend to develop features that were intended to have in the MoSCoW requirement list. The application we are delivering covers <code>100%</code> of all MoSCoW requirements and with extendable and easy-to-develop backend API support modules.
+                        <p>With our backend in active development, we made our best attempt to <a href="implementation.html#other-implementation-highlights">mock up APIs and write our own backend to develop features</a> that were intended to have in the MoSCoW requirement list. The application we are delivering covers <a href="evaluation.html#achievements-moscow"><code>100%</code> of all MoSCoW requirements</a> and with extendable and easy-to-develop backend API support modules.
                             Within our team, we have hand tested and presented every functionality in the technical video to make sure they are working as intended.</p>
                         <p>We give ourselves <code>Very Good</code> for our functionality completion.</p>
                         <h4>Stability</h4>
-                        <p>Our team followed rigorous and extensive testing procedure throughout our development cycle. We are happy to archive <code>90%</code>+ code coverage including all UI components and <code>85%</code>+ documentation coverage as a client-based application.
+                        <p>Our team followed rigorous and extensive testing procedure throughout our development cycle. We are happy to archive <a href="testing.html#unit-integration-testing"><code>90%</code>+ code coverage</a> including all UI components and <a href="testing.html#documentation-coverage"><code>85%</code>+ documentation coverage</a> as a client-based application.
                             Not to mention, we also have CI/CD, automated document generation, formatter and linter on <code>Git</code> hook setup to ensure the stability of our application. With such measures, we are able to deliver to good confidence on the stability of our product.</p>
-                        <p>In all, we evaluate ourselves to be <code>Very Good</code> from a Stability perspective.</p>
+                        <p>We evaluate ourselves to be <code>Very Good</code> from a Stability perspective.</p>
                         <h4>Efficiency</h4>
-                        <p>Performance and Efficiency </p>
+                        <p>Performance and efficiency has been a key part of our concerns throughout the project cycle. This is a major reason why we adopted <code>Swift</code> as our main development language. Throughout our development process, we used <code>Instrument</code>, a profiler made for <code>iOS</code> applications to keep track of the network and CPU load of our application.
+                            When there is an improvement can be made, as stated in the <a href="implementation.html#multi-threading">Multi-Threading and Task Queueing</a> section, we made our best effort to utilise technologies we have to make it faster. We also adopted <a href="implementation.html#other-implementation-highlights">predictive pre-fetching and pre-loading techniques</a> to flatten the network curve.
+                            All these measures are worthwhile as we present you our <a href="testing.html#performance-testing">performance testing results</a>, which is <code>100%</code> faster than similar applications, taking half its time to perform most actions.</p>
+                        <p>We think we have done a good job and give ourselves <code>Very Good</code> for these optimisations done due to efficiency concerns.</p>
+                        <h4>Compatibility</h4>
+                        <p>As this project started with <code>Swift 5</code>, we considered certain aspects of backwards compatibility to make sure we can run our application on relatively older devices. For newer features, we used <code>#available</code> tag provided in <code>Swift</code> to optionally activate some of them when they are supported. However, due to design, implementation and time frame concerns, we were not able to rewrite some parts of our application to make it backwards compatible to <code>iOS 11.0-</code>.
+                            We conducted testing with past <code>3</code> OS images on our CI platform, Travis. However, it slows down our deployment process significant if we conduct tests on all platforms. Therefore, we can only limit it to 3.
+                            There are definitely work can be done to enhance support for much older devices, e.g. <code>iPhone 6</code>, <code>iPod Touch 6</code> and <code>iPad 4</code>. Given the fact we don't have these devices and the simulator doesn't support older OSes, we would have to limit our support devices to those compatible with <code>iOS 12.0+</code> and ideal ones to <code>iOS 13.0+</code>.
+                        </p>
+                        <p>There are definitely rooms for improvement on this aspect and we give ourselves <code>Good</code> for backwards compatibility.</p>
+                        <h4>Maintainability</h4>
+                        <p>The code base overall is well-documented and can be extended easily as long as it conforms to our interface. We utilised multiple <a href="design.html#design-principles-patterns">Design Patterns</a> to make sure our code is highly cohesive and loosely coupled. Each module is thoroughly unit-tested and guaranteed to work on its own.
+                            Our client has been well informed of the code base from a technical perspective and fully understands how each module work together as an application.</p>
+                        <p>Given the code being well-maintained, we recognise our work as <code>Very Good</code> from a maintainability point of view.</p>
+                        <h4>Project Management</h4>
+                        <p>We only have <code>2</code> members in the team. This has both its advantage and disadvantages. Although we have one less person to work with, our teams saves a lot of communication and synchronising effort. We were able to communicate easily and quickly without having schedule a specific time to meet up. As mentioned earlier, we utilised <a href="evaluation.html#bug-list">GitHub's issue tracker</a> for this type of basic project management and archived good result. Every team member is clear when it comes up what to do and what are the next steps.
+                            Eventually, we are able to finish ahead of our schedule and put some extra effort into optimisations, as well as licensing issues. Retrospectively, we could have used <code>Jira</code> which makes the management process clearer yet more complicated. We are not sure if <code>Jira</code> would make the process better overall. </p>
+                        <p>Our team had a well managed project and we give ourselves <code>Very Good</code> for project management.</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-
-
-    <div id="requirements-references" class="ex-basic-3">
-        <div class="container">
-            <div class="row">
-                <h3>References</h3>
-                <ul class="list-unstyled li-space-lg indent">
-                    <li class="media"> <div class="media-body">Apple (2009). Apple Technical Brief on Grand Central Dispatch" (PDF). Archived from the original on September 20, 2009. Retrieved September 12, 2009.</div></li><br>
-                    <li class="media"> <div class="media-body">Chatbi, N., 2020. Scinfu/Swiftsoup. [online] GitHub. Available at: https://github.com/scinfu/SwiftSoup [Accessed 3 April 2020].</div></li><br>
-                    <li class="media"> <div class="media-body">Gessner, J., 2020. Jonasgessner/Jgprogresshud. [online] GitHub. Available at: https://github.com/JonasGessner/JGProgressHUD [Accessed 3 April 2020].</div></li><br>
-                    <li class="media"> <div class="media-body">Realm. 2020. Realm/Jazzy. [online] Available at: https://github.com/realm/jazzy [Accessed 3 April 2020].</div></li><br>
-                    <li class="media"> <div class="media-body">Developer.apple.com. 2020. Xctest | Apple Developer Documentation. [online] Available at: https://developer.apple.com/documentation/xctest [Accessed 3 April 2020].</div></li><br>
-                    <li class="media"> <div class="media-body">Lockwood, N., 2020. Nicklockwood/Swiftformat. [online] Available at: https://github.com/nicklockwood/SwiftFormat [Accessed 3 April 2020].</div></li><br>
-                    <li class="media"> <div class="media-body">Travis-ci.com. 2020. Travis CI - Test And Deploy With Confidence. [online] Available at: https://travis-ci.com/ [Accessed 3 April 2020].</div></li><br>
-                    <li class="media"> <div class="media-body"></div></li>
-                </ul>
-            </div> <!-- end of text-container-->
-        </div>
-    </div>
 
     <div id="footer-placeholder"></div>
 
