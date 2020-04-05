@@ -113,11 +113,60 @@
     <div id="hci-design-highlights" class="ex-basic-2">
         <div class="container">
             <div class="row">
-                <p class="col-lg-12">
-                <h3>HCI Design Highlights in our Product</h3>
-                <p>Our team carried out heuristics evaluation on the above interactive prototype and asked couple of users to test out our UI. After we have collected the issues, we made changes accordingly to make the UI more accessible than before.</p>
-                <p>Table below is a list of problems we have collected by then.</p>
-                <table style="border-collapse:collapse;border-spacing:0;border-color:#aabcfe" class="tg"><tr><th style="font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 6px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-color:inherit;color:#039;background-color:#b9c9fe;text-align:left;vertical-align:top">Heuristic</th><th style="font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 6px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-color:inherit;color:#039;background-color:#b9c9fe;text-align:left;vertical-align:top">Problem</th><th style="font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 6px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-color:inherit;color:#039;background-color:#b9c9fe;text-align:left;vertical-align:top">Solution</th><th style="font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 6px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-color:inherit;color:#039;background-color:#b9c9fe;text-align:left;vertical-align:top">Severity</th></tr><tr><td style="font-family:Arial, sans-serif;font-size:14px;padding:10px 6px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-color:inherit;color:#669;background-color:#e8edff;text-align:left;vertical-align:top">Consistency and standards</td><td style="font-family:Arial, sans-serif;font-size:14px;padding:10px 6px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-color:inherit;color:#669;background-color:#e8edff;text-align:left;vertical-align:top">It is not obvious that the title on the ”My” Page is clickable .</td><td style="font-family:Arial, sans-serif;font-size:14px;padding:10px 6px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-color:inherit;color:#669;background-color:#e8edff;text-align:left;vertical-align:top">Change the format of the title, and add an click icon next to it.</td><td style="font-family:Arial, sans-serif;font-size:14px;padding:10px 6px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-color:inherit;color:#669;background-color:#e8edff;text-align:left;vertical-align:top">2</td></tr><tr><td style="font-family:Arial, sans-serif;font-size:14px;padding:10px 6px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-color:inherit;color:#669;background-color:#e8edff;text-align:left;vertical-align:top">Consistency and standards</td><td style="font-family:Arial, sans-serif;font-size:14px;padding:10px 6px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-color:inherit;color:#669;background-color:#e8edff;text-align:left;vertical-align:top">It’s not obvious for the user to close the search bar.</td><td style="font-family:Arial, sans-serif;font-size:14px;padding:10px 6px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-color:inherit;color:#669;background-color:#e8edff;text-align:left;vertical-align:top">Add an instruction below the button to help user find the correct way to close the search bar.</td><td style="font-family:Arial, sans-serif;font-size:14px;padding:10px 6px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-color:inherit;color:#669;background-color:#e8edff;text-align:left;vertical-align:top">2</td></tr><tr><td style="font-family:Arial, sans-serif;font-size:14px;padding:10px 6px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-color:inherit;color:#669;background-color:#e8edff;text-align:left;vertical-align:top">Flexibility and efficiency of use</td><td style="font-family:Arial, sans-serif;font-size:14px;padding:10px 6px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-color:inherit;color:#669;background-color:#e8edff;text-align:left;vertical-align:top">When user is in the video page, it’s not very efficient to find the suggestion video</td><td style="font-family:Arial, sans-serif;font-size:14px;padding:10px 6px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-color:inherit;color:#669;background-color:#e8edff;text-align:left;vertical-align:top">Add suggestion video part in the video page</td><td style="font-family:Arial, sans-serif;font-size:14px;padding:10px 6px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-color:inherit;color:#669;background-color:#e8edff;text-align:left;vertical-align:top">4</td></tr></table>        </div> <!-- end of row -->
+                <div class="col-lg-12">
+                    <div class="text-container row list-unstyled">
+                        <h3>HCI Design Highlights in our Product</h3>
+                        <p>We paid great attention to HCI when implementing our application, hence we are presenting some noteworthy highlights.</p>
+                        <h4><i class="fas fa-square"></i> Shadow</h4>
+                        <div class="indent">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <img class="img-fluid" src="images/hci-shadow.png" alt="alternative">
+                                </div>
+                                <div class="col-lg-4">
+                                    <img class="img-fluid" src="images/hci-shadow-player.png" alt="alternative">
+                                </div>
+                                <div class="col-lg-4">
+                                    <img class="img-fluid" src="images/hci-shadow-full.png" alt="alternative">
+                                </div>
+                            </div>
+                            <p>Shadow is everywhere, and is a perfect tool for showing different levels and layers of elements on the screen. We used <code>CGLayer</code> to add subtle shadows to key UI elements on screen. Take <code>PlayerView</code> for example, the
+                                floating shadow  hints user it is draggable and could be easily minimised by simply swiping down.</p>
+                        </div>
+                        <br><br>
+                        <h4><i class="fas fa-square"></i> Pull</h4>
+                        <div class="indent">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <img class="img-fluid" src="images/hci-refresh-home.png" alt="alternative">
+                                </div>
+                                <div class="col-lg-4">
+                                    <img class="img-fluid" src="images/hci-refresh-player.png" alt="alternative">
+                                </div>
+                                <div class="col-lg-4">
+                                    <img class="img-fluid" src="images/hci-refresh-user.png" alt="alternative">
+                                </div>
+                            </div>
+                            <p>Pulling an seemingly un-pullable table could mean a lot. This could well be a desperate move made by the user when they find the <code>View</code> not loading correctly. Well, we considered this from a HCI standpoint and added pull to refresh for every single <code>UITableView</code> to make sure even if it is not loading correctly, users can make a second attempt.</p>
+                        </div>
+                        <br><br>
+                        <h4><i class="fas fa-square"></i> PopUp</h4>
+                        <div class="indent">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <img class="img-fluid" src="images/hci-popup.png" alt="alternative">
+                                </div>
+                                <div class="col-lg-4">
+                                    <img class="img-fluid" src="images/hci-popup-player.png" alt="alternative">
+                                </div>
+                                <div class="col-lg-4">
+                                    <img class="img-fluid" src="images/hci-popup-user.png" alt="alternative">
+                                </div>
+                            </div>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
         </div>
     </div>
 
