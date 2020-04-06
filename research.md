@@ -1,6 +1,6 @@
 ## Overview 
 
-Since our main task is to develop an `iOS` application for `X5GON`, it is intuitive to think of the language `Swift` backed by `Apple` (Apple, 2020). Also, `React Native` (Facebook, 2020)  and `Flutter` (Google, 2020) are also viable choices given the recent trend of cross-platform development with `JavaScript` and `Dart`. 
+Since our main task is to develop an `iOS` application for `X5GON`, it is intuitive to think of the language `Swift` backed by `Apple` (Apple, 2020). Also, `React Native` (Facebook, 2020)  and `Flutter` (Google, 2020) are also viable choices given the recent trend of cross-platform development with `JavaScript` and `Dart`. As our client have a web-based application in development already, we would not be able to develop a Progressive Web App as per client's request. 
 
 To pick a language or framework for further development, we need to compare them on multiple aspects including but not limited to language, tooling, framework stability, security, licensing and most importantly, performance.
 
@@ -18,7 +18,7 @@ To provide a background for the context, we will briefly introduce our candidate
 
 ### Comparison 
 
-Regarding the aspect of providing reliable and type-safe code, `Javascript` is less preferable than `Swift`, given its weakly dynamic type systems. For this reason, `Javascript` introduces a lot of representation mismatches and silent type conversions (Jensen et al., 2009), resulting in hard-to-track bugs, which is non-exist in `Swift`. Although unsafe `Swift` can be written dynamically, the safe `Swift` is a strong statically typed language with many modern safety mechanisms, including but not limited to forced wrapping, fallback variables, mutable/immutable definitions and the forbidden default value of `nil`. On that note, `Swift` does outweigh `Javascript` from a robustness perspective.
+Regarding the aspect of providing reliable and type-safe code, `Javascript` is less preferable than `Swift`, given its weakly dynamic type systems. For this reason, `Javascript` introduces a lot of representation mismatches and silent type conversions (Jensen et al., 2009), resulting in hard-to-track bugs, which is non-exist in `Swift`. Although unsafe `Swift` can be written dynamically, the safe `Swift` is a strong statically typed language with many modern safety mechanisms, including but not limited to forced wrapping, fallback variables, mutable/immutable definitions and the forbidden default value of `nil`. On that note, `Swift` does outweigh `Javascript` from a language safety perspective.
 
 There are numerous similarities between both `JavaScript` and `Swift` from a syntax perspective, with a couple of examples here at [Folio](https://www.folio3.com/blog/swiftly-javascript-from-javascript-to-apples-swift/) (Folio, 2019). Our team has concluded although differences exist between `Javascript` and `Swift`, the essence remains the same. As compared to `JavaScript`, `Swift`, as mentioned earlier, provides a lot of advancements in syntax. Arguably, one might say it can be said that the more features a language provides, the harder it is to program with it. Since then you need to know most of the syntax to program effectively (Wirth, 2020). However, from the team's perspective, the lead programmer does come from a `C/C++` background, such that he believes the advancements and syntax sugar of `Swift` would be more helpful writing better software.
 
@@ -64,7 +64,7 @@ The language `Swift`, although backed by `Apple`, is under the commonly used `Ap
 
 Opposing to `Swift`, it is almost impossible to write an application with `React Native` or `Flutter` without importing other `yarn` or `npm` open source modules, as these frameworks rely heavily on these. These modules might work just fine at the development stage but might cause issues as these open source modules might contain malicious code. For instance, `left-pad` an incredibly simple library that simply adds chars to the beginning of strings that's gone wrong made the `React` as a whole stopped updating (Collins, 2016). These clearly illustrate the possibility of obfuscated malicious injection of `JavaScript` into libraries that depends on each other.
 
-Another significant issue is licensing. When importing so many modules, it would be difficult to check the license of all of them. If any modules are imported with GPL license and we use it as part of our proprietary software, we would also have to open source, as the license requires. (Free Software Foundation, 2020) 
+Another significant issue is licensing. When importing so many modules, it would be difficult to check the license of all of them. If any modules are imported with GPL license and we use it as part of our proprietary software, we would also have to open source, as the license requires. (Free Software Foundation, 2020) With `Swift`, the dependency trees are shallower and we can therefore check all the licenses before deploying our application.
 
 To avoid all these issues and security risks, our team preferred `Swift` and `Xcode` over `React Native` or `Flutter` as our development tool.
 
